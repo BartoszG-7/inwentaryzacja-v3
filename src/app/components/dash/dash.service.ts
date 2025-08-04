@@ -10,7 +10,9 @@ import { Observable } from 'rxjs';
 export class DashService {
     constructor(private readonly http: HttpClient) { }
     getData(): Observable<string> {
-        return this.http.get<string>('http://localhost:3000', { responseType: 'blob' });
+        return this.http.get<string>('http://localhost:3000', new Object({
+            responseType: 'text'
+        }));
 
     }
 
