@@ -12,7 +12,7 @@ export class UpdateLocationDto {
     @IsOptional()
     @IsArray()
     @IsString({ each: true })
-    tags?: string[];
+    tag?: string;
 
     @IsOptional()
     @IsString()

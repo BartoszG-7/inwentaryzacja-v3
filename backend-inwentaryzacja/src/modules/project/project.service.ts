@@ -10,23 +10,22 @@ export class ProjectService {
     constructor(@InjectModel(Project.name) private ProjectModel: Model<Project>) { }
 
 
-    async create(body: CreateProjectDto): Promise<String> {
+    async create(body: CreateProjectDto): Promise<Project> {
         const createdProject = new this.ProjectModel(body);
-        createdProject.save();
-        return "OK";
+        return createdProject.save();
     }
 
     async find(query: string): Promise<Project[]> {
         return this.ProjectModel.find(JSON.parse(query)).exec();
     }
 
-    async delete(query: string): Promise<string> {
-        this.ProjectModel.deleteMany(JSON.parse(query)).exec();
+    async delete(id: string): Promise<string> {
+        this.ProjectModel.deleteMany({ "id": id }).exec();
         return "OK";
     }
 
-    async update(query: string, body: UpdateProjectDto): Promise<string> {
-        this.ProjectModel.updateMany(JSON.parse(query), body).exec();
+    async update(id: string, body: UpdateProjectDto): Promise<string> {
+        this.ProjectModel.updateMany({ "id": id }, body).exec();
         return "OK";
     }
 }

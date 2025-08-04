@@ -1,0 +1,30 @@
+import { Body, Controller, Delete, Get, Head, Header, Param, Patch, Post, Req } from '@nestjs/common';
+import { DeviceTypeService } from './device-type.service';
+import { CreateDeviceTypeDto } from './dto/create-device-type.dto';
+import { RootFilterQuery } from 'mongoose';
+import { UpdateDeviceTypeDto } from './dto/update-device-type.dto';
+@Controller('/deviceType')
+export class DeviceTypeController {
+    constructor(private readonly deviceTypeService: DeviceTypeService) { }
+
+
+    @Post('')
+    async postCreate(@Body() body: CreateDeviceTypeDto) {
+        this.deviceTypeService.create(body);
+    }
+
+    @Get(':query')
+    async getFind(@Param("query") query: string) {
+        return this.deviceTypeService.find(query);
+    }
+
+    @Delete(':id')
+    async getDelete(@Param("id") id: string) {
+        return this.deviceTypeService.delete(id);
+    }
+
+    @Patch(':id')
+    async postUpdate(@Param("id") id: string, @Body() body: UpdateDeviceTypeDto) {
+        this.deviceTypeService.update(id, body);
+    }
+}

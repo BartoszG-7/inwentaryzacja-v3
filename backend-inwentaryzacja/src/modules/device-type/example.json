@@ -1,0 +1,11 @@
+{
+    "name": "Monitro1",
+    "tag": "tag1",
+    "note": "This is a test device",
+    "producent": "TestProducent",
+    "model": "TestModel",
+    "resolution": "1920x1080",
+    "last_tag": "tag1",
+    "remote_access_enum": "none",
+    "color": "black"
+}

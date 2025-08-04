@@ -11,7 +11,7 @@ export class Location {
     @Prop()
     address: string;
     @Prop()
-    tags: string[];
+    tag: string;
     @Prop()
     note: string;
 }

@@ -18,13 +18,13 @@ export class LocationController {
         return this.locationService.find(query);
     }
 
-    @Delete(':query')
-    async getDelete(@Param("query") query: string) {
-        return this.locationService.delete(query);
+    @Delete(':id')
+    async getDelete(@Param("id") id: string) {
+        return this.locationService.delete(id);
     }
 
-    @Patch(':query')
-    async postUpdate(@Param("query") query: string, @Body() body: UpdateLocationDto) {
-        this.locationService.update(query, body);
+    @Patch(':id')
+    async postUpdate(@Param("id") id: string, @Body() body: UpdateLocationDto) {
+        this.locationService.update(id, body);
     }
 }

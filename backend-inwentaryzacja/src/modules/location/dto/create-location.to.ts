@@ -10,7 +10,7 @@ export class CreateLocationDto {
     @IsArray()
     @ArrayNotEmpty()
     @IsString({ each: true })
-    tags: string[];
+    tag: string;
 
     @IsString()
     note: string;

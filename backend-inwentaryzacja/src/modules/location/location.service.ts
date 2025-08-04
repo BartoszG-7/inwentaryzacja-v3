@@ -10,23 +10,23 @@ export class LocationService {
     constructor(@InjectModel(Location.name) private locationModel: Model<Location>) { }
 
 
-    async create(body: CreateLocationDto): Promise<String> {
+    async create(body: CreateLocationDto): Promise<Location> {
         const createdLocation = new this.locationModel(body);
-        createdLocation.save();
-        return "OK";
+        return createdLocation.save();
+
     }
 
     async find(query: string): Promise<Location[]> {
         return this.locationModel.find(JSON.parse(query)).exec();
     }
 
-    async delete(query: string): Promise<string> {
-        this.locationModel.deleteMany(JSON.parse(query)).exec();
+    async delete(id: string): Promise<string> {
+        this.locationModel.deleteMany({"id":id}).exec();
         return "OK";
     }
 
-    async update(query: string, body: UpdateLocationDto): Promise<string> {
-        this.locationModel.updateMany(JSON.parse(query), body).exec();
+    async update(id: string, body: UpdateLocationDto): Promise<string> {
+        this.locationModel.updateMany({"id":id}, body).exec();
         return "OK";
     }
 }
