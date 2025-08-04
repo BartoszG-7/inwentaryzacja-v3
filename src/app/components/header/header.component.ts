@@ -12,14 +12,18 @@ import { HttpClient } from '@angular/common/http';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-    menuValue:boolean = true;
+    menuValue:boolean = false;
     menu_icon: string = 'bi bi-list';
 
     openMenu() {
         this.menuValue = !this.menuValue;
         this.menu_icon = this.menuValue ? 'bi bi-x' : 'bi bi-list';
     }
-
+    
+    closeMenu() {
+        this.menuValue = false;
+        this.menu_icon = 'bi bi-list';
+    }
 
     constructor(private readonly HeaderService: HeaderService) { }
 

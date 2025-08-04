@@ -1,70 +1,85 @@
-header {
-    background-color: black;
+ @import 'global';
+ 
+ header {
+    background-color: $dark-color;
     padding: 10px;
 }
+
 .logo {
     width: 100%;
     max-width: 195px;
     min-width: 100px;
     height: auto;
 }
+
 .logo:hover {
     cursor: pointer;
 }
+
 .desktop-menu {
     margin-top: 24px;
     display: block;
 }
+
 .desktop-menu ul {
     padding: 0;
     margin: 0;
 }
+
 .desktop-menu ul li {
     list-style-type: none;
-    color: white;
+    color: $light-color;
     display: inline-block;  
     font-size: 18px;
     margin-left: 26px;
 }
-.desktop-menu ul li:hover {
-    font-size: 19px;
+
+.desktop-menu ul li:hover{
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    color: #1e9497;
+    color: $primary-color;
     transition: 0.4s ease-in-out;
 }
+
 .menu-icon {
     display: none;
 }
+
 @media screen and (min-width: 128px) and (max-width: 900px) {
+
     .desktop-menu {
         position: fixed;
         transition: 0.4s ease-in-out;
         right: -280px;
         top: 28px;
-        background: black;
+        background: $dark-color;
         max-width: 280px;
         min-width: 150px;
         height: 100%;
+
+        ul li{
+            display: block;
+            text-align: left;
+            margin: 0;
+            padding: 10px 0 10px 26px;
+            border-bottom: 1px solid $accent-color;
+            font-size: 15px;
+        }
     }
-    .desktop-menu ul li{
-        display: block;
-        text-align: left;
-        margin: 0;
-        padding: 10px 0 10px 26px;
-        border-bottom: 1px solid gray;
+
+    .desktop-menu ul li:hover {
         font-size: 15px;
     }
-    .desktop-menu ul li:hover {
-        font-size: 16px;
-    }
+
     .menu-icon{
         display: inline;
-        color: white;
+        color: $light-color;
         font-size: 25px;
         padding: 0px;
         cursor: pointer;;
     }
+
     .mobile-menu {
         right: 0;
         transition: 0.4s ease-in-out;
