@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 
 
@@ -7,10 +8,11 @@ import { Injectable } from '@angular/core';
     providedIn: 'root',
 })
 export class DashService {
-    /*constructor(private readonly http: HttpClient) {}
-    create(body: any): Observable<CallerModel> {
-      return this.http.post<CallerModel>(${environment.API_URL}/api/caller/add, body);
-    }*/
+    constructor(private readonly http: HttpClient) { }
+    getData(): Observable<string> {
+        return this.http.get<string>('http://localhost:3000', { responseType: 'blob' });
+
+    }
 
 
 }
