@@ -1,0 +1,49 @@
+{
+    "id": "4564ete44y",
+    "location": {
+        "name": "pizzeria",
+        "address": "123 Pizza St, Food City",
+        "tags": [
+            "pizza",
+            "restaurant",
+            "delivery"
+        ],
+        "note": "Best pizza in town!"
+    },
+    "projects": [
+        {
+            "name": "Pizza Delivery App",
+            "notes": "An app to order pizza online",
+            "dns": "192.168.1.1",
+            "networkAddress": "192.168.1.0",
+            "mask": "24",
+            "gateway": "192.168.1.1",
+            "addrPool": "192.168.1.2-192.168.1.100",
+            "addrExclude": "192.168.1.4,192.168.1.10-192.168.1.20",
+            "remoteAccessTag": "WM123",
+            "devices": [
+                {
+                    "ip": "192.168.1.2",
+                    "deviceTag": "WM12/2025/123",
+                    "tag": "abcd",
+                    "macAddress": "00:1A:2B:3C:4D:5E",
+                    "serialNumber": "SN123456789",
+                    "serverAddress": "192.168.1.10",
+                    "note": "adsdwdwqd",
+                    "remoteAccessId": "RA123"
+                },
+                {
+                    "ip": "192.168.1.3",
+                    "deviceTag": "WM24/2025/321",
+                    "tag": "abcd",
+                    "macAddress": "00:14:2W:3C:4F:5E",
+                    "serialNumber": "SN123456789",
+                    "serverAddress": "192.168.1.10",
+                    "note": "adsdwdwqd",
+                    "pin": "1",
+                    "remoteAccessId": "RA123"
+                }
+            ]
+        }
+    ]
+}
