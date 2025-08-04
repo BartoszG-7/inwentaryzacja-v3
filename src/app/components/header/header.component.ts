@@ -4,14 +4,14 @@ import { HeaderService } from './header.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-    selector: 'header',
+    selector: 'app-header',
     standalone: true,
     imports: [RouterOutlet],
     providers: [HeaderService, HttpClient],
     templateUrl: './header.component.html',
-    styleUrl: './header.component.scss'
+    styleUrls: ['./header.component.scss']
 })
-export class Header implements OnInit {
+export class HeaderComponent implements OnInit {
 
     constructor(private readonly HeaderService: HeaderService) { }
 
