@@ -1,21 +1,50 @@
 header {
+    background-color: black;
     padding: 10px;
-    background-color: lightblue;
 }
 .logo {
-    width: 132px;
+    width: 195px;
 }
 .logo:hover {
     cursor: pointer;
 }
-.desktop_menu {
+.desktop-menu {
     margin-top: 24px;
 }
-.desktop_menu ul {
+.desktop-menu ul {
     padding: 0;
     margin: 0;
 }
-.desktop_menu ul li {
+.desktop-menu ul li {
     list-style-type: none;
     color: white;
+    display: inline-block;  
+    font-size: 18px;
+    margin-left: 26px;
+}
+.desktop-menu ul li:hover {
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #1e9497;
+    transition: 0.4s ease-in-out;
+}
+.menu-icon {
+    display: none;
+}
+@media screen and (min-width: 128px) and (max-width: 900px) {
+    .desktop-menu {
+        position: fixed;
+        right: 0;
+        top: 40px;
+        background: black;
+        width: 280px;
+        height: 100%;
+    }
+    .desktop-menu ul li{
+        display: block;
+        text-align: left;
+        margin: 0;
+        padding: 10px 0 10px 26px;
+    }
 }
