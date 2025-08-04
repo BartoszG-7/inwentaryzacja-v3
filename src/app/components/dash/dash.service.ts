@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class DashService {
     constructor(private readonly http: HttpClient) { }
     getData(): Observable<string> {
-        return this.http.get<string>('http://localhost:3000', new Object({
+        return this.http.post<string>('http://localhost:3000/data/', "", new Object({
             responseType: 'text'
         }));
 
