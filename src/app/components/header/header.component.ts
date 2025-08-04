@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
         this.menuValue = !this.menuValue;
         this.menu_icon = this.menuValue ? 'bi bi-x' : 'bi bi-list';
     }
-    
+
     closeMenu() {
         this.menuValue = false;
         this.menu_icon = 'bi bi-list';
