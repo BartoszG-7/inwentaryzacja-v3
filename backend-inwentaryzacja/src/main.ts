@@ -1,8 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { LocationModule } from './modules/location/location.module';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(LocationModule);
+  app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
     origin: 'http://localhost:4200', // Adjust this to your frontend URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
