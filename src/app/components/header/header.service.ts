@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -15,6 +15,15 @@ export class HeaderService {
         }));
 
     }
+    getDataV2(): Observable<string> {
+        return this.http.get<string>('http://localhost:3000/location/find', new Object({
+            responseType: 'text',
+            headers: new HttpHeaders({
+                'query': '{}'
+            }),
 
+        }));
+
+    }
 
 }
