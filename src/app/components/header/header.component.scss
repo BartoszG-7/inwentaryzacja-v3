@@ -3,13 +3,17 @@ header {
     padding: 10px;
 }
 .logo {
-    width: 195px;
+    width: 100%;
+    max-width: 195px;
+    min-width: 100px;
+    height: auto;
 }
 .logo:hover {
     cursor: pointer;
 }
 .desktop-menu {
     margin-top: 24px;
+    display: block;
 }
 .desktop-menu ul {
     padding: 0;
@@ -35,10 +39,12 @@ header {
 @media screen and (min-width: 128px) and (max-width: 900px) {
     .desktop-menu {
         position: fixed;
-        right: 0;
-        top: 40px;
+        transition: 0.4s ease-in-out;
+        right: -280px;
+        top: 28px;
         background: black;
-        width: 280px;
+        max-width: 280px;
+        min-width: 150px;
         height: 100%;
     }
     .desktop-menu ul li{
@@ -46,5 +52,21 @@ header {
         text-align: left;
         margin: 0;
         padding: 10px 0 10px 26px;
+        border-bottom: 1px solid gray;
+        font-size: 15px;
+    }
+    .desktop-menu ul li:hover {
+        font-size: 16px;
+    }
+    .menu-icon{
+        display: inline;
+        color: white;
+        font-size: 25px;
+        padding: 0px;
+        cursor: pointer;;
+    }
+    .mobile-menu {
+        right: 0;
+        transition: 0.4s ease-in-out;
     }
 }
