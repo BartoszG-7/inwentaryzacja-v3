@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { Dash } from './components/dash/dash.component';
+import { Header } from './components/header/header.component';
 
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'dash', pathMatch: 'full' },
-    { path: 'dash', component: Dash },
+    { path: '', redirectTo: 'header', pathMatch: 'full' },
+    { path: 'header', component: Header },
 ];

@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DashService } from './dash.service';
+import { HeaderService } from './header.service';
 import { HttpClient } from '@angular/common/http';
+
 @Component({
-    selector: 'dash',
+    selector: 'header',
     standalone: true,
     imports: [RouterOutlet],
-    providers: [DashService, HttpClient],
-    templateUrl: './dash.html',
-    styleUrl: './dash.scss'
+    providers: [HeaderService, HttpClient],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
-export class Dash implements OnInit {
+export class Header implements OnInit {
 
-    constructor(private readonly dashService: DashService) { }
+    constructor(private readonly HeaderService: HeaderService) { }
 
     ngOnInit(): void {
-        this.dashService.getData().subscribe({
+        this.HeaderService.getData().subscribe({
             next: (data) => {
                 console.log('Data received:', data);
             },

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
     providedIn: 'root',
 })
-export class DashService {
+export class HeaderService {
     constructor(private readonly http: HttpClient) { }
     getData(): Observable<string> {
         return this.http.post<string>('http://localhost:3000/data/', "", new Object({
