@@ -27,7 +27,7 @@ export class UpdateDeviceTypeDto {
 
     @IsOptional()
     @IsString()
-    last_tag?: string;
+    lastTag?: string;
 
     @IsOptional()
     @IsString()

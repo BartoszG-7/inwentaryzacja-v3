@@ -10,7 +10,7 @@ export class DeviceType {
     @Prop() producent: string;
     @Prop() model: string;
     @Prop() resolution: string;
-    @Prop() last_tag: string;
+    @Prop({ name: 'last_tag' }) lastTag: string;
     @Prop() remote_access_enum: string;
     @Prop() color: string;
 }

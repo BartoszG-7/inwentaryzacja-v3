@@ -20,7 +20,7 @@ export class CreateDeviceTypeDto {
     resolution: string;
 
     @IsString()
-    last_tag: string;
+    lastTag: string;
 
     @IsString()
     remote_access_enum: string;
