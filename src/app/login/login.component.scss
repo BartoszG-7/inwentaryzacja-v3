@@ -1,0 +1,77 @@
+@import 'global';
+
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $light-color;
+  padding: 1rem;
+  box-sizing: border-box;
+  min-height: calc(100vh - 56px - 71px);
+}
+
+.login-form {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.login-form h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  background: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: $primary-dark-color;
+}
+
+@media (max-width: 500px) {
+  .login-form {
+    padding: 1rem;
+    max-width: 95vw;
+    font-size: 0.95rem;
+  }
+  .login-container {
+    padding: 0.5rem;
+  }
+  input[type="text"],
+  input[type="password"] {
+    font-size: 0.95rem;
+  }
+  button[type="submit"] {
+    font-size: 0.95rem;
+  }
+}
