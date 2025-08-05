@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HeaderService } from './header.service';
 import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
     selector: 'app-header',
     standalone: true,
-    imports: [RouterLink],
+    imports: [CommonModule, RouterLink],
     providers: [HeaderService, HttpClient, CookieService],
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
@@ -17,7 +18,9 @@ export class HeaderComponent implements OnInit {
     leftMenuOpen = false;
     rightMenuOpen = false;
     loginText: string = 'Login';
-    menu_icon = 'fa fa-bars';
+
+    showLeftMenu = true;
+    showRightMenu = false;
 
     constructor(
         private readonly cookieService: CookieService,
@@ -30,6 +33,22 @@ export class HeaderComponent implements OnInit {
         } else {
             this.loginText = 'Login';
         }
+
+        // Initial check for menu icons on first load
+        this.updateMenuIcons(this.router.url);
+
+        this.router.events.subscribe(event => {
+            if (event instanceof NavigationEnd) {
+                this.updateMenuIcons(event.urlAfterRedirects || event.url);
+            }
+        });
+    }
+
+    updateMenuIcons(url: string) {
+        // Left icon: mobile only, not on login
+        this.showLeftMenu = !url.startsWith('/login');
+        // Right icon: mobile only, only on /storage or /locations
+        this.showRightMenu = url.startsWith('/storage') || url.startsWith('/locations');
     }
 
     loginHandler() {

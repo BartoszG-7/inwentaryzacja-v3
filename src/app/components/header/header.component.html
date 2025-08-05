@@ -1,7 +1,13 @@
 <header>
   <div class="header-flex">
-    <!-- Left menu icon (always visible) -->
-    <div class="menu-icon left-menu" (click)="toggleLeftMenu()" [class.open]="leftMenuOpen" title="Open left menu">
+    <!-- Left menu icon (mobile only, not on login) -->
+    <div
+      *ngIf="showLeftMenu"
+      class="menu-icon left-menu"
+      (click)="toggleLeftMenu()"
+      [class.open]="leftMenuOpen"
+      title="Open left menu"
+    >
       <i class="bi bi-list"></i>
     </div>
 
@@ -10,8 +16,20 @@
       <img src="assets/wama_logo_dark.png" alt="logo" class="logo">
     </div>
 
-    <!-- Right menu icon (mobile only) -->
-    <div class="menu-icon right-menu" (click)="toggleRightMenu()" [class.open]="rightMenuOpen" title="Open right menu">
+    <!-- Always visible links on the right (desktop only) -->
+    <div class="header-links">
+        <a routerLink="/inwentaryzacja" routerLinkActive="active">Inwentaryzacja</a> <!--  lokalizacje  -->
+        <a routerLink="/magazyn" routerLinkActive="active">Magazyn</a> <!--  magazyn  -->
+    </div>
+
+    <!-- Right menu icon (mobile only, only on /storage or /locations) -->
+    <div
+      *ngIf="showRightMenu"
+      class="menu-icon right-menu"
+      (click)="toggleRightMenu()"
+      [class.open]="rightMenuOpen"
+      title="Open right menu"
+    >
       <i class="bi bi-three-dots-vertical"></i>
     </div>
   </div>
@@ -21,8 +39,8 @@
     <button class="close-btn" (click)="toggleLeftMenu()">&times;</button>
     <ul>
       <li routerLink="/home" (click)="toggleLeftMenu()">Home</li>
-      <li routerLink="/lokalizacje" (click)="toggleLeftMenu()">Locations</li>
-      <li routerLink="/magazyn" (click)="toggleLeftMenu()">Storage</li>
+      <li routerLink="/inwentaryzacja" (click)="toggleLeftMenu()">Inwentaryzacja</li>
+      <li routerLink="/magazyn" (click)="toggleLeftMenu()">Magazyn</li>
       <li routerLink="/login" (click)="loginHandler()">{{loginText}}</li>
     </ul>
   </nav>
@@ -32,8 +50,8 @@
     <button class="close-btn" (click)="toggleRightMenu()">&times;</button>
     <ul>
       <li routerLink="/home" (click)="toggleRightMenu()">Home</li>
-      <li routerLink="/lokalizacje" (click)="toggleRightMenu()">Locations</li>
-      <li routerLink="/magazyn" (click)="toggleRightMenu()">Storage</li>
+      <li routerLink="/inwentaryzacja" (click)="toggleRightMenu()">Inwentaryzacja</li>
+      <li routerLink="/magazyn" (click)="toggleRightMenu()">Magazyn</li>
       <li routerLink="/login" (click)="loginHandler()">{{loginText}}</li>
     </ul>
   </nav>
