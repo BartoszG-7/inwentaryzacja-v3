@@ -14,6 +14,19 @@ import { LocationService } from './lokalizacje.service';
 })
 export class LokalizacjeComponent implements OnInit {
   locations: any[] = [];
+  editing: string = '';
+  editData(id: string): void {
+    this.editing = id;
+  }
+  saveData(id: string, name: string, address: string, tag: string, note: string): void {
+    this.LocationService.saveData(id, name, address, tag, note).subscribe({
+      next: (data) => {
+        this.ngOnInit();
+
+      }
+    });
+    this.editing = '';
+  }
   constructor(private readonly LocationService: LocationService) { }
   ngOnInit(): void {
 

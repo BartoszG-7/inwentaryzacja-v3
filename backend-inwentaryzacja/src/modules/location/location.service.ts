@@ -21,12 +21,12 @@ export class LocationService {
     }
 
     async delete(id: string): Promise<string> {
-        this.locationModel.deleteMany({"id":id}).exec();
+        this.locationModel.deleteMany({ "_id": id }).exec();
         return "OK";
     }
 
     async update(id: string, body: UpdateLocationDto): Promise<string> {
-        this.locationModel.updateMany({"id":id}, body).exec();
+        this.locationModel.updateMany({ "_id": id }, body).exec();
         return "OK";
     }
 }

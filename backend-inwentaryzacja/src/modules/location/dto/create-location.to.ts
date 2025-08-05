@@ -7,8 +7,7 @@ export class CreateLocationDto {
     @IsString()
     address: string;
 
-    @IsArray()
-    @ArrayNotEmpty()
+
     @IsString({ each: true })
     tag: string;
 
