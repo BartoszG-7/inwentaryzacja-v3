@@ -31,7 +31,7 @@ export class UpdateDeviceTypeDto {
 
     @IsOptional()
     @IsString()
-    remote_access_enum?: string;
+    remoteAccessEnum?: string;
 
     @IsOptional()
     @IsString()

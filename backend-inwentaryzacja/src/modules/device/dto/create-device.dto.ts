@@ -5,16 +5,16 @@ export class CreateDeviceDto {
     ip: string;
 
     @IsString()
-    deviceTag: string;
+    deviceType: string; // DeviceType ObjectId
 
     @IsString()
     tag: string;
 
     @IsString()
-    macAddress: string;
+    macAddr: string;
 
     @IsString()
-    serialNumber: string;
+    serialNr: string;
 
     @IsString()
     serverAddress: string;
@@ -25,8 +25,5 @@ export class CreateDeviceDto {
 
     @IsOptional()
     @IsString()
-    pin?: string;
-
-    @IsString()
-    remoteAccessId: string;
+    pinIfButton?: string;
 }

@@ -1,59 +1,51 @@
 import {
-  IsArray,
-  IsOptional,
-  IsString,
-  IsNotEmpty,
-  ArrayNotEmpty,
-  IsIP,
+    IsArray,
+    IsOptional,
+    IsString,
+    IsNotEmpty,
+    ArrayNotEmpty,
 } from 'class-validator';
 
 export class CreateProjectDto {
-  @IsString()
-  @IsNotEmpty()
-  name: string;
+    @IsString()
+    @IsNotEmpty()
+    name: string;
 
-  @IsString()
-  @IsOptional()
-  notes?: string;
+    @IsString()
+    @IsOptional()
+    dns?: string;
 
-  @IsString()
-  @IsOptional()
-  dns: string;
+    @IsString()
+    @IsOptional()
+    networkIp?: string;
 
-  @IsIP()
-  networkAddress: string;
+    @IsString()
+    @IsOptional()
+    mask?: string;
 
-  @IsIP()
-  mask: string;
+    @IsString()
+    @IsOptional()
+    gateway?: string;
 
-  @IsIP()
-  gateway: string;
+    @IsArray()
+    @IsString({ each: true })
+    @IsOptional()
+    addrPool?: string[];
 
-  @IsArray()
-  @ArrayNotEmpty()
-  @IsString({ each: true })
-  addrPool: string[];
+    @IsString()
+    @IsOptional()
+    addrExclude?: string;
 
-  @IsString()
-  @IsOptional()
-  addrExclude?: string;
+    @IsString()
+    @IsOptional()
+    remoteAccessTag?: string;
 
-  @IsString()
-  @IsOptional()
-  remoteAccessTag?: string;
+    @IsArray()
+    @IsString({ each: true })
+    @IsOptional()
+    devices?: string[]; // Array of Device ObjectIds
 
-  @IsArray()
-  @IsString({ each: true })
-  @IsOptional()
-  devices?: string[];
-
-  @IsArray()
-  @IsString({ each: true })
-  @IsOptional()
-  projectDevices?: string[]; // Use sub-DTOs if you want nested validation
-
-  @IsArray()
-  @IsString({ each: true })
-  @IsOptional()
-  projectHistory: string[];
+    @IsString()
+    @IsOptional()
+    location?: string; // Location ObjectId
 }

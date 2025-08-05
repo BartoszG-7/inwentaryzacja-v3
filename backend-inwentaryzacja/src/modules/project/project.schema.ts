@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 import { ProjectDevice } from './project-device.schema';
 import { ProjectHistory } from './project-history.schema';
 export type ProjectDocment = HydratedDocument<Project>;
@@ -8,27 +8,28 @@ export type ProjectDocment = HydratedDocument<Project>;
 export class Project {
     @Prop() name: string;
 
-    @Prop() notes: string;
-
     @Prop() dns: string;
 
-    @Prop() networkAddress: string;
+    @Prop() networkIp: string;
 
     @Prop() mask: string;
 
     @Prop() gateway: string;
 
-    @Prop() addrPool: string[];
+    @Prop({ type: [String] }) addrPool: string[];
 
     @Prop() addrExclude: string;
 
     @Prop() remoteAccessTag: string;
 
-    @Prop() devices: string[];
-     // Assuming devices is an array of strings, adjust as necessary
-    @Prop() projectDevices: ProjectDevice[]; // Assuming projectDevices is an array of ProjectDevice documents
+    @Prop({ type: [{ type: Types.ObjectId, ref: 'Device' }] })
+    devices: Types.ObjectId[];
 
-    @Prop() projectHistory: ProjectHistory[]; // Assuming projectHistory is an array of ProjectHistory documents
+    @Prop({ type: Types.ObjectId, ref: 'Location' })
+    location: Types.ObjectId;
+
+    @Prop({ type: [Object] }) projectDevices: ProjectDevice[];
+    @Prop({ type: [Object] }) projectHistory: ProjectHistory[];
 }
 
 export const ProjectSchema = SchemaFactory.createForClass(Project);

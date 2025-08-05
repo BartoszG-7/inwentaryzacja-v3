@@ -20,12 +20,21 @@ export class ProjectService {
     }
 
     async delete(id: string): Promise<string> {
-        this.ProjectModel.deleteMany({ "id": id }).exec();
+        await this.ProjectModel.deleteOne({ _id: id }).exec();
         return "OK";
     }
 
     async update(id: string, body: UpdateProjectDto): Promise<string> {
-        this.ProjectModel.updateMany({ "id": id }, body).exec();
+        await this.ProjectModel.updateOne({ _id: id }, body).exec();
+        return "OK";
+    }
+    async deleteMany(filter: any): Promise<string> {
+        await this.ProjectModel.deleteMany(filter).exec();
+        return "OK";
+    }
+
+    async updateMany(filter: any, body: UpdateProjectDto): Promise<string> {
+        await this.ProjectModel.updateMany(filter, body).exec();
         return "OK";
     }
 }

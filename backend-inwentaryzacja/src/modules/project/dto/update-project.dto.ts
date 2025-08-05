@@ -2,10 +2,12 @@ import {
     IsArray,
     IsOptional,
     IsString,
-    IsNotEmpty,
-    ArrayNotEmpty,
     IsIP,
+    ValidateNested,
 } from 'class-validator';
+import { Type } from 'class-transformer';
+import { ProjectDevice } from '../project-device.schema';
+import { ProjectHistory } from '../project-history.schema';
 
 export class UpdateProjectDto {
     @IsOptional()
@@ -52,11 +54,13 @@ export class UpdateProjectDto {
 
     @IsOptional()
     @IsArray()
-    @IsString({ each: true })
-    projectDevices?: string[];
+    @ValidateNested({ each: true })
+    @Type(() => ProjectDevice)
+    projectDevices?: ProjectDevice[];
 
     @IsOptional()
     @IsArray()
-    @IsString({ each: true })
-    projectHistory?: string[];
+    @ValidateNested({ each: true })
+    @Type(() => ProjectHistory)
+    projectHistory?: ProjectHistory[];
 }

@@ -9,22 +9,22 @@ export class ProjectController {
 
 
     @Post('')
-    async create(@Body() body: CreateProjectDto) {
-        this.ProjectService.create(body);
+    async postCreate(@Body() body: CreateProjectDto) {
+        return await this.ProjectService.create(body);
     }
 
     @Get(':query')
-    async find(@Param("query") query: string) {
-        return this.ProjectService.find(query);
+    async getFind(@Param("query") query: string) {
+        return await this.ProjectService.find(query);
     }
 
     @Delete(':id')
-    async delete(@Param("id") id: string) {
-        return this.ProjectService.delete(id);
+    async getDelete(@Param("id") id: string) {
+        return await this.ProjectService.delete(id);
     }
 
     @Patch(':id')
-    async update(@Param("id") id: string, @Body() body: UpdateProjectDto) {
-        this.ProjectService.update(id, body);
+    async postUpdate(@Param("id") id: string, @Body() body: UpdateProjectDto) {
+        return await this.ProjectService.update(id, body);
     }
 }

@@ -10,8 +10,9 @@ export class UpdateLocationDto {
     address?: string;
 
     @IsOptional()
-    @IsString()
-    tag?: string;
+    @IsArray()
+    @IsString({ each: true })
+    tag?: string[];
 
     @IsOptional()
     @IsString()

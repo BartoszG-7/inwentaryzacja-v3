@@ -8,19 +8,17 @@ export class DeviceType {
 
     @Prop() tag: string;
 
-    @Prop() note: string;
-
-    @Prop() producent: string;
+    @Prop() maker: string;
 
     @Prop() model: string;
 
-    @Prop() resolution: string;
-
-    @Prop({ name: 'last_tag' }) lastTag: string;
-
-    @Prop({ name: 'remote_access_enum' }) remoteAccessEnum: string;
-
     @Prop() color: string;
+
+    @Prop() remoteAccessEnum: string;
+
+    @Prop() resolutionIfMonitor: string;
+
+    @Prop() lastTag: string;
 
 }
 

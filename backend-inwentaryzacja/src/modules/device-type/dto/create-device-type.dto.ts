@@ -8,23 +8,20 @@ export class CreateDeviceTypeDto {
     tag: string;
 
     @IsString()
-    note: string;
-
-    @IsString()
-    producent: string;
+    maker: string;
 
     @IsString()
     model: string;
 
     @IsString()
-    resolution: string;
+    color: string;
+
+    @IsString()
+    remoteAccessEnum: string;
+
+    @IsString()
+    resolutionIfMonitor: string;
 
     @IsString()
     lastTag: string;
-
-    @IsString()
-    remote_access_enum: string;
-
-    @IsString()
-    color: string;
 }
