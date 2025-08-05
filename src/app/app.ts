@@ -16,8 +16,9 @@ export class App {
     constructor(private cookieService: CookieService, private router: Router) { }
     ngOnInit() {
         this.router.events.subscribe((event) => {
-            if (event instanceof NavigationEnd) {
-                console.log('Navigation ended:', event.url);
+            if (event instanceof NavigationEnd && event.url !== '/login' && this.cookieService.get('secret') !== "d07f690d14a52002aa869e7b7e428bc79d49466141b85952a69009e36d8ef701") {
+                this.router.navigate(['/login']);
+
             }
         });
 
