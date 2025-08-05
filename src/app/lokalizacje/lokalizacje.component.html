@@ -1,5 +1,13 @@
 <app-header></app-header>
 
 <table>
-    table
+    @for (e of locations; track e._id) {
+    <tr>
+        <td>{{ e.name }}</td>
+        <td>{{ e.address }}</td>
+        <td>{{ e.tag }}</td>
+        <td>{{ e.note }}</td>
+    </tr>
+    }
+
 </table>
