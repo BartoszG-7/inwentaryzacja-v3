@@ -1,32 +1,30 @@
-import { IsString, IsOptional } from 'class-validator';
+import { IsString } from 'class-validator';
 
 export class CreateDeviceTypeDto {
     @IsString()
-    ip: string;
-
-    @IsString()
-    deviceTypeTag: string;
+    name: string;
 
     @IsString()
     tag: string;
 
     @IsString()
-    macAddress: string;
+    note: string;
 
     @IsString()
-    serialNumber: string;
+    producent: string;
 
     @IsString()
-    serverAddress: string;
-
-    @IsOptional()
-    @IsString()
-    note?: string;
-
-    @IsOptional()
-    @IsString()
-    pin?: string;
+    model: string;
 
     @IsString()
-    remoteAccessId: string;
+    resolution: string;
+
+    @IsString()
+    last_tag: string;
+
+    @IsString()
+    remote_access_enum: string;
+
+    @IsString()
+    color: string;
 }

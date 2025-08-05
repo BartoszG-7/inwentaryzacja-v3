@@ -1,9 +1,13 @@
 import { IsString, IsOptional } from 'class-validator';
 
-export class UpdateDeviceTypeDto {
+export class UpdateProjectHistoryDto {
     @IsOptional()
     @IsString()
-    name?: string;
+    ip?: string;
+
+    @IsOptional()
+    @IsString()
+    ProjectHistoryTag?: string;
 
     @IsOptional()
     @IsString()
@@ -11,29 +15,25 @@ export class UpdateDeviceTypeDto {
 
     @IsOptional()
     @IsString()
+    macAddress?: string;
+
+    @IsOptional()
+    @IsString()
+    serialNumber?: string;
+
+    @IsOptional()
+    @IsString()
+    serverAddress?: string;
+
+    @IsOptional()
+    @IsString()
     note?: string;
 
     @IsOptional()
     @IsString()
-    producent?: string;
+    pin?: string;
 
     @IsOptional()
     @IsString()
-    model?: string;
-
-    @IsOptional()
-    @IsString()
-    resolution?: string;
-
-    @IsOptional()
-    @IsString()
-    last_tag?: string;
-
-    @IsOptional()
-    @IsString()
-    remote_access_enum?: string;
-
-    @IsOptional()
-    @IsString()
-    color?: string;
+    remoteAccessId?: string;
 }
