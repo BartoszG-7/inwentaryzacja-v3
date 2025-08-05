@@ -18,13 +18,42 @@ export class HeaderComponent {
     showRightMenu = true;
     selectedRoute: string = '';
 
+    get isMobile(): boolean {
+        return window.innerWidth <= 768;
+    }
+
+    get isLoggedIn(): boolean {
+        return this.cookieService.check('secret');
+    }
+
     constructor(private router: Router, private cookieService: CookieService) {
         this.selectedRoute = router.url;
         router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 this.selectedRoute = event.urlAfterRedirects;
+                this.updateMenus();
             }
         });
+        this.updateMenus();
+        window.addEventListener('resize', () => this.updateMenus());
+    }
+
+    updateMenus() {
+        if (this.isMobile) {
+            if (!this.isLoggedIn) {
+                this.showLeftMenu = false;
+                this.showRightMenu = false;
+            } else if (this.selectedRoute === '/home') {
+                this.showLeftMenu = true;
+                this.showRightMenu = false;
+            } else {
+                this.showLeftMenu = true;
+                this.showRightMenu = true;
+            }
+        } else {
+            this.showLeftMenu = true;
+            this.showRightMenu = true;
+        }
     }
 
     toggleLeftMenu() {
