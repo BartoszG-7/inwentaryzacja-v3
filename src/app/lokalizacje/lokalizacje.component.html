@@ -1,26 +1,40 @@
 <app-header></app-header>
 
-<table>
-    @for (e of locations; track e._id) {
-    @if (editing!=e._id) {
-    <tr>
-        <td>{{ e.name }}</td>
-        <td>{{ e.address }}</td>
-        <td>{{ e.tag }}</td>
-        <td>{{ e.note }}</td>
-        <button (click)="editData(e._id)">Edit</button>
-    </tr>
-    } @else {
-    <tr>
-        <td><input type="text" value={{e.name}} #name></td>
-        <td><input type="text" value={{e.address}} #address></td>
-        <td><input type="text" value={{e.tag}} #tag></td>
-        <td><input type="text" value={{e.note}} #note></td>
-        <button (click)="saveData(e._id,name.value,address.value,tag.value,note.value)">Confirm</button>
-    </tr>
-    }
-    }
-
-</table>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Tag</th>
+        <th>Notes</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (e of locations; track e._id) {
+        @if (editing != e._id) {
+          <tr>
+            <td>{{ e.name }}</td>
+            <td>{{ e.address }}</td>
+            <td>{{ e.tag }}</td>
+            <td>{{ e.note }}</td>
+            <td><button (click)="editData(e._id)">Edit</button></td>
+          </tr>
+        } @else {
+          <tr>
+            <td><input type="text" [value]="e.name" #name></td>
+            <td><input type="text" [value]="e.address" #address></td>
+            <td><input type="text" [value]="e.tag" #tag></td>
+            <td><input type="text" [value]="e.note" #note></td>
+            <td>
+              <button (click)="saveData(e._id, name.value, address.value, tag.value, note.value)">Confirm</button>
+            </td>
+          </tr>
+        }
+      }
+    </tbody>
+  </table>
+</div>
 
 <app-footer></app-footer>
