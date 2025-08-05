@@ -10,8 +10,10 @@ export class Location {
 
     @Prop()
     address: string;
+
     @Prop()
     tag: string;
+    
     @Prop()
     note: string;
 }

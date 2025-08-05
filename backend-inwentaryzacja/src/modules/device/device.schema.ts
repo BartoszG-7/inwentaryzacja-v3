@@ -5,13 +5,21 @@ export type DeviceDocument = HydratedDocument<Device>;
 @Schema()
 export class Device {
     @Prop() ip: string;
+
     @Prop() deviceTag: string;
+
     @Prop() tag: string;
+
     @Prop() macAddress: string;
+
     @Prop() serialNumber: string;
+
     @Prop() serverAddress: string;
-    @Prop() note?: string;
+
+    @Prop() note: string;
+
     @Prop() pin?: string;
+
     @Prop() remoteAccessId: string;
 }
 

@@ -1,5 +1,11 @@
-import { IsArray, IsOptional, IsString } from "class-validator";
-import { ProjectDevice } from "../project-device.schema";
+import {
+    IsArray,
+    IsOptional,
+    IsString,
+    IsNotEmpty,
+    ArrayNotEmpty,
+    IsIP,
+} from 'class-validator';
 
 export class UpdateProjectDto {
     @IsOptional()
@@ -15,20 +21,21 @@ export class UpdateProjectDto {
     dns?: string;
 
     @IsOptional()
-    @IsString()
+    @IsIP()
     networkAddress?: string;
 
     @IsOptional()
-    @IsString()
+    @IsIP()
     mask?: string;
 
     @IsOptional()
-    @IsString()
+    @IsIP()
     gateway?: string;
 
     @IsOptional()
-    @IsString()
-    addrPool?: string;
+    @IsArray()
+    @IsString({ each: true })
+    addrPool?: string[];
 
     @IsOptional()
     @IsString()
@@ -45,6 +52,11 @@ export class UpdateProjectDto {
 
     @IsOptional()
     @IsArray()
-    // Optionally, add validation for ProjectDevice if you have a DTO for it
-    projectDevices?: ProjectDevice[];
+    @IsString({ each: true })
+    projectDevices?: string[];
+
+    @IsOptional()
+    @IsArray()
+    @IsString({ each: true })
+    projectHistory?: string[];
 }
