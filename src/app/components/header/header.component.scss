@@ -25,7 +25,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none; // allow icons to be clickable
+  pointer-events: none;
   height: 100%;
 }
 
@@ -34,7 +34,7 @@ header {
   height: auto;
   display: block;
   margin: 0 auto;
-  pointer-events: auto; // logo itself is clickable
+  pointer-events: auto;
 }
 
 .menu-icon {
@@ -44,7 +44,7 @@ header {
   transition: transform 0.3s;
   z-index: 2;
   user-select: none;
-  display: flex;
+  display: none;
   align-items: center;
   min-width: 40px;
   min-height: 40px;
@@ -63,7 +63,6 @@ header {
   position: relative;
   z-index: 3;
   margin-left: 1rem;
-  display: none;
   animation: pop-in-right 0.5s;
 }
 
@@ -78,6 +77,45 @@ header {
 @keyframes pop-in-right {
   from { transform: translateX(40px) scale(0.8); opacity: 0; }
   to { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+/* Header links always visible on the right (desktop only) */
+.header-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: auto;
+  z-index: 3;
+}
+
+.header-links a {
+  color: $light-color;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.25rem 1.2rem;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: 
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.header-links a:hover,
+.header-links a.active {
+  color: $primary-color;
+  border-color: $primary-color;
+  background: rgba($primary-color, 0.08);
+}
+
+/* Hide header links on mobile */
+@media (max-width: 900px) {
+  .header-links {
+    display: none;
+  }
+  .menu-icon {
+    display: flex;
+  }
 }
 
 /* Side menus */
@@ -159,18 +197,4 @@ header {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-/* Responsive: Right menu icon only on mobile */
-@media (max-width: 900px) {
-  .menu-icon.right-menu {
-    display: flex;
-  }
-}
-
-/* Hide right menu icon on desktop */
-@media (min-width: 901px) {
-  .menu-icon.right-menu {
-    display: none;
-  }
 }
