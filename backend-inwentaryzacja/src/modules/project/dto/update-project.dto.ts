@@ -1,4 +1,5 @@
-import { IsString, IsOptional } from 'class-validator';
+import { IsArray, IsOptional, IsString } from "class-validator";
+import { ProjectDevice } from "../project-device.schema";
 
 export class UpdateProjectDto {
     @IsOptional()
@@ -36,4 +37,14 @@ export class UpdateProjectDto {
     @IsOptional()
     @IsString()
     remoteAccessTag?: string;
+
+    @IsOptional()
+    @IsArray()
+    @IsString({ each: true })
+    devices?: string[];
+
+    @IsOptional()
+    @IsArray()
+    // Optionally, add validation for ProjectDevice if you have a DTO for it
+    projectDevices?: ProjectDevice[];
 }

@@ -1,4 +1,5 @@
-import { IsString } from 'class-validator';
+import { IsString, IsOptional, IsArray } from 'class-validator';
+import { ProjectDevice } from '../project-device.schema';
 
 export class CreateProjectDto {
     @IsString()
@@ -27,4 +28,12 @@ export class CreateProjectDto {
 
     @IsString()
     remoteAccessTag: string;
+
+    @IsArray()
+    @IsString({ each: true })
+    devices: string[];
+
+    @IsArray()
+    // Optionally, add validation for ProjectDevice if you have a DTO for it
+    projectDevices: ProjectDevice[];
 }
