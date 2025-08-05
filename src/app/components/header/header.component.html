@@ -11,21 +11,28 @@
       <i class="bi bi-list"></i>
     </div>
 
+    <!-- KIT box (desktop only, now left side) -->
+    <a class="kit-box" routerLink="/home">KIT</a>
+
     <!-- Logo (centered absolutely) -->
     <div class="logo-container">
       <img src="assets/wama_logo_dark.png" alt="logo" class="logo">
     </div>
 
-    <!-- Always visible links on the right (desktop only) -->
+    <!-- Header links (desktop only, now right side) -->
     <div class="header-links">
-        <a routerLink="/inwentaryzacja" routerLinkActive="active">Inwentaryzacja</a> <!--  lokalizacje  -->
-        <a routerLink="/magazyn" routerLinkActive="active">Magazyn</a> <!--  magazyn  -->
+      <a routerLink="/inwentaryzacja" routerLinkActive="active">Inwentaryzacja</a>
+      <a routerLink="/magazyn" routerLinkActive="active">Magazyn</a>
     </div>
 
-    <!-- Right menu icon (mobile only, only on /storage or /locations) -->
+    <!-- Logout icon (desktop only, stays top right) -->
+    <button class="logout-btn" (click)="loginHandler()" title="Logout">
+      <i class="bi bi-box-arrow-right"></i>
+    </button>
+
+    <!-- Right menu icon (mobile only, always visible on mobile) -->
     <div
-      *ngIf="showRightMenu"
-      class="menu-icon right-menu"
+      class="menu-icon right-menu mobile-only"
       (click)="toggleRightMenu()"
       [class.open]="rightMenuOpen"
       title="Open right menu"
@@ -41,8 +48,11 @@
       <li routerLink="/home" (click)="toggleLeftMenu()">Home</li>
       <li routerLink="/inwentaryzacja" (click)="toggleLeftMenu()">Inwentaryzacja</li>
       <li routerLink="/magazyn" (click)="toggleLeftMenu()">Magazyn</li>
-      <li routerLink="/login" (click)="loginHandler()">{{loginText}}</li>
     </ul>
+    <div class="sidebar-kit-row">
+      <a class="kit-box kit-box-mobile" routerLink="/home">KIT</a>
+      <a class="kit-box kit-box-mobile" routerLink="/home">KIT</a>
+    </div>
   </nav>
 
   <!-- Right sidebar menu (mobile only, slide in/out) -->
@@ -52,8 +62,11 @@
       <li routerLink="/home" (click)="toggleRightMenu()">Home</li>
       <li routerLink="/inwentaryzacja" (click)="toggleRightMenu()">Inwentaryzacja</li>
       <li routerLink="/magazyn" (click)="toggleRightMenu()">Magazyn</li>
-      <li routerLink="/login" (click)="loginHandler()">{{loginText}}</li>
     </ul>
+    <div class="sidebar-kit-row">
+      <a class="kit-box kit-box-mobile" routerLink="/home">KIT</a>
+      <a class="kit-box kit-box-mobile" routerLink="/home">KIT</a>
+    </div>
   </nav>
 
   <!-- Overlay for side menus -->
