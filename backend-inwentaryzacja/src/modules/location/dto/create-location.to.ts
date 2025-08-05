@@ -4,9 +4,9 @@ export class CreateLocationDto {
     @IsString()
     name: string;
 
-    @IsArray()
-    @IsString({ each: true })
-    tag: string[];
+
+    @IsString()
+    tag: string;
 
     @IsString()
     address: string;

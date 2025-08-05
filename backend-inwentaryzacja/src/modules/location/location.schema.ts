@@ -6,8 +6,8 @@ export type LocationDocment = HydratedDocument<Location>;
 export class Location {
     @Prop() name: string;
 
-    @Prop({ type: [String] })
-    tag: string[];
+    @Prop({ type: String })
+    tag: string;
 
     @Prop()
     address: string;
