@@ -12,21 +12,39 @@
     </div>
 
     <!-- KIT box (desktop only, now left side) -->
-    <a class="kit-box" routerLink="/home">KIT</a>
+    <a
+      class="kit-box"
+      routerLink="/home"
+      [class.active]="isActive('/home', true)"
+      >KIT</a
+    >
 
     <!-- Logo (centered absolutely) -->
     <div class="logo-container">
-      <img src="assets/wama_logo_dark.png" alt="logo" class="logo">
+      <img src="assets/wama_logo_dark.png" alt="logo" class="logo" />
     </div>
 
     <!-- Header links (desktop only, now right side) -->
     <div class="header-links">
-      <a routerLink="/inwentaryzacja" routerLinkActive="active">Inwentaryzacja</a>
-      <a routerLink="/magazyn" routerLinkActive="active">Magazyn</a>
+      <a
+        routerLink="/inwentaryzacja"
+        [class.active]="isActive('/inwentaryzacja')"
+        >Inwentaryzacja</a
+      >
+      <a
+        routerLink="/magazyn"
+        [class.active]="isActive('/magazyn')"
+        >Magazyn</a
+      >
     </div>
 
     <!-- Logout icon (desktop only, stays top right) -->
-    <button class="logout-btn" (click)="loginHandler()" title="Logout">
+    <button
+      class="logout-btn"
+      (click)="loginHandler()"
+      title="Logout"
+      tabindex="0"
+    >
       <i class="bi bi-box-arrow-right"></i>
     </button>
 
@@ -45,13 +63,41 @@
   <nav class="side-menu left" [class.open]="leftMenuOpen">
     <button class="close-btn" (click)="toggleLeftMenu()">&times;</button>
     <ul>
-      <li routerLink="/home" (click)="toggleLeftMenu()">Home</li>
-      <li routerLink="/inwentaryzacja" (click)="toggleLeftMenu()">Inwentaryzacja</li>
-      <li routerLink="/magazyn" (click)="toggleLeftMenu()">Magazyn</li>
+      <li
+        routerLink="/home"
+        (click)="toggleLeftMenu()"
+        [class.active]="isActive('/home', true)"
+      >
+        Home
+      </li>
+      <li
+        routerLink="/inwentaryzacja"
+        (click)="toggleLeftMenu()"
+        [class.active]="isActive('/inwentaryzacja')"
+      >
+        Inwentaryzacja
+      </li>
+      <li
+        routerLink="/magazyn"
+        (click)="toggleLeftMenu()"
+        [class.active]="isActive('/magazyn')"
+      >
+        Magazyn
+      </li>
     </ul>
     <div class="sidebar-kit-row">
-      <a class="kit-box kit-box-mobile" routerLink="/home">KIT</a>
-      <a class="kit-box kit-box-mobile" routerLink="/home">KIT</a>
+      <a
+        class="kit-box kit-box-mobile"
+        routerLink="/home"
+        [class.active]="isActive('/home', true)"
+        >KIT</a
+      >
+      <a
+        class="kit-box kit-box-mobile"
+        routerLink="/home"
+        [class.active]="isActive('/home', true)"
+        >KIT</a
+      >
     </div>
   </nav>
 
@@ -59,16 +105,48 @@
   <nav class="side-menu right" [class.open]="rightMenuOpen">
     <button class="close-btn" (click)="toggleRightMenu()">&times;</button>
     <ul>
-      <li routerLink="/home" (click)="toggleRightMenu()">Home</li>
-      <li routerLink="/inwentaryzacja" (click)="toggleRightMenu()">Inwentaryzacja</li>
-      <li routerLink="/magazyn" (click)="toggleRightMenu()">Magazyn</li>
+      <li
+        routerLink="/home"
+        (click)="toggleRightMenu()"
+        [class.active]="isActive('/home', true)"
+      >
+        Home
+      </li>
+      <li
+        routerLink="/inwentaryzacja"
+        (click)="toggleRightMenu()"
+        [class.active]="isActive('/inwentaryzacja')"
+      >
+        Inwentaryzacja
+      </li>
+      <li
+        routerLink="/magazyn"
+        (click)="toggleRightMenu()"
+        [class.active]="isActive('/magazyn')"
+      >
+        Magazyn
+      </li>
     </ul>
     <div class="sidebar-kit-row">
-      <a class="kit-box kit-box-mobile" routerLink="/home">KIT</a>
-      <a class="kit-box kit-box-mobile" routerLink="/home">KIT</a>
+      <a
+        class="kit-box kit-box-mobile"
+        routerLink="/home"
+        [class.active]="isActive('/home', true)"
+        >KIT</a
+      >
+      <a
+        class="kit-box kit-box-mobile"
+        routerLink="/home"
+        [class.active]="isActive('/home', true)"
+        >KIT</a
+      >
     </div>
   </nav>
 
   <!-- Overlay for side menus -->
-  <div class="menu-overlay" *ngIf="leftMenuOpen || rightMenuOpen" (click)="closeMenus()"></div>
+  <div
+    class="menu-overlay"
+    *ngIf="leftMenuOpen || rightMenuOpen"
+    (click)="closeMenus()"
+  ></div>
 </header>
