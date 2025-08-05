@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../components/header/header.component';
-import { FooterComponent } from '../components/footer/footer.component';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent],
+  imports: [HeaderComponent],
   providers: [CookieService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'

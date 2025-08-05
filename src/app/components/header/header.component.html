@@ -1,24 +1,43 @@
 <header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm3 col-3">
-                <div class="logo-container">
-                    <img src="assets/wama_logo_dark.png" alt="logo" class="logo">
-                </div>
-            </div>
-            <div class="col-md-9 col-sm-9 col-9 text-end">
-                <div class="menu-icon" (click)="openMenu()">
-                    <i class="{{menu_icon}}"></i>
-                </div>
-                <div class="desktop-menu" [class.mobile-menu]="menuValue">
-                    <ul>
-                        <li routerLink="/home" (click)="closeMenu()">Home</li>
-                        <li routerLink="/lokalizacje" (click)="closeMenu()">Lokalizacje</li>
-                        <li routerLink="/magazyn" (click)="closeMenu()">Magazyn</li>
-                        <li routerLink="/login" (click)="loginHandler()">{{loginText}}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+  <div class="header-flex">
+    <!-- Left menu icon (always visible) -->
+    <div class="menu-icon left-menu" (click)="toggleLeftMenu()" [class.open]="leftMenuOpen" title="Open left menu">
+      <i class="bi bi-list"></i>
     </div>
+
+    <!-- Logo (centered absolutely) -->
+    <div class="logo-container">
+      <img src="assets/wama_logo_dark.png" alt="logo" class="logo">
+    </div>
+
+    <!-- Right menu icon (mobile only) -->
+    <div class="menu-icon right-menu" (click)="toggleRightMenu()" [class.open]="rightMenuOpen" title="Open right menu">
+      <i class="bi bi-three-dots-vertical"></i>
+    </div>
+  </div>
+
+  <!-- Left sidebar menu (slide in/out) -->
+  <nav class="side-menu left" [class.open]="leftMenuOpen">
+    <button class="close-btn" (click)="toggleLeftMenu()">&times;</button>
+    <ul>
+      <li routerLink="/home" (click)="toggleLeftMenu()">Home</li>
+      <li routerLink="/lokalizacje" (click)="toggleLeftMenu()">Locations</li>
+      <li routerLink="/magazyn" (click)="toggleLeftMenu()">Storage</li>
+      <li routerLink="/login" (click)="loginHandler()">{{loginText}}</li>
+    </ul>
+  </nav>
+
+  <!-- Right sidebar menu (mobile only, slide in/out) -->
+  <nav class="side-menu right" [class.open]="rightMenuOpen">
+    <button class="close-btn" (click)="toggleRightMenu()">&times;</button>
+    <ul>
+      <li routerLink="/home" (click)="toggleRightMenu()">Home</li>
+      <li routerLink="/lokalizacje" (click)="toggleRightMenu()">Locations</li>
+      <li routerLink="/magazyn" (click)="toggleRightMenu()">Storage</li>
+      <li routerLink="/login" (click)="loginHandler()">{{loginText}}</li>
+    </ul>
+  </nav>
+
+  <!-- Overlay for side menus -->
+  <div class="menu-overlay" *ngIf="leftMenuOpen || rightMenuOpen" (click)="closeMenus()"></div>
 </header>

@@ -3,11 +3,10 @@ import { HeaderComponent } from '../components/header/header.component';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { LocationService } from './lokalizacje.service';
-import { FooterComponent } from '../components/footer/footer.component';
 
 @Component({
   selector: 'app-lokalizacje',
-  imports: [HeaderComponent, FooterComponent],
+  imports: [HeaderComponent],
   standalone: true,
   templateUrl: './lokalizacje.component.html',
   styleUrl: './lokalizacje.component.scss'

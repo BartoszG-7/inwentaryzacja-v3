@@ -1,8 +1,10 @@
+@import 'global';
+
 .table-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 120px); // adjust for header/footer height
+  min-height: calc(100vh - 120px); // adjust for header/footer
   padding: 2rem 0;
 }
 
@@ -11,9 +13,9 @@ table {
   background: #fff;
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   border: 2px solid #000;
-  min-width: 350px;
-  width: 100%;
-  max-width: 700px;
+  width: 80vw;
+  max-width: 1000px;
+  min-width: 320px;
   table-layout: fixed;
 }
 
@@ -23,6 +25,9 @@ th, td {
   text-align: left;
   min-height: 48px;
   vertical-align: middle;
+  word-break: break-word;
+  white-space: pre-line;
+  font-size: 1rem;
 }
 
 th {
@@ -35,29 +40,24 @@ tr:nth-child(even) {
   background: #f7f7f7;
 }
 
-button {
-  padding: 0.4rem 1rem;
-  min-height: 2.25rem;
-  border: none;
-  background: #1e9497;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s;
-  font-size: 1rem;
+@media (max-width: 900px) {
+  table {
+    width: 95vw;
+    font-size: 0.95rem;
+  }
+  th, td {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.95rem;
+  }
 }
 
-button:hover {
-  background: #176d6f;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 0.3rem 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 1rem;
-  font-family: inherit;
-  box-sizing: border-box;
-  height: 2.25rem; 
+@media (max-width: 600px) {
+  table {
+    width: 100vw;
+    font-size: 0.9rem;
+  }
+  th, td {
+    padding: 0.4rem 0.3rem;
+    font-size: 0.9rem;
+  }
 }

@@ -14,37 +14,45 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class HeaderComponent implements OnInit {
 
-    constructor(private readonly cookieService: CookieService, private readonly router: Router) { }
+    leftMenuOpen = false;
+    rightMenuOpen = false;
     loginText: string = 'Login';
+    menu_icon = 'fa fa-bars';
+
+    constructor(
+        private readonly cookieService: CookieService,
+        private readonly router: Router
+    ) { }
+
     ngOnInit(): void {
         if (this.cookieService.get('secret') === "d07f690d14a52002aa869e7b7e428bc79d49466141b85952a69009e36d8ef701") {
             this.loginText = 'Logout';
-
         } else {
             this.loginText = 'Login';
         }
     }
-    menuValue: boolean = false;
-    menu_icon: string = 'bi bi-list';
+
     loginHandler() {
-        this.closeMenu();
+        this.closeMenus();
         if (this.cookieService.get('secret') === "d07f690d14a52002aa869e7b7e428bc79d49466141b85952a69009e36d8ef701") {
             this.cookieService.delete('secret');
             this.loginText = 'Login';
             this.router.navigate(['/login']);
         }
     }
-    openMenu() {
-        this.menuValue = !this.menuValue;
-        this.menu_icon = this.menuValue ? 'bi bi-x' : 'bi bi-list';
+
+    toggleLeftMenu() {
+        this.leftMenuOpen = !this.leftMenuOpen;
+        if (this.leftMenuOpen) this.rightMenuOpen = false;
     }
 
-    closeMenu() {
-        this.menuValue = false;
-        this.menu_icon = 'bi bi-list';
+    toggleRightMenu() {
+        this.rightMenuOpen = !this.rightMenuOpen;
+        if (this.rightMenuOpen) this.leftMenuOpen = false;
     }
 
-
-
-
+    closeMenus() {
+        this.leftMenuOpen = false;
+        this.rightMenuOpen = false;
+    }
 }
