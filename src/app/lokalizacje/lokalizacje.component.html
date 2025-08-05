@@ -1,7 +1,26 @@
 <app-header></app-header>
 
 <table>
-    table
+    @for (e of locations; track e._id) {
+    @if (editing!=e._id) {
+    <tr>
+        <td>{{ e.name }}</td>
+        <td>{{ e.address }}</td>
+        <td>{{ e.tag }}</td>
+        <td>{{ e.note }}</td>
+        <button (click)="editData(e._id)">Edit</button>
+    </tr>
+    } @else {
+    <tr>
+        <td><input type="text" value={{e.name}} #name></td>
+        <td><input type="text" value={{e.address}} #address></td>
+        <td><input type="text" value={{e.tag}} #tag></td>
+        <td><input type="text" value={{e.note}} #note></td>
+        <button (click)="saveData(e._id,name.value,address.value,tag.value,note.value)">Confirm</button>
+    </tr>
+    }
+    }
+
 </table>
 
 <app-footer></app-footer>
