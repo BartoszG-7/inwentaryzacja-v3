@@ -21,12 +21,21 @@ export class LocationService {
     }
 
     async delete(id: string): Promise<string> {
-        this.locationModel.deleteMany({ "_id": id }).exec();
+        await this.locationModel.deleteOne({ _id: id }).exec();
         return "OK";
     }
 
     async update(id: string, body: UpdateLocationDto): Promise<string> {
-        this.locationModel.updateMany({ "_id": id }, body).exec();
+        await this.locationModel.updateOne({ _id: id }, body).exec();
+        return "OK";
+    }
+    async deleteMany(filter: any): Promise<string> {
+        await this.locationModel.deleteMany(filter).exec();
+        return "OK";
+    }
+
+    async updateMany(filter: any, body: UpdateLocationDto): Promise<string> {
+        await this.locationModel.updateMany(filter, body).exec();
         return "OK";
     }
 }

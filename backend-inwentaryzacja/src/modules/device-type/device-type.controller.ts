@@ -10,21 +10,21 @@ export class DeviceTypeController {
 
     @Post('')
     async postCreate(@Body() body: CreateDeviceTypeDto) {
-        this.deviceTypeService.create(body);
+        return await this.deviceTypeService.create(body);
     }
 
     @Get(':query')
     async getFind(@Param("query") query: string) {
-        return this.deviceTypeService.find(query);
+        return await this.deviceTypeService.find(query);
     }
 
     @Delete(':id')
     async getDelete(@Param("id") id: string) {
-        return this.deviceTypeService.delete(id);
+        return await this.deviceTypeService.delete(id);
     }
 
     @Patch(':id')
     async postUpdate(@Param("id") id: string, @Body() body: UpdateDeviceTypeDto) {
-        this.deviceTypeService.update(id, body);
+        return await this.deviceTypeService.update(id, body);
     }
 }

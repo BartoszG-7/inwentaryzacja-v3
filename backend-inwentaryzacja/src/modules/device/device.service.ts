@@ -21,12 +21,21 @@ export class DeviceService {
     }
 
     async delete(id: string): Promise<string> {
-        this.deviceModel.deleteMany({"id":id}).exec();
+        await this.deviceModel.deleteOne({ _id: id }).exec();
         return "OK";
     }
 
     async update(id: string, body: UpdateDeviceDto): Promise<string> {
-        this.deviceModel.updateMany({"id":id}, body).exec();
+        await this.deviceModel.updateOne({ _id: id }, body).exec();
+        return "OK";
+    }
+    async deleteMany(filter: any): Promise<string> {
+        await this.deviceModel.deleteMany(filter).exec();
+        return "OK";
+    }
+
+    async updateMany(filter: any, body: UpdateDeviceDto): Promise<string> {
+        await this.deviceModel.updateMany(filter, body).exec();
         return "OK";
     }
 }
