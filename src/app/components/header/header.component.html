@@ -12,10 +12,10 @@
                 </div>
                 <div class="desktop-menu" [class.mobile-menu]="menuValue">
                     <ul>
-                        <li (click)="closeMenu()"><a routerLink="/home">Home</a></li>
-                        <li (click)="closeMenu()">Lokalizacje</li>
-                        <li (click)="closeMenu()">Magazyn</li>
-                        <li (click)="closeMenu()"><a routerLink="/login">Login/Logout</a></li>
+                        <li routerLink="/home" (click)="closeMenu()">Home</li>
+                        <li routerLink="/lokalizacje" (click)="closeMenu()">Lokalizacje</li>
+                        <li routerLink="/magazyn" (click)="closeMenu()">Magazyn</li>
+                        <li routerLink="/login" (click)="closeMenu()">Login/Logout</li>
                     </ul>
                 </div>
             </div>

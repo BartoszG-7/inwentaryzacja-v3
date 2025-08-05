@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { HeaderService } from './header.service';
 import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-header',
     standalone: true,
-    imports: [RouterOutlet],
+    imports: [ RouterLink],
     providers: [HeaderService, HttpClient],
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
