@@ -75,16 +75,19 @@ header {
     transform: translateX(-40px) scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: translateX(0) scale(1);
     opacity: 1;
   }
 }
+
 @keyframes pop-in-right {
   from {
     transform: translateX(40px) scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: translateX(0) scale(1);
     opacity: 1;
@@ -174,16 +177,23 @@ header {
   border-color: $primary-color;
 }
 
+.menu-icon.menu-icon.left-menu {
+  display: flex;
+}
+
 /* Hide header links, KIT, and logout on mobile */
 @media (max-width: 900px) {
+
   .header-links,
   .kit-box,
   .logout-btn {
     display: none !important;
   }
+
   .menu-icon {
     display: flex;
   }
+
   .menu-icon.right-menu.mobile-only {
     display: flex !important;
     margin-left: auto;
@@ -321,6 +331,7 @@ header {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }

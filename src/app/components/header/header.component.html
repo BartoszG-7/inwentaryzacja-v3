@@ -7,7 +7,8 @@
         </div>
 
         <!-- KIT box (desktop only, now left side) -->
-        <a class="kit-box" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a>
+        <!--<a class="kit-box" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a> -->
+
 
         <!-- Logo (centered absolutely) -->
         <div class="logo-container">
@@ -16,8 +17,7 @@
 
         <!-- Header links (desktop only, now right side) -->
         <div class="header-links">
-            <a routerLink="/inwentaryzacja" [class.active]="isActive('/inwentaryzacja')">Inwentaryzacja</a>
-            <a routerLink="/magazyn" [class.active]="isActive('/magazyn')">Magazyn</a>
+
         </div>
 
         <!-- Logout icon (desktop only, stays top right) -->
@@ -46,10 +46,7 @@
                 Magazyn
             </li>
         </ul>
-        <div class="sidebar-kit-row">
-            <a class="kit-box kit-box-mobile" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a>
-            <a class="kit-box kit-box-mobile" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a>
-        </div>
+
     </nav>
 
     <!-- Right sidebar menu (mobile only, slide in/out) -->
