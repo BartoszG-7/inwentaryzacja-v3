@@ -3,11 +3,7 @@ import { IsString, IsOptional } from 'class-validator';
 export class UpdateDeviceTypeDto {
     @IsOptional()
     @IsString()
-    ip?: string;
-
-    @IsOptional()
-    @IsString()
-    deviceTypeTag?: string;
+    name?: string;
 
     @IsOptional()
     @IsString()
@@ -15,25 +11,29 @@ export class UpdateDeviceTypeDto {
 
     @IsOptional()
     @IsString()
-    macAddress?: string;
-
-    @IsOptional()
-    @IsString()
-    serialNumber?: string;
-
-    @IsOptional()
-    @IsString()
-    serverAddress?: string;
-
-    @IsOptional()
-    @IsString()
     note?: string;
 
     @IsOptional()
     @IsString()
-    pin?: string;
+    producent?: string;
 
     @IsOptional()
     @IsString()
-    remoteAccessId?: string;
+    model?: string;
+
+    @IsOptional()
+    @IsString()
+    resolution?: string;
+
+    @IsOptional()
+    @IsString()
+    last_tag?: string;
+
+    @IsOptional()
+    @IsString()
+    remote_access_enum?: string;
+
+    @IsOptional()
+    @IsString()
+    color?: string;
 }

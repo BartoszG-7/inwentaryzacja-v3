@@ -4,15 +4,15 @@ export type DeviceTypeDocument = HydratedDocument<DeviceType>;
 
 @Schema()
 export class DeviceType {
-    @Prop() ip: string;
-    @Prop() deviceTypeTag: string;
+    @Prop() name: string;
     @Prop() tag: string;
-    @Prop() macAddress: string;
-    @Prop() serialNumber: string;
-    @Prop() serverAddress: string;
-    @Prop() note?: string;
-    @Prop() pin?: string;
-    @Prop() remoteAccessId: string;
+    @Prop() note: string;
+    @Prop() producent: string;
+    @Prop() model: string;
+    @Prop() resolution: string;
+    @Prop() last_tag: string;
+    @Prop() remote_access_enum: string;
+    @Prop() color: string;
 }
 
 export const deviceTypeSchema = SchemaFactory.createForClass(DeviceType);
