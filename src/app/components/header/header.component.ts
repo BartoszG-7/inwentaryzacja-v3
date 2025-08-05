@@ -1,77 +1,56 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HeaderService } from './header.service';
-import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink, NavigationEnd } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+import { RouterModule } from '@angular/router';
 
 @Component({
-    selector: 'app-header',
-    standalone: true,
-    imports: [CommonModule, RouterLink],
-    providers: [HeaderService, HttpClient, CookieService],
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+  selector: 'app-header',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
+  leftMenuOpen = false;
+  rightMenuOpen = false;
+  showLeftMenu = true;
+  showRightMenu = true;
+  selectedRoute: string = '';
 
-    leftMenuOpen = false;
-    rightMenuOpen = false;
-    loginText: string = 'Login';
+  constructor(private router: Router) {
+    this.selectedRoute = router.url;
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.selectedRoute = event.urlAfterRedirects;
+      }
+    });
+  }
 
-    showLeftMenu = true;
-    showRightMenu = false;
+  toggleLeftMenu() {
+    this.leftMenuOpen = !this.leftMenuOpen;
+    if (this.leftMenuOpen) this.rightMenuOpen = false;
+  }
 
-    constructor(
-        private readonly cookieService: CookieService,
-        private readonly router: Router
-    ) { }
+  toggleRightMenu() {
+    this.rightMenuOpen = !this.rightMenuOpen;
+    if (this.rightMenuOpen) this.leftMenuOpen = false;
+  }
 
-    ngOnInit(): void {
-        if (this.cookieService.get('secret') === "d07f690d14a52002aa869e7b7e428bc79d49466141b85952a69009e36d8ef701") {
-            this.loginText = 'Logout';
-        } else {
-            this.loginText = 'Login';
-        }
+  closeMenus() {
+    this.leftMenuOpen = false;
+    this.rightMenuOpen = false;
+  }
 
-        // Initial check for menu icons on first load
-        this.updateMenuIcons(this.router.url);
+  loginHandler() {
+    // Clear session/token if needed
+    // Redirect to login page
+    this.router.navigate(['/login']);
+  }
 
-        this.router.events.subscribe(event => {
-            if (event instanceof NavigationEnd) {
-                this.updateMenuIcons(event.urlAfterRedirects || event.url);
-            }
-        });
+  isActive(path: string, exact = false): boolean {
+    if (exact) {
+      return this.selectedRoute === path;
     }
-
-    updateMenuIcons(url: string) {
-        // Left icon: mobile only, not on login
-        this.showLeftMenu = !url.startsWith('/login');
-        // Right icon: mobile only, only on /storage or /locations
-        this.showRightMenu = url.startsWith('/storage') || url.startsWith('/locations');
-    }
-
-    loginHandler() {
-        this.closeMenus();
-        if (this.cookieService.get('secret') === "d07f690d14a52002aa869e7b7e428bc79d49466141b85952a69009e36d8ef701") {
-            this.cookieService.delete('secret');
-            this.loginText = 'Login';
-            this.router.navigate(['/login']);
-        }
-    }
-
-    toggleLeftMenu() {
-        this.leftMenuOpen = !this.leftMenuOpen;
-        if (this.leftMenuOpen) this.rightMenuOpen = false;
-    }
-
-    toggleRightMenu() {
-        this.rightMenuOpen = !this.rightMenuOpen;
-        if (this.rightMenuOpen) this.leftMenuOpen = false;
-    }
-
-    closeMenus() {
-        this.leftMenuOpen = false;
-        this.rightMenuOpen = false;
-    }
+    return this.selectedRoute.startsWith(path);
+  }
 }
