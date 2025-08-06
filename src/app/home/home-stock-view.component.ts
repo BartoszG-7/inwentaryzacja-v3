@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="card mb-3" *ngFor="let item of stockItems">
+    <div class="card mb-3 stock-card" *ngFor="let item of stockItems">
       <div class="card-body d-flex justify-content-between align-items-center">
         <div>
           <h6 class="mb-0">{{item.name}}</h6>
@@ -20,7 +20,11 @@ import { CommonModule } from '@angular/common';
       </div>
     </div>
   `,
-  styles: [``]
+  styles: [`
+    .stock-card {
+      border-radius: 4px !important;
+    }
+  `]
 })
 export class HomeStockViewComponent {
   stockItems = [
