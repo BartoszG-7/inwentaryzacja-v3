@@ -27,12 +27,7 @@ import { CommonModule } from '@angular/common';
     .stock-card {
       border-radius: 4px !important;
     }
-    .stock-separator {
-      width: 80%;
-      margin: 0.5rem auto 1rem auto;
-      border-bottom: 2px solid #dee2e6;
-      opacity: 1;
-    }
+  
   `]
 })
 export class HomeStockViewComponent {
