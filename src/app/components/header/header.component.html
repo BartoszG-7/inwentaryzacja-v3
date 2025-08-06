@@ -1,14 +1,13 @@
 <header>
     <div class="header-flex">
         <!-- Left menu icon (mobile only, not on login) -->
-        <div *ngIf="showLeftMenu" class="menu-icon left-menu" (click)="toggleLeftMenu()" [class.open]="leftMenuOpen"
+        <div *ngIf="showLeftMenu && !isLoginPage" class="menu-icon left-menu" (click)="toggleLeftMenu()" [class.open]="leftMenuOpen"
             title="Open left menu">
             <i class="bi bi-list"></i>
         </div>
 
         <!-- KIT box (desktop only, now left side) -->
-        <!--<a class="kit-box" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a> -->
-        <a class="kit-box" (click)="toggleLeftMenu()">KIT</a>
+        <a class="kit-box" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a>
 
         <!-- Logo (centered absolutely) -->
         <div class="logo-container">
@@ -21,12 +20,12 @@
         </div>
 
         <!-- Logout icon (desktop only, stays top right) -->
-        <button class="logout-btn" (click)="loginHandler()" title="Logout" tabindex="0">
+        <button *ngIf="!isLoginPage" class="logout-btn" (click)="loginHandler()" title="Logout" tabindex="0">
             <i class="bi bi-box-arrow-right"></i>
         </button>
 
         <!-- Right menu icon (mobile only, always visible on mobile) -->
-        <div *ngIf="showRightMenu" class="menu-icon right-menu mobile-only" (click)="toggleRightMenu()"
+        <div *ngIf="showRightMenu && !isLoginPage" class="menu-icon right-menu mobile-only" (click)="toggleRightMenu()"
             [class.open]="rightMenuOpen" title="Open right menu">
             <i class="bi bi-three-dots-vertical"></i>
         </div>
@@ -46,7 +45,13 @@
                 Magazyn
             </li>
         </ul>
-
+        <!-- KIT and Logout only on mobile sidebar, side by side at bottom -->
+        <div *ngIf="isMobile" class="sidebar-kit-logout-row">
+            <a class="kit-box-mobile" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a>
+            <a class="logout-btn-mobile" routerLink="/logout" (click)="loginHandler()" title="Logout" tabindex="0" [class.active]="isActive('/logout', true)">
+                <i class="bi bi-box-arrow-right"></i>
+            </a>
+        </div>
     </nav>
 
     <!-- Right sidebar menu (mobile only, slide in/out) -->
@@ -63,10 +68,7 @@
                 Magazyn
             </li>
         </ul>
-        <div class="sidebar-kit-row">
-            <a class="kit-box kit-box-mobile" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a>
-            <a class="kit-box kit-box-mobile" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a>
-        </div>
+        <!-- No KIT/logout row here, only in left sidebar on mobile -->
     </nav>
 
     <!-- Overlay for side menus -->

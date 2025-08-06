@@ -1,4 +1,71 @@
 @import 'global';
+@import 'global';
+
+@media (max-width: 900px) {
+  .sidebar-kit-logout-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 1rem;
+    padding: 0 1rem 1.5rem 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: $dark-color;
+  }
+
+  .kit-box-mobile {
+    width: 90px;
+    height: 44px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $primary-color;
+    color: $primary-color;
+    background: transparent;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    outline: none;
+    user-select: none;
+  }
+
+  .kit-box-mobile.active,
+  .kit-box-mobile:hover,
+  .kit-box-mobile:focus,
+  .kit-box-mobile:active {
+    background: transparent;
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+
+  .logout-btn-mobile {
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    color: $light-color;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .logout-btn-mobile.active,
+  .logout-btn-mobile:hover,
+  .logout-btn-mobile:focus,
+  .logout-btn-mobile:active {
+    background: transparent;
+    color: $primary-color;
+    border-color: $primary-color;
+    border: 2px solid $primary-color;
+  }
+}
 
 header {
   background-color: $dark-color;

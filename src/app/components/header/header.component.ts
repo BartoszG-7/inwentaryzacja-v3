@@ -18,6 +18,10 @@ export class HeaderComponent {
     showRightMenu = true;
     selectedRoute: string = '';
 
+    get isLoginPage(): boolean {
+        return this.selectedRoute === '/login';
+    }
+
     get isMobile(): boolean {
         return window.innerWidth <= 768;
     }
@@ -39,17 +43,15 @@ export class HeaderComponent {
     }
 
     updateMenus() {
-        if (this.isMobile) {
-            if (!this.isLoggedIn) {
-                this.showLeftMenu = false;
-                this.showRightMenu = false;
-            } else if (this.selectedRoute === '/home') {
-                this.showLeftMenu = true;
-                this.showRightMenu = false;
-            } else {
-                this.showLeftMenu = true;
-                this.showRightMenu = true;
-            }
+        if (!this.isLoggedIn) {
+            this.showLeftMenu = false;
+            this.showRightMenu = false;
+        } else if (this.selectedRoute === '/home') {
+            this.showLeftMenu = true;
+            this.showRightMenu = false;
+        } else if (this.isMobile) {
+            this.showLeftMenu = true;
+            this.showRightMenu = true;
         } else {
             this.showLeftMenu = true;
             this.showRightMenu = true;
