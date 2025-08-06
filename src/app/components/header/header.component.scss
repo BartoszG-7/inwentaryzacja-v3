@@ -92,7 +92,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none;
+  pointer-events: auto;
   height: 100%;
 }
 
@@ -415,3 +415,7 @@ header {
   }
 }
 
+.menu-icon.left-menu{
+  max-width: 48px;
+  max-height: 44px;
+}  
