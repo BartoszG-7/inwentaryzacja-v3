@@ -8,7 +8,7 @@ import { HomeStockViewComponent } from './home-stock-view.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, HomeLatestModifiedComponent, HomeStockViewComponent],
+  imports: [CommonModule, HeaderComponent, HomeLatestModifiedComponent, HomeStockViewComponent],
   template: `
     <app-header></app-header>
     <div class="container py-4">
@@ -18,7 +18,7 @@ import { HomeStockViewComponent } from './home-stock-view.component';
           <app-home-latest-modified></app-home-latest-modified>
         </div>
         <div class="d-none d-md-flex col-md-1 justify-content-center align-items-center px-0">
-          <div style="width:2px; background:#e0e0e0; height:100%; min-height:400px;"></div>
+          <div style="width:2px; background:#e0e0e0; height:100%;"></div>
         </div>
         <div class="col-12 col-md-7 mb-4">
           <h4 class="mb-3">QUICK STOCK VIEW</h4>

@@ -193,13 +193,12 @@ header {
 }
 
 .kit-box:hover,
-.kit-box:focus,
-.kit-box:active,
-.kit-box.active {
+.kit-box:focus {
   color: $primary-color;
   border-color: $primary-color;
   background: transparent;
 }
+
 
 .kit-box.center {
   margin: 0 auto;
@@ -382,9 +381,8 @@ header {
 }
 
 .kit-box-mobile:hover,
-.kit-box-mobile:focus,
-.kit-box-mobile:active,
-.kit-box-mobile.active {
+.kit-box-mobile:hover,
+.kit-box-mobile:focus {
   background: transparent;
   color: $primary-color;
   border-color: $primary-color;
