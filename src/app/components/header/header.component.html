@@ -59,15 +59,7 @@
     <nav *ngIf="showRightMenu" class="side-menu right" [class.open]="rightMenuOpen">
         <button class="close-btn" (click)="toggleRightMenu()">&times;</button>
         <ul>
-            <li routerLink="/home" (click)="toggleRightMenu()" [class.active]="isActive('/home', true)">
-                Home
-            </li>
-            <li routerLink="/inwentaryzacja" (click)="toggleRightMenu()" [class.active]="isActive('/inwentaryzacja')">
-                Inwentaryzacja
-            </li>
-            <li routerLink="/magazyn" (click)="toggleRightMenu()" [class.active]="isActive('/magazyn')">
-                Magazyn
-            </li>
+          <app-treebar></app-treebar>
         </ul>
         <!-- No KIT/logout row here, only in left sidebar on mobile -->
     </nav>
