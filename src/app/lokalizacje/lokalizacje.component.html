@@ -1,24 +1,30 @@
 <app-header></app-header>
-<app-treebar></app-treebar>
-<div class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Tag</th>
-        <th>Notes</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (e of locations; track e._id) {
-      <tr>
-        <td>{{ e.name }}</td>
-        <td>{{ e.address }}</td>
-        <td>{{ e.tag }}</td>
-        <td>{{ e.note }}</td>
-      </tr>
-      }
-    </tbody>
-  </table>
+<div class="layout">
+  <div class="sidebar-static">
+    <ul>
+    <app-treebar></app-treebar>
+    </ul>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Tag</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (e of locations; track e._id) {
+        <tr>
+          <td>{{ e.name }}</td>
+          <td>{{ e.address }}</td>
+          <td>{{ e.tag }}</td>
+          <td>{{ e.note }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </div>
