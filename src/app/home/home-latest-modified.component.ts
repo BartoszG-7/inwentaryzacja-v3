@@ -13,7 +13,7 @@ export class HomeLatestModifiedComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getNamesAndDate().subscribe({
       next: (data: any) => {
-        console.log('Latest modified data:', data);
+        console.log('Latest modified data:', data[data.length - 1]);
       },
       error: (err) => {
         console.error('Error fetching latest modified data:', err);

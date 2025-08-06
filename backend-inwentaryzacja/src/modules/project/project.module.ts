@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ProjectController } from './project.controller';
 import { ProjectService } from './project.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Project, ProjectSchema } from '../location/project.schema';
+import { Project, ProjectSchema } from './project.schema';
 
 @Module({
     imports: [MongooseModule.forRoot('mongodb://localhost:27017/inwentaryzacja',), MongooseModule.forFeature([

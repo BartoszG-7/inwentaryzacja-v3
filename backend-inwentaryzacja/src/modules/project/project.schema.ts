@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Types } from 'mongoose';
-import { ProjectDevice } from './project-device.schema';
-import { ProjectHistory } from './project-history.schema';
+import { ProjectDevice } from '../location/project-device.schema';
+import { ProjectHistory } from '../location/project-history.schema';
 export type ProjectDocment = HydratedDocument<Project>;
 
 @Schema()

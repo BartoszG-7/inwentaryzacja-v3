@@ -9,7 +9,7 @@ import { LocationController } from './modules/location/location.controller';
 import { ProjectController } from './modules/project/project.controller';
 import { DeviceController } from './modules/device/device.controller';
 import { Location, LocationSchema } from './modules/location/location.schema';
-import { Project, ProjectSchema } from './modules/location/project.schema';
+import { Project, ProjectSchema } from './modules/project/project.schema';
 import { Device, DeviceSchema } from './modules/device/device.schema';
 
 
