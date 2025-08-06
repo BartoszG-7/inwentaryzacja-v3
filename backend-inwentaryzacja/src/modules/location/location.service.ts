@@ -20,6 +20,8 @@ export class LocationService {
         if (query === "treebar") {
 
             return this.locationModel.find().select({ "name": 1, "projects.name": 1 }).exec();
+        } else if (query === "modified") {
+            return this.locationModel.find().select({ "name": 1, "projects.name": 1, "projects.projectHistory.date": 1 }).exec();
         } else {
             return this.locationModel.find(JSON.parse(query)).exec();
         }
