@@ -1,79 +1,129 @@
 [{
   "_id": {
-    "$oid": "6890a14ad99946503d77e757"
+    "$oid": "689304db20a8d0e9fba68170"
   },
-  "name": "tets",
-  "address": "tets",
-  "tags": [
-    "te",
-    "st"
+  "name": "67",
+  "tag": "tag",
+  "address": "address",
+  "note": "note",
+  "projects": [
+    {
+      "name": "mustard",
+      "addrPool": [],
+      "devices": [],
+      "_id": {
+        "$oid": "6892f6f8580a58b6aefd4e9a"
+      },
+      "projectDevices": [],
+      "projectHistory": []
+    },
+    {
+      "addrPool": [],
+      "name": "7test",
+      "devices": [],
+      "projectHistory": [
+        {
+          "_id": {
+            "$oid": "6892f6f8580a58b6aefd4e9c"
+          }
+        },
+        {
+          "_id": {
+            "$oid": "6892f6f8580a58b6aefd4e9d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6892f6f8580a58b6aefd4e9b"
+      },
+      "projectDevices": []
+    }
   ],
-  "note": "tetssdagfdgdfgfdgdfgsdasd",
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6890a17db84f927ff95a5ea4"
+    "$oid": "68930f5f20a8d0e9fba68171"
   },
-  "name": "tets",
-  "address": "asdsa",
-  "tags": [
-    "te",
-    "st"
+  "name": "test1",
+  "tag": "tag",
+  "address": "address",
+  "note": "note",
+  "projects": [
+    {
+      "name": "sadsadas",
+      "addrPool": [],
+      "devices": [],
+      "_id": {
+        "$oid": "6892f6f8580a58b6aefd4e9a"
+      },
+      "projectDevices": [],
+      "projectHistory": []
+    },
+    {
+      "addrPool": [],
+      "name": "efefe",
+      "devices": [],
+      "projectHistory": [
+        {
+          "_id": {
+            "$oid": "6892f6f8580a58b6aefd4e9c"
+          }
+        },
+        {
+          "_id": {
+            "$oid": "6892f6f8580a58b6aefd4e9d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6892f6f8580a58b6aefd4e9b"
+      },
+      "projectDevices": []
+    }
   ],
-  "note": "tets",
-  "__v": 0,
-  "tag": ""
+  "__v": 0
 },
 {
   "_id": {
-    "$oid": "6890a195b84f927ff95a5ea6"
+    "$oid": "68930f6c20a8d0e9fba68172"
   },
-  "name": "tets",
-  "address": "asdsadghgh",
-  "tags": [
-    "te",
-    "st"
+  "name": "adcbtbr",
+  "tag": "tag",
+  "address": "address",
+  "note": "note",
+  "projects": [
+    {
+      "name": "asxwdwdw",
+      "addrPool": [],
+      "devices": [],
+      "_id": {
+        "$oid": "6892f6f8580a58b6aefd4e9a"
+      },
+      "projectDevices": [],
+      "projectHistory": []
+    },
+    {
+      "addrPool": [],
+      "name": "efwefwed2w2",
+      "devices": [],
+      "projectHistory": [
+        {
+          "_id": {
+            "$oid": "6892f6f8580a58b6aefd4e9c"
+          }
+        },
+        {
+          "_id": {
+            "$oid": "6892f6f8580a58b6aefd4e9d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6892f6f8580a58b6aefd4e9b"
+      },
+      "projectDevices": []
+    }
   ],
-  "note": "tets",
-  "__v": 0,
-  "tag": ""
-},
-{
-  "_id": {
-    "$oid": "6890b0942ffd840cb73cf4f7"
-  },
-  "name": "tets",
-  "address": "tets",
-  "tags": [
-    "te",
-    "st"
-  ],
-  "note": "tets",
-  "__v": 0,
-  "tag": "skvd"
-},
-{
-  "_id": {
-    "$oid": "6891a6a49bb48960e83634cf"
-  },
-  "name": "tets",
-  "address": "vdssdvds",
-  "tags": [
-    "te",
-    "st"
-  ],
-  "note": "weyfgweyfguw",
-  "__v": 0,
-  "tag": ""
-},
-{
-  "_id": {
-    "$oid": "6891ab6a9bb48960e83634d0"
-  },
-  "name": "tets",
-  "address": "thrhrt",
-  "tag": "sgfdsgg",
-  "note": "ksbd",
   "__v": 0
 }]
