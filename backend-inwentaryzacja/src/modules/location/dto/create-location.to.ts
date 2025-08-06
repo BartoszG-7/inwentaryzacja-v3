@@ -1,20 +1,25 @@
-import { IsString, IsArray, ArrayNotEmpty, IsOptional } from 'class-validator';
+import { IsString, IsArray, ArrayNotEmpty, IsOptional, IsNotEmpty, ValidateNested } from 'class-validator';
+import { CreateProjectDto } from './create-project.dto';
+
+import { Type } from 'class-transformer';
 
 export class CreateLocationDto {
     @IsString()
+    @IsNotEmpty()
     name: string;
-
 
     @IsString()
     tag: string;
 
     @IsString()
+    @IsNotEmpty()
     address: string;
 
     @IsString()
     note: string;
 
-    @IsOptional()
     @IsArray()
-    projects?: string[]; // Array of Project ObjectIds
+    @ValidateNested({ each: true })
+    @Type(() => CreateProjectDto)
+    projects: CreateProjectDto[];
 }

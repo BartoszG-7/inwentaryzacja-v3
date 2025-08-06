@@ -4,7 +4,7 @@ export type ProjectHistoryDocument = HydratedDocument<ProjectHistory>;
 
 @Schema()
 export class ProjectHistory {
-    @Prop({ type: String }) type: string;
+    @Prop({ type: Number }) type: number;
 
     @Prop({ type: Date }) date: Date;
 

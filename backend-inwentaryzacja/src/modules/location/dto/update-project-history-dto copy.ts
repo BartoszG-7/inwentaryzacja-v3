@@ -1,9 +1,9 @@
-import { IsString, IsNotEmpty, IsDateString, IsOptional } from 'class-validator';
+import { IsString, IsDateString, IsOptional, IsNumber } from 'class-validator';
 
 export class UpdateProjectHistoryDto {
-    @IsString()
+    @IsNumber()
     @IsOptional()
-    type?: string;
+    type: number;
 
     @IsDateString()
     @IsOptional()
