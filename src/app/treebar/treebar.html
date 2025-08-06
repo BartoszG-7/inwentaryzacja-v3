@@ -8,6 +8,10 @@
         </ul>
     </nav>
     <div class="sidebar-content">
-        <ng-content></ng-content>
+        <ng-content>
+            @for (item of data; track item._id) {
+            <app-treeexpander projects={{item.projects}} location={{item.name}}></app-treeexpander>
+            }
+        </ng-content>
     </div>
 </aside>
