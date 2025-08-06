@@ -1,9 +1,38 @@
+.sidebar-static a {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.sidebar-static a::before {
+}
 @import 'global';
 
 ul {
   list-style-type: none;
   padding-left: 10px;
 }
+
+ul li {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+ul li::before {
+  /* removed arrow icon, now handled in HTML */
+}
+.tree-arrow {
+  display: inline-block;
+  margin-right: 0.4em;
+  color: #fff;
+  font-size: 1em;
+  opacity: 0.7;
+  vertical-align: middle;
+  transition: transform 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+.tree-arrow.down {
+  transform: rotate(90deg);
+}
+
 
 .layout {
   display: flex;
@@ -18,7 +47,7 @@ ul {
   position: sticky;
   top: 0;
   left: 0;
-  background: #23272f;
+  background: #000;
   color: #fff;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
   z-index: 10;
