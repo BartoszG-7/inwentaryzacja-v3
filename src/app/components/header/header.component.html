@@ -7,12 +7,13 @@
         </div>
 
         <!-- KIT box (desktop only, now left side) -->
-        <a class="kit-box" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a>
+        <!-- KIT button centered in header -->
+        <div class="logo-container">
+            <a class="kit-box center" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a>
+        </div>
 
         <!-- Logo (centered absolutely) -->
-        <div class="logo-container">
-            <img src="assets/wama_logo_dark.png" alt="logo" class="logo" />
-        </div>
+        <!-- Logo removed, KIT button now in center above -->
 
         <!-- Header links (desktop only, now right side) -->
         <div class="header-links">
@@ -34,7 +35,7 @@
     <!-- Left sidebar menu (slide in/out) -->
     <nav *ngIf="showLeftMenu" class="side-menu left" [class.open]="leftMenuOpen">
         <button class="close-btn" (click)="toggleLeftMenu()">&times;</button>
-        <ul>
+        <ul class="sidebar-menu-left">
             <li routerLink="/home" (click)="toggleLeftMenu()" [class.active]="isActive('/home', true)">
                 Home
             </li>
@@ -47,7 +48,7 @@
         </ul>
         <!-- KIT and Logout only on mobile sidebar, side by side at bottom -->
         <div *ngIf="isMobile" class="sidebar-kit-logout-row">
-            <a class="kit-box-mobile" routerLink="/home" [class.active]="isActive('/home', true)">KIT</a>
+            <p class="logout-label">Log Out</p>
             <a class="logout-btn-mobile" routerLink="/logout" (click)="loginHandler()" title="Logout" tabindex="0" [class.active]="isActive('/logout', true)">
                 <i class="bi bi-box-arrow-right"></i>
             </a>
