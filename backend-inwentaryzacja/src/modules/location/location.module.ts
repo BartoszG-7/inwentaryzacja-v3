@@ -6,7 +6,7 @@ import { Location, LocationSchema } from './location.schema';
 
 import { ProjectService } from '../project/project.service';
 import { ProjectController } from '../project/project.controller';
-import { Project, ProjectSchema } from '../project/project.schema';
+import { Project, ProjectSchema } from './project.schema';
 import { DeviceService } from '../device/device.service';
 import { DeviceController } from '../device/device.controller';
 import { Device, DeviceSchema } from '../device/device.schema';

@@ -10,7 +10,7 @@ export class Project {
 
     @Prop() dns: string;
 
-    @Prop() networkIp: string;
+    @Prop() networkAddress: string;
 
     @Prop() mask: string;
 
@@ -25,11 +25,8 @@ export class Project {
     @Prop({ type: [{ type: Types.ObjectId, ref: 'Device' }] })
     devices: Types.ObjectId[];
 
-    @Prop({ type: Types.ObjectId, ref: 'Location' })
-    location: Types.ObjectId;
-
-    @Prop({ type: [Object] }) projectDevices: ProjectDevice[];
-    @Prop({ type: [Object] }) projectHistory: ProjectHistory[];
+    @Prop({ type: [ProjectDevice] }) projectDevices: ProjectDevice[];
+    @Prop({ type: [ProjectHistory] }) projectHistory: ProjectHistory[];
 }
 
 export const ProjectSchema = SchemaFactory.createForClass(Project);

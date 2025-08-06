@@ -1,5 +1,5 @@
 <app-header></app-header>
-
+<app-treebar></app-treebar>
 <div class="table-container">
   <table>
     <thead>
@@ -12,12 +12,12 @@
     </thead>
     <tbody>
       @for (e of locations; track e._id) {
-        <tr>
-          <td>{{ e.name }}</td>
-          <td>{{ e.address }}</td>
-          <td>{{ e.tag }}</td>
-          <td>{{ e.note }}</td>
-        </tr>
+      <tr>
+        <td>{{ e.name }}</td>
+        <td>{{ e.address }}</td>
+        <td>{{ e.tag }}</td>
+        <td>{{ e.note }}</td>
+      </tr>
       }
     </tbody>
   </table>
