@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Types } from 'mongoose';
+import { Project } from './project.schema';
 export type LocationDocment = HydratedDocument<Location>;
 
 @Schema()
@@ -15,8 +16,8 @@ export class Location {
     @Prop()
     note: string;
 
-    @Prop({ type: [{ type: Types.ObjectId, ref: 'Project' }] })
-    projects: Types.ObjectId[];
+    @Prop({ type: [Project] })
+    projects: Project[];
 }
 
 export const LocationSchema = SchemaFactory.createForClass(Location);

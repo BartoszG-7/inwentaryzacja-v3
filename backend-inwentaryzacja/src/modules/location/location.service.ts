@@ -17,9 +17,13 @@ export class LocationService {
     }
 
     async find(query: string): Promise<Location[]> {
-        return this.locationModel.find(JSON.parse(query)).exec();
-    }
+        if (query === "treebar") {
 
+            return this.locationModel.find().select({ "name": 1, "projects.name": 1 }).exec();
+        } else {
+            return this.locationModel.find(JSON.parse(query)).exec();
+        }
+    }
     async delete(id: string): Promise<string> {
         await this.locationModel.deleteOne({ _id: id }).exec();
         return "OK";

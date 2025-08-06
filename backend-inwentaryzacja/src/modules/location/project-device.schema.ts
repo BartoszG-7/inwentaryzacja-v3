@@ -4,8 +4,8 @@ export type ProjectDeviceDocment = HydratedDocument<ProjectDevice>;
 
 @Schema()
 export class ProjectDevice {
-    @Prop() typeId: string;
-    @Prop() neededDevices: number;
+    @Prop({ type: String }) typeId: string;
+    @Prop({ type: Number }) neededDevices: number;
 
 }
 

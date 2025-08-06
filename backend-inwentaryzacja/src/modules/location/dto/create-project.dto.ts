@@ -4,7 +4,11 @@ import {
     IsString,
     IsNotEmpty,
     ArrayNotEmpty,
+    ValidateNested,
 } from 'class-validator';
+import { ProjectHistory } from '../project-history.schema';
+import { ProjectDevice } from '../project-device.schema';
+import { Type } from 'class-transformer';
 
 export class CreateProjectDto {
     @IsString()
@@ -44,8 +48,16 @@ export class CreateProjectDto {
     @IsString({ each: true })
     @IsOptional()
     devices?: string[]; // Array of Device ObjectIds
-
-    @IsString()
     @IsOptional()
-    location?: string; // Location ObjectId
+    @IsArray()
+    @ValidateNested({ each: true })
+    @Type(() => ProjectDevice)
+    projectDevices?: ProjectDevice[];
+
+
+    @IsArray()
+    @ValidateNested({ each: true })
+    @Type(() => ProjectHistory)
+    projectHistory: ProjectHistory[];
+
 }

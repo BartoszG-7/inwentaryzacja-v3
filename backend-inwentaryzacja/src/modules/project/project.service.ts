@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, RootFilterQuery } from 'mongoose';
-import { CreateProjectDto } from './dto/create-project.dto';
-import { Project, ProjectDocment } from './project.schema';
-import { UpdateProjectDto } from './dto/update-project.dto';
+import { CreateProjectDto } from '../location/dto/create-project.dto';
+import { Project, ProjectDocment } from '../location/project.schema';
+import { UpdateProjectDto } from '../location/dto/update-project.dto';
 
 @Injectable()
 export class ProjectService {
