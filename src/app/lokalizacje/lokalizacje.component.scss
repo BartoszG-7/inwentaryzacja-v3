@@ -1,3 +1,35 @@
+/* Mobile right sidebar flex layout and header styles */
+.sidebar-tree-flex {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.sidebar-tree-header {
+  display: flex;
+  align-items: center;
+  padding: 1em 1em 0.5em 1em;
+}
+.sidebar-tree-title {
+  color: #fff;
+  margin: 0;
+  font-size: 2em;
+  font-weight: 600;
+  flex: 1;
+}
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+.sidebar-tree-list {
+  margin-top: 0;
+  padding-left: 10px;
+  flex: 1;
+  overflow-y: auto;
+}
 .sidebar-static a {
   position: relative;
   padding-left: 1.5em;

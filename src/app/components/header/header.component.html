@@ -56,11 +56,15 @@
     </nav>
 
     <!-- Right sidebar menu (mobile only, slide in/out) -->
-    <nav *ngIf="showRightMenu" class="side-menu right" [class.open]="rightMenuOpen">
-        <button class="close-btn" (click)="toggleRightMenu()">&times;</button>
-        <ul>
-          <app-treebar></app-treebar>
-        </ul>
+    <nav *ngIf="showRightMenu" class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
+        <div class="sidebar-tree-header">
+            <button class="close-btn" (click)="toggleRightMenu()">&times;</button>
+            <ul class="sidebar-tree-list">
+                <h1 class="sidebar-tree-title">Lokalizacje</h1> <!-- CSS issues -->
+                <app-treebar></app-treebar>
+            </ul>
+        </div>
+        
         <!-- No KIT/logout row here, only in left sidebar on mobile -->
     </nav>
 
