@@ -1,0 +1,12 @@
+@import 'global.scss';
+.stock-card {
+  border-radius: 4px !important;
+  min-height: 90px;
+  display: flex;
+  align-items: stretch;
+}
+
+.badge.bg-primary {
+  background-color: $primary-color !important;
+  color: #fff !important;
+}
