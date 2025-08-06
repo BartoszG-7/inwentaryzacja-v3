@@ -3,12 +3,14 @@ import {
     IsOptional,
     IsString,
     IsNotEmpty,
-    ArrayNotEmpty,
     ValidateNested,
+    IsIP,
+    ArrayNotEmpty,
 } from 'class-validator';
-import { ProjectHistory } from '../project-history.schema';
-import { ProjectDevice } from '../project-device.schema';
+
 import { Type } from 'class-transformer';
+import { CreateProjectHistoryDto } from './create-project-history-dto';
+import { CreateProjectDeviceDto } from './create-project-device-dto';
 
 export class CreateProjectDto {
     @IsString()
@@ -16,48 +18,47 @@ export class CreateProjectDto {
     name: string;
 
     @IsString()
-    @IsOptional()
-    dns?: string;
+    @IsNotEmpty()
+    @IsIP()
+    dns: string;
 
     @IsString()
-    @IsOptional()
-    networkIp?: string;
+    @IsNotEmpty()
+    @IsIP()
+    networkIp: string;
 
     @IsString()
-    @IsOptional()
-    mask?: string;
+    @IsNotEmpty()
+    @IsIP()
+    mask: string;
 
     @IsString()
-    @IsOptional()
-    gateway?: string;
+    @IsNotEmpty()
+    @IsIP()
+    gateway: string;
 
     @IsArray()
+    @IsNotEmpty()
     @IsString({ each: true })
-    @IsOptional()
-    addrPool?: string[];
+    addrPool: string[];
 
     @IsString()
     @IsOptional()
     addrExclude?: string;
 
     @IsString()
-    @IsOptional()
-    remoteAccessTag?: string;
-
-    @IsArray()
-    @IsString({ each: true })
-    @IsOptional()
-    devices?: string[]; // Array of Device ObjectIds
-    @IsOptional()
-    @IsArray()
-    @ValidateNested({ each: true })
-    @Type(() => ProjectDevice)
-    projectDevices?: ProjectDevice[];
-
+    @IsNotEmpty()
+    remoteAccessTag: string;
 
     @IsArray()
     @ValidateNested({ each: true })
-    @Type(() => ProjectHistory)
-    projectHistory: ProjectHistory[];
+    @Type(() => CreateProjectDeviceDto)
+    projectDevices?: CreateProjectDeviceDto[];
+
+    @IsArray()
+    @ValidateNested({ each: true })
+    @ArrayNotEmpty()
+    @Type(() => CreateProjectHistoryDto)
+    projectHistory: CreateProjectHistoryDto[];
 
 }

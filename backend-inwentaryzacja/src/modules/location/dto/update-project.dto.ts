@@ -2,65 +2,60 @@ import {
     IsArray,
     IsOptional,
     IsString,
-    IsIP,
     ValidateNested,
+    IsIP,
 } from 'class-validator';
 import { Type } from 'class-transformer';
-import { ProjectDevice } from '../project-device.schema';
-import { ProjectHistory } from '../project-history.schema';
+import { UpdateProjectHistoryDto } from './update-project-history-dto copy';
+import { UpdateProjectDeviceDto } from './update-project-device-dto';
 
 export class UpdateProjectDto {
-    @IsOptional()
     @IsString()
+    @IsOptional()
     name?: string;
 
-    @IsOptional()
     @IsString()
-    notes?: string;
-
-    @IsOptional()
-    @IsString()
-    dns?: string;
-
     @IsOptional()
     @IsIP()
-    networkAddress?: string;
+    dns?: string;
 
+    @IsString()
+    @IsOptional()
+    @IsIP()
+    networkIp?: string;
+
+    @IsString()
     @IsOptional()
     @IsIP()
     mask?: string;
 
+    @IsString()
     @IsOptional()
     @IsIP()
     gateway?: string;
 
-    @IsOptional()
     @IsArray()
+    @IsOptional()
     @IsString({ each: true })
     addrPool?: string[];
 
-    @IsOptional()
     @IsString()
+    @IsOptional()
     addrExclude?: string;
 
-    @IsOptional()
     @IsString()
+    @IsOptional()
     remoteAccessTag?: string;
 
-    @IsOptional()
-    @IsArray()
-    @IsString({ each: true })
-    devices?: string[];
-
-    @IsOptional()
     @IsArray()
     @ValidateNested({ each: true })
-    @Type(() => ProjectDevice)
-    projectDevices?: ProjectDevice[];
-
     @IsOptional()
+    @Type(() => UpdateProjectDeviceDto)
+    projectDevices?: UpdateProjectDeviceDto[];
+
     @IsArray()
     @ValidateNested({ each: true })
-    @Type(() => ProjectHistory)
-    projectHistory?: ProjectHistory[];
+    @IsOptional()
+    @Type(() => UpdateProjectHistoryDto)
+    projectHistory?: UpdateProjectHistoryDto[];
 }

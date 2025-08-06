@@ -22,9 +22,6 @@ export class Project {
 
     @Prop() remoteAccessTag: string;
 
-    @Prop({ type: [{ type: Types.ObjectId, ref: 'Device' }] })
-    devices: Types.ObjectId[];
-
     @Prop({ type: [ProjectDevice] }) projectDevices: ProjectDevice[];
     @Prop({ type: [ProjectHistory] }) projectHistory: ProjectHistory[];
 }

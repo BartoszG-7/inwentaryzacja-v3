@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsNumber, IsOptional, Min } from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
 
 
 export class CreateProjectDeviceDto {
@@ -7,6 +7,6 @@ export class CreateProjectDeviceDto {
     typeId: string;
 
     @IsNumber()
-
+    @IsNotEmpty()
     neededDevices: number;
 }

@@ -1,19 +1,19 @@
-import { IsString, IsNotEmpty, IsDateString, IsOptional } from 'class-validator';
+import { IsString, IsNotEmpty, IsDateString, IsOptional, IsNumber } from 'class-validator';
 
 export class CreateProjectHistoryDto {
-    @IsString()
+    @IsNumber()
     @IsNotEmpty()
-    type: string;
+    type: number;
 
     @IsDateString()
     @IsNotEmpty()
     date: Date;
 
     @IsString()
-    @IsNotEmpty()
-    tag: string;
+    @IsOptional()
+    tag?: string;
 
     @IsString()
-    @IsNotEmpty()
-    deviceId: string;
+    @IsOptional()
+    deviceId?: string;
 }

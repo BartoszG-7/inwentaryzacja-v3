@@ -1,19 +1,27 @@
-import { IsString, IsArray, IsOptional } from 'class-validator';
+import { IsString, IsArray, IsOptional, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
+import { UpdateProjectDto } from './update-project.dto';
 
 export class UpdateLocationDto {
-    @IsOptional()
     @IsString()
+    @IsOptional()
     name?: string;
 
-    @IsOptional()
     @IsString()
-    address?: string;
-
     @IsOptional()
-    @IsString()
     tag?: string;
 
-    @IsOptional()
     @IsString()
+    @IsOptional()
+    address?: string;
+
+    @IsString()
+    @IsOptional()
     note?: string;
+
+    @IsArray()
+    @ValidateNested({ each: true })
+    @IsOptional()
+    @Type(() => UpdateProjectDto)
+    projects?: UpdateProjectDto[];
 }
