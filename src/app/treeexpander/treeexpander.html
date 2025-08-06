@@ -1,4 +1,4 @@
-<button (click)="expand()">{{this.location()}}</button>
+<a (click)="expand()">{{this.location()}}</a>
 @if(this.expanded) {
 <ul>
     @for (name of names; track name) {

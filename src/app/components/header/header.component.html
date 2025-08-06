@@ -1,8 +1,8 @@
 <header>
     <div class="header-flex">
         <!-- Left menu icon (mobile only, not on login) -->
-        <div *ngIf="showLeftMenu && !isLoginPage" class="menu-icon left-menu" (click)="toggleLeftMenu()" [class.open]="leftMenuOpen"
-            title="Open left menu">
+        <div *ngIf="showLeftMenu && !isLoginPage" class="menu-icon left-menu" (click)="toggleLeftMenu()"
+            [class.open]="leftMenuOpen" title="Open left menu">
             <i class="bi bi-list"></i>
         </div>
 
@@ -44,7 +44,7 @@
             </li>
             <li routerLink="/magazyn" (click)="toggleLeftMenu()" [class.active]="isActive('/magazyn')">
                 Magazyn
-            </li>   
+            </li>
         </ul>
         <!-- KIT and Logout only on mobile sidebar, side by side at bottom -->
         <div *ngIf="isMobile" class="sidebar-kit-logout-row">
@@ -59,15 +59,7 @@
     <nav *ngIf="showRightMenu" class="side-menu right" [class.open]="rightMenuOpen">
         <button class="close-btn" (click)="toggleRightMenu()">&times;</button>
         <ul>
-            <li routerLink="/home" (click)="toggleRightMenu()" [class.active]="isActive('/home', true)">
-                Home
-            </li>
-            <li routerLink="/inwentaryzacja" (click)="toggleRightMenu()" [class.active]="isActive('/inwentaryzacja')">
-                Inwentaryzacja
-            </li>
-            <li routerLink="/magazyn" (click)="toggleRightMenu()" [class.active]="isActive('/magazyn')">
-                Magazyn
-            </li>
+            <app-treebar></app-treebar>
         </ul>
         <!-- No KIT/logout row here, only in left sidebar on mobile -->
     </nav>
