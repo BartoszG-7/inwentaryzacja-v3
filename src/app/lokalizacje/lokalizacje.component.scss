@@ -1,3 +1,59 @@
+.sidebar-static-header, .sidebar-tree-title {
+  position: relative;
+}
+.sidebar-static-header::after,
+.sidebar-tree-list-wrapper .sidebar-tree-title::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #888 0%, #111 100%);
+  margin: 0.7em 0 1.2em 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close-btn:hover, .close-btn:active, .close-btn.closing {
+  color: #ff5252 !important;
+}
+.sidebar-close-absolute {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  cursor: pointer;
+}
+.side-menu.right {
+  position: relative;
+}
+.sidebar-tree-list-wrapper {
+  padding: 1em 1em 0.5em 1em;
+}
+// Desktop sidebar header and list styles
+.sidebar-static-header {
+  padding: 1em 1em 0.5em 1em;
+}
+.sidebar-static-title {
+  color: #fff;
+  margin: 0;
+  font-size: 2em;
+  font-weight: 600;
+}
+.sidebar-static-list {
+  margin-top: 0;
+  padding-left: 10px;
+}
 /* Mobile right sidebar flex layout and header styles */
 .sidebar-tree-flex {
   display: flex;
@@ -6,7 +62,9 @@
 }
 .sidebar-tree-header {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   padding: 1em 1em 0.5em 1em;
 }
 .sidebar-tree-title {
@@ -14,14 +72,13 @@
   margin: 0;
   font-size: 2em;
   font-weight: 600;
-  flex: 1;
 }
 .close-btn {
   background: none;
   border: none;
   color: #fff;
   font-size: 2em;
-  margin-right: 0.5em;
+  margin-left: 0.5em;
   cursor: pointer;
 }
 .sidebar-tree-list {
@@ -103,7 +160,7 @@ ul li::before {
 
 @media (max-width: 900px) {
   .sidebar-static {
-    display: none;
+    display: none !important;
   }
   .sidebar-tree-mobile {
     display: block;
