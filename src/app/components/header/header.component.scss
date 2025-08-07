@@ -1,3 +1,20 @@
+@import 'global.scss';
+.menu-icon:hover,
+.menu-icon.open {
+  color: $primary-color !important;
+  filter: drop-shadow(0 0 4px $primary-color);
+  transition: color 0.15s, filter 0.15s;
+  border: 2px solid $primary-color;
+  border-radius: 8px;
+}
+
+.close-btn:hover,
+.close-btn:active,
+.close-btn.closing {
+  color: #ff5252 !important;
+  background: none !important;
+  border: none !important;
+}
 @import 'global';
 @import 'global';
 

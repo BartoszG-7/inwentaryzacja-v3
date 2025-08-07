@@ -21,9 +21,7 @@
   cursor: pointer;
   transition: color 0.2s;
 }
-.close-btn:hover, .close-btn:active, .close-btn.closing {
-  color: #ff5252 !important;
-}
+
 .sidebar-close-absolute {
   position: absolute;
   top: 1em;
@@ -100,6 +98,27 @@
 
 ul {
   list-style-type: none;
+}
+
+// Sidebar menu icon hover effect matches .open (blue) effect)
+.menu-icon:hover,
+.menu-icon.open {
+  color: #fff !important;
+  background: $primary-color !important;
+  border: 2px solid $primary-color !important;
+  border-radius: 8px;
+  transition: color 0.15s, background 0.15s, border 0.15s;
+}
+
+// Sidebar close 'x' button red on hover and active (no size/position change)
+.close-btn:hover,
+.close-btn:active,
+.close-btn.closing,
+.sidebar-close-absolute:hover,
+.sidebar-close-absolute:active {
+  color: #ff5252 !important;
+  background: none !important;
+  border: none !important;
 }
 
 ul li {
