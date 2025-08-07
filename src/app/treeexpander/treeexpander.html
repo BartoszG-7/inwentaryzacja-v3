@@ -9,9 +9,9 @@
     <span class="tree-location-link">{{this.location()}}</span>
 </div>
 @if(this.expanded) {
-<ul>
+<ul class="tree-location-list-ul">
     @for (name of names; track name) {
-    <li style="padding-left: 0em;"><span class="bi bi-newspaper" style="font-size:1.2em;vertical-align:middle ;margin-right:0.3em;"></span>{{name}}</li>
+    <li><span class="bi bi-newspaper"></span>{{name}}</li>
     }
 </ul>
 }

@@ -12,6 +12,14 @@
 .tree-location-row:hover, .tree-location-row:focus-within {
   background: #1e94971a !important;
 }
+
+.tree-location-list-ul {
+  font-size: 0.9em;
+  vertical-align: middle;
+  margin-right:0.3em;
+  padding-left: 1em;
+}
+
 .tree-location-link {
   color: inherit;
   transition: color 0.15s;
@@ -32,7 +40,11 @@ ul li {
   display: block;
   width: 100%;
   padding: 0;
+  margin: 0;
   transition: background 0.15s;
+  text-align: left;
+
+  
 }
 ul li .li-content {
   display: flex;
@@ -51,5 +63,5 @@ ul li:hover .bi-dot {
 
 // Newspaper icon color
 .bi.bi-newspaper {
-  color: $primary-color;
+  
 }
