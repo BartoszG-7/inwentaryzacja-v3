@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Get, Head, Header, Param, Patch, Post, Req } from '@nestjs/common';
 import { ProjectService } from './project.service';
-import { CreateProjectDto } from '../location/dto/create-project.dto';
+import { CreateProjectDto } from './dto/create-project.dto';
 import { RootFilterQuery } from 'mongoose';
-import { UpdateProjectDto } from '../location/dto/update-project.dto';
+import { UpdateProjectDto } from './dto/update-project.dto';
 @Controller('/project')
 export class ProjectController {
     constructor(private readonly ProjectService: ProjectService) { }

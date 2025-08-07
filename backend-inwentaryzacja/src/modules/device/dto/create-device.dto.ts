@@ -26,4 +26,7 @@ export class CreateDeviceDto {
     @IsOptional()
     @IsString()
     pinIfButton?: string;
+
+    @IsString()
+    remoteAccessId: string;
 }

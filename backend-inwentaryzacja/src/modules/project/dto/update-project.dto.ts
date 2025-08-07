@@ -6,9 +6,10 @@ import {
     IsIP,
 } from 'class-validator';
 import { Type } from 'class-transformer';
-import { UpdateProjectHistoryDto } from './update-project-history-dto copy';
+import { UpdateProjectHistoryDto } from '../../project-history/dto/update-project-history.dto';
 import { UpdateProjectDeviceDto } from './update-project-device-dto';
-
+import { SchemaTypes } from 'mongoose';
+import type { ObjectId } from 'mongoose';
 export class UpdateProjectDto {
     @IsString()
     @IsOptional()
@@ -53,9 +54,7 @@ export class UpdateProjectDto {
     @Type(() => UpdateProjectDeviceDto)
     projectDevices?: UpdateProjectDeviceDto[];
 
-    @IsArray()
-    @ValidateNested({ each: true })
     @IsOptional()
-    @Type(() => UpdateProjectHistoryDto)
-    projectHistory?: UpdateProjectHistoryDto[];
+    @Type(() => SchemaTypes.ObjectId)
+    location: ObjectId;
 }

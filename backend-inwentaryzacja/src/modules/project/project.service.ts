@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, RootFilterQuery } from 'mongoose';
-import { CreateProjectDto } from '../location/dto/create-project.dto';
+import { CreateProjectDto } from './dto/create-project.dto';
 import { Project, ProjectDocment } from './project.schema';
-import { UpdateProjectDto } from '../location/dto/update-project.dto';
+import { UpdateProjectDto } from './dto/update-project.dto';
 
 @Injectable()
 export class ProjectService {
@@ -16,7 +16,14 @@ export class ProjectService {
     }
 
     async find(query: string): Promise<Project[]> {
-        return this.ProjectModel.find(JSON.parse(query)).exec();
+        if (query === "treebar") {
+
+            return this.ProjectModel.find().select("name location").exec();
+        } else if (query === "modified") {
+            return this.ProjectModel.find().select({ "name": 1, "projects.name": 1, "projects.projectHistory.date": 1 }).exec();
+        } else {
+            return this.ProjectModel.find(JSON.parse(query)).exec();
+        }
     }
 
     async delete(id: string): Promise<string> {

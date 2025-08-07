@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, SchemaTypes, Types } from 'mongoose';
 export type ProjectDeviceDocment = HydratedDocument<ProjectDevice>;
 
 @Schema()
 export class ProjectDevice {
-    @Prop({ type: String }) typeId: string;
+    @Prop({ type: SchemaTypes.ObjectId }) typeId: Types.ObjectId;
     @Prop({ type: Number }) neededDevices: number;
 
 }
