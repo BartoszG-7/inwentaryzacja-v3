@@ -1,3 +1,94 @@
+@media (min-width: 900px) {
+  .sidebar-static .sidebar-title {
+    text-align: center;
+    display: block;
+  }
+}
+.sidebar-tree-flex {
+  /* No flex or height, just block layout for stacking */
+}
+.sidebar-tree-header {
+  display: flex;
+  align-items: center;
+  padding: 1em 1em 0.5em 1em;
+}
+.sidebar-title {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0 0 0.5em 0;
+  letter-spacing: 0.5px;
+  color: #fff;
+  flex: 1;
+}
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+.divider {
+  border-bottom: 1px solid #222;
+  margin: 0 1em 1em 1em;
+}
+.sidebar-tree-list {
+  padding-left: 0;
+  margin: 0 1em 0 1em;
+  overflow-y: auto;
+}
+.sidebar-tree-list li {
+  padding: 0.5em 0 0.5em 1.5em;
+  font-size: 1.1em;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.sidebar-tree-list li:hover {
+  background: rgba(255,255,255,0.05);
+}
+.tree-arrow {
+  margin-right: 0.7em;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+.sidebar-tree-list li ul {
+  padding-left: 1.5em;
+  font-size: 0.98em;
+  color: #ccc;
+}
+.sidebar-title {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0 0 0.5em 0;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+.divider {
+  border-bottom: 1px solid #222;
+  margin-bottom: 1em;
+}
+.sidebar-tree-list {
+  padding-left: 0;
+}
+.sidebar-tree-list li {
+  padding: 0.5em 0 0.5em 1.5em;
+  font-size: 1.1em;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.sidebar-tree-list li:hover {
+  background: rgba(255,255,255,0.05);
+}
+.tree-arrow {
+  margin-right: 0.7em;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+.sidebar-tree-list li ul {
+  padding-left: 1.5em;
+  font-size: 0.98em;
+  color: #ccc;
+}
 /* Mobile right sidebar flex layout and header styles */
 .sidebar-tree-flex {
   display: flex;
@@ -27,7 +118,6 @@
 .sidebar-tree-list {
   margin-top: 0;
   padding-left: 10px;
-  flex: 1;
   overflow-y: auto;
 }
 .sidebar-static a {

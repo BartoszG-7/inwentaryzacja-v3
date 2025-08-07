@@ -59,8 +59,12 @@
     <nav *ngIf="showRightMenu" class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
         <div class="sidebar-tree-header">
             <button class="close-btn" (click)="toggleRightMenu()">&times;</button>
+            
+        </div>
+        <div class="divider"></div>
+        <div class="sidebar-tree-list-wrapper">
+            <h1 class="sidebar-title">Lokalizacje</h1>
             <ul class="sidebar-tree-list">
-                <h1 class="sidebar-tree-title">Lokalizacje</h1> <!-- CSS issues -->
                 <app-treebar></app-treebar>
             </ul>
         </div>
