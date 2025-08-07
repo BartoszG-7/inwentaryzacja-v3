@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "68945d099bf83af8ee0f0342"
+  },
+  "ip": "1.1.1.1",
+  "deviceType": "68945be09bf83af8ee0f033d",
+  "macAddr": "1.1.1.1"
+},
+{
+  "_id": {
+    "$oid": "689467c09bf83af8ee0f0344"
+  },
+  "ip": "1.1.1.1",
+  "deviceType": "68945be09bf83af8ee0f033d",
+  "macAddr": "1.1.1.1",
+  "project": "6893511920a8d0e9fba681ae"
+}]

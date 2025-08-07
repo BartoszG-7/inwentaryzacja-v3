@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "68945be09bf83af8ee0f033d"
+  },
+  "name": "WAMAMED21",
+  "maker": "Samsung",
+  "model": "smasung",
+  "color": "black",
+  "remoteAccessEnum": "idk",
+  "resolutionIfMonitor": "1920x1080"
+}]
