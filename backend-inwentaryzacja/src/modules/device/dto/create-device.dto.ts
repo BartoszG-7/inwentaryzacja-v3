@@ -1,4 +1,6 @@
+import { Type } from 'class-transformer';
 import { IsString, IsOptional } from 'class-validator';
+import { SchemaTypes, Types } from 'mongoose';
 
 export class CreateDeviceDto {
     @IsString()
@@ -29,4 +31,8 @@ export class CreateDeviceDto {
 
     @IsString()
     remoteAccessId: string;
+
+    @IsOptional()
+    @Type(() => SchemaTypes.ObjectId)
+    project: Types.ObjectId;
 }

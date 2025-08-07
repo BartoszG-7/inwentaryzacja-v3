@@ -22,6 +22,7 @@ export class UpdateProjectHistoryDto {
     @IsOptional()
     deviceId?: string;
 
+    @IsOptional()
     @Type(() => SchemaTypes.ObjectId)
     project: ObjectId;
 }

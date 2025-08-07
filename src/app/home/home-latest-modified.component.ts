@@ -14,7 +14,7 @@ export class HomeLatestModifiedComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getNamesAndDate().subscribe({
       next: (data: any) => {
-        console.log('Latest modified data:', data[1].project.location);
+
         this.data = data;
       },
       error: (err) => {

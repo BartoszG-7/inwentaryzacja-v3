@@ -26,7 +26,7 @@ export class Treebar implements OnInit {
 
             data.forEach((item: any) => {
               this.data.forEach((treeItem: any) => {
-                console.log(item.location, treeItem.id);
+
                 if (treeItem.id === item.location) {
 
                   treeItem.projects = treeItem.projects + (JSON.stringify({ "name": item.name, "id": item.id }) + ",");
@@ -34,7 +34,7 @@ export class Treebar implements OnInit {
 
               });
             });
-            console.log('Treebar data:', this.data[2].projects);
+
           },
           error: (err) => {
             console.error('Error fetching treebar names:', err);
