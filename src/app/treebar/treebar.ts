@@ -13,32 +13,28 @@ export class Treebar implements OnInit {
   data: Array<any> = [];
   stringified: string = "";
   ngOnInit(): void {
-    this.treebarService.getLocations().subscribe({
+    this.treebarService.getNames().subscribe({
       next: (data: any) => {
         // Store the fetched data in the component's property
-        data.forEach((item: any) => {
+
+        data.locations.forEach((item: any) => {
 
           this.data.push({ "id": item._id, "name": item.name, projects: "" });
-        });
-        this.treebarService.getNames().subscribe({
-          next: (data: any) => {
 
 
-            data.forEach((item: any) => {
-              this.data.forEach((treeItem: any) => {
 
-                if (treeItem.id === item.location) {
+          data.projects.forEach((item: any) => {
+            this.data.forEach((treeItem: any) => {
 
-                  treeItem.projects = treeItem.projects + (JSON.stringify({ "name": item.name, "id": item.id }) + ",");
-                }
+              if (treeItem.id === item.location) {
 
-              });
+                treeItem.projects = treeItem.projects + (JSON.stringify({ "name": item.name, "id": item.id }) + ",");
+              }
+
             });
+          });
 
-          },
-          error: (err) => {
-            console.error('Error fetching treebar names:', err);
-          }
+
         });
       }
     });

@@ -1,8 +1,8 @@
 <header>
     <div class="header-flex">
         <!-- Left menu icon (mobile only, not on login) -->
-        <div *ngIf="showLeftMenu && !isLoginPage" class="menu-icon left-menu" (click)="toggleLeftMenu()" [class.open]="leftMenuOpen"
-            title="Open left menu">
+        <div *ngIf="showLeftMenu && !isLoginPage" class="menu-icon left-menu" (click)="toggleLeftMenu()"
+            [class.open]="leftMenuOpen" title="Open left menu">
             <i class="bi bi-list"></i>
         </div>
 
@@ -26,11 +26,14 @@
         </button>
 
         <!-- Right menu icon (mobile only, always visible on mobile) -->
+
         <div *ngIf="showRightMenu && !isLoginPage" class="menu-icon right-menu mobile-only" (click)="toggleRightMenu()"
             [class.open]="rightMenuOpen" title="Open right menu">
             <i class="bi bi-three-dots-vertical"></i>
         </div>
+
     </div>
+
 
     <!-- Left sidebar menu (slide in/out) -->
     <nav *ngIf="showLeftMenu" class="side-menu left" [class.open]="leftMenuOpen">
@@ -44,12 +47,13 @@
             </li>
             <li routerLink="/magazyn" (click)="toggleLeftMenu()" [class.active]="isActive('/magazyn')">
                 Magazyn
-            </li>   
+            </li>
         </ul>
         <!-- KIT and Logout only on mobile sidebar, side by side at bottom -->
         <div *ngIf="isMobile" class="sidebar-kit-logout-row">
             <h4 class="logout-label">Log Out</h4>
-            <a class="logout-btn-mobile" routerLink="/logout" (click)="loginHandler()" title="Logout" tabindex="0" [class.active]="isActive('/logout', true)">
+            <a class="logout-btn-mobile" routerLink="/logout" (click)="loginHandler()" title="Logout" tabindex="0"
+                [class.active]="isActive('/logout', true)">
                 <i class="bi bi-box-arrow-right"></i>
             </a>
         </div>
@@ -59,13 +63,13 @@
     <nav *ngIf="showRightMenu" class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
         <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
         <div class="sidebar-tree-list-wrapper">
-            <h1 class="sidebar-tree-title">Lokalizacje</h1  >
+            <h1 class="sidebar-tree-title">Lokalizacje</h1>
             <ul class="sidebar-tree-list">
                 <app-treebar></app-treebar>
             </ul>
         </div>
-        
-        
+
+
         <!-- No KIT/logout row here, only in left sidebar on mobile -->
     </nav>
 

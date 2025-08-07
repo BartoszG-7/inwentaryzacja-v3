@@ -13,6 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+
     leftMenuOpen = false;
     rightMenuOpen = false;
     showLeftMenu = true;
