@@ -18,7 +18,7 @@ export class DeviceService {
 
     async unassigned(): Promise<Device[]> {
 
-        return this.deviceModel.find({ project: null }).populate("deviceType", ["name"]).limit(4).select("name deviceType").exec();
+        return this.deviceModel.find({ project: null }).populate("deviceType", ["name"]).where("deviceType").ne(null).select("name deviceType").exec();
     }
     async find(query: string): Promise<Device[]> {
 

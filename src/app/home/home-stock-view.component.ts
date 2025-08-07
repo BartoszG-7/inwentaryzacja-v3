@@ -18,22 +18,23 @@ export class HomeStockViewComponent implements OnInit {
 
     this.homeStockViewService.getUnassignedDevices().subscribe({
       next: (data: any) => {
-
+        console.log('Unassigned devices data:', data);
         data.forEach((item: any) => {
-          if (deviceList.length === 0) {
-            deviceList.push({ deviceTypeId: item.deviceType._id, deviceType: item.deviceType.name, counter: 1 });
-            return;
-          }
-          deviceList.forEach(element => {
-            if (element.deviceTypeId === item.deviceType._id) {
-              element.counter++;
-
-            } else {
+          if (item.deviceType != null) { //zabezpieczenie przed zlymi danymi w bazie
+            if (deviceList.length === 0) {
               deviceList.push({ deviceTypeId: item.deviceType._id, deviceType: item.deviceType.name, counter: 1 });
               return;
             }
-          });
+            deviceList.forEach(element => {
+              if (element.deviceTypeId === item.deviceType._id) {
+                element.counter++;
 
+              } else {
+                deviceList.push({ deviceTypeId: item.deviceType._id, deviceType: item.deviceType.name, counter: 1 });
+                return;
+              }
+            });
+          }
         });
 
         console.log('Unassigned devices:', deviceList);
