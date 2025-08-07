@@ -15,7 +15,9 @@ export class ProjectHistoryController {
 
     @Get(':query')
     async getFind(@Param("query") query: string) {
+
         return await this.ProjectHistoryService.find(query);
+
     }
 
     @Delete(':id')

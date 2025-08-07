@@ -4,7 +4,6 @@ import { Model, RootFilterQuery } from 'mongoose';
 import { CreateProjectHistoryDto } from './dto/create-project-history.dto';
 import { ProjectHistory } from './project-history.schema';
 import { UpdateProjectHistoryDto } from './dto/update-project-history.dto';
-
 @Injectable()
 export class ProjectHistoryService {
     constructor(@InjectModel(ProjectHistory.name) private ProjectHistoryModel: Model<ProjectHistory>) { }
@@ -16,7 +15,11 @@ export class ProjectHistoryService {
     }
 
     async find(query: string): Promise<ProjectHistory[]> {
-        return this.ProjectHistoryModel.find(JSON.parse(query)).exec();
+        if (query === "modified") {
+            return (this.ProjectHistoryModel.find({}).populate("project").populate({ path: "project", populate: { path: "location", model: "Location" } }).sort({ "date": -1 }).limit(5).exec());
+        } else {
+            return this.ProjectHistoryModel.find(JSON.parse(query)).exec();
+        }
     }
 
     async delete(id: string): Promise<string> {

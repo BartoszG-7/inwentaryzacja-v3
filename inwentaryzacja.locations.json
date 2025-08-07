@@ -1,129 +1,20 @@
 [{
   "_id": {
-    "$oid": "689304db20a8d0e9fba68170"
+    "$oid": "6893502720a8d0e9fba681aa"
   },
-  "name": "67",
-  "tag": "tag",
-  "address": "address",
-  "note": "note",
-  "projects": [
-    {
-      "name": "mustard",
-      "addrPool": [],
-      "devices": [],
-      "_id": {
-        "$oid": "6892f6f8580a58b6aefd4e9a"
-      },
-      "projectDevices": [],
-      "projectHistory": []
-    },
-    {
-      "addrPool": [],
-      "name": "7test",
-      "devices": [],
-      "projectHistory": [
-        {
-          "_id": {
-            "$oid": "6892f6f8580a58b6aefd4e9c"
-          }
-        },
-        {
-          "_id": {
-            "$oid": "6892f6f8580a58b6aefd4e9d"
-          }
-        }
-      ],
-      "_id": {
-        "$oid": "6892f6f8580a58b6aefd4e9b"
-      },
-      "projectDevices": []
-    }
-  ],
-  "__v": 0
+  "location": "6893501120a8d0e9fba681a8",
+  "name": "asasda"
 },
 {
   "_id": {
-    "$oid": "68930f5f20a8d0e9fba68171"
+    "$oid": "6893512320a8d0e9fba681b0"
   },
-  "name": "test1",
-  "tag": "tag",
-  "address": "address",
-  "note": "note",
-  "projects": [
-    {
-      "name": "sadsadas",
-      "addrPool": [],
-      "devices": [],
-      "_id": {
-        "$oid": "6892f6f8580a58b6aefd4e9a"
-      },
-      "projectDevices": [],
-      "projectHistory": []
-    },
-    {
-      "addrPool": [],
-      "name": "efefe",
-      "devices": [],
-      "projectHistory": [
-        {
-          "_id": {
-            "$oid": "6892f6f8580a58b6aefd4e9c"
-          }
-        },
-        {
-          "_id": {
-            "$oid": "6892f6f8580a58b6aefd4e9d"
-          }
-        }
-      ],
-      "_id": {
-        "$oid": "6892f6f8580a58b6aefd4e9b"
-      },
-      "projectDevices": []
-    }
-  ],
-  "__v": 0
+  "name": "dzialaj"
 },
 {
   "_id": {
-    "$oid": "68930f6c20a8d0e9fba68172"
+    "$oid": "689351ff20a8d0e9fba681b3"
   },
-  "name": "adcbtbr",
-  "tag": "tag",
-  "address": "address",
-  "note": "note",
-  "projects": [
-    {
-      "name": "asxwdwdw",
-      "addrPool": [],
-      "devices": [],
-      "_id": {
-        "$oid": "6892f6f8580a58b6aefd4e9a"
-      },
-      "projectDevices": [],
-      "projectHistory": []
-    },
-    {
-      "addrPool": [],
-      "name": "efwefwed2w2",
-      "devices": [],
-      "projectHistory": [
-        {
-          "_id": {
-            "$oid": "6892f6f8580a58b6aefd4e9c"
-          }
-        },
-        {
-          "_id": {
-            "$oid": "6892f6f8580a58b6aefd4e9d"
-          }
-        }
-      ],
-      "_id": {
-        "$oid": "6892f6f8580a58b6aefd4e9b"
-      },
-      "projectDevices": []
-    }
-  ],
-  "__v": 0
+  "name": "sasasdgre",
+  "test": "test"
 }]

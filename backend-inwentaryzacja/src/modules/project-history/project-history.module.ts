@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ProjectHistoryController } from './project-histotry.controller';
+import { ProjectHistoryController } from './project-history.controller';
 import { ProjectHistoryService } from './project-history.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ProjectHistory, ProjectHistorySchema } from './project-history.schema';
