@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../components/header/header.component';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 import { LocationService } from './lokalizacje.service';
-import { Treebar } from "../treebar/treebar";
+import { HeaderComponent } from '../components/header/header.component';
+import { Treebar } from '../treebar/treebar';
 
 @Component({
   selector: 'app-lokalizacje',
-  imports: [HeaderComponent, Treebar],
+  imports: [CommonModule, HeaderComponent, Treebar],
   standalone: true,
   templateUrl: './lokalizacje.component.html',
   styleUrl: './lokalizacje.component.scss'
@@ -15,26 +14,31 @@ import { Treebar } from "../treebar/treebar";
 export class LokalizacjeComponent implements OnInit {
   locations: any[] = [];
   editing: string = '';
+
+  constructor(private readonly locationService: LocationService) {}
+
+  ngOnInit(): void {
+    this.locationService.getLocations().subscribe({
+      next: (data: any) => {
+        this.locations = data;
+      }
+    });
+  }
+
+  isDesktop(): boolean {
+    return window.innerWidth > 900;
+  }
+
   editData(id: string): void {
     this.editing = id;
   }
-  saveData(id: string, name: string, address: string, tag: string, note: string): void {
-    this.LocationService.saveData(id, name, address, tag, note).subscribe({
-      next: (data) => {
-        this.ngOnInit();
 
+  saveData(id: string, name: string, address: string, tag: string, note: string): void {
+    this.locationService.saveData(id, name, address, tag, note).subscribe({
+      next: () => {
+        this.ngOnInit();
       }
     });
     this.editing = '';
-  }
-  constructor(private readonly LocationService: LocationService) { }
-  ngOnInit(): void {
-
-    this.LocationService.getLocations().subscribe({
-      next: (data: any) => {
-        this.locations = data;
-
-      }
-    });
   }
 }

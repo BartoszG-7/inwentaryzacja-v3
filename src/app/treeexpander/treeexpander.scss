@@ -1,39 +1,55 @@
+@import 'global.scss';
+
+// Tree location row (clickable parent)
 .tree-location-row {
-    display: flex;
-    align-items: center;
-    padding: 0.3em 0.7em;
-    border-radius: 4px;
-    transition: background 0.15s;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.3em 0.7em;
+  border-radius: 4px;
+  transition: background 0.15s;
+  cursor: pointer;
 }
 .tree-location-row:hover, .tree-location-row:focus-within {
-    background: #1e94971a !important;
+  background: #1e94971a !important;
 }
 .tree-location-link {
-    display: inline;
-    color: inherit;
-    transition: color 0.15s;
-    text-decoration: none;
-    font-weight: normal;
+  color: inherit;
+  transition: color 0.15s;
+  text-decoration: none;
+  font-weight: normal;
 }
 .tree-location-row:hover .tree-location-link,
 .tree-location-row:focus-within .tree-location-link {
-    color: #1e9497 !important;
+  color: #1e9497 !important;
 }
+
 ul {
-    list-style-type: none;
-    padding-bottom: 0.5em;
+  list-style-type: none;
+  padding: 0 0 0.5em 0;
+  margin: 0;
 }
 ul li {
-    padding-left: 0.5em;
-    transition: background 0.15s;
+  display: block;
+  width: 100%;
+  padding: 0;
+  transition: background 0.15s;
+}
+ul li .li-content {
+  display: flex;
+  align-items: center;
+  padding-left: 0.5em;
 }
 ul li:hover {
-    background: #1e94971a !important;
+  background: #1e94971a !important;
 }
 ul li:hover .bi-dot {
-    color: #1e9497 !important;
+  color: #1e9497 !important;
 }
 .bi-dot {
-    transition: color 0.15s;
+  transition: color 0.15s;
+}
+
+// Newspaper icon color
+.bi.bi-newspaper {
+  color: $primary-color;
 }

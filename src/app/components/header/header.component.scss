@@ -1,4 +1,6 @@
+
 @import 'global.scss';
+
 .menu-icon:hover,
 .menu-icon.open {
   color: $primary-color !important;
@@ -15,8 +17,6 @@
   background: none !important;
   border: none !important;
 }
-@import 'global';
-@import 'global';
 
 @media (max-width: 900px) {
   .side-menu {

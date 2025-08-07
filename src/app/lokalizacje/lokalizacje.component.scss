@@ -1,4 +1,6 @@
-// Smaller header and underline for desktop
+@import 'global.scss';
+
+// --- Sidebar Header and Underline ---
 .sidebar-static-header, .sidebar-tree-title {
   position: relative;
 }
@@ -13,7 +15,9 @@
   border-radius: 2px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.13);
 }
-.close-btn {
+
+// --- Close Button ---
+.close-btn, .sidebar-close-absolute {
   background: none;
   border: none;
   color: #fff;
@@ -22,44 +26,70 @@
   transition: color 0.2s;
 }
 
+.close-btn {
+  margin-left: 0.5em;
+}
+
 .sidebar-close-absolute {
   position: absolute;
   top: 1em;
   right: 1em;
   z-index: 100;
-  background: none;
-  border: none;
+}
+
+.close-btn:hover,
+.close-btn:active,  
+.close-btn.closing,
+.sidebar-close-absolute:hover,
+.sidebar-close-absolute:active {
+  color: #ff5252 !important;
+  background: none !important;
+  border: none !important;
+}
+
+// --- Sidebar Layout ---
+.sidebar-static {
+  width: 240px;
+  min-width: 250px;
+  max-width: 250px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: #000;
   color: #fff;
-  font-size: 2em;
-  cursor: pointer;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  display: block;
 }
-.side-menu.right {
-  position: relative;
-}
-.sidebar-tree-list-wrapper {
-  padding: 1em 1em 0.5em 1em;
-}
-// Desktop sidebar header and list styles
-// Smaller header and underline for desktop
+
 .sidebar-static-header {
   padding: 0.7em 1em 0.3em 1em;
 }
+
 .sidebar-static-title {
   color: #fff;
   margin: 0;
   font-size: 1.4em;
   font-weight: 600;
 }
+
 .sidebar-static-list {
   margin-top: 0;
   padding-left: 10px;
 }
-/* Mobile right sidebar flex layout and header styles */
+
+// --- Tree List Styles ---
+.sidebar-tree-list-wrapper {
+  padding: 1em 1em 0.5em 1em;
+}
+
 .sidebar-tree-flex {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
+
 .sidebar-tree-header {
   display: flex;
   flex-direction: row;
@@ -67,58 +97,26 @@
   justify-content: space-between;
   padding: 1em 1em 0.5em 1em;
 }
+
 .sidebar-tree-title {
   color: #fff;
   margin: 0;
   font-size: 2em;
   font-weight: 600;
 }
-.close-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 2em;
-  margin-left: 0.5em;
-  cursor: pointer;
-}
+
 .sidebar-tree-list {
   margin-top: 0;
   padding-left: 10px;
   flex: 1;
   overflow-y: auto;
 }
-.sidebar-static a {
-  position: relative;
-  padding-left: 0.7em;
-}
 
-.sidebar-static a::before {
-}
-@import 'global';
-
+// --- Utility and Global Styles ---
 ul {
   list-style-type: none;
-}
-
-// Sidebar menu icon hover effect matches .open (blue) effect)
-.menu-icon:hover,
-.menu-icon.open {
-  color: #fff !important;
-  background: $primary-color !important;
-  border: 2px solid $primary-color !important;
-  border-radius: 8px;
-  transition: color 0.15s, background 0.15s, border 0.15s;
-}
-
-// Sidebar close 'x' button red on hover and active (no size/position change)
-.close-btn:hover,
-.close-btn:active,
-.close-btn.closing,
-.sidebar-close-absolute:hover,
-.sidebar-close-absolute:active {
-  color: #ff5252 !important;
-  background: none !important;
-  border: none !important;
+  margin: 0;
+  padding: 0;
 }
 
 ul li {
@@ -137,13 +135,9 @@ ul li:hover .bi-dot {
 }
 .bi-chevron-right,
 .bi-chevron-down {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-
-ul li::before {
-  /* removed arrow icon, now handled in HTML */
-}
 .tree-arrow {
   display: inline-block;
   margin-right: 0.4em;
@@ -153,32 +147,17 @@ ul li::before {
   vertical-align: middle;
   transition: transform 0.2s cubic-bezier(0.4,0,0.2,1);
 }
+
 .tree-arrow.down {
   transform: rotate(90deg);
 }
-
 
 .layout {
   display: flex;
   flex-direction: row;
 }
 
-
-.sidebar-static {
-  width: 240px;
-  min-width: 250px;
-  max-width: 250px;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  left: 0;
-  background: #000;
-  color: #fff;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
-  z-index: 10;
-  display: block;
-}
-
+// --- Mobile Styles ---
 .sidebar-tree-mobile {
   display: none;
   position: fixed;
@@ -204,3 +183,4 @@ ul li::before {
     flex-direction: column;
   }
 }
+
