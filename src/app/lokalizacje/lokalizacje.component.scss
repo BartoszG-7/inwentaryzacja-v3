@@ -91,7 +91,7 @@
 }
 .sidebar-static a {
   position: relative;
-  padding-left: 1.5em;
+  padding-left: 0.7em;
 }
 
 .sidebar-static a::before {
@@ -100,13 +100,27 @@
 
 ul {
   list-style-type: none;
-  padding-left: 10px;
 }
 
 ul li {
   position: relative;
-  padding-left: 1.5em;
+  padding-left: 0.7em;
+  transition: background 0.15s;
 }
+ul li:hover {
+  background: rgba($primary-color, 0.10);
+}
+ul li:hover .bi-dot {
+  color: $primary-color;
+}
+.bi-dot {
+  transition: color 0.15s;
+}
+.bi-chevron-right,
+.bi-chevron-down {
+  cursor: pointer; 
+}
+
 
 ul li::before {
   /* removed arrow icon, now handled in HTML */

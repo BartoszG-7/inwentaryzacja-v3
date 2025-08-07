@@ -1,14 +1,15 @@
-   @if(!this.expanded) {
-        <span class="bi bi-chevron-right" style="margin-left:0.4em;"></span>
-    }@if(this.expanded) {
-        <span class="bi bi-chevron-down" style="margin-left:0.4em;"></span>
-    }<a (click)="expand()"> {{this.location()}}
- 
-</a>
+<div class="tree-location-row" (click)="expand($event)" tabindex="0">
+        @if(!this.expanded) {
+            <span class="bi bi-chevron-right" style="margin-right:0.4em;"></span>
+        }@if(this.expanded) {
+            <span class="bi bi-chevron-down" style="margin-right:0.4em;"></span>
+        }
+        <span class="tree-location-link">{{this.location()}}</span>
+    </div>
 @if(this.expanded) {
 <ul>
     @for (name of names; track name) {
-    <li>{{name}}</li>
+    <li style="padding-left: 0em;"><span class="bi bi-dot" style="font-size:1.2em;vertical-align:middle ;margin-right:0.3em;"></span>{{name}}</li>
     }
 </ul>
 }

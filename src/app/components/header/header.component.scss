@@ -144,6 +144,10 @@ header {
 
 .menu-icon.open {
   transform: rotate(90deg) scale(1.2);
+  color: $primary-color;
+  border: 2px solid $primary-color;
+  border-radius: 8px;
+  background: rgba($primary-color, 0.08);
 }
 
 @keyframes pop-in-left {
