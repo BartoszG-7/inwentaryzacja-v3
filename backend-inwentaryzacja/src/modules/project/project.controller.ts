@@ -12,11 +12,19 @@ export class ProjectController {
     async postCreate(@Body() body: CreateProjectDto) {
         return await this.ProjectService.create(body);
     }
-
+    @Get('modified')
+    async getModified() {
+        return await this.ProjectService.modified();
+    }
+    @Get('treebar')
+    async getTreebar() {
+        return await this.ProjectService.treebar();
+    }
     @Get(':query')
     async getFind(@Param("query") query: string) {
         return await this.ProjectService.find(query);
     }
+
 
     @Delete(':id')
     async getDelete(@Param("id") id: string) {

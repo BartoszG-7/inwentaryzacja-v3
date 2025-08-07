@@ -13,8 +13,5 @@ export class TreebarService {
         return this.http.get<JSON>('http://localhost:3000/project/treebar');
 
     }
-    getLocations(): Observable<any> {
-        return this.http.get<JSON>('http://localhost:3000/location/treebar');
-
-    }
+    
 }

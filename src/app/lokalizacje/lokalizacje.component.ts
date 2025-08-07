@@ -11,7 +11,7 @@ import { Treebar } from '../treebar/treebar';
   templateUrl: './lokalizacje.component.html',
   styleUrl: './lokalizacje.component.scss'
 })
-export class LokalizacjeComponent implements OnInit {
+export class LokalizacjeComponent {
   locations: any[] = [];
   editing: string = '';
 
