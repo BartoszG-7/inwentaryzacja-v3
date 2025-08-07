@@ -12,16 +12,19 @@ export class Treeexpander implements OnInit {
   expanded: boolean = false;
   names: string[] = [];
   ngOnInit(): void {
-
-  }
-  expand(event?: Event): void {
     var array: any[] = [];
     array = this.projects().split(",");
     array.pop();
     array.forEach((project: any, ind: number) => {
       this.names[ind] = JSON.parse(project).name;
     });
-    this.expanded = !this.expanded;
+  }
+  expand(event?: Event): void {
+    if (this.names.length !== 0) {
+      this.expanded = !this.expanded;
+
+
+    }
     if (event && event.target && (event.target as HTMLElement).blur) {
       (event.target as HTMLElement).blur();
     }

@@ -9,7 +9,9 @@ export type ProjectDocment = HydratedDocument<Project>;
 export class Project {
     @Prop() name: string;
 
-    @Prop() dns: string;
+    @Prop() dns1: string;
+
+    @Prop() dns2: string;
 
     @Prop() networkAddress: string;
 

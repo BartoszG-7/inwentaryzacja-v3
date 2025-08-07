@@ -18,7 +18,12 @@ export class UpdateProjectDto {
     @IsString()
     @IsOptional()
     @IsIP()
-    dns?: string;
+    dns1?: string;
+
+    @IsString()
+    @IsOptional()
+    @IsIP()
+    dns2?: string;
 
     @IsString()
     @IsOptional()

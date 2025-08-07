@@ -21,7 +21,12 @@ export class CreateProjectDto {
     @IsString()
     @IsNotEmpty()
     @IsIP()
-    dns: string;
+    dns1: string;
+
+    @IsString()
+    @IsNotEmpty()
+    @IsIP()
+    dns2: string;
 
     @IsString()
     @IsNotEmpty()
