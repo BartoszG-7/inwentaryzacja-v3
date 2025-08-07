@@ -1,4 +1,10 @@
-<a (click)="expand()">{{this.location()}}</a>
+   @if(!this.expanded) {
+        <span class="bi bi-chevron-right" style="margin-left:0.4em;"></span>
+    }@if(this.expanded) {
+        <span class="bi bi-chevron-down" style="margin-left:0.4em;"></span>
+    }<a (click)="expand()"> {{this.location()}}
+ 
+</a>
 @if(this.expanded) {
 <ul>
     @for (name of names; track name) {

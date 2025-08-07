@@ -1,30 +1,10 @@
 <app-header></app-header>
 <div class="layout">
   <div class="sidebar-static">
-    <ul>
-    <app-treebar></app-treebar>
+    <div style="padding-top:1em;padding-left:1em;padding-bottom:0.5em;"><h3 style="color:#fff;margin:0;">Lokalizacje</h3></div>
+    <ul style="margin-top:0;">
+      <app-treebar></app-treebar>
     </ul>
   </div>
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Address</th>
-          <th>Tag</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (e of locations; track e._id) {
-        <tr>
-          <td>{{ e.name }}</td>
-          <td>{{ e.address }}</td>
-          <td>{{ e.tag }}</td>
-          <td>{{ e.note }}</td>
-        </tr>
-        }
-      </tbody>
-    </table>
-  </div>
+  
 </div>

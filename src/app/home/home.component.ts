@@ -11,7 +11,7 @@ import { HomeStockViewComponent } from './home-stock-view.component';
   imports: [CommonModule, HeaderComponent, HomeLatestModifiedComponent, HomeStockViewComponent],
   template: `
     <app-header></app-header>
-    <div class="container py-4">
+    <div class="container py-5">
       <div class="row align-items-stretch">
         <div class="col-12 col-md-4 mb-4">
           <h4 class="mb-3">LATEST MODIFIED</h4>
