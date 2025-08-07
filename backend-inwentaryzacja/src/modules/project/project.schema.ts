@@ -1,7 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument, Types } from 'mongoose';
-import { ProjectDevice } from '../location/project-device.schema';
-import { ProjectHistory } from '../location/project-history.schema';
+import { HydratedDocument, SchemaType, SchemaTypes, Types } from 'mongoose';
+import type { ObjectId } from 'mongoose';
+import { ProjectDevice } from './project-device.schema';
+import { ProjectHistory } from '../project-history/project-history.schema';
 export type ProjectDocment = HydratedDocument<Project>;
 
 @Schema()
@@ -23,7 +24,9 @@ export class Project {
     @Prop() remoteAccessTag: string;
 
     @Prop({ type: [ProjectDevice] }) projectDevices: ProjectDevice[];
-    @Prop({ type: [ProjectHistory] }) projectHistory: ProjectHistory[];
+
+    @Prop({ type: SchemaTypes.ObjectId, ref: "Location" }) location: ObjectId;
+
 }
 
 export const ProjectSchema = SchemaFactory.createForClass(Project);

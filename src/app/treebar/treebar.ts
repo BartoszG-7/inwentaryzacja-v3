@@ -11,20 +11,37 @@ import { Treeexpander } from '../treeexpander/treeexpander';
 export class Treebar implements OnInit {
   constructor(private treebarService: TreebarService) { }
   data: Array<any> = [];
+  stringified: string = "";
   ngOnInit(): void {
-    this.treebarService.getNames().subscribe({
+    this.treebarService.getLocations().subscribe({
       next: (data: any) => {
+        // Store the fetched data in the component's property
+        data.forEach((item: any) => {
 
-        this.data = data; // Store the fetched data in the component's property
-        this.data.forEach((item: any) => {
-          item.projects = JSON.stringify(item.projects);
-         
+          this.data.push({ "id": item._id, "name": item.name, projects: "" });
         });
-        
-      },
-      error: (err) => {
-        console.error('Error fetching treebar names:', err);
+        this.treebarService.getNames().subscribe({
+          next: (data: any) => {
+
+
+            data.forEach((item: any) => {
+              this.data.forEach((treeItem: any) => {
+                console.log(item.location, treeItem.id);
+                if (treeItem.id === item.location) {
+
+                  treeItem.projects = treeItem.projects + (JSON.stringify({ "name": item.name, "id": item.id }) + ",");
+                }
+
+              });
+            });
+            console.log('Treebar data:', this.data[2].projects);
+          },
+          error: (err) => {
+            console.error('Error fetching treebar names:', err);
+          }
+        });
       }
     });
   }
+
 }

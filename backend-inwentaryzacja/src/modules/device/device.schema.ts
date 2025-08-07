@@ -20,6 +20,8 @@ export class Device {
     @Prop() note: string;
 
     @Prop() pinIfButton?: string;
+
+    @Prop() remoteAccessId: string;
 }
 
 export const DeviceSchema = SchemaFactory.createForClass(Device);

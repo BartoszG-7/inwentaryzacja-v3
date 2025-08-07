@@ -1,6 +1,6 @@
 import { IsString, IsArray, IsOptional, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
-import { UpdateProjectDto } from './update-project.dto';
+import { UpdateProjectDto } from '../../project/dto/update-project.dto';
 
 export class UpdateLocationDto {
     @IsString()

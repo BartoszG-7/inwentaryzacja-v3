@@ -9,9 +9,10 @@ import {
 } from 'class-validator';
 
 import { Type } from 'class-transformer';
-import { CreateProjectHistoryDto } from './create-project-history-dto';
+import { CreateProjectHistoryDto } from '../../project-history/dto/create-project-history.dto';
 import { CreateProjectDeviceDto } from './create-project-device-dto';
-
+import { SchemaTypeOptions, SchemaTypes } from 'mongoose';
+import type { ObjectId } from 'mongoose';
 export class CreateProjectDto {
     @IsString()
     @IsNotEmpty()
@@ -55,10 +56,7 @@ export class CreateProjectDto {
     @Type(() => CreateProjectDeviceDto)
     projectDevices?: CreateProjectDeviceDto[];
 
-    @IsArray()
-    @ValidateNested({ each: true })
-    @ArrayNotEmpty()
-    @Type(() => CreateProjectHistoryDto)
-    projectHistory: CreateProjectHistoryDto[];
+    @Type(() => SchemaTypes.ObjectId)
+    location: ObjectId;
 
 }

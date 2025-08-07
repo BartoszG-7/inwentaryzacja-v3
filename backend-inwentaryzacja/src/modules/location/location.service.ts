@@ -18,12 +18,9 @@ export class LocationService {
 
     async find(query: string): Promise<Location[]> {
         if (query === "treebar") {
-
-            return this.locationModel.find().select({ "name": 1, "projects.name": 1 }).exec();
-        } else if (query === "modified") {
-            return this.locationModel.find().select({ "name": 1, "projects.name": 1, "projects.projectHistory.date": 1 }).exec();
+            return this.locationModel.find().select("name").exec();
         } else {
-            return this.locationModel.find(JSON.parse(query)).exec();
+        return this.locationModel.find(JSON.parse(query)).exec();
         }
     }
     async delete(id: string): Promise<string> {

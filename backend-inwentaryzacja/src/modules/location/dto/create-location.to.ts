@@ -1,5 +1,5 @@
 import { IsString, IsArray, ArrayNotEmpty, IsOptional, IsNotEmpty, ValidateNested } from 'class-validator';
-import { CreateProjectDto } from './create-project.dto';
+import { CreateProjectDto } from '../../project/dto/create-project.dto';
 
 import { Type } from 'class-transformer';
 
