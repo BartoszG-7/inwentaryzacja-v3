@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument, Types } from 'mongoose';
+import { HydratedDocument, ObjectId, SchemaTypes, Types } from 'mongoose';
 export type DeviceDocument = HydratedDocument<Device>;
 
 @Schema()
@@ -22,6 +22,8 @@ export class Device {
     @Prop() pinIfButton?: string;
 
     @Prop() remoteAccessId: string;
+
+    @Prop({ type: SchemaTypes.ObjectId, ref: "Project" }) project: Types.ObjectId;
 }
 
 export const DeviceSchema = SchemaFactory.createForClass(Device);

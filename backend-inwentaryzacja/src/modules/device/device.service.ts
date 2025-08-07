@@ -17,6 +17,9 @@ export class DeviceService {
     }
 
     async find(query: string): Promise<Device[]> {
+        if (query === "unassigned") {
+            return this.deviceModel.find({ project: null }).populate("deviceType", ["name"]).limit(4).select("name deviceType").exec();
+        }
         return this.deviceModel.find(JSON.parse(query)).exec();
     }
 

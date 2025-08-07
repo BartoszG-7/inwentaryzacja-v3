@@ -20,6 +20,7 @@ export class DeviceType {
 
     @Prop() lastTag: string;
 
+    
 }
 
 export const deviceTypeSchema = SchemaFactory.createForClass(DeviceType);
