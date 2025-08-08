@@ -1,0 +1,16 @@
+.magazyn-main-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.left-sidebar {
+  /* Sidebar width can be adjusted as needed */
+}
+.right-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
