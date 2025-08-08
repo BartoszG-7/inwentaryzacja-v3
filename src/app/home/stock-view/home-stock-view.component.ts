@@ -16,49 +16,26 @@ export class HomeStockViewComponent implements OnInit {
   ];
   ngOnInit(): void {
     var deviceList: any[] = [];
-
     this.homeStockViewService.getUnassignedDevices().subscribe({
       next: (data: any) => {
+        console.log(data);
 
-        data.forEach((item: any) => {
-          if (item.deviceType != null) { //zabezpieczenie przed zlymi danymi w bazie
-
-            if (deviceList.length === 0) {
-              deviceList.push({ deviceTypeId: item.deviceType._id, deviceType: item.deviceType.name, counter: 1 });
-              return;
-            }
-            var brk: boolean = false;
-            deviceList.forEach(element => {
-
-              if (element.deviceTypeId === item.deviceType._id) {
-
-                element.counter++;
-                brk = true;
-
-              }
-
-
-            });
-            if (!brk) {
-
-              deviceList.push({ deviceTypeId: item.deviceType._id, deviceType: item.deviceType.name, counter: 1 });
-            }
-          }
-
-        });
-
-        deviceList.forEach(item => {
-
-          this.stockItems.push({ name: item.deviceType, count: item.counter });
-        });
+        this.stockItems.push({ name: data.deviceType, count: data.counter });
 
       }
 
     });
 
 
+
   }
+
+
+
+
 }
+
+
 
 
 
