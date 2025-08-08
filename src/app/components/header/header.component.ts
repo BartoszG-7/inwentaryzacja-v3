@@ -57,6 +57,14 @@ export class HeaderComponent {
       this.showLeftMenu = true;
       this.showRightMenu = true;
     }
+    // Ensure rightMenuOpen is false if the right menu should not be shown
+    if (!this.showRightMenu && this.rightMenuOpen) {
+      this.rightMenuOpen = false;
+    }
+    // Ensure leftMenuOpen is false if the left menu should not be shown
+    if (!this.showLeftMenu && this.leftMenuOpen) {
+      this.leftMenuOpen = false;
+    }
   }
 
   // Toggle left sidebar menu
@@ -68,10 +76,16 @@ export class HeaderComponent {
   // Toggle right sidebar menu
   toggleRightMenu(): void {
     this.rightMenuOpen = !this.rightMenuOpen;
-    if (this.rightMenuOpen) this.leftMenuOpen = false;
+    if (this.rightMenuOpen) {
+      this.leftMenuOpen = false;
+    }
+    // If closing, ensure state is synced
+    if (!this.rightMenuOpen) {
+      setTimeout(() => { this.rightMenuOpen = false; }, 0);
+    }
   }
 
-  // Close both menus
+  // Close both menus (called by overlay click)
   closeMenus(): void {
     this.leftMenuOpen = false;
     this.rightMenuOpen = false;
