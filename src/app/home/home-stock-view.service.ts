@@ -7,10 +7,8 @@ import { switchMap } from 'rxjs';
 })
 export class HomeStockViewService {
   constructor(private httpClient: HttpClient) { }
+
   getUnassignedDevices(): any {
-    return this.httpClient.get('http://localhost:3000/device/unassigned');
-  }
-  getUnassignedDevicesExperimental(): any {
     return this.httpClient.get('http://localhost:3000/device/unassigned').pipe(switchMap((data: any) => {
       return this.processUnassignedDevices(data);
     }));

@@ -16,7 +16,7 @@ export class HomeStockViewComponent implements OnInit {
   ];
   ngOnInit(): void {
     var deviceList: any[] = [];
-    this.homeStockViewService.getUnassignedDevicesExperimental().subscribe({
+    this.homeStockViewService.getUnassignedDevices().subscribe({
       next: (data: any) => {
         console.log(data);
 
