@@ -14,6 +14,6 @@ export class HomeLatestModifiedComponent implements OnInit {
   data: any;
   ngOnInit(): void {
     this.data = this.modified();
-
+    console.log(this.data);
   }
 }
