@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, ComponentRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -18,7 +18,6 @@ export class HeaderComponent {
   showLeftMenu = true;
   showRightMenu = true;
   selectedRoute: string = '';
-
   get isLoginPage(): boolean {
     return this.selectedRoute === '/login';
   }

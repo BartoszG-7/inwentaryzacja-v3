@@ -11,8 +11,11 @@ import { Treebar } from '../../treebar/treebar';
   styleUrls: ['./magazyn-sidebar.component.scss']
 })
 export class MagazynSidebarComponent {
-//   locations: any[] = [];
-//   editing: string = '';
+  saveId(event: any): void {
+    console.log(event);
+  }
+  //   locations: any[] = [];
+  //   editing: string = '';
 
   //   constructor(private readonly locationService: LocationService) {}
 

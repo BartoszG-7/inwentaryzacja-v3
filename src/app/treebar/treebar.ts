@@ -1,6 +1,7 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, input, OnInit, output } from '@angular/core';
 import { TreebarService } from './treebar.service';
 import { Treeexpander } from '../treeexpander/treeexpander';
+import { TreebarSharedService } from '../home/treebar.share.service';
 
 @Component({
   selector: 'app-treebar',
@@ -9,11 +10,17 @@ import { Treeexpander } from '../treeexpander/treeexpander';
   styleUrl: './treebar.scss'
 })
 export class Treebar implements OnInit {
-  constructor(private treebarService: TreebarService) { }
+  constructor(private treebarService: TreebarService, private treebarSharedService: TreebarSharedService) { }
   data: Array<any> = [];
+  selectedId = output<any>();
   stringified: string = "";
   query = input<string>('http://localhost:3000/data/treebar');
+  changeId(event: any): void {
+
+    this.treebarSharedService.setData(event);
+  }
   ngOnInit(): void {
+    console.log(this.query());
     this.treebarService.getNames(this.query()).subscribe({
       next: (data: any) => {
         // Store the fetched data in the component's property

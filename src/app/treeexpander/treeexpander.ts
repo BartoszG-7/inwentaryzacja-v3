@@ -1,4 +1,4 @@
-import { Component, input, InputSignal, OnInit } from '@angular/core';
+import { Component, input, InputSignal, OnInit, output } from '@angular/core';
 
 @Component({
   selector: 'app-treeexpander',
@@ -9,13 +9,15 @@ import { Component, input, InputSignal, OnInit } from '@angular/core';
 export class Treeexpander implements OnInit {
   projects: InputSignal<string> = input<string>("");
   location: InputSignal<string> = input<string>("");
+  locationId: InputSignal<string> = input<string>("");
   expanded: boolean = false;
   names: string[] = [];
+  selected = output<any>();
   ngOnInit(): void {
     var array: any[] = [];
     array = this.projects().split(",");
     array.pop();
-    
+
     array.forEach((project: any, ind: number) => {
 
       this.names[ind] = JSON.parse(project).name;
@@ -23,7 +25,8 @@ export class Treeexpander implements OnInit {
 
   }
   expand(event?: Event): void {
-
+    this.selected.emit({ type: "location", id: this.locationId() });
+    //this.selected.emit({this.location()});
     if (this.names.length !== 0) {
       this.expanded = !this.expanded;
 

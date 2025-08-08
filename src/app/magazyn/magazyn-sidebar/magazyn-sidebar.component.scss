@@ -1,4 +1,5 @@
 @import 'global.scss';
+
 // Mobile-only separator under Lokalizacje header
 .sidebar-mobile-separator {
   display: none;
@@ -15,16 +16,20 @@
   .sidebar-mobile-separator {
     display: block;
   }
+
   .sidebar-static-header::after {
     display: none !important;
   }
 }
+
 @import 'global.scss';
 
 // --- Sidebar Header and Underline ---
-.sidebar-static-header, .sidebar-tree-title {
+.sidebar-static-header,
+.sidebar-tree-title {
   position: relative;
 }
+
 .sidebar-static-header::after,
 .sidebar-tree-list-wrapper .sidebar-tree-title::after {
   content: '';
@@ -34,11 +39,12 @@
   background: linear-gradient(90deg, #888 0%, #111 100%);
   margin: 0.3em 0 0.7em 0;
   border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.13);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.13);
 }
 
 // --- Close Button ---
-.close-btn, .sidebar-close-absolute {
+.close-btn,
+.sidebar-close-absolute {
   background: none;
   border: none;
   color: #fff;
@@ -59,7 +65,7 @@
 }
 
 .close-btn:hover,
-.close-btn:active,  
+.close-btn:active,
 .close-btn.closing,
 .sidebar-close-absolute:hover,
 .sidebar-close-absolute:active {
@@ -145,15 +151,19 @@ ul li {
   padding-left: 0.7em;
   transition: background 0.15s;
 }
+
 ul li:hover {
   background: rgba($primary-color, 0.10);
 }
+
 ul li:hover .bi-dot {
   color: $primary-color;
 }
+
 .bi-dot {
   transition: color 0.15s;
 }
+
 .bi-chevron-right,
 .bi-chevron-down {
   cursor: pointer;
@@ -166,7 +176,7 @@ ul li:hover .bi-dot {
   font-size: 1em;
   opacity: 0.7;
   vertical-align: middle;
-  transition: transform 0.2s cubic-bezier(0.4,0,0.2,1);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tree-arrow.down {
@@ -197,11 +207,12 @@ ul li:hover .bi-dot {
   .sidebar-static {
     display: none !important;
   }
+
   .sidebar-tree-mobile {
     display: block;
   }
+
   .layout {
     flex-direction: column;
   }
 }
-

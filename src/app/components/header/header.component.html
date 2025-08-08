@@ -1,11 +1,10 @@
-
 <header>
   <div class="header-flex">
     <!-- Mobile: Hamburger menu icon (left) -->
     @if (showLeftMenu && !isLoginPage) {
-      <div class="menu-icon left-menu" (click)="toggleLeftMenu()" [class.open]="leftMenuOpen" title="Open left menu">
-        <i class="bi bi-list"></i>
-      </div>
+    <div class="menu-icon left-menu" (click)="toggleLeftMenu()" [class.open]="leftMenuOpen" title="Open left menu">
+      <i class="bi bi-list"></i>
+    </div>
     }
     <!-- Center: KIT logo button -->
     <div class="logo-container">
@@ -15,62 +14,65 @@
     <div class="header-links"></div>
     <!-- Desktop: Logout button (top right) -->
     @if (!isLoginPage) {
-      <button class="logout-btn" (click)="loginHandler()" title="Logout" tabindex="0">
-        <i class="bi bi-box-arrow-right"></i>
-      </button>
+    <button class="logout-btn" (click)="loginHandler()" title="Logout" tabindex="0">
+      <i class="bi bi-box-arrow-right"></i>
+    </button>
     }
     <!-- Mobile: Right menu icon (right) -->
     @if (showRightMenu && !isLoginPage) {
-      <div class="menu-icon right-menu mobile-only" (click)="toggleRightMenu()" [class.open]="rightMenuOpen" title="Open right menu">
-        <i class="bi bi-three-dots-vertical"></i>
-      </div>
+    <div class="menu-icon right-menu mobile-only" (click)="toggleRightMenu()" [class.open]="rightMenuOpen"
+      title="Open right menu">
+      <i class="bi bi-three-dots-vertical"></i>
+    </div>
     }
   </div>
   <!-- Left sidebar (slide in/out) -->
   @if (showLeftMenu) {
-    <nav class="side-menu left" [class.open]="leftMenuOpen">
+  <nav class="side-menu left" [class.open]="leftMenuOpen">
     <button class="close-btn" (click)="toggleLeftMenu()">&times;</button>
     <ul class="sidebar-menu-left">
       <li routerLink="/home" (click)="toggleLeftMenu()" [class.active]="isActive('/home', true)">Home</li>
-      <li routerLink="/inwentaryzacja" (click)="toggleLeftMenu()" [class.active]="isActive('/inwentaryzacja')">Inwentaryzacja</li>
+      <li routerLink="/inwentaryzacja" (click)="toggleLeftMenu()" [class.active]="isActive('/inwentaryzacja')">
+        Inwentaryzacja</li>
       <li routerLink="/magazyn" (click)="toggleLeftMenu()" [class.active]="isActive('/magazyn')">Magazyn</li>
     </ul>
     <!-- Mobile: KIT and Logout row at bottom -->
     @if (isMobile) {
-      <div class="sidebar-kit-logout-row">
-        <h4 class="logout-label">Log Out</h4>
-        <a class="logout-btn-mobile" routerLink="/logout" (click)="loginHandler()" title="Logout" tabindex="0" [class.active]="isActive('/logout', true)">
-          <i class="bi bi-box-arrow-right"></i>
-        </a>
-      </div>
+    <div class="sidebar-kit-logout-row">
+      <h4 class="logout-label">Log Out</h4>
+      <a class="logout-btn-mobile" routerLink="/logout" (click)="loginHandler()" title="Logout" tabindex="0"
+        [class.active]="isActive('/logout', true)">
+        <i class="bi bi-box-arrow-right"></i>
+      </a>
+    </div>
     }
-    </nav>
+  </nav>
   }
   <!-- Right sidebar (mobile only, slide in/out) -->
   @if (showRightMenu && selectedRoute === '/magazyn') {
-    <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
-      <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
-      <div class="sidebar-tree-list-wrapper">
-        <h1 class="sidebar-tree-title">Magazyn</h1>
-        <ul class="sidebar-tree-list">
-          <app-treebar></app-treebar>
-        </ul>
-      </div>
-    </nav>
+  <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
+    <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
+    <div class="sidebar-tree-list-wrapper">
+      <h1 class="sidebar-tree-title">Magazyn</h1>
+      <ul class="sidebar-tree-list">
+        <app-treebar #treebarMobile></app-treebar>
+      </ul>
+    </div>
+  </nav>
   }
   @if (showRightMenu && selectedRoute !== '/magazyn') {
-    <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
-      <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
-      <div class="sidebar-tree-list-wrapper">
-        <h1 class="sidebar-tree-title">Lokalizacje</h1>
-        <ul class="sidebar-tree-list">
-          <app-treebar></app-treebar>
-        </ul>
-      </div>
-    </nav>
+  <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
+    <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
+    <div class="sidebar-tree-list-wrapper">
+      <h1 class="sidebar-tree-title">Lokalizacje</h1>
+      <ul class="sidebar-tree-list">
+        <app-treebar></app-treebar>
+      </ul>
+    </div>
+  </nav>
   }
   <!-- Overlay for side menus -->
   @if (leftMenuOpen || rightMenuOpen) {
-    <div class="menu-overlay" (click)="closeMenus()"></div>
+  <div class="menu-overlay" (click)="closeMenus()"></div>
   }
 </header>
