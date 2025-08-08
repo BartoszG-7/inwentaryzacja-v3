@@ -73,9 +73,9 @@
   width: 240px;
   min-width: 250px;
   max-width: 250px;
-  height: 100vh;
+  height: calc(100vh - 64px);
   position: sticky;
-  top: 0;
+  top: 64px;
   left: 0;
   background: #000;
   color: #fff;

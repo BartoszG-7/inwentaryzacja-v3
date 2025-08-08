@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-magazyn-right-comp',
   standalone: true,
-  templateUrl: './magazyn-right-comp.component.html',
-  styleUrls: ['./magazyn-right-comp.component.scss']
+  templateUrl: './magazyn-right.component.html',
+  styleUrls: ['./magazyn-right.component.scss']
 })
 export class MagazynRightCompComponent {}

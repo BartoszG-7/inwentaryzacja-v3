@@ -2,18 +2,17 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //import { MagazynService } from './magazyn.service';
 import { Treebar } from '../../treebar/treebar';
-import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-magazyn-sidebar',
-  imports: [CommonModule, Treebar, HeaderComponent],
+  imports: [CommonModule, Treebar],
   standalone: true,
-  templateUrl: './magazyn.sidebar.html',
-  styleUrls: ['./magazyn.sidebar.scss']
+  templateUrl: './magazyn-sidebar.component.html',
+  styleUrls: ['./magazyn-sidebar.component.scss']
 })
-export class MagazynComponent {
-  //   locations: any[] = [];
-  //   editing: string = '';
+export class MagazynSidebarComponent {
+//   locations: any[] = [];
+//   editing: string = '';
 
   //   constructor(private readonly locationService: LocationService) {}
 
