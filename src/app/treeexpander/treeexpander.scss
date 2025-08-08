@@ -1,13 +1,24 @@
+// Chevron arrow in tree-location-row
+.treeexpander-chevron {
+  color: #b0b0b0;
+  transition: color 0.15s;
+}
+.tree-location-row:hover .treeexpander-chevron,
+.tree-location-row:focus-within .treeexpander-chevron {
+  color: #1e9497 !important;
+}
 @import 'global.scss';
 
 // Tree location row (clickable parent)
 .tree-location-row {
   display: flex;
   align-items: center;
-  padding: 0.3em 0.7em;
+  padding: 0.3em 0 0.3em 0.7em;
   border-radius: 4px;
   transition: background 0.15s;
   cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
 }
 .tree-location-row:hover, .tree-location-row:focus-within {
   background: #1e94971a !important;
@@ -61,7 +72,36 @@ ul li:hover .bi-dot {
   transition: color 0.15s;
 }
 
-// Newspaper icon color
-.bi.bi-newspaper {
-  
+// Newspaper row (styled like .tree-location-row)
+.treeexpander-item {
+  display: flex;
+  align-items: center;
+  padding: 0.3em 0 0.3em 1.7em; // extra left padding for hierarchy
+  border-radius: 4px;
+  transition: background 0.15s;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+.treeexpander-item:hover, .treeexpander-item:focus-within {
+  background: #1e94971a !important;
+}
+.treeexpander-icon {
+  margin-right: 1em; // more space between icon and label
+  color: #b0b0b0;
+  font-size: 1.1em;
+  transition: color 0.15s;
+}
+.treeexpander-label {
+  color: #fff;
+  font-weight: normal;
+  transition: color 0.15s;
+}
+.treeexpander-item:hover .treeexpander-icon,
+.treeexpander-item:focus-within .treeexpander-icon {
+  color: #1e9497 !important;
+}
+.treeexpander-item:hover .treeexpander-label,
+.treeexpander-item:focus-within .treeexpander-label {
+  color: #1e9497 !important;
 }

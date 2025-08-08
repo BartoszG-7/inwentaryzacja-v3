@@ -2,9 +2,11 @@
 <header>
   <div class="header-flex">
     <!-- Mobile: Hamburger menu icon (left) -->
-    <div *ngIf="showLeftMenu && !isLoginPage" class="menu-icon left-menu" (click)="toggleLeftMenu()" [class.open]="leftMenuOpen" title="Open left menu">
-      <i class="bi bi-list"></i>
-    </div>
+    @if (showLeftMenu && !isLoginPage) {
+      <div class="menu-icon left-menu" (click)="toggleLeftMenu()" [class.open]="leftMenuOpen" title="Open left menu">
+        <i class="bi bi-list"></i>
+      </div>
+    }
     <!-- Center: KIT logo button -->
     <div class="logo-container">
       <a class="kit-box center" routerLink="/home" tabindex="0">KIT</a>
@@ -12,16 +14,21 @@
     <!-- Desktop: header links (right, currently empty) -->
     <div class="header-links"></div>
     <!-- Desktop: Logout button (top right) -->
-    <button *ngIf="!isLoginPage" class="logout-btn" (click)="loginHandler()" title="Logout" tabindex="0">
-      <i class="bi bi-box-arrow-right"></i>
-    </button>
+    @if (!isLoginPage) {
+      <button class="logout-btn" (click)="loginHandler()" title="Logout" tabindex="0">
+        <i class="bi bi-box-arrow-right"></i>
+      </button>
+    }
     <!-- Mobile: Right menu icon (right) -->
-    <div *ngIf="showRightMenu && !isLoginPage" class="menu-icon right-menu mobile-only" (click)="toggleRightMenu()" [class.open]="rightMenuOpen" title="Open right menu">
-      <i class="bi bi-three-dots-vertical"></i>
-    </div>
+    @if (showRightMenu && !isLoginPage) {
+      <div class="menu-icon right-menu mobile-only" (click)="toggleRightMenu()" [class.open]="rightMenuOpen" title="Open right menu">
+        <i class="bi bi-three-dots-vertical"></i>
+      </div>
+    }
   </div>
   <!-- Left sidebar (slide in/out) -->
-  <nav *ngIf="showLeftMenu" class="side-menu left" [class.open]="leftMenuOpen">
+  @if (showLeftMenu) {
+    <nav class="side-menu left" [class.open]="leftMenuOpen">
     <button class="close-btn" (click)="toggleLeftMenu()">&times;</button>
     <ul class="sidebar-menu-left">
       <li routerLink="/home" (click)="toggleLeftMenu()" [class.active]="isActive('/home', true)">Home</li>
@@ -29,23 +36,30 @@
       <li routerLink="/magazyn" (click)="toggleLeftMenu()" [class.active]="isActive('/magazyn')">Magazyn</li>
     </ul>
     <!-- Mobile: KIT and Logout row at bottom -->
-    <div *ngIf="isMobile" class="sidebar-kit-logout-row">
-      <h4 class="logout-label">Log Out</h4>
-      <a class="logout-btn-mobile" routerLink="/logout" (click)="loginHandler()" title="Logout" tabindex="0" [class.active]="isActive('/logout', true)">
-        <i class="bi bi-box-arrow-right"></i>
-      </a>
-    </div>
-  </nav>
+    @if (isMobile) {
+      <div class="sidebar-kit-logout-row">
+        <h4 class="logout-label">Log Out</h4>
+        <a class="logout-btn-mobile" routerLink="/logout" (click)="loginHandler()" title="Logout" tabindex="0" [class.active]="isActive('/logout', true)">
+          <i class="bi bi-box-arrow-right"></i>
+        </a>
+      </div>
+    }
+    </nav>
+  }
   <!-- Right sidebar (mobile only, slide in/out) -->
-  <nav *ngIf="showRightMenu" class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
-    <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
-    <div class="sidebar-tree-list-wrapper">
-      <h1 class="sidebar-tree-title">Lokalizacje</h1>
-      <ul class="sidebar-tree-list">
-        <app-treebar></app-treebar>
-      </ul>
-    </div>
-  </nav>
+  @if (showRightMenu) {
+    <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
+      <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
+      <div class="sidebar-tree-list-wrapper">
+        <h1 class="sidebar-tree-title">Lokalizacje</h1>
+        <ul class="sidebar-tree-list">
+          <app-treebar></app-treebar>
+        </ul>
+      </div>
+    </nav>
+  }
   <!-- Overlay for side menus -->
-  <div class="menu-overlay" *ngIf="leftMenuOpen || rightMenuOpen" (click)="closeMenus()"></div>
+  @if (leftMenuOpen || rightMenuOpen) {
+    <div class="menu-overlay" (click)="closeMenus()"></div>
+  }
 </header>

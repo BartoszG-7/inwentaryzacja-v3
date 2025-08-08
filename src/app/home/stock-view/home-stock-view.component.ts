@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeStockViewService } from './home-stock-view.service';
+import { HomeStockViewService } from '../stock-view/home-stock-view.service';
 @Component({
   selector: 'app-home-stock-view',
   standalone: true,
