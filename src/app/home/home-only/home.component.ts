@@ -22,10 +22,10 @@ export class HomeComponent {
   ngOnInit() {
     this.homeService.getData().subscribe({
       next: (data) => {
-        console.log(data);
+     
         this.modified = data.modified;
         this.stock = data.stock;
-        console.log(this.modified);
+       
       }
     })
   }
