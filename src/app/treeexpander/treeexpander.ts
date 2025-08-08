@@ -15,11 +15,15 @@ export class Treeexpander implements OnInit {
     var array: any[] = [];
     array = this.projects().split(",");
     array.pop();
+    
     array.forEach((project: any, ind: number) => {
+
       this.names[ind] = JSON.parse(project).name;
     });
+
   }
   expand(event?: Event): void {
+
     if (this.names.length !== 0) {
       this.expanded = !this.expanded;
 
