@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MagazynRightCompComponent } from '../magazyn-right-comp/magazyn-right-comp.component';
 import { Treebar } from '../../treebar/treebar';
 import { HeaderComponent } from '../../components/header/header.component';
-import { MagazynComponent } from "../magazyn-sidebar/magazyn.sidebar";
+import { MagazynComponent } from "../magazyn-sidebar/magazyn-sidebar.component";
 
 @Component({
   selector: 'app-magazyn-main',
