@@ -47,7 +47,18 @@
     </nav>
   }
   <!-- Right sidebar (mobile only, slide in/out) -->
-  @if (showRightMenu) {
+  @if (showRightMenu && selectedRoute === '/magazyn') {
+    <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
+      <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
+      <div class="sidebar-tree-list-wrapper">
+        <h1 class="sidebar-tree-title">Magazyn</h1>
+        <ul class="sidebar-tree-list">
+          <app-treebar></app-treebar>
+        </ul>
+      </div>
+    </nav>
+  }
+  @if (showRightMenu && selectedRoute !== '/magazyn') {
     <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
       <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
       <div class="sidebar-tree-list-wrapper">
