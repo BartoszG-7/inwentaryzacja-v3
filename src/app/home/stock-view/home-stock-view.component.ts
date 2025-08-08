@@ -10,6 +10,7 @@ import { HomeStockViewService } from '../stock-view/home-stock-view.service';
 })
 export class HomeStockViewComponent implements OnInit {
   constructor(private homeStockViewService: HomeStockViewService) { }
+
   stockItems: any[] = [
 
   ];
@@ -18,34 +19,46 @@ export class HomeStockViewComponent implements OnInit {
 
     this.homeStockViewService.getUnassignedDevices().subscribe({
       next: (data: any) => {
-        console.log('Unassigned devices data:', data);
+
         data.forEach((item: any) => {
           if (item.deviceType != null) { //zabezpieczenie przed zlymi danymi w bazie
+
             if (deviceList.length === 0) {
               deviceList.push({ deviceTypeId: item.deviceType._id, deviceType: item.deviceType.name, counter: 1 });
               return;
             }
+            var brk: boolean = false;
             deviceList.forEach(element => {
-              if (element.deviceTypeId === item.deviceType._id) {
-                element.counter++;
 
-              } else {
-                deviceList.push({ deviceTypeId: item.deviceType._id, deviceType: item.deviceType.name, counter: 1 });
-                return;
+              if (element.deviceTypeId === item.deviceType._id) {
+
+                element.counter++;
+                brk = true;
+
               }
+
+
             });
+            if (!brk) {
+
+              deviceList.push({ deviceTypeId: item.deviceType._id, deviceType: item.deviceType.name, counter: 1 });
+            }
           }
+
         });
 
-        console.log('Unassigned devices:', deviceList);
         deviceList.forEach(item => {
-          console.log('Stock items:', item);
+
           this.stockItems.push({ name: item.deviceType, count: item.counter });
         });
-      }
-    });
 
+      }
+
+    });
 
 
   }
 }
+
+
+
