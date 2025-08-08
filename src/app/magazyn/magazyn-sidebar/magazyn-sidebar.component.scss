@@ -68,12 +68,12 @@
   border: none !important;
 }
 
-// --- Sidebar Layout ---
+// --- Sidebar Layout --- 
 .sidebar-static {
   width: 240px;
   min-width: 250px;
   max-width: 250px;
-  height: calc(100vh);
+  height: calc(100vh - 64px);
   position: sticky;
   top: 64px;
   left: 0;
@@ -81,7 +81,7 @@
   color: #fff;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
   z-index: 10;
-  display: block; 
+  display: block;
 }
 
 .sidebar-static-header {
