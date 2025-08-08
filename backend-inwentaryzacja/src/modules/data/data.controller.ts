@@ -5,7 +5,10 @@ import { DataService } from './data.service';
 export class DataController {
     constructor(private readonly dataService: DataService) { }
 
-
+    /* @Get('inventory-list')
+     async getInventoryList() {
+         return await this.dataService.inventoryList();
+     }*/
     @Get('treebar')
     async getTreebar() {
         return await this.dataService.treebar();

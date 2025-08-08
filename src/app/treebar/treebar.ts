@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { TreebarService } from './treebar.service';
 import { Treeexpander } from '../treeexpander/treeexpander';
 
@@ -12,8 +12,9 @@ export class Treebar implements OnInit {
   constructor(private treebarService: TreebarService) { }
   data: Array<any> = [];
   stringified: string = "";
+  query = input<string>('http://localhost:3000/data/treebar');
   ngOnInit(): void {
-    this.treebarService.getNames().subscribe({
+    this.treebarService.getNames(this.query()).subscribe({
       next: (data: any) => {
         // Store the fetched data in the component's property
 

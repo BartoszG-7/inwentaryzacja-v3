@@ -15,7 +15,9 @@ export class DeviceTypeService {
         return createddeviceType.save();
 
     }
-
+    async list(): Promise<any> {
+        return ({ locations: await this.deviceTypeModel.find({}).select("name").exec() });
+    }
     async find(query: string): Promise<DeviceType[]> {
         return this.deviceTypeModel.find(JSON.parse(query)).exec();
     }

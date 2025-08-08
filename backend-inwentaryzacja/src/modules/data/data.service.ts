@@ -7,16 +7,23 @@ import { Device, DeviceDocument } from '../device/device.schema'
 import { Project } from '../project/project.schema';
 import { Location } from '../location/location.schema';
 import { ProjectHistory } from '../project-history/project-history.schema';
+import { DeviceType } from '../device-type/device-type.schema';
 @Injectable()
 export class DataService {
-    constructor(@InjectModel(Device.name) private deviceModel: Model<Device>, @InjectModel(Project.name) private ProjectModel: Model<Project>, @InjectModel(Location.name) private LocationModel: Model<Location>, @InjectModel(ProjectHistory.name) private ProjectHistoryModel: Model<ProjectHistory>) { }
+    constructor(@InjectModel(Device.name) private deviceModel: Model<Device>, @InjectModel(Project.name) private ProjectModel: Model<Project>, @InjectModel(Location.name) private LocationModel: Model<Location>, @InjectModel(ProjectHistory.name) private ProjectHistoryModel: Model<ProjectHistory>, @InjectModel(DeviceType.name) private DeviceTypeModel: Model<DeviceType>) { }
 
     async treebar(): Promise<any> {
 
 
         return ({ projects: await this.ProjectModel.find().select("name location").exec(), locations: await this.LocationModel.find().select("name").exec() });
 
+
     }
+    /*  async inventoryList(): Promise<any> {
+  
+  
+          return (this.DeviceTypeModel.find({}).select("name"));
+      }*/
     async home(): Promise<any> {
 
 
