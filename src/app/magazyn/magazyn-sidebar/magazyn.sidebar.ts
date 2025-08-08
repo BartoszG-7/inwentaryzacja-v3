@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //import { MagazynService } from './magazyn.service';
-import { HeaderComponent } from '../components/header/header.component';
-import { Treebar } from '../treebar/treebar';
+import { Treebar } from '../../treebar/treebar';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
-  selector: 'app-magazyn',
-  imports: [CommonModule, HeaderComponent, Treebar],
+  selector: 'app-magazyn-sidebar',
+  imports: [CommonModule, Treebar, HeaderComponent],
   standalone: true,
-  templateUrl: './magazyn.component.html',
-  styleUrl: './magazyn.component.scss'
+  templateUrl: './magazyn.sidebar.html',
+  styleUrls: ['./magazyn.sidebar.scss']
 })
 export class MagazynComponent {
 //   locations: any[] = [];
