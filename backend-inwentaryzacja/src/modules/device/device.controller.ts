@@ -12,10 +12,7 @@ export class DeviceController {
     async postCreate(@Body() body: CreateDeviceDto) {
         return await this.deviceService.create(body);
     }
-    @Get('unassigned')
-    async getUnassigned() {
-        return await this.deviceService.unassigned();
-    }
+
     @Get(':query')
     async getFind(@Param("query") query: string) {
         return await this.deviceService.find(query);

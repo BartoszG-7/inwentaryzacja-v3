@@ -17,6 +17,8 @@ import { ProjectHistoryController } from './modules/project-history/project-hist
 import { DeviceTypeService } from './modules/device-type/device-type.service';
 import { DeviceTypeController } from './modules/device-type/device-type.controller';
 import { DeviceType, deviceTypeSchema } from './modules/device-type/device-type.schema';
+import { DataController } from './modules/data/data.controller';
+import { DataService } from './modules/data/data.service';
 
 
 @Module({
@@ -27,7 +29,7 @@ import { DeviceType, deviceTypeSchema } from './modules/device-type/device-type.
       { name: Device.name, schema: DeviceSchema }]), MongooseModule.forFeature([
         { name: ProjectHistory.name, schema: ProjectHistorySchema }]), MongooseModule.forFeature([
           { name: DeviceType.name, schema: deviceTypeSchema }])],
-  controllers: [LocationController, ProjectController, DeviceController, ProjectHistoryController, DeviceTypeController],
-  providers: [LocationService, ProjectService, DeviceService, ProjectHistoryService, DeviceTypeService],
+  controllers: [LocationController, ProjectController, DeviceController, ProjectHistoryController, DeviceTypeController, DataController],
+  providers: [LocationService, ProjectService, DeviceService, ProjectHistoryService, DeviceTypeService, DataService],
 })
 export class AppModule { }

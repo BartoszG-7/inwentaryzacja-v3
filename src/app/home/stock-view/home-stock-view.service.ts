@@ -1,7 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -9,9 +9,10 @@ export class HomeStockViewService {
   constructor(private httpClient: HttpClient) { }
 
   getUnassignedDevices(): any {
-    return this.httpClient.get('http://localhost:3000/device/unassigned').pipe(switchMap((data: any) => {
+    /*return this.httpClient.get('http://localhost:3000/device/unassigned').pipe(switchMap((data: any) => {
       return this.processUnassignedDevices(data);
-    }));
+    }));*/
+    return new Observable((sub) => { sub.next("WIP") });
   }
   processUnassignedDevices(data: any): any[] {
     let deviceList: any[] = [];

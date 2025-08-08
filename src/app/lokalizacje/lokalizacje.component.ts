@@ -33,12 +33,12 @@ export class LokalizacjeComponent {
     this.editing = id;
   }
 
-  saveData(id: string, name: string, address: string, tag: string, note: string): void {
+  /*saveData(id: string, name: string, address: string, tag: string, note: string): void {
     this.locationService.saveData(id, name, address, tag, note).subscribe({
       next: () => {
         this.ngOnInit();
       }
     });
     this.editing = '';
-  }
+  }*/
 }
