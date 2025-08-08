@@ -16,10 +16,7 @@ export class ProjectController {
     async getModified() {
         return await this.ProjectService.modified();
     }
-    @Get('treebar')
-    async getTreebar() {
-        return await this.ProjectService.treebar();
-    }
+
     @Get(':query')
     async getFind(@Param("query") query: string) {
         return await this.ProjectService.find(query);

@@ -13,13 +13,11 @@ export class ProjectHistoryService {
         const createdProjectHistory = new this.ProjectHistoryModel(body);
         return createdProjectHistory.save();
     }
-
+  
     async find(query: string): Promise<ProjectHistory[]> {
-        if (query === "modified") {
-            return (this.ProjectHistoryModel.find({}).populate("project").populate({ path: "project", populate: { path: "location", model: "Location" } }).sort({ "date": -1 }).limit(5).exec());
-        } else {
-            return this.ProjectHistoryModel.find(JSON.parse(query)).exec();
-        }
+
+        return this.ProjectHistoryModel.find(JSON.parse(query)).exec();
+
     }
 
     async delete(id: string): Promise<string> {

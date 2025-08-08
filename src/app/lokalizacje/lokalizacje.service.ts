@@ -13,7 +13,7 @@ export class LocationService {
         return this.http.get<JSON>('http://localhost:3000/location/{}');
 
     }
-    saveData(id: string, name: string, address: string, tag: string, note: string): Observable<any> {
+   /* saveData(id: string, name: string, address: string, tag: string, note: string): Observable<any> {
         return this.http.patch<JSON>('http://localhost:3000/location/' + id, {
             "name": name,
             "address": address,
@@ -21,6 +21,6 @@ export class LocationService {
             "note": note
         });
 
-    }
+    }*/
 
 }

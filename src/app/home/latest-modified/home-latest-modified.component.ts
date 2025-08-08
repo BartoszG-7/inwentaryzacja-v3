@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { HomeService } from './home-latest-modified.service';
 
 @Component({
@@ -10,17 +10,10 @@ import { HomeService } from './home-latest-modified.service';
 })
 export class HomeLatestModifiedComponent implements OnInit {
   constructor(private homeService: HomeService) { }
-  data: Array<any> = [];
+  modified = input();
+  data: any;
   ngOnInit(): void {
-    this.homeService.getNamesAndDate().subscribe({
-      next: (data: any) => {
-
-        this.data = data;
-      },
-      error: (err) => {
-        console.error('Error fetching latest modified data:', err);
-      }
-    });
+    this.data = this.modified();
 
   }
 }

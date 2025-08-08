@@ -24,12 +24,7 @@ export class ProjectService {
         return this.ProjectModel.find(JSON.parse(query)).exec();
 
     }
-    async treebar(): Promise<any> {
 
-
-        return ({ projects: await this.ProjectModel.find().select("name location").exec(), locations: await this.LocationModel.find().select("name").exec() });
-
-    }
     async delete(id: string): Promise<string> {
         await this.ProjectModel.deleteOne({ _id: id }).exec();
         return "OK";

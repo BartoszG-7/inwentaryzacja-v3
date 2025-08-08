@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeStockViewService } from '../stock-view/home-stock-view.service';
 @Component({
@@ -10,21 +10,18 @@ import { HomeStockViewService } from '../stock-view/home-stock-view.service';
 })
 export class HomeStockViewComponent implements OnInit {
   constructor(private homeStockViewService: HomeStockViewService) { }
-
+  unprocessed: any = input();
   stockItems: any[] = [
 
   ];
   ngOnInit(): void {
-    var deviceList: any[] = [];
-    this.homeStockViewService.getUnassignedDevices().subscribe({
-      next: (data: any) => {
-        console.log(data);
 
-        this.stockItems.push({ name: data.deviceType, count: data.counter });
 
-      }
 
+    this.homeStockViewService.processUnassignedDevices(this.unprocessed()).forEach((e: any) => {
+      this.stockItems.push({ name: e.deviceType, count: e.counter });
     });
+
 
 
 
