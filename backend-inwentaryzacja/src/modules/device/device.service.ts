@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model, RootFilterQuery } from 'mongoose';
+import { Model, RootFilterQuery, Types } from 'mongoose';
 import { CreateDeviceDto } from './dto/create-device.dto';
 import { Device, DeviceDocument } from './device.schema'
 import { UpdateDeviceDto } from './dto/update-device.dto';
@@ -16,7 +16,10 @@ export class DeviceService {
 
     }
 
+    async findId(id: string): Promise<Device[]> {
 
+        return this.deviceModel.find({ deviceType: new Types.ObjectId(id) }).exec();
+    }
     async find(query: string): Promise<Device[]> {
 
         return this.deviceModel.find(JSON.parse(query)).exec();

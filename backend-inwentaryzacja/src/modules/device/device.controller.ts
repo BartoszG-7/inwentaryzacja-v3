@@ -12,7 +12,10 @@ export class DeviceController {
     async postCreate(@Body() body: CreateDeviceDto) {
         return await this.deviceService.create(body);
     }
-    
+    @Get('id/:id')
+    async getFindId(@Param("id") id: string) {
+        return await this.deviceService.findId(id);
+    }
     @Get(':query')
     async getFind(@Param("query") query: string) {
         return await this.deviceService.find(query);
