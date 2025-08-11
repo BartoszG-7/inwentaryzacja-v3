@@ -9,7 +9,7 @@
     <form (ngSubmit)="onSearch()">
       <input name="search" (input)="onFilterChange($event)" [(ngModel)]="searchValue"
         placeholder="Wpisz szukaną frazę..." required />
-      <button type="submit" class="search-btn">Szukaj</button>
+      <button type="submit" (click)="onSubmit()" class="search-btn">Szukaj</button>
     </form>
   </div>
 </div>

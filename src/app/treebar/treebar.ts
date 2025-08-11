@@ -29,7 +29,9 @@ export class Treebar implements OnInit, OnChanges {
 
     if (changes['search'] && this.fetchedData !== undefined) {
       this.data = [];
+
       this.searchValidated = this.search() ?? "";
+      //if (this.search() == "[]") this.searchValidated = "";
       if (this.query() === 'http://localhost:3000/data/treebar') {
         this.data = this.treebarService.dataParser(this.treebarService.search(this.fetchedData, this.searchValidated));
       } else {
