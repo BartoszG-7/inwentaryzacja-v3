@@ -1,31 +1,33 @@
 <i class="bi bi-folder-plus magazyn-plus" title="Dodaj magazyn" (click)="openModal()"></i>
 
-<div class="modal-backdrop" [class.open]="showModal" (click)="closeModal()"></div>
-<div class="modal-custom" [class.open]="showModal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title">Dodaj typ urządzenia</h5>
-      <button type="button" class="close" (click)="closeModal()" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+@if (showModal) {
+  <div class="modal-backdrop open" (click)="closeModal()"></div>
+  <div class="modal-custom open">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Dodaj typ urządzenia</h5>
+        <button type="button" class="close" (click)="closeModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #deviceTypeForm="ngForm" (ngSubmit)="onSubmit(deviceTypeForm)">
+        <div class="modal-body">
+          <input name="name" [(ngModel)]="formData.name" placeholder="Nazwa" required class="form-control mb-2">
+          <input name="tag" [(ngModel)]="formData.tag" placeholder="Tag" class="form-control mb-2">
+          <input name="maker" [(ngModel)]="formData.maker" placeholder="Producent" class="form-control mb-2">
+          <input name="model" [(ngModel)]="formData.model" placeholder="Model" class="form-control mb-2">
+          <input name="color" [(ngModel)]="formData.color" placeholder="Kolor" class="form-control mb-2">
+          <input name="remoteAccessEnum" [(ngModel)]="formData.remoteAccessEnum" placeholder="Remote Access Enum"
+            class="form-control mb-2">
+          <input name="resolutionIfMonitor" [(ngModel)]="formData.resolutionIfMonitor"
+            placeholder="Rozdzielczość (jeśli monitor)" class="form-control mb-2">
+          <input name="lastTag" [(ngModel)]="formData.lastTag" placeholder="Ostatni tag" class="form-control mb-2">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Anuluj</button>
+          <button type="submit" class="btn btn-primary" [disabled]="deviceTypeForm.invalid">Zapisz</button>
+        </div>
+      </form>
     </div>
-    <form #deviceTypeForm="ngForm" (ngSubmit)="onSubmit(deviceTypeForm)">
-      <div class="modal-body">
-        <input name="name" [(ngModel)]="formData.name" placeholder="Nazwa" required class="form-control mb-2">
-        <input name="tag" [(ngModel)]="formData.tag" placeholder="Tag" class="form-control mb-2">
-        <input name="maker" [(ngModel)]="formData.maker" placeholder="Producent" class="form-control mb-2">
-        <input name="model" [(ngModel)]="formData.model" placeholder="Model" class="form-control mb-2">
-        <input name="color" [(ngModel)]="formData.color" placeholder="Kolor" class="form-control mb-2">
-        <input name="remoteAccessEnum" [(ngModel)]="formData.remoteAccessEnum" placeholder="Remote Access Enum"
-          class="form-control mb-2">
-        <input name="resolutionIfMonitor" [(ngModel)]="formData.resolutionIfMonitor"
-          placeholder="Rozdzielczość (jeśli monitor)" class="form-control mb-2">
-        <input name="lastTag" [(ngModel)]="formData.lastTag" placeholder="Ostatni tag" class="form-control mb-2">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="closeModal()">Anuluj</button>
-        <button type="submit" class="btn btn-primary" [disabled]="deviceTypeForm.invalid">Zapisz</button>
-      </div>
-    </form>
   </div>
-</div>
+}

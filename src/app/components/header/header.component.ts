@@ -20,8 +20,25 @@ export class HeaderComponent {
   showLeftMenu = true;
   showRightMenu = true;
   selectedRoute: string = '';
+  plusModalOpen = false;
+  plusModalLokalOpen = false;
   get isLoginPage(): boolean {
     return this.selectedRoute === '/login';
+  }
+  openPlusModal() {
+    this.plusModalOpen = true;
+  }
+
+  closePlusModal() {
+    this.plusModalOpen = false;
+  }
+
+  openPlusModalLokal() {
+    this.plusModalLokalOpen = true;
+  }
+
+  closePlusModalLokal() {
+    this.plusModalLokalOpen = false;
   }
 
   get isMobile(): boolean {
