@@ -80,6 +80,7 @@
 }
 
 // --- Sidebar Layout --- 
+// Sidebar container with scroll if content overflows
 .sidebar-static {
   width: 240px;
   min-width: 250px;
@@ -93,6 +94,8 @@
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
   z-index: 10;
   display: block;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .sidebar-static-header {
