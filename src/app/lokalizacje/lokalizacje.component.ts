@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LocationService } from './lokalizacje.service';
-import { HeaderComponent } from '../components/header/header.component';
 import { Treebar } from '../treebar/treebar';
 import { PlusModalLokalComponent } from "../components/plus-modal-lokal/plus-modal-lokal.component";
 import { SearchBarComponent } from '../components/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-lokalizacje',
-  imports: [CommonModule, HeaderComponent, Treebar, PlusModalLokalComponent, SearchBarComponent],
+  imports: [CommonModule, Treebar, PlusModalLokalComponent, SearchBarComponent],
   standalone: true,
   templateUrl: './lokalizacje.component.html',
   styleUrl: './lokalizacje.component.scss'
