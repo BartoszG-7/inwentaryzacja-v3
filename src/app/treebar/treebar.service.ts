@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class TreebarService {
     constructor(private readonly http: HttpClient) { }
-    getNames(query: string): Observable<any> {
-        return this.http.get<JSON>(query);
+    getNames(query: string, search: string): Observable<any> {
+        return this.http.get<JSON>(query + "/" + search);
 
     }
 

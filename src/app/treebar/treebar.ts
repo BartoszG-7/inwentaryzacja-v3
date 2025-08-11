@@ -15,13 +15,14 @@ export class Treebar implements OnInit {
   selectedId = output<any>();
   stringified: string = "";
   query = input<string>('http://localhost:3000/data/treebar');
+  search: string = "{}";
   changeId(event: any): void {
 
     this.treebarSharedService.setData(event);
   }
   ngOnInit(): void {
     console.log(this.query());
-    this.treebarService.getNames(this.query()).subscribe({
+    this.treebarService.getNames(this.query(), this.search).subscribe({
       next: (data: any) => {
         // Store the fetched data in the component's property
 
