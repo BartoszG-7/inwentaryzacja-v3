@@ -26,50 +26,12 @@ export class Treebar implements OnInit, OnChanges {
     this.treebarSharedService.setData(event);
   }
   ngOnChanges(changes: SimpleChanges): void {
-    this.data = [];
-    if (changes['search']) {
-      var projects: any = [];
-      var locations: any = [];
+
+    if (changes['search'] && this.query() === 'http://localhost:3000/data/treebar') {
+      this.data = [];
       this.searchValidated = this.search() ?? "";
-      console.log('Search input changed:', this.searchValidated);
-      this.fetchedData.projects.forEach((project: any) => {
-        if (project.name.toLowerCase().includes(this.searchValidated.toLowerCase())) {
-          projects.push(project);
-        }
-      });
-      this.fetchedData.locations.forEach((location: any) => {
-        if (location.name.toLowerCase().includes(this.searchValidated.toLowerCase())) {
-          locations.push(location);
-        }
-      });
-      //this.data = (JSON.stringify({ "name": item.name, "id": item.id }) + ",");
+      this.data = this.treebarService.dataParser(this.treebarService.search(this.fetchedData, this.searchValidated));
     }
-
-    projects.forEach((project: any) => {
-      var complete: boolean = false;
-      locations.forEach((location: any) => {
-        if (project.location == location._id) complete = true;
-      });
-      if (!complete) {
-        console.log(this.fetchedData);
-        this.fetchedData.locations.forEach((location: any) => {
-          if (location._id == project.location) locations.push(location);
-        });
-      }
-    });
-    locations.forEach((location: any) => {
-      var complete: boolean = false;
-      projects.forEach((project: any) => {
-        if (project.location == location._id) complete = true;
-      });
-      if (!complete) {
-
-        this.fetchedData.projects.forEach((project: any) => {
-          if (location._id == project.location) projects.push(project);
-        });
-      }
-    });
-    this.data = this.treebarService.dataParser({ projects: projects, locations: locations });
   }
   ngOnInit(): void {
 
@@ -77,6 +39,7 @@ export class Treebar implements OnInit, OnChanges {
     this.stringified = "";
     console.log(this.query());
     if (this.search() == "") {
+
       this.searchValidated = "{}";
     } else {
       this.searchValidated = this.search() ?? "";
