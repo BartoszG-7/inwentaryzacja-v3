@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PlusModalLokalService } from './plus-modal-lokal.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,12 +13,14 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './plus-modal-lokal.component.scss'
 })
 export class PlusModalLokalComponent {
-   showModal = false;
+  constructor(private plusModalLokalService: PlusModalLokalService, private router: Router) { }
+  showModal = false;
   formData = {
     name: '',
     tag: '',
     address: '',
-    note: ''
+    note: '',
+    projects: []
   };
 
   openModal() {
@@ -29,14 +33,26 @@ export class PlusModalLokalComponent {
       name: '',
       tag: '',
       address: '',
-      note: ''
+      note: '',
+      projects: []
     };
   }
 
   onSubmit(form: any) {
     if (form.valid) {
-      // TODO: Replace with actual POST logic
-      alert('Form submitted! ' + JSON.stringify(this.formData));
+
+      this.plusModalLokalService.postData(this.formData).subscribe({
+        next: (response: any) => {
+
+          let currentUrl = this.router.url;
+          this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+            this.router.navigate([currentUrl]);
+          });
+        },
+        error: (error: any) => {
+          console.error('Error submitting data:', error);
+        }
+      });
       this.closeModal();
     }
   }
