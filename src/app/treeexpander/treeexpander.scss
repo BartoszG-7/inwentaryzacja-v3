@@ -2,6 +2,9 @@
 .treeexpander-chevron {
   color: #b0b0b0;
   transition: color 0.15s;
+  margin-left: 1em;
+  min-width: 1.2em;
+  text-align: right;
 }
 .tree-location-row:hover .treeexpander-chevron,
 .tree-location-row:focus-within .treeexpander-chevron {
@@ -13,7 +16,8 @@
 .tree-location-row {
   display: flex;
   align-items: center;
-  padding: 0.3em 0 0.3em 0.7em;
+  justify-content: space-between;
+  padding: 1.4em 0.7em 0em 0.7em; // increased vertical padding for headers
   border-radius: 4px;
   transition: background 0.15s;
   cursor: pointer;
@@ -27,8 +31,18 @@
 .tree-location-list-ul {
   font-size: 0.9em;
   vertical-align: middle;
-  margin-right:0.3em;
+  margin-right: 0.3em;
   padding-left: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.tree-location-list-ul li {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1.1;
 }
 
 .tree-location-link {
@@ -76,7 +90,10 @@ ul li:hover .bi-dot {
 .treeexpander-item {
   display: flex;
   align-items: center;
-  padding: 0.3em 0 0.3em 1.7em; // extra left padding for hierarchy
+  padding: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.1;
   border-radius: 4px;
   transition: background 0.15s;
   cursor: pointer;
@@ -87,10 +104,11 @@ ul li:hover .bi-dot {
   background: #1e94971a !important;
 }
 .treeexpander-icon {
-  margin-right: 1em; // more space between icon and label
+  margin-right: 0.3em; // icon close to label
   color: #b0b0b0;
   font-size: 1.1em;
   transition: color 0.15s;
+  padding-left: 1em;
 }
 .treeexpander-label {
   color: #fff;
@@ -103,5 +121,18 @@ ul li:hover .bi-dot {
 }
 .treeexpander-item:hover .treeexpander-label,
 .treeexpander-item:focus-within .treeexpander-label {
+  color: #1e9497 !important;
+}
+.treeexpander-motherboard {
+  color: #fff;
+  margin-left: 1em;
+  min-width: 1.2em;
+  font-size: 1.1em;
+  text-align: right;
+  vertical-align: middle;
+  transition: color 0.15s;
+}
+.tree-location-row:hover .treeexpander-motherboard,
+.tree-location-row:focus-within .treeexpander-motherboard {
   color: #1e9497 !important;
 }

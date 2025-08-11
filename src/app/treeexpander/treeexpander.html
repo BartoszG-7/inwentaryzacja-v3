@@ -1,14 +1,18 @@
 <div class="tree-location-row" (click)="expand($event)" tabindex="0">
-    @if(this.names.length === 0) {
-      <span class="bi bi-chevron-right treeexpander-chevron" style="margin-right:0.4em; opacity:0;"></span>
+    <span class="tree-location-link">{{this.location()}}</span>
+    @if(this.showMotherboardIcon()) {
+      <i class="bi bi-motherboard treeexpander-motherboard"></i>
     } @else {
-      @if(!this.expanded) {
-        <span class="bi bi-chevron-right treeexpander-chevron" style="margin-right:0.4em;"></span>
-      } @if(this.expanded) {
-        <span class="bi bi-chevron-down treeexpander-chevron" style="margin-right:0.4em;"></span>
+      @if(this.names.length === 0) {
+        <span class="bi bi-chevron-right treeexpander-chevron" style="opacity:0;"></span>
+      } @else {
+        @if(!this.expanded) {
+          <span class="bi bi-chevron-right treeexpander-chevron"></span>
+        } @if(this.expanded) {
+          <span class="bi bi-chevron-down treeexpander-chevron"></span>
+        }
       }
     }
-    <span class="tree-location-link">{{this.location()}}</span>
 </div>
 @if(this.expanded) {
 <ul class="tree-location-list-ul">

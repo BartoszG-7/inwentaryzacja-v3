@@ -13,6 +13,7 @@ export class Treeexpander implements OnInit {
   expanded: boolean = false;
   names: string[] = [];
   selected = output<any>();
+  showMotherboardIcon: InputSignal<boolean> = input<boolean>(false);
   ngOnInit(): void {
     var array: any[] = [];
     array = this.projects().split(",");
