@@ -13,6 +13,9 @@ export class MagazynRightCompService {
   getDeviceTypes(id: string): Observable<any> {
     return this.httpClient.get<JSON>('http://localhost:3000/device-type/{"_id": "' + id + '"}');
   }
-
+  getDevices(id: string): Observable<any> {
+    console.log('http://localhost:3000/device/id/{"deviceType":"' + id + '"}');
+    return this.httpClient.get<JSON>('http://localhost:3000/device/{"deviceType": "' + 'ObjectId(' + id + ')' + '"}');
+  }
 
 }

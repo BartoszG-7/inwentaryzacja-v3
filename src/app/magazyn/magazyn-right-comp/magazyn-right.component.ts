@@ -20,10 +20,16 @@ export class MagazynRightCompComponent {
       next: (data: any) => {
         this.magazynRightCompService.getDeviceTypes(data.id).subscribe({
           next: (data: any) => {
-            this.name = data[0].name
+            this.name = data[0].name;
           }
         });
+        console.log(data.id);
+        this.magazynRightCompService.getDevices(data.id).subscribe({
+          next: (data: any) => {
 
+            console.log(data);
+          }
+        });
       }
     });
   }
