@@ -1,11 +1,13 @@
 <div class="layout">
   <aside class="sidebar-static">
     <div class="sidebar-static-header">
-      <h1 class="sidebar-static-title">Magazyn</h1>
+      <div class="sidebar-header-plus-align">
+        <h1 class="sidebar-static-title" style="margin-right: 1rem;">Magazyn</h1>
+        <app-plus-modal></app-plus-modal>
+      </div>
     </div>
     <div class="sidebar-mobile-separator"></div>
     <ul class="sidebar-static-list">
-      <app-plus-modal></app-plus-modal>
       <app-treebar query="http://localhost:3000/device-type/list" #treebarDesktop></app-treebar>
     </ul>
   </aside>

@@ -30,6 +30,11 @@
   position: relative;
 }
 
+.sidebar-header-plus-align {
+  display: flex;
+  align-items: center;
+}
+
 .sidebar-static-header::after,
 .sidebar-tree-list-wrapper .sidebar-tree-title::after {
   content: '';
