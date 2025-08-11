@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //import { MagazynService } from './magazyn.service';
 import { Treebar } from '../../treebar/treebar';
+import { PlusModalComponent } from '../../components/plus-modal/plus-modal.component';
 
 @Component({
   selector: 'app-magazyn-sidebar',
-  imports: [CommonModule, Treebar],
+  imports: [CommonModule, Treebar, PlusModalComponent],
   standalone: true,
   templateUrl: './magazyn-sidebar.component.html',
   styleUrls: ['./magazyn-sidebar.component.scss']
