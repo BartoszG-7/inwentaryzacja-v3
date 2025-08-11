@@ -14,6 +14,7 @@ export class MagazynRightCompComponent {
 
   constructor(private treebarSharedService: TreebarSharedService, private magazynRightCompService: MagazynRightCompService) { }
   name: string = "";
+  itemCount: number = 0;
   ngOnInit(): void {
 
     this.treebarSharedService.getData().subscribe({
@@ -26,7 +27,7 @@ export class MagazynRightCompComponent {
         console.log(data.id);
         this.magazynRightCompService.getDevices(data.id).subscribe({
           next: (data: any) => {
-
+            this.itemCount = data.length;
             console.log(data);
           }
         });
