@@ -11,6 +11,11 @@
   z-index: 20;
 }
 
+.sidebar-header-plus-align {
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 900px) {
   .sidebar-mobile-separator {
     display: block;
@@ -19,6 +24,7 @@
     display: none !important;
   }
 }
+
 @import 'global.scss';
 
 // --- Sidebar Header and Underline ---
