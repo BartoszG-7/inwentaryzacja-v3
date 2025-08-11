@@ -24,11 +24,11 @@ export class MagazynRightCompComponent {
             this.name = data[0].name;
           }
         });
-        console.log(data.id);
+
         this.magazynRightCompService.getDevices(data.id).subscribe({
           next: (data: any) => {
             this.itemCount = data.length;
-            console.log(data);
+
           }
         });
       }
