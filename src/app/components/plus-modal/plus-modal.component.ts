@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PlusModalService } from './plus-modal.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plus-modal',
@@ -12,7 +13,7 @@ import { PlusModalService } from './plus-modal.service';
   styleUrls: ['./plus-modal.component.scss']
 })
 export class PlusModalComponent {
-  constructor(private plusModalService: PlusModalService) { }
+  constructor(private plusModalService: PlusModalService, private router: Router) { }
   showModal = false;
   formData = {
     name: '',
@@ -50,6 +51,10 @@ export class PlusModalComponent {
       this.plusModalService.postData(this.formData).subscribe({
         next: (response: any) => {
           console.log('Data submitted successfully:', response);
+          let currentUrl = this.router.url;
+          this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+            this.router.navigate([currentUrl]);
+          });
         },
         error: (error: any) => {
           console.error('Error submitting data:', error);
