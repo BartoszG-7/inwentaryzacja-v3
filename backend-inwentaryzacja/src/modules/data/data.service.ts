@@ -12,12 +12,9 @@ import { DeviceType } from '../device-type/device-type.schema';
 export class DataService {
     constructor(@InjectModel(Device.name) private deviceModel: Model<Device>, @InjectModel(Project.name) private ProjectModel: Model<Project>, @InjectModel(Location.name) private LocationModel: Model<Location>, @InjectModel(ProjectHistory.name) private ProjectHistoryModel: Model<ProjectHistory>, @InjectModel(DeviceType.name) private DeviceTypeModel: Model<DeviceType>) { }
 
-    async treebar(query: string): Promise<any> {
+    async treebar(): Promise<any> {
 
-
-        return ({ projects: await this.ProjectModel.find(JSON.parse(query)).select("name location").exec(), locations: await this.LocationModel.find(JSON.parse(query)).select("name").exec() });
-
-
+        return ({ projects: await this.ProjectModel.find({}).select("name location").exec(), locations: await this.LocationModel.find({}).select("name").exec() });
     }
 
     /*  async inventoryList(): Promise<any> {

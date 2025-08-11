@@ -4,10 +4,11 @@ import { LocationService } from './lokalizacje.service';
 import { HeaderComponent } from '../components/header/header.component';
 import { Treebar } from '../treebar/treebar';
 import { PlusModalLokalComponent } from "../components/plus-modal-lokal/plus-modal-lokal.component";
+import { SearchBarComponent } from '../components/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-lokalizacje',
-  imports: [CommonModule, HeaderComponent, Treebar, PlusModalLokalComponent],
+  imports: [CommonModule, HeaderComponent, Treebar, PlusModalLokalComponent, SearchBarComponent],
   standalone: true,
   templateUrl: './lokalizacje.component.html',
   styleUrl: './lokalizacje.component.scss'
@@ -15,9 +16,14 @@ import { PlusModalLokalComponent } from "../components/plus-modal-lokal/plus-mod
 export class LokalizacjeComponent {
   locations: any[] = [];
   editing: string = '';
-
-  constructor(private readonly locationService: LocationService) {}
-
+  searchInput: string = '';
+  constructor(private readonly locationService: LocationService) { }
+  onSearch(event: string): void {
+    this.searchInput = event;
+    console.log(this.searchInput);
+    // Here you can implement the logic to handle the search input
+    // For example, you might want to filter the locations based on the search term
+  }
   ngOnInit(): void {
     this.locationService.getLocations().subscribe({
       next: (data: any) => {

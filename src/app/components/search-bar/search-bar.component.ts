@@ -1,12 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { debounce, from, Observable, of, Subject, timer } from 'rxjs';
 
 @Component({
   selector: 'app-search-bar',
   imports: [CommonModule],
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss']
-})  
-export class SearchBarComponent {
-  
+})
+export class SearchBarComponent implements OnInit {
+  searchInput = output<string>();
+  hello: Subject<any> = new Subject<any>();
+  onFilterChange(event: any): void {
+
+    this.hello.next(event.target.value);
+  }
+  ngOnInit(): void {
+    this.hello.pipe(debounce(() => timer(400))).subscribe({
+      next: (data: any) => {
+        this.searchInput.emit(data);
+      }
+    });
+  }
 }

@@ -14,6 +14,11 @@ import { FooterComponent } from "../../components/footer/footer.component";
   styleUrls: ['./magazyn-sidebar.component.scss']
 })
 export class MagazynSidebarComponent {
+  onSearch(event: string): void {
+    console.log('Search event:', event);
+    // Here you can implement the logic to handle the search input
+    // For example, you might want to filter the items in the sidebar based on the search term
+  }
   saveId(event: any): void {
     console.log(event);
   }
