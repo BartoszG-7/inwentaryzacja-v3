@@ -1,11 +1,11 @@
+@import 'global.scss';
+
 .sidebar-mobile-separator {
   width: 100%;
   height: 1px;
-  background: #e0e0e0;
+  background: $light-color;
   margin: 0.5rem 0 1rem 0;
 }
-
-@import 'global.scss';
 
 .menu-icon:hover,
 .menu-icon.open {
@@ -19,7 +19,7 @@
 .close-btn:hover,
 .close-btn:active,
 .close-btn.closing {
-  color: #ff5252 !important;
+  color: $red-color !important;
   background: none !important;
   border: none !important;
 }
