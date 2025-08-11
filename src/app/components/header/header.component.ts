@@ -16,6 +16,13 @@ import { SearchBarMobileComponent } from "../search-bar-mobile/search-bar-mobile
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  searchInput: string = '';
+  onSearch(event: string): void {
+    this.searchInput = event;
+
+    // Here you can implement the logic to handle the search input
+    // For example, you might want to filter the locations based on the search term
+  }
   leftMenuOpen = false;
   rightMenuOpen = false;
   showLeftMenu = true;

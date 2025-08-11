@@ -56,11 +56,13 @@
       <div class="sidebar-header-plus-align">
         <h2 class="sidebar-tree-title">Magazyn</h2>
         <app-plus-modal style="padding-bottom: 0.4rem; padding-left: 0.3rem;"></app-plus-modal>
-        <app-search-bar-mobile style="padding-bottom: 0.3rem; padding-left: 1rem;"></app-search-bar-mobile>
+        <app-search-bar-mobile (searchInput)="onSearch($event)"
+          style="padding-bottom: 0.3rem; padding-left: 1rem;"></app-search-bar-mobile>
       </div>
       <div class="sidebar-mobile-separator"></div>
       <ul class="sidebar-tree-list">
-        <app-treebar search="" query="http://localhost:3000/device-type/list" #treebarMobile [showMotherboardIcon]="true"></app-treebar>
+        <app-treebar [search]="searchInput" query="http://localhost:3000/device-type/list" #treebarMobile
+          [showMotherboardIcon]="true"></app-treebar>
       </ul>
     </div>
   </nav>
@@ -71,12 +73,14 @@
     <div class="sidebar-tree-list-wrapper">
       <div class="sidebar-header-plus-align">
         <h2 class="sidebar-tree-title">Lokalizacje</h2>
-        <app-plus-modal-lokal style="padding-bottom: 0.4rem; padding-left: 0.3rem;" (close)="closePlusModalLokal()"></app-plus-modal-lokal>
-        <app-search-bar-mobile style="padding-bottom: 0.3rem; padding-left: 1rem;"></app-search-bar-mobile>
+        <app-plus-modal-lokal style="padding-bottom: 0.4rem; padding-left: 0.3rem;"
+          (close)="closePlusModalLokal()"></app-plus-modal-lokal>
+        <app-search-bar-mobile (searchInput)="onSearch($event)" style=" padding-bottom: 0.3rem; padding-left:
+          1rem;"></app-search-bar-mobile>
       </div>
       <div class="sidebar-mobile-separator"></div>
       <ul class="sidebar-tree-list">
-        <app-treebar></app-treebar>
+        <app-treebar [search]="searchInput"></app-treebar>
       </ul>
     </div>
   </nav>
