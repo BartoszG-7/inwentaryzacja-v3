@@ -53,7 +53,10 @@
   <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
     <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
     <div class="sidebar-tree-list-wrapper">
-      <h1 class="sidebar-tree-title">Magazyn</h1>
+      <div class="sidebar-header-plus-align">
+        <h2 class="sidebar-tree-title">Magazyn</h2>
+        <app-plus-modal style="padding-bottom: 0.3rem; padding-left: 0.3rem;"></app-plus-modal>
+      </div>
       <ul class="sidebar-tree-list">
         <app-treebar query="http://localhost:3000/device-type/list" #treebarMobile></app-treebar>
       </ul>
@@ -64,7 +67,10 @@
   <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
     <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
     <div class="sidebar-tree-list-wrapper">
-      <h1 class="sidebar-tree-title">Lokalizacje</h1>
+      <div class="sidebar-header-plus-align">
+        <h2 class="sidebar-tree-title">Lokalizacje</h2>
+        <app-plus-modal-lokal style="padding-bottom: 0.3rem; padding-left: 0.3rem;"></app-plus-modal-lokal>
+      </div>
       <ul class="sidebar-tree-list">
         <app-treebar></app-treebar>
       </ul>

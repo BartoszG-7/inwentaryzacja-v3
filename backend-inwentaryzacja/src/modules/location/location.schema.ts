@@ -16,7 +16,6 @@ export class Location {
     @Prop()
     note: string;
 
-
 }
 
 export const LocationSchema = SchemaFactory.createForClass(Location);

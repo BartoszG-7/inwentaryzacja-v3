@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Treebar } from '../../treebar/treebar';
+import { PlusModalComponent } from '../../components/plus-modal/plus-modal.component';
+import { PlusModalLokalComponent } from '../../components/plus-modal-lokal/plus-modal-lokal.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, Treebar],
+  imports: [CommonModule, RouterModule, Treebar, PlusModalComponent, PlusModalLokalComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
