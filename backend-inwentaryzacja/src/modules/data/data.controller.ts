@@ -9,9 +9,9 @@ export class DataController {
      async getInventoryList() {
          return await this.dataService.inventoryList();
      }*/
-    @Get('treebar')
-    async getTreebar() {
-        return await this.dataService.treebar();
+    @Get('treebar/:query')
+    async getTreebar(@Param('query') query: string) {
+        return await this.dataService.treebar(query);
     }
     @Get('home')
     async getHome() {
