@@ -15,12 +15,8 @@ export class PlusModalLokalComponent {
   formData = {
     name: '',
     tag: '',
-    maker: '',
-    model: '',
-    color: '',
-    remoteAccessEnum: '',
-    resolutionIfMonitor: '',
-    lastTag: ''
+    address: '',
+    note: ''
   };
 
   openModal() {
@@ -32,12 +28,8 @@ export class PlusModalLokalComponent {
     this.formData = {
       name: '',
       tag: '',
-      maker: '',
-      model: '',
-      color: '',
-      remoteAccessEnum: '',
-      resolutionIfMonitor: '',
-      lastTag: ''
+      address: '',
+      note: ''
     };
   }
 
