@@ -55,10 +55,7 @@
     <div class="sidebar-tree-list-wrapper">
       <div class="sidebar-header-plus-align">
         <h2 class="sidebar-tree-title">Magazyn</h2>
-        <button (click)="openPlusModal()" style="padding-bottom: 0.3rem; padding-left: 0.3rem;">Dodaj magazyn</button>
-        @if (plusModalOpen) {
-        <app-plus-modal (close)="closePlusModal()"></app-plus-modal>
-        }
+        <app-plus-modal style="padding-bottom: 0.4rem; padding-left: 0.3rem;"></app-plus-modal>
       </div>
       <ul class="sidebar-tree-list">
         <app-treebar search="" query="http://localhost:3000/device-type/list" #treebarMobile></app-treebar>
@@ -72,11 +69,7 @@
     <div class="sidebar-tree-list-wrapper">
       <div class="sidebar-header-plus-align">
         <h2 class="sidebar-tree-title">Lokalizacje</h2>
-        <button (click)="openPlusModalLokal()" style="padding-bottom: 0.3rem; padding-left: 0.3rem;">Dodaj
-          lokalizację</button>
-        @if (plusModalLokalOpen) {
-        <app-plus-modal-lokal (close)="closePlusModalLokal()"></app-plus-modal-lokal>
-        }
+              <app-plus-modal-lokal style="padding-bottom: 0.4rem; padding-left: 0.3rem;" (close)="closePlusModalLokal()"></app-plus-modal-lokal>
       </div>
       <ul class="sidebar-tree-list">
         <app-treebar></app-treebar>
