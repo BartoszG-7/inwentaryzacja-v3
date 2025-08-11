@@ -44,7 +44,7 @@ export class PlusModalComponent {
   onSubmit(form: any) {
     if (form.valid) {
       // TODO: Replace with actual POST logic
-      alert('Form submitted! ' + JSON.stringify(this.formData));
+      console.log(JSON.stringify(this.formData));
       this.closeModal();
     }
   }
