@@ -1,20 +1,18 @@
 [{
   "_id": {
-    "$oid": "6893502720a8d0e9fba681aa"
+    "$oid": "6895b3254c2a9be9747d3327"
   },
-  "location": "6893501120a8d0e9fba681a8",
-  "name": "asasda"
+  "name": "WUM"
 },
 {
   "_id": {
-    "$oid": "6893512320a8d0e9fba681b0"
+    "$oid": "6895b40a4c2a9be9747d3328"
   },
-  "name": "dzialaj"
+  "name": "Szpital Dzieciątka Jezus"
 },
 {
   "_id": {
-    "$oid": "689351ff20a8d0e9fba681b3"
+    "$oid": "6895b4304c2a9be9747d3329"
   },
-  "name": "sasasdgre",
-  "test": "test"
+  "name": "Szpital Dziecięcy Kliniczny"
 }]

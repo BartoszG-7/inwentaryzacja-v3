@@ -1,17 +1,1939 @@
 [{
   "_id": {
-    "$oid": "68945d099bf83af8ee0f0342"
+    "$oid": "689495219bf83af8ee0f0351"
   },
-  "ip": "1.1.1.1",
-  "deviceType": "68945be09bf83af8ee0f033d",
-  "macAddr": "1.1.1.1"
+  "macAddr": "00:50:56:b2:01:0e",
+  "ip": "10.193.16.1",
+  "gateway": "10.193.16.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "deviceType": {
+    "$oid": "6894a8159bf83af8ee0f03ec"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
 },
 {
   "_id": {
-    "$oid": "689467c09bf83af8ee0f0344"
+    "$oid": "689495219bf83af8ee0f0353"
   },
-  "ip": "1.1.1.1",
-  "deviceType": "68945be09bf83af8ee0f033d",
-  "macAddr": "1.1.1.1",
-  "project": "6893511920a8d0e9fba681ae"
+  "macAddr": "58:11:22:ab:5d:61",
+  "ip": "10.173.6.10",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/kiosk",
+  "deviceType": {
+    "$oid": "6894a5cf9bf83af8ee0f03e5"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0354"
+  },
+  "macAddr": "58:11:22:ab:61:f7",
+  "ip": "10.173.6.11",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/kiosk",
+  "deviceType": {
+    "$oid": "6894a5cf9bf83af8ee0f03e5"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0355"
+  },
+  "macAddr": "58:11:22:ab:62:9e",
+  "ip": "10.173.6.12",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/kiosk",
+  "deviceType": {
+    "$oid": "6894a5cf9bf83af8ee0f03e5"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0356"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0357"
+  },
+  "serialNr": "DS67858812",
+  "macAddr": "bc:9b:5e:cd:75:e3",
+  "ip": "10.173.6.20",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_20",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0358"
+  },
+  "serialNr": "DS67858813",
+  "macAddr": "bc:9b:5e:cd:75:e5",
+  "ip": "10.173.6.21",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_21",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0359"
+  },
+  "serialNr": "DS67858814",
+  "macAddr": "bc:9b:5e:cd:75:e2",
+  "ip": "10.173.6.22",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_22",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f035a"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f035b"
+  },
+  "macAddr": "2c:a5:9c:93:20:99",
+  "ip": "10.173.6.30",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_32_30",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "68949a599bf83af8ee0f03da"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f035c"
+  },
+  "macAddr": "2c:a5:9c:93:20:bf",
+  "ip": "10.173.6.31",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_32_31",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "68949a599bf83af8ee0f03da"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f035d"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f035e"
+  },
+  "serialNr": "FX980727364",
+  "macAddr": "bc:9b:5e:cb:0c:de",
+  "ip": "10.173.6.40",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_40",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f035f"
+  },
+  "serialNr": "FX980727365",
+  "macAddr": "bc:9b:5e:cb:0c:e7",
+  "ip": "10.173.6.41",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_41",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0360"
+  },
+  "serialNr": "FX980727366",
+  "macAddr": "bc:9b:5e:cb:0c:dc",
+  "ip": "10.173.6.42",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_42",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0361"
+  },
+  "serialNr": "FX980727367",
+  "macAddr": "bc:9b:5e:cb:0c:db",
+  "ip": "10.173.6.43",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_43",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0362"
+  },
+  "serialNr": "FX980727368",
+  "macAddr": "bc:9b:5e:cb:0c:e0",
+  "ip": "10.173.6.44",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_44",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0363"
+  },
+  "serialNr": "FX980727369",
+  "macAddr": "bc:9b:5e:cd:2f:bf",
+  "ip": "10.173.6.45",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_45",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0364"
+  },
+  "serialNr": "FX980727370",
+  "macAddr": "bc:9b:5e:cd:2f:c8",
+  "ip": "10.173.6.46",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_46",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0365"
+  },
+  "serialNr": "FX980727371",
+  "macAddr": "bc:9b:5e:cd:2f:bc",
+  "ip": "10.173.6.47",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_47",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0366"
+  },
+  "serialNr": "FX980727372",
+  "macAddr": "bc:9b:5e:cd:2f:c7",
+  "ip": "10.173.6.48",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_48",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0367"
+  },
+  "serialNr": "FX980727373",
+  "macAddr": "bc:9b:5e:cd:2f:ce",
+  "ip": "10.173.6.49",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_49",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0368"
+  },
+  "serialNr": "FX980727374",
+  "macAddr": "bc:9b:5e:cd:2f:c3",
+  "ip": "10.173.6.50",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_50",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0369"
+  },
+  "serialNr": "FX980727375",
+  "macAddr": "bc:9b:5e:cd:2f:d0",
+  "ip": "10.173.6.51",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_51",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f036a"
+  },
+  "serialNr": "FX980727376",
+  "macAddr": "bc:9b:5e:cd:2f:cf",
+  "ip": "10.173.6.52",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_52",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f036b"
+  },
+  "serialNr": "FX980727377",
+  "macAddr": "bc:9b:5e:cd:2f:c2",
+  "ip": "10.173.6.53",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_53",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f036c"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f036d"
+  },
+  "name": "TinkerButton",
+  "macAddr": "58:11:22:e3:09:9c",
+  "ip": "10.173.6.60",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f036e"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f036f"
+  },
+  "name": "Rozbudowa 26.06.2024",
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0370"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0371"
+  },
+  "serialNr": "DS6785883",
+  "macAddr": "bc:5e:33:35:47:09",
+  "ip": "10.173.6.70",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_70",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0372"
+  },
+  "serialNr": "DS6785884",
+  "macAddr": "bc:5e:33:35:47:0b",
+  "ip": "10.173.6.71",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_71",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0373"
+  },
+  "serialNr": "DS6785885",
+  "macAddr": "bc:5e:33:30:11:59",
+  "ip": "10.173.6.72",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_72",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0374"
+  },
+  "serialNr": "DS6785886",
+  "macAddr": "bc:5e:33:30:06:c9",
+  "ip": "10.173.6.73",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_73",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0375"
+  },
+  "serialNr": "DS6785887",
+  "macAddr": "bc:5e:33:30:06:d8",
+  "ip": "10.173.6.74",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_74",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0376"
+  },
+  "serialNr": "DS6785888",
+  "macAddr": "bc:5e:33:30:11:68",
+  "ip": "10.173.6.75",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_75",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0377"
+  },
+  "serialNr": "DS6785889",
+  "macAddr": "bc:5e:33:30:06:d5",
+  "ip": "10.173.6.76",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_76",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0378"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0379"
+  },
+  "serialNr": "HYU9678585",
+  "macAddr": "bc:5e:33:31:24:d3",
+  "ip": "10.173.6.80",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_80",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f037a"
+  },
+  "serialNr": "HYU9678586",
+  "macAddr": "bc:5e:33:31:24:89",
+  "ip": "10.173.6.81",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_81",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f037b"
+  },
+  "serialNr": "HYU9678587",
+  "macAddr": "bc:5e:33:35:2d:ee",
+  "ip": "10.173.6.82",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_82",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f037c"
+  },
+  "serialNr": "HYU9678588",
+  "macAddr": "bc:5e:33:31:79:28",
+  "ip": "10.173.6.83",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_83",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f037d"
+  },
+  "serialNr": "HYU9678589",
+  "macAddr": "bc:5e:33:31:79:19",
+  "ip": "10.173.6.84",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_84",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f037e"
+  },
+  "serialNr": "HYU9678590",
+  "macAddr": "bc:5e:33:31:da:7c",
+  "ip": "10.173.6.85",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_85",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f037f"
+  },
+  "serialNr": "HYU9678591",
+  "macAddr": "bc:5e:33:31:5b:57",
+  "ip": "10.173.6.86",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_86",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0380"
+  },
+  "serialNr": "HYU9678592",
+  "macAddr": "bc:5e:33:31:24:c1",
+  "ip": "10.173.6.87",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_87",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0381"
+  },
+  "serialNr": "HYU9678593",
+  "macAddr": "bc:5e:33:32:2b:66",
+  "ip": "10.173.6.88",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_88",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0382"
+  },
+  "serialNr": "HYU9678594",
+  "macAddr": "bc:5e:33:31:24:bd",
+  "ip": "10.173.6.89",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_89",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0383"
+  },
+  "serialNr": "HYU9678595",
+  "macAddr": "bc:5e:33:35:2e:0f",
+  "ip": "10.173.6.90",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_90",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0384"
+  },
+  "serialNr": "HYU9678596",
+  "macAddr": "bc:5e:33:35:2e:3b",
+  "ip": "10.173.6.91",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_91",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0385"
+  },
+  "serialNr": "HYU9678597",
+  "macAddr": "bc:5e:33:31:24:ca",
+  "ip": "10.173.6.92",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_92",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0386"
+  },
+  "serialNr": "HYU9678598",
+  "macAddr": "bc:5e:33:35:2e:38",
+  "ip": "10.173.6.93",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_93",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0387"
+  },
+  "serialNr": "HYU9678599",
+  "macAddr": "bc:5e:33:35:24:3b",
+  "ip": "10.173.6.94",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_94",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0388"
+  },
+  "serialNr": "HYU9678600",
+  "macAddr": "bc:5e:33:35:2d:fc",
+  "ip": "10.173.6.95",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_95",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0389"
+  },
+  "serialNr": "HYU9678601",
+  "macAddr": "bc:5e:33:35:24:07",
+  "ip": "10.173.6.96",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_96",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f038a"
+  },
+  "serialNr": "HYU9678602",
+  "macAddr": "bc:5e:33:31:79:22",
+  "ip": "10.173.6.97",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_97",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f038b"
+  },
+  "serialNr": "HYU9678603",
+  "macAddr": "bc:5e:33:31:24:87",
+  "ip": "10.173.6.98",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_98",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f038c"
+  },
+  "serialNr": "HYU9678604",
+  "macAddr": "bc:5e:33:31:79:1f",
+  "ip": "10.173.6.99",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_99",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f038d"
+  },
+  "serialNr": "HYU9678605",
+  "macAddr": "bc:5e:33:31:79:24",
+  "ip": "10.173.6.100",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_100",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f038e"
+  },
+  "serialNr": "HYU9678606",
+  "macAddr": "bc:5e:33:35:2e:32",
+  "ip": "10.173.6.101",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_101",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f038f"
+  },
+  "serialNr": "HYU9678607",
+  "macAddr": "bc:5e:33:31:24:cf",
+  "ip": "10.173.6.102",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_102",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0390"
+  },
+  "serialNr": "HYU9678608",
+  "macAddr": "bc:5e:33:31:24:b6",
+  "ip": "10.173.6.103",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_103",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0391"
+  },
+  "serialNr": "HYU9678609",
+  "macAddr": "bc:5e:33:35:24:37",
+  "ip": "10.173.6.104",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_104",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0392"
+  },
+  "serialNr": "HYU9678610",
+  "macAddr": "bc:5e:33:35:2e:2d",
+  "ip": "10.173.6.105",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_105",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0393"
+  },
+  "serialNr": "HYU9678611",
+  "macAddr": "bc:5e:33:35:2d:f2",
+  "ip": "10.173.6.106",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_106",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0394"
+  },
+  "serialNr": "HYU9678612",
+  "macAddr": "bc:5e:33:31:5b:3d",
+  "ip": "10.173.6.107",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_107",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0395"
+  },
+  "serialNr": "HYU9678613",
+  "macAddr": "bc:5e:33:32:2b:63",
+  "ip": "10.173.6.108",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_108",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0396"
+  },
+  "serialNr": "HYU9678614",
+  "macAddr": "bc:5e:33:35:24:6e",
+  "ip": "10.173.6.109",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_109",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0397"
+  },
+  "serialNr": "HYU9678615",
+  "macAddr": "bc:5e:33:35:2d:f0",
+  "ip": "10.173.6.110",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_110",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0398"
+  },
+  "serialNr": "HYU9678616",
+  "macAddr": "bc:5e:33:35:2e:11",
+  "ip": "10.173.6.111",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_111",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f0399"
+  },
+  "serialNr": "HYU9678617",
+  "macAddr": "bc:5e:33:35:2e:3e",
+  "ip": "10.173.6.112",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_112",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f039a"
+  },
+  "serialNr": "HYU9678618",
+  "macAddr": "bc:5e:33:32:2b:64",
+  "ip": "10.173.6.113",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_113",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f039b"
+  },
+  "serialNr": "HYU9678619",
+  "macAddr": "bc:5e:33:31:24:b2",
+  "ip": "10.173.6.114",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_114",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f039c"
+  },
+  "serialNr": "HYU9678620",
+  "macAddr": "bc:5e:33:35:24:70",
+  "ip": "10.173.6.115",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_115",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f039d"
+  },
+  "serialNr": "HYU9678621",
+  "macAddr": "bc:5e:33:34:1f:2b",
+  "ip": "10.173.6.116",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_116",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f039e"
+  },
+  "serialNr": "HYU9678622",
+  "macAddr": "bc:5e:33:32:1c:d7",
+  "ip": "10.173.6.117",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_117",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f039f"
+  },
+  "serialNr": "HYU9678623",
+  "macAddr": "bc:5e:33:32:1c:c6",
+  "ip": "10.173.6.118",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_118",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03a0"
+  },
+  "serialNr": "HYU9678624",
+  "macAddr": "bc:5e:33:37:8d:29",
+  "ip": "10.173.6.119",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_119",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03a1"
+  },
+  "serialNr": "HYU9678625",
+  "macAddr": "bc:5e:33:38:3c:4f",
+  "ip": "10.173.6.120",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_120",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03a2"
+  },
+  "serialNr": "HYU9678626",
+  "macAddr": "bc:5e:33:38:3b:d9",
+  "ip": "10.173.6.121",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_121",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03a3"
+  },
+  "serialNr": "HYU9678627",
+  "macAddr": "bc:5e:33:38:3c:33",
+  "ip": "10.173.6.122",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_122",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03a4"
+  },
+  "serialNr": "HYU9678628",
+  "macAddr": "bc:5e:33:38:3c:32",
+  "ip": "10.173.6.123",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_123",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03a5"
+  },
+  "serialNr": "HYU9678629",
+  "macAddr": "bc:5e:33:37:8d:57",
+  "ip": "10.173.6.124",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_124",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03a6"
+  },
+  "serialNr": "HYU9678630",
+  "macAddr": "bc:5e:33:37:8d:46",
+  "ip": "10.173.6.125",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_125",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03a7"
+  },
+  "serialNr": "HYU9678631",
+  "macAddr": "bc:5e:33:38:3c:1f",
+  "ip": "10.173.6.126",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_126",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03a8"
+  },
+  "serialNr": "HYU9678632",
+  "macAddr": "bc:5e:33:38:3c:2b",
+  "ip": "10.173.6.127",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_127",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03a9"
+  },
+  "serialNr": "HYU9678633",
+  "macAddr": "bc:5e:33:38:3c:47",
+  "ip": "10.173.6.128",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_128",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03aa"
+  },
+  "serialNr": "HYU9678634",
+  "macAddr": "bc:5e:33:37:8d:42",
+  "ip": "10.173.6.129",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_129",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03ab"
+  },
+  "serialNr": "HYU9678635",
+  "macAddr": "bc:5e:33:38:3c:52",
+  "ip": "10.173.6.130",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_130",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03ac"
+  },
+  "serialNr": "HYU9678636",
+  "macAddr": "bc:5e:33:39:09:ce",
+  "ip": "10.173.6.131",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_131",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03ad"
+  },
+  "serialNr": "HYU9678637",
+  "macAddr": "bc:5e:33:39:b5:ea",
+  "ip": "10.173.6.132",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_132",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03ae"
+  },
+  "serialNr": "HYU9678638",
+  "macAddr": "bc:5e:33:39:b5:d6",
+  "ip": "10.173.6.133",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_133",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03af"
+  },
+  "serialNr": "HYU9678639",
+  "macAddr": "bc:5e:33:39:09:bf",
+  "ip": "10.173.6.134",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_134",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03b0"
+  },
+  "serialNr": "HYU9678640",
+  "macAddr": "bc:5e:33:39:09:c2",
+  "ip": "10.173.6.135",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_135",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03b1"
+  },
+  "serialNr": "HYU9678641",
+  "macAddr": "bc:5e:33:39:b5:e8",
+  "ip": "10.173.6.136",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_21_136",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "689495939bf83af8ee0f03ca"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03b2"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03b3"
+  },
+  "name": "Wama Player",
+  "serialNr": "364756857854",
+  "macAddr": "10:7c:61:5a:90:f2",
+  "ip": "10.173.6.140",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03b4"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03b5"
+  },
+  "serialNr": "8943458586",
+  "macAddr": "6c:15:24:57:7c:98",
+  "ip": "10.173.6.141",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a6439bf83af8ee0f03e8"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03b6"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03b7"
+  },
+  "serialNr": "5456736546",
+  "macAddr": "6c:15:24:59:65:35",
+  "ip": "10.173.6.142",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/screen",
+  "deviceType": {
+    "$oid": "6894a77b9bf83af8ee0f03ea"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03b8"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03b9"
+  },
+  "macAddr": "10:7c:61:0b:ec:7c",
+  "ip": "10.173.6.13",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/kiosk",
+  "deviceType": {
+    "$oid": "6894a5cf9bf83af8ee0f03e5"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03ba"
+  },
+  "macAddr": "10:7c:61:0b:eb:9f",
+  "ip": "10.173.6.14",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/kiosk",
+  "deviceType": {
+    "$oid": "6894a5cf9bf83af8ee0f03e5"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03bb"
+  },
+  "macAddr": "10:7c:61:0b:eb:dd",
+  "ip": "10.173.6.15",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/kiosk",
+  "deviceType": {
+    "$oid": "6894a5cf9bf83af8ee0f03e5"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03bc"
+  },
+  "macAddr": "10:7c:61:9e:6a:4d",
+  "ip": "10.173.6.16",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/kiosk",
+  "deviceType": {
+    "$oid": "6894a5cf9bf83af8ee0f03e5"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03bd"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03be"
+  },
+  "serialNr": "GB4078549",
+  "macAddr": "8e:01:a5:1f:79:f0",
+  "ip": "10.173.6.150",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "6894a6439bf83af8ee0f03e8"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03bf"
+  },
+  "serialNr": "GB4078548",
+  "macAddr": "46:2d:8b:d2:23:0c",
+  "ip": "10.173.6.151",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "6894a6439bf83af8ee0f03e8"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03c0"
+  },
+  "serialNr": "GB4078547",
+  "macAddr": "82:c5:1a:59:bb:d3",
+  "ip": "10.173.6.152",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "6894a6439bf83af8ee0f03e8"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03c1"
+  },
+  "serialNr": "GB4078551",
+  "macAddr": "12:d1:78:20:5b:30",
+  "ip": "10.173.6.153",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "6894a6439bf83af8ee0f03e8"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03c2"
+  },
+  "serialNr": "GB4078550",
+  "macAddr": "b6:02:46:d4:12:23",
+  "ip": "10.173.6.154",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "6894a6439bf83af8ee0f03e8"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03c3"
+  },
+  "serialNr": "GB4078537",
+  "macAddr": "46:8d:4e:a7:9d:44",
+  "ip": "10.173.6.155",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "6894a6439bf83af8ee0f03e8"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03c4"
+  },
+  "serialNr": "GB4078538",
+  "macAddr": "ce:3c:aa:d3:ff:e0",
+  "ip": "10.173.6.156",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "6894a6439bf83af8ee0f03e8"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03c5"
+  },
+  "serialNr": "GB4078539",
+  "macAddr": "56:6c:77:3e:0a:53",
+  "ip": "10.173.6.157",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "6894a6439bf83af8ee0f03e8"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03c6"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03c7"
+  },
+  "serialNr": "30161823243",
+  "macAddr": "bc:5e:33:3e:e5:01",
+  "ip": "10.173.6.160",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_160",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
+},
+{
+  "_id": {
+    "$oid": "689495219bf83af8ee0f03c8"
+  },
+  "serialNr": "30161823134",
+  "macAddr": "bc:5e:33:3e:e4:8b",
+  "ip": "10.173.6.161",
+  "gateway": "10.173.6.254",
+  "mask": "255.255.255.0",
+  "remoteAccessId": "UCK_43_161",
+  "dns1": "10.173.0.1",
+  "dns2": "10.193.0.185",
+  "serverAddress": "http://10.193.16.1/player",
+  "deviceType": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "project": "6895b53d4c2a9be9747d332b"
 }]

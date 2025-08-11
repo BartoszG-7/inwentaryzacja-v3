@@ -1,11 +1,42 @@
 [{
   "_id": {
-    "$oid": "68945be09bf83af8ee0f033d"
+    "$oid": "689495939bf83af8ee0f03ca"
   },
-  "name": "WAMAMED21",
-  "maker": "Samsung",
-  "model": "smasung",
-  "color": "black",
-  "remoteAccessEnum": "idk",
-  "resolutionIfMonitor": "1920x1080"
+  "name": "Monitor21"
+},
+{
+  "_id": {
+    "$oid": "68949a599bf83af8ee0f03da"
+  },
+  "name": "Monitor32"
+},
+{
+  "_id": {
+    "$oid": "6894a5609bf83af8ee0f03e3"
+  },
+  "name": "Monitor43"
+},
+{
+  "_id": {
+    "$oid": "6894a5cf9bf83af8ee0f03e5"
+  },
+  "name": "Infokiosk 24"
+},
+{
+  "_id": {
+    "$oid": "6894a6439bf83af8ee0f03e8"
+  },
+  "name": "Tablet 10”"
+},
+{
+  "_id": {
+    "$oid": "6894a77b9bf83af8ee0f03ea"
+  },
+  "name": "Tablet 15”"
+},
+{
+  "_id": {
+    "$oid": "6894a8159bf83af8ee0f03ec"
+  },
+  "name": "Serwer"
 }]

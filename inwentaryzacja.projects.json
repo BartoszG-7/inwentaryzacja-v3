@@ -1,20 +1,14 @@
 [{
   "_id": {
-    "$oid": "6893501120a8d0e9fba681a8"
+    "$oid": "6895b53d4c2a9be9747d332b"
   },
-  "name": "tescik"
+  "name": "Rozbudowa szpitala",
+  "location": "6895b3254c2a9be9747d3327"
 },
 {
   "_id": {
-    "$oid": "6893511920a8d0e9fba681ae"
+    "$oid": "6895b7e74c2a9be9747d333a"
   },
-  "name": "tescik",
-  "location": "689351ff20a8d0e9fba681b3"
-},
-{
-  "_id": {
-    "$oid": "689442dd9bf83af8ee0f031e"
-  },
-  "name": "tescik2",
-  "location": "689351ff20a8d0e9fba681b3"
+  "name": "Rozbudowa szpitala",
+  "location": "6895b40a4c2a9be9747d3328"
 }]
