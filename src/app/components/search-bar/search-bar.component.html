@@ -1,1 +1,4 @@
-<input type="search" #searchInput (input)="onFilterChange($event)">
+<div class="search-bar-wrapper">
+    <input #searchInput (input)="onFilterChange($event)" type="search" placeholder="Szukaj...">
+    <i class="bi bi-search search-bar-icon"></i>
+</div>

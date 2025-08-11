@@ -4,11 +4,10 @@ import { CommonModule } from '@angular/common';
 import { Treebar } from '../../treebar/treebar';
 import { PlusModalComponent } from '../../components/plus-modal/plus-modal.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
-import { FooterComponent } from "../../components/footer/footer.component";
 
 @Component({
   selector: 'app-magazyn-sidebar',
-  imports: [CommonModule, Treebar, PlusModalComponent, SearchBarComponent, FooterComponent],
+  imports: [CommonModule, Treebar, PlusModalComponent, SearchBarComponent],
   standalone: true,
   templateUrl: './magazyn-sidebar.component.html',
   styleUrls: ['./magazyn-sidebar.component.scss']

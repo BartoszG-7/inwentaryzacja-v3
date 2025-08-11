@@ -6,11 +6,12 @@ import { CookieService } from 'ngx-cookie-service';
 import { Treebar } from '../../treebar/treebar';
 import { PlusModalComponent } from '../../components/plus-modal/plus-modal.component';
 import { PlusModalLokalComponent } from '../../components/plus-modal-lokal/plus-modal-lokal.component';
+import { SearchBarMobileComponent } from "../search-bar-mobile/search-bar-mobile.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, Treebar, PlusModalComponent, PlusModalLokalComponent],
+  imports: [CommonModule, RouterModule, Treebar, PlusModalComponent, PlusModalLokalComponent, SearchBarMobileComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

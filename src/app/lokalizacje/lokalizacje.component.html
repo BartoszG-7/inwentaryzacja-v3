@@ -9,6 +9,7 @@
       </div>
     </div>
     <div class="sidebar-mobile-separator"></div>
+    <app-search-bar></app-search-bar>
     <ul class="sidebar-static-list">
       <app-search-bar (searchInput)="onSearch($event)"></app-search-bar>
       <app-treebar [search]="searchInput"></app-treebar>

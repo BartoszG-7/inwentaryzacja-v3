@@ -1,4 +1,4 @@
-import { Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
+import { Component, Input, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { TreebarService } from './treebar.service';
 import { Treeexpander } from '../treeexpander/treeexpander';
 import { TreebarSharedService } from '../home/treebar.share.service';
@@ -10,6 +10,7 @@ import { TreebarSharedService } from '../home/treebar.share.service';
   styleUrl: './treebar.scss'
 })
 export class Treebar implements OnInit, OnChanges {
+  @Input() showMotherboardIcon: boolean = false;
   constructor(private treebarService: TreebarService, private treebarSharedService: TreebarSharedService) { }
 
 
