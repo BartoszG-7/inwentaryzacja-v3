@@ -13,11 +13,14 @@ import { SearchBarComponent } from '../../components/search-bar/search-bar.compo
   styleUrls: ['./magazyn-sidebar.component.scss']
 })
 export class MagazynSidebarComponent {
+  searchInput: string = '';
   onSearch(event: string): void {
-    console.log('Search event:', event);
+    this.searchInput = event;
+    console.log(this.searchInput);
     // Here you can implement the logic to handle the search input
-    // For example, you might want to filter the items in the sidebar based on the search term
+    // For example, you might want to filter the locations based on the search term
   }
+
   saveId(event: any): void {
     console.log(event);
   }

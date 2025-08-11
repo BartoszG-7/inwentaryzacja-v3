@@ -20,7 +20,7 @@ export class LokalizacjeComponent {
   constructor(private readonly locationService: LocationService) { }
   onSearch(event: string): void {
     this.searchInput = event;
-    console.log(this.searchInput);
+
     // Here you can implement the logic to handle the search input
     // For example, you might want to filter the locations based on the search term
   }

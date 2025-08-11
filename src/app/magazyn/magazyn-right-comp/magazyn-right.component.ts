@@ -21,12 +21,15 @@ export class MagazynRightCompComponent {
       next: (data: any) => {
         this.magazynRightCompService.getDeviceTypes(data.id).subscribe({
           next: (data: any) => {
-            this.name = data[0].name;
+            if (data[0]) {
+              this.name = data[0].name;
+            }
           }
         });
 
         this.magazynRightCompService.getDevices(data.id).subscribe({
           next: (data: any) => {
+
             this.itemCount = data.length;
 
           }

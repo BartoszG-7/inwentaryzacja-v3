@@ -7,9 +7,9 @@
       </div>
     </div>
     <div class="sidebar-mobile-separator"></div>
-    <app-search-bar></app-search-bar>
+    <app-search-bar (searchInput)="onSearch($event)"></app-search-bar>
     <ul class="sidebar-static-list">
-      <app-treebar [showMotherboardIcon]="true" query="http://localhost:3000/device-type/list"
+      <app-treebar [search]="searchInput" [showMotherboardIcon]="true" query="http://localhost:3000/device-type/list"
         #treebarDesktop></app-treebar>
     </ul>
   </aside>

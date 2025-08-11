@@ -27,11 +27,24 @@ export class Treebar implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
 
-    if (changes['search'] && this.query() === 'http://localhost:3000/data/treebar') {
+    if (changes['search'] && this.fetchedData !== undefined) {
       this.data = [];
       this.searchValidated = this.search() ?? "";
-      this.data = this.treebarService.dataParser(this.treebarService.search(this.fetchedData, this.searchValidated));
+      if (this.query() === 'http://localhost:3000/data/treebar') {
+        this.data = this.treebarService.dataParser(this.treebarService.search(this.fetchedData, this.searchValidated));
+      } else {
+        var locations: any = [];
+
+        this.fetchedData.locations.forEach((location: any) => {
+          if (location.name.toLowerCase().includes(this.searchValidated.toLowerCase())) {
+            locations.push(location);
+
+          }
+        });
+        this.data = this.treebarService.dataParser({ locations: locations });
+      }
     }
+
   }
   ngOnInit(): void {
 
