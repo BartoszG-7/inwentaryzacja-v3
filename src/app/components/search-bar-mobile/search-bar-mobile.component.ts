@@ -2,7 +2,6 @@ import { Component, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { debounce, Subject, timer } from 'rxjs';
-
 @Component({
   selector: 'app-search-bar-mobile',
   imports: [FormsModule],
@@ -10,11 +9,16 @@ import { debounce, Subject, timer } from 'rxjs';
   styleUrl: './search-bar-mobile.component.scss'
 })
 export class SearchBarMobileComponent {
-    searchInput = output<string>();
+  searchInput = output<string>();
+  searchPending = '';
   hello: Subject<any> = new Subject<any>();
   onFilterChange(event: any): void {
+    this.searchPending = event.target.value;
 
-    this.hello.next(event.target.value);
+  }
+  onSubmit(): void {
+    //if (this.searchPending == "") { this.hello.next([]); console.log(this.searchPending); return; }
+    this.hello.next(this.searchPending);
   }
   ngOnInit(): void {
     this.hello.pipe(debounce(() => timer(400))).subscribe({
@@ -27,6 +31,7 @@ export class SearchBarMobileComponent {
   searchValue = '';
 
   openModal() {
+    this.searchValue = this.searchPending;
     this.showModal = true;
   }
 
@@ -36,8 +41,7 @@ export class SearchBarMobileComponent {
   }
 
   onSearch() {
-    // Implement your search logic here
-    alert('Searching for: ' + this.searchValue);
+
     this.closeModal();
   }
 }
