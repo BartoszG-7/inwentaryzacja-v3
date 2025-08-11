@@ -19,6 +19,11 @@
   font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 0.04em;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  display: block;
 }
 
 .magazyn-main-nav {
