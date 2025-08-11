@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PlusModalService } from './plus-modal.service';
 
 @Component({
   selector: 'app-plus-modal',
@@ -11,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./plus-modal.component.scss']
 })
 export class PlusModalComponent {
+  constructor(private plusModalService: PlusModalService) { }
   showModal = false;
   formData = {
     name: '',
@@ -45,6 +47,14 @@ export class PlusModalComponent {
     if (form.valid) {
       // TODO: Replace with actual POST logic
       console.log(JSON.stringify(this.formData));
+      this.plusModalService.postData(this.formData).subscribe({
+        next: (response: any) => {
+          console.log('Data submitted successfully:', response);
+        },
+        error: (error: any) => {
+          console.error('Error submitting data:', error);
+        }
+      });
       this.closeModal();
     }
   }
