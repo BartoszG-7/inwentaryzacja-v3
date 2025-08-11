@@ -31,19 +31,21 @@ export class Treebar implements OnInit {
           this.data.push({ "id": item._id, "name": item.name, projects: "" });
 
         });
-        data.projects.forEach((item: any) => {
+        if (data.projects) {
+          data.projects.forEach((item: any) => {
 
-          this.data.forEach((treeItem: any) => {
+            this.data.forEach((treeItem: any) => {
 
 
-            if (treeItem.id === item.location) {
+              if (treeItem.id === item.location) {
 
-              treeItem.projects = treeItem.projects + (JSON.stringify({ "name": item.name, "id": item.id }) + ",");
+                treeItem.projects = treeItem.projects + (JSON.stringify({ "name": item.name, "id": item.id }) + ",");
 
-            }
+              }
 
+            });
           });
-        });
+        }
 
 
 
