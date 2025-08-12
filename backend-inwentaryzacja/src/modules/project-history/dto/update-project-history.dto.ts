@@ -6,23 +6,23 @@ import { ref } from 'process';
 import { from } from 'rxjs';
 
 export class UpdateProjectHistoryDto {
-    @IsNumber()
-    @IsOptional()
-    type: number;
+  @IsNumber()
+  @IsOptional()
+  type: number;
 
-    @IsDateString()
-    @IsOptional()
-    date?: Date;
+  @IsDateString()
+  @IsOptional()
+  date?: Date;
 
-    @IsString()
-    @IsOptional()
-    tag?: string;
+  @IsString()
+  @IsOptional()
+  tag?: string;
 
-    @IsString()
-    @IsOptional()
-    deviceId?: string;
+  @IsOptional()
+  @Type(() => SchemaTypes.ObjectId)
+  deviceId?: string;
 
-    @IsOptional()
-    @Type(() => SchemaTypes.ObjectId)
-    project: ObjectId;
+  @IsOptional()
+  @Type(() => SchemaTypes.ObjectId)
+  project: ObjectId;
 }

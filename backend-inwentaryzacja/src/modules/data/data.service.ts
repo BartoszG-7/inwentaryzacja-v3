@@ -10,6 +10,7 @@ import { ProjectHistory } from '../project-history/project-history.schema';
 import { DeviceType } from '../device-type/device-type.schema';
 export enum projectHistoryEvents {
   PROJECT_CREATED = 1,
+  DEVICE_ADDED_TO_PROJECT = 2,
 }
 @Injectable()
 export class DataService {
@@ -45,7 +46,9 @@ export class DataService {
       },
       { $replaceRoot: { newRoot: '$doc' } },
       { $limit: 5 },
-    ]).sort({date: -1}).exec();
+    ])
+      .sort({ date: -1 })
+      .exec();
 
     // Populate project and location fields
     const populatedModified = await this.ProjectHistoryModel.populate(
@@ -81,5 +84,20 @@ export class DataService {
       deviceId: '',
       project: (await this.ProjectModel.create(projectData))._id,
     });
+  }
+  async assignDevice(data: any): Promise<any> {
+    return {
+      projectHistory: await this.ProjectHistoryModel.create({
+        type: projectHistoryEvents.DEVICE_ADDED_TO_PROJECT,
+        date: new Date().toISOString(),
+        tag: '',
+        deviceId: data.deviceId,
+        project: data.projectId,
+      }),
+      device: await this.deviceModel.updateOne(
+        { _id: data.deviceId },
+        { project: data.projectId },
+      ),
+    };
   }
 }
