@@ -1,0 +1,21 @@
+<div class="layout">
+  <aside class="sidebar-static">
+    <div class="sidebar-sticky-top-block">
+      <div class="sidebar-static-header">
+        <div class="sidebar-header-plus-align">
+          <h1 class="sidebar-static-title" style="padding-left: 0.3rem">
+            Lokalizacje
+          </h1>
+          <app-plus-modal-lokal></app-plus-modal-lokal>
+        </div>
+      </div>
+      <div class="sidebar-mobile-separator"></div>
+      <div class="sidebar-searchbar-sticky-bg">
+        <app-search-bar (searchInput)="onSearch($event)"></app-search-bar>
+      </div>
+    </div>
+    <ul class="sidebar-static-list">
+      <app-treebar [search]="searchInput"></app-treebar>
+    </ul>
+  </aside>
+</div>
