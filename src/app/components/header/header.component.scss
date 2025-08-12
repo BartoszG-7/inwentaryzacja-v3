@@ -1,4 +1,4 @@
-@import 'global.scss';
+@import "global.scss";
 
 // Sticky block for mobile header and search bar
 .sidebar-sticky-top-block-mobile {
@@ -8,7 +8,6 @@
   background: $dark-color;
 }
 
-
 .sidebar-tree-list-wrapper {
   flex: 1 1 auto;
   overflow-y: auto;
@@ -16,14 +15,26 @@
   display: flex;
   flex-direction: column;
 }
-
+.sidebar-tree-list {
+  height: 100%;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+.treebar-scroll-wrapper {
+  height: 100%;
+}
 .sidebar-mobile-separator {
   width: 100%;
   height: 1px;
   background: $light-color;
   margin: 0.5rem 0 1rem 0;
 }
-
+app-treebar {
+  height: 1000px;
+  min-height: 100%;
+  padding-bottom: 0px;
+  bottom: 0px;
+}
 .menu-icon:hover,
 .menu-icon.open {
   color: $primary-color !important;
@@ -243,7 +254,6 @@ header {
   background: transparent;
 }
 
-
 .kit-box.center {
   margin: 0 auto;
   position: relative;
@@ -303,9 +313,9 @@ header {
   color: $primary-color;
   border-color: $primary-color;
 }
-  .kit-box.center {
-    display: flex !important;
-  }
+.kit-box.center {
+  display: flex !important;
+}
 
 .menu-icon.menu-icon.left-menu {
   display: flex;
@@ -313,7 +323,6 @@ header {
 
 /* Hide header links, KIT, and logout on mobile */
 @media (max-width: 900px) {
-
   .header-links,
   .kit-box,
   .logout-btn {
@@ -466,10 +475,10 @@ header {
   }
 }
 
-.menu-icon.left-menu{
+.menu-icon.left-menu {
   max-width: 48px;
   max-height: 44px;
-}  
+}
 
 .logout-label {
   font-size: 1.2rem;
