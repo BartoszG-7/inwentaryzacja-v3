@@ -1,5 +1,5 @@
-<div class="tree-location-row" (click)="expand($event)" tabindex="0">
-    <span class="tree-location-link">{{this.location()}}</span>
+<div class="tree-location-row{{isSelected ? ' selected' : ''}}" (click)="expand($event)" tabindex="0">
+    <span class="tree-location-link{{isSelected ? ' selected' : ''}}">{{this.location()}}</span>
     @if(this.showMotherboardIcon()) {
       <i class="bi bi-motherboard treeexpander-motherboard"></i>
     } @else {
@@ -17,9 +17,9 @@
 @if(this.expanded) {
 <ul class="tree-location-list-ul">
     @for (name of names; track name) {
-    <li class="treeexpander-item">
+    <li class="treeexpander-item{{selectedProjectIndex === $index ? ' selected' : ''}}" (click)="selectProject($index, $event)" tabindex="0">
       <span class="bi bi-newspaper treeexpander-icon"></span>
-      <span class="treeexpander-label">{{name}}</span>
+      <span class="treeexpander-label{{selectedProjectIndex === $index ? ' selected' : ''}}">{{name}}</span>
     </li>
     }
 </ul>
