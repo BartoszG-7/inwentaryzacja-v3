@@ -1,3 +1,7 @@
-@for (item of data; track item.id) {
-<li><app-treeexpander title="{{item.name}}" projects={{item.projects}} location={{item.name}} locationId={{item.id}} (selected)="changeId($event)" [showMotherboardIcon]="showMotherboardIcon"></app-treeexpander></li>
-}
+<div class="treebar-scroll-wrapper">
+	<ul class="treebar-list">
+		@for (item of data; track item.id) {
+			<li><app-treeexpander title="{{item.name}}" projects={{item.projects}} location={{item.name}} locationId={{item.id}} (selected)="changeId($event)" [showMotherboardIcon]="showMotherboardIcon"></app-treeexpander></li>
+		}
+	</ul>
+</div>
