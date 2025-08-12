@@ -4,7 +4,9 @@ app-treeexpander {
 
 .treebar-scroll-wrapper {
   height: 100%;
-  //max-height: calc(100vh - 180px); /* adjust as needed for sticky header/search */
+  max-height: calc(
+    100vh - 6rem
+  ); /* adjust as needed for sticky header/search */
 
   overflow-y: auto;
   overscroll-behavior: contain;
