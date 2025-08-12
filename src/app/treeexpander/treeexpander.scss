@@ -12,7 +12,7 @@
 .tree-location-row.selected .treeexpander-chevron {
   color: #1e9497 !important;
 }
-@import 'global.scss';
+@import "global.scss";
 
 // Tree location row (clickable parent)
 .tree-location-row {
@@ -26,7 +26,9 @@
   width: 100%;
   box-sizing: border-box;
 }
-.tree-location-row:hover, .tree-location-row:focus-within, .tree-location-row.selected {
+.tree-location-row:hover,
+.tree-location-row:focus-within,
+.tree-location-row.selected {
   background: #00ffff1a !important;
 }
 
@@ -35,6 +37,7 @@
   vertical-align: middle;
   margin: 0;
   padding-top: 1em;
+  height: fit-content;
 }
 
 .tree-location-list-ul li {
@@ -74,8 +77,6 @@ ul li {
   margin: 0;
   transition: background 0.15s;
   text-align: left;
-
-  
 }
 ul li .li-content {
   display: flex;
@@ -96,7 +97,9 @@ ul li:hover .bi-dot {
 .treeexpander-item {
   display: flex;
   align-items: center;
-  padding: 0.5em 0.7em;
+  //padding: 0.5em 0.7em;
+  padding: 16px 16px 16px 16px !important;
+
   margin-bottom: 0;
   margin-top: 0;
   line-height: 1.1;
@@ -106,7 +109,8 @@ ul li:hover .bi-dot {
   width: 100%;
   box-sizing: border-box;
 }
-.treeexpander-item:hover, .treeexpander-item:focus-within {
+.treeexpander-item:hover,
+.treeexpander-item:focus-within {
   background: #00ffff1a !important;
 }
 .treeexpander-icon {
