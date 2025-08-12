@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home-only/home.component';
-import { LokalizacjeComponent } from './lokalizacje/lokalizacje.component';
+import { LokalizacjeComponent } from './lokalizacje/lokalizacje-sidebar/lokalizacje-sidebar.component';
 import { MagazynMainComponent } from './magazyn/magazyn-main/magazyn-main.component';
 import { MainCompComponent } from './main-comp/main-comp.component';
 
