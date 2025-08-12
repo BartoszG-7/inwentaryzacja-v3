@@ -1,13 +1,17 @@
 <div class="layout">
   <aside class="sidebar-static">
-    <div class="sidebar-static-header">
-      <div class="sidebar-header-plus-align">
-        <h1 class="sidebar-static-title" style="padding-left: 0.3rem;">Magazyn</h1>
-        <app-plus-modal></app-plus-modal>
+    <div class="sidebar-sticky-top-block">
+      <div class="sidebar-static-header">
+        <div class="sidebar-header-plus-align">
+          <h1 class="sidebar-static-title" style="padding-left: 0.3rem;">Magazyn</h1>
+          <app-plus-modal></app-plus-modal>
+        </div>
+      </div>
+      <div class="sidebar-mobile-separator"></div>
+      <div class="sidebar-searchbar-sticky-bg">
+        <app-search-bar (searchInput)="onSearch($event)"></app-search-bar>
       </div>
     </div>
-    <div class="sidebar-mobile-separator"></div>
-    <app-search-bar (searchInput)="onSearch($event)"></app-search-bar>
     <ul class="sidebar-static-list">
       <app-treebar [search]="searchInput" [showMotherboardIcon]="true" query="http://localhost:3000/device-type/list"
         #treebarDesktop></app-treebar>

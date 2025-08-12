@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.4em 0.7em 0em 0.7em; // increased vertical padding for headers
+  padding: 1em 0.7em 1em 1em; // increased vertical padding for headers
   border-radius: 4px;
   transition: background 0.15s;
   cursor: pointer;
@@ -118,7 +118,7 @@ ul li:hover .bi-dot {
   padding-left: 1em;
 }
 .treeexpander-label {
-  color: #fff;
+  color: gray;
   font-weight: normal;
   transition: color 0.15s;
 }

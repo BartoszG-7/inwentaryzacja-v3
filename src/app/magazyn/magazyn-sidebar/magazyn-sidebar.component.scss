@@ -1,3 +1,27 @@
+
+// Sticky block for header and search bar
+.sidebar-sticky-top-block {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #000;
+}
+.sidebar-searchbar-sticky-bg {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// Sticky search bar container
+.sidebar-searchbar-sticky-bg {
+  position: sticky;
+  top: 4.2em; /* adjust if needed to match header+separator height */
+  z-index: 20;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @import 'global.scss';
 
 // Mobile-only separator under Lokalizacje header
@@ -33,6 +57,26 @@
 .sidebar-header-plus-align {
   display: flex;
   align-items: center;
+}
+
+// --- Make sidebar scrollbar internal ---
+.sidebar-static {
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
+  height: calc(100vh - 64px);
+  position: sticky;
+  top: 64px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
 }
 
 .sidebar-static-header::after,
@@ -104,7 +148,7 @@
 
 .sidebar-static-title {
   color: #fff;
-  margin: 0;
+  margin: 0;  
   font-size: 1.4em;
   font-weight: 600;
 }

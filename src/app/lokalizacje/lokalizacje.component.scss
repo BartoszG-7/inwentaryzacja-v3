@@ -1,3 +1,16 @@
+// Sticky block for header and search bar
+.sidebar-sticky-top-block {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #000;
+}
+.sidebar-searchbar-sticky-bg {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 // Mobile-only separator under Lokalizacje header
 // Mobile-only separator under Lokalizacje header
 .sidebar-mobile-separator {
@@ -43,8 +56,27 @@
   box-shadow: 0 1px 4px rgba(0,0,0,0.13);
 }
 
-// --- Close Button ---
-.close-btn, .sidebar-close-absolute {
+// --- Make sidebar scrollbar internal ---
+.sidebar-static {
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
+  height: calc(100vh - 64px);
+  position: sticky;
+  top: 64px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+}
+
+.close-btn {
   background: none;
   border: none;
   color: #fff;
@@ -52,7 +84,6 @@
   cursor: pointer;
   transition: color 0.2s;
 }
-
 .close-btn {
   margin-left: 0.5em;
 }

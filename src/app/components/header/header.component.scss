@@ -1,3 +1,14 @@
+@import 'global.scss';
+
+// Sticky block for mobile header and search bar
+.sidebar-sticky-top-block-mobile {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: $dark-color;
+}
+
+
 .sidebar-tree-list-wrapper {
   flex: 1 1 auto;
   overflow-y: auto;
@@ -5,7 +16,6 @@
   display: flex;
   flex-direction: column;
 }
-@import 'global.scss';
 
 .sidebar-mobile-separator {
   width: 100%;
