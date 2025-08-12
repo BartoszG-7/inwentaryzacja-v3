@@ -32,4 +32,8 @@ export class DataController {
   async addProject(@Body() projectData: any) {
     return await this.dataService.addProject(projectData);
   }
+  @Post('add-device-to-project')
+  async assignDevice(@Body() data: any) {
+    return await this.dataService.assignDevice(data);
+  }
 }
