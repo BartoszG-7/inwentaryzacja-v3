@@ -1,3 +1,16 @@
+// Sticky block for header and search bar
+.sidebar-sticky-top-block {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #000;
+}
+.sidebar-searchbar-sticky-bg {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 // Mobile-only separator under Lokalizacje header
 // Mobile-only separator under Lokalizacje header
 .sidebar-mobile-separator {
