@@ -1,0 +1,93 @@
+.container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background: #111;
+  border: 2px solid #888;
+  border-radius: 8px;
+  padding: 12px;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.header-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.header-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.header-btn:hover {
+  background: #222;
+  color: #00ffff;
+}
+
+.main-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.adres-box, .notatki-box {
+  flex: 1 1 0;
+  background: #181818;
+  border: 2px solid #888;
+  border-radius: 24px;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.projekty-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.projekt-row {
+  background: #181818;
+  border: 2px solid #888;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  color: #fff;
+  transition: background 0.15s, border 0.15s;
+}
+.projekt-row:hover {
+  background: #232b2b;
+  border-color: #00ffff;
+  color: #00ffff;
+}
