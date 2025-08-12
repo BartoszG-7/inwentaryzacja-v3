@@ -6,13 +6,13 @@ import { PlusModalLokalComponent } from "../../components/plus-modal-lokal/plus-
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 
 @Component({
-  selector: 'app-lokalizacje',
+  selector: 'app-lokalizacje-sidebar',
   imports: [CommonModule, Treebar, PlusModalLokalComponent, SearchBarComponent],
   standalone: true,
   templateUrl: './lokalizacje-sidebar.component.html',
   styleUrls: ['./lokalizacje-sidebar.component.scss']
 })
-export class LokalizacjeComponent {
+export class LokalizacjeSidebarComponent {
   locations: any[] = [];
   editing: string = '';
   searchInput: string = '';
