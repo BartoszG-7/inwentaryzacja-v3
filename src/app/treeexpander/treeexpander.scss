@@ -6,8 +6,10 @@
   min-width: 1.2em;
   text-align: right;
 }
+// Hover, focus, or selected: arrow icon color
 .tree-location-row:hover .treeexpander-chevron,
-.tree-location-row:focus-within .treeexpander-chevron {
+.tree-location-row:focus-within .treeexpander-chevron,
+.tree-location-row.selected .treeexpander-chevron {
   color: #1e9497 !important;
 }
 @import 'global.scss';
@@ -147,7 +149,9 @@ ul li:hover .bi-dot {
   vertical-align: middle;
   transition: color 0.15s;
 }
+// Hover, focus, or selected: motherboard icon color
 .tree-location-row:hover .treeexpander-motherboard,
-.tree-location-row:focus-within .treeexpander-motherboard {
+.tree-location-row:focus-within .treeexpander-motherboard,
+.tree-location-row.selected .treeexpander-motherboard {
   color: #1e9497 !important;
 }

@@ -14,7 +14,7 @@
       }
     }
 </div>
-@if(this.expanded) {
+@if(this.expanded && this.names.length > 0) {
 <ul class="tree-location-list-ul">
     @for (name of names; track name) {
     <li class="treeexpander-item{{selectedProjectIndex === $index ? ' selected' : ''}}" (click)="selectProject($index, $event)" tabindex="0">
