@@ -1,19 +1,36 @@
 app-treeexpander {
   user-select: none;
 }
+@media screen and (min-width: 900px) {
+  .treebar-scroll-wrapper {
+    height: 100%;
+    max-height: calc(
+      100vh - 168px
+    ); /* adjust as needed for sticky header/search */
 
-.treebar-scroll-wrapper {
-  height: 100%;
-  max-height: 75vh; /* adjust as needed for sticky header/search */
-
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  box-sizing: border-box;
-  /* Custom scrollbar styles */
-  scrollbar-width: thin;
-  scrollbar-color: gray #111;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-sizing: border-box;
+    /* Custom scrollbar styles */
+    scrollbar-width: thin;
+    scrollbar-color: gray #111;
+  }
 }
+@media screen and (max-width: 900px) {
+  .treebar-scroll-wrapper {
+    height: 100%;
+    max-height: calc(
+      100% - (3em + 8px)
+    ); /* adjust as needed for sticky header/search */
 
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-sizing: border-box;
+    /* Custom scrollbar styles */
+    scrollbar-width: thin;
+    scrollbar-color: gray #111;
+  }
+}
 /* Chrome, Edge, Safari */
 .treebar-scroll-wrapper::-webkit-scrollbar {
   width: 8px;
