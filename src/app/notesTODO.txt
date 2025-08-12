@@ -1,0 +1,4 @@
+
+- double click copy data cell
+- modal na edycje projektu
+- checkbox multi delete function

@@ -6,8 +6,10 @@
   min-width: 1.2em;
   text-align: right;
 }
+// Hover, focus, or selected: arrow icon color
 .tree-location-row:hover .treeexpander-chevron,
-.tree-location-row:focus-within .treeexpander-chevron {
+.tree-location-row:focus-within .treeexpander-chevron,
+.tree-location-row.selected .treeexpander-chevron {
   color: #1e9497 !important;
 }
 @import 'global.scss';
@@ -31,17 +33,13 @@
 .tree-location-list-ul {
   font-size: 0.9em;
   vertical-align: middle;
-  margin-right: 0.3em;
-  padding-left: 1em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin: 0;
+  padding-top: 1em;
 }
 
 .tree-location-list-ul li {
-  margin-bottom: 0;
-  margin-top: 0;
-  padding-top: 0;
-  padding-bottom: 0;
+  margin: 0;
+  padding: 0;
   line-height: 1.1;
 }
 
@@ -98,7 +96,7 @@ ul li:hover .bi-dot {
 .treeexpander-item {
   display: flex;
   align-items: center;
-  padding: 0;
+  padding: 0.5em 0.7em;
   margin-bottom: 0;
   margin-top: 0;
   line-height: 1.1;
@@ -123,11 +121,17 @@ ul li:hover .bi-dot {
   font-weight: normal;
   transition: color 0.15s;
 }
+// Selected project row background and icon/text color
 .treeexpander-item.selected {
   background: #00ffff1a !important;
+  width: 100%;
+  margin: 0;
 }
 .treeexpander-item.selected .treeexpander-label,
 .treeexpander-label.selected {
+  color: #1e9497 !important;
+}
+.treeexpander-item.selected .treeexpander-icon {
   color: #1e9497 !important;
 }
 .treeexpander-item:hover .treeexpander-icon, //list item icon
@@ -147,7 +151,9 @@ ul li:hover .bi-dot {
   vertical-align: middle;
   transition: color 0.15s;
 }
+// Hover, focus, or selected: motherboard icon color
 .tree-location-row:hover .treeexpander-motherboard,
-.tree-location-row:focus-within .treeexpander-motherboard {
+.tree-location-row:focus-within .treeexpander-motherboard,
+.tree-location-row.selected .treeexpander-motherboard {
   color: #1e9497 !important;
 }
