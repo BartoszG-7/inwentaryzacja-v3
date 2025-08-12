@@ -5,7 +5,7 @@ import { CreateLocationDto } from './modules/location/dto/create-location.to';
 
 @Injectable()
 export class AppService {
-  constructor(@InjectModel(Location.name) private catModel: Model<Location>) { }
+  constructor(@InjectModel(Location.name) private catModel: Model<Location>) {}
 
   async create(createCatDto: CreateLocationDto): Promise<Location> {
     const createdCat = new this.catModel(createCatDto);
@@ -16,8 +16,6 @@ export class AppService {
     return this.catModel.find({}).exec();
   }
   getHello(): any {
-    return "Hello World!";
+    return 'Hello World!';
   }
 }
-
-

@@ -5,10 +5,13 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { DeviceType, deviceTypeSchema } from './device-type.schema';
 
 @Module({
-    imports: [MongooseModule.forRoot('mongodb://localhost:27017/inwentaryzacja',), MongooseModule.forFeature([
-        { name: DeviceType.name, schema: deviceTypeSchema }
-    ]),],
-    controllers: [DeviceTypeController],
-    providers: [DeviceTypeService],
+  imports: [
+    MongooseModule.forRoot('mongodb://localhost:27017/inwentaryzacja'),
+    MongooseModule.forFeature([
+      { name: DeviceType.name, schema: deviceTypeSchema },
+    ]),
+  ],
+  controllers: [DeviceTypeController],
+  providers: [DeviceTypeService],
 })
-export class deviceTypeModule { }
+export class deviceTypeModule {}

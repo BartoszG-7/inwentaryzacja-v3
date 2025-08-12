@@ -7,28 +7,27 @@ export type ProjectDocment = HydratedDocument<Project>;
 
 @Schema()
 export class Project {
-    @Prop() name: string;
+  @Prop() name: string;
 
-    @Prop() dns1: string;
+  @Prop() dns1: string;
 
-    @Prop() dns2: string;
+  @Prop() dns2: string;
 
-    @Prop() networkAddress: string;
+  @Prop() networkAddress: string;
 
-    @Prop() mask: string;
+  @Prop() mask: string;
 
-    @Prop() gateway: string;
+  @Prop() gateway: string;
 
-    @Prop({ type: [String] }) addrPool: string[];
+  @Prop({ type: [String] }) addrPool: string[];
 
-    @Prop() addrExclude: string;
+  @Prop() addrExclude: string;
 
-    @Prop() remoteAccessTag: string;
+  @Prop() remoteAccessTag: string;
 
-    @Prop({ type: [ProjectDevice] }) projectDevices: ProjectDevice[];
+  @Prop({ type: [ProjectDevice] }) projectDevices: ProjectDevice[];
 
-    @Prop({ type: SchemaTypes.ObjectId, ref: "Location" }) location: ObjectId;
-
+  @Prop({ type: SchemaTypes.ObjectId, ref: 'Location' }) location: ObjectId;
 }
 
 export const ProjectSchema = SchemaFactory.createForClass(Project);
