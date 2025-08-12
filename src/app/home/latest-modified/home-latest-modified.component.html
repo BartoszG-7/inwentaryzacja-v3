@@ -4,7 +4,7 @@
         @if(item.project!==null) {
         <h6 class="card-title mb-1">{{item.project.name}}</h6>
 
-        @if(item.project.location!==null) {
+        @if(item.project.location!=undefined) {
         <p class="card-text mb-0">{{item.project.location.name}}</p>
         }
         }
