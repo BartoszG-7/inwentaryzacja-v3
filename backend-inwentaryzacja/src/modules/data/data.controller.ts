@@ -36,4 +36,8 @@ export class DataController {
   async assignDevice(@Body() data: any) {
     return await this.dataService.assignDevice(data);
   }
+  @Post('remove-device-from-project')
+    async unassignDevice(@Body() data: any) {
+    return await this.dataService.unassignDevice(data);
+  }
 }

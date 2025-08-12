@@ -21,7 +21,6 @@ export class CreateLocationDto {
 
   @IsString()
   @IsNotEmpty()
-  @IsIP()
   address: string;
 
   @IsString()

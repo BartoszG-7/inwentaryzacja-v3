@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model, RootFilterQuery } from 'mongoose';
+import { Model, RootFilterQuery, Types } from 'mongoose';
 
 import { Device, DeviceDocument } from '../device/device.schema';
 
@@ -8,9 +8,11 @@ import { Project } from '../project/project.schema';
 import { Location } from '../location/location.schema';
 import { ProjectHistory } from '../project-history/project-history.schema';
 import { DeviceType } from '../device-type/device-type.schema';
+import type { ObjectId } from 'mongoose';
 export enum projectHistoryEvents {
   PROJECT_CREATED = 1,
   DEVICE_ADDED_TO_PROJECT = 2,
+  DEVICE_REMOVED_FROM_PROJECT = 3,
 }
 @Injectable()
 export class DataService {
@@ -97,6 +99,21 @@ export class DataService {
       device: await this.deviceModel.updateOne(
         { _id: data.deviceId },
         { project: data.projectId },
+      ),
+    };
+  }
+  async unassignDevice(data: any): Promise<any> {
+    return {
+      projectHistory: await this.ProjectHistoryModel.create({
+        type: projectHistoryEvents.DEVICE_REMOVED_FROM_PROJECT,
+        date: new Date().toISOString(),
+        tag: '',
+        deviceId: data.deviceId,
+        project: data.projectId,
+      }),
+      device: await this.deviceModel.updateOne(
+        { _id: data.deviceId },
+        { $unset: { project: '' } },
       ),
     };
   }

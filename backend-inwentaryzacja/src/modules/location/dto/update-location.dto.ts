@@ -19,7 +19,6 @@ export class UpdateLocationDto {
 
   @IsString()
   @IsOptional()
-  @IsIP()
   address?: string;
 
   @IsString()
