@@ -93,6 +93,7 @@
 
 .right-project-table {
 	min-width: 900px;
+    min-height: calc(100vh - 64px);
 	width: 100%;
 	table-layout: fixed;
 	border-radius: 8px;
