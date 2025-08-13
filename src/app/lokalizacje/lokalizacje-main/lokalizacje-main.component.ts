@@ -1,10 +1,17 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LokalizacjeSidebarComponent } from '../lokalizacje-sidebar/lokalizacje-sidebar.component';
 import { LokalizacjeRightCompComponent } from '../lokalizacje-right-comp/lokalizacje-right-comp.component';
 import { LokalizacjeRightProjectComponent } from '../lokalizacje-right-project/lokalizacje-right-project.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
+import { Treebar } from '../../treebar/treebar';
 
 @Component({
   selector: 'app-lokalizacje-main',
@@ -21,7 +28,10 @@ import { ActivatedRoute } from '@angular/router';
 export class LokalizacjeMainComponent {
   selectedId: any;
   showProject: boolean = false;
-
+  refresh: any;
+  refreshTreebar(ref: any) {
+    this.refresh = ref;
+  }
   changedId(event: any) {
     this.selectedId = event;
     // If event.type is 'project', show project view

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AddProjectService } from './add-project.service';
@@ -18,6 +18,8 @@ export class AddProjectComponent {
   ) {}
   locationId = input<string>();
   showEditModal = false;
+  refresh = output<any>();
+  refreshState: boolean = false;
   editFormData = {
     name: '',
     dns1: '',
@@ -68,6 +70,8 @@ export class AddProjectComponent {
         });
       this.closeEditModal();
       form.reset();
+      this.refresh.emit(this.refreshState);
+      this.refreshState = !this.refreshState;
     }
   }
 }

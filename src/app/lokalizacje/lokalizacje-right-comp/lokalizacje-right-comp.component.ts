@@ -1,8 +1,10 @@
 import {
+  ChangeDetectorRef,
   Component,
   inject,
   input,
   OnChanges,
+  output,
   SimpleChanges,
 } from '@angular/core';
 import { AddProjectComponent } from '../../components/add-project/add-project.component';
@@ -17,12 +19,24 @@ import { toSignal } from '@angular/core/rxjs-interop';
   styleUrl: './lokalizacje-right-comp.component.scss',
 })
 export class LokalizacjeRightCompComponent implements OnChanges {
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+
   selectedId: any = input<any>();
   name: string = '';
   projects: any = [];
   address: string = '';
   mainId: string = '';
   locationId: string = '';
+  refreshOut = output<any>();
+
+  refresh(ref: any) {
+    //let a = '';
+    this.refreshOut.emit(ref);
+    // a = 's';
+    // this.ngOnChanges({});
+    // this.changeDetectorRef.detectChanges();
+    // a = '';
+  }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(this.selectedId());
     if (this.selectedId() !== undefined) {
