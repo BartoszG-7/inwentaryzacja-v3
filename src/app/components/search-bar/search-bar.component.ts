@@ -12,7 +12,7 @@ export class SearchBarComponent implements OnInit {
   searchInput = output<string>();
   hello: Subject<any> = new Subject<any>();
   onFilterChange(event: any): void {
-
+    
     this.hello.next(event.target.value);
   }
   ngOnInit(): void {

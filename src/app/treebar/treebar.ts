@@ -1,4 +1,12 @@
-import { Component, Input, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  input,
+  OnChanges,
+  OnInit,
+  output,
+  SimpleChanges,
+} from '@angular/core';
 import { TreebarService } from './treebar.service';
 import { Treeexpander } from '../treeexpander/treeexpander';
 import { TreebarSharedService } from '../home/treebar.share.service';
@@ -7,63 +15,69 @@ import { TreebarSharedService } from '../home/treebar.share.service';
   selector: 'app-treebar',
   imports: [Treeexpander],
   templateUrl: './treebar.html',
-  styleUrl: './treebar.scss'
+  styleUrl: './treebar.scss',
 })
 export class Treebar implements OnInit, OnChanges {
   @Input() showMotherboardIcon: boolean = false;
-  constructor(private treebarService: TreebarService, private treebarSharedService: TreebarSharedService) { }
-
+  constructor(
+    private treebarService: TreebarService,
+    private treebarSharedService: TreebarSharedService
+  ) {}
 
   data: Array<any> = [];
   selectedId = output<any>();
-  stringified: string = "";
+  stringified: string = '';
   query = input<string>('http://localhost:3000/data/treebar');
   search = input<string>();
-  searchValidated: string = "{}";
+  searchValidated: string = '{}';
   fetchedData: any;
   changeId(event: any): void {
+    this.selectedId.emit(
+      this.treebarService.parseDataForRightComp(this.fetchedData, event)
+    );
 
     this.treebarSharedService.setData(event);
   }
   ngOnChanges(changes: SimpleChanges): void {
-
     if (changes['search'] && this.fetchedData !== undefined) {
       this.data = [];
 
-      this.searchValidated = this.search() ?? "";
+      this.searchValidated = this.search() ?? '';
       //if (this.search() == "[]") this.searchValidated = "";
       if (this.query() === 'http://localhost:3000/data/treebar') {
-        this.data = this.treebarService.dataParser(this.treebarService.search(this.fetchedData, this.searchValidated));
+        this.data = this.treebarService.dataParser(
+          this.treebarService.search(this.fetchedData, this.searchValidated)
+        );
       } else {
         var locations: any = [];
 
         this.fetchedData.locations.forEach((location: any) => {
-          if (location.name.toLowerCase().includes(this.searchValidated.toLowerCase())) {
+          if (
+            location.name
+              .toLowerCase()
+              .includes(this.searchValidated.toLowerCase())
+          ) {
             locations.push(location);
-
           }
         });
         this.data = this.treebarService.dataParser({ locations: locations });
       }
     }
-
   }
   ngOnInit(): void {
-
     this.data = [];
-    this.stringified = "";
-    console.log(this.query());
-    if (this.search() == "") {
+    this.stringified = '';
 
-      this.searchValidated = "{}";
+    if (this.search() == '') {
+      this.searchValidated = '{}';
     } else {
-      this.searchValidated = this.search() ?? "";
+      this.searchValidated = this.search() ?? '';
     }
     this.treebarService.getNames(this.query()).subscribe({
       next: (data: any) => {
         // Store the fetched data in t  he component's property
         this.fetchedData = data;
-        console.log(data);
+
         this.data = this.treebarService.dataParser(data);
         // data.locations.forEach((item: any) => {
 
@@ -75,7 +89,6 @@ export class Treebar implements OnInit, OnChanges {
 
         //     this.data.forEach((treeItem: any) => {
 
-
         //       if (treeItem.id === item.location) {
 
         //         treeItem.projects = treeItem.projects + (JSON.stringify({ "name": item.name, "id": item.id }) + ",");
@@ -85,12 +98,7 @@ export class Treebar implements OnInit, OnChanges {
         //     });
         //   });
         // }
-
-
-
-      }
+      },
     });
-    console.log(this.data)
   }
-
 }

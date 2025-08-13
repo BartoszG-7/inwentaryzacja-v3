@@ -1,8 +1,12 @@
 <div class="lokalizacje-main-flex">
   <div class="left-sidebar">
-    <app-lokalizacje-sidebar></app-lokalizacje-sidebar>
+    <app-lokalizacje-sidebar
+      (selectedId)="changedId($event)"
+    ></app-lokalizacje-sidebar>
   </div>
   <div class="right-component">
-    <app-lokalizacje-right-comp></app-lokalizacje-right-comp>
+    <app-lokalizacje-right-comp
+      [selectedId]="selectedId"
+    ></app-lokalizacje-right-comp>
   </div>
 </div>
