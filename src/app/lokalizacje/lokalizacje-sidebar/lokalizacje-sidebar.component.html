@@ -15,7 +15,10 @@
       </div>
     </div>
     <ul class="sidebar-static-list">
-      <app-treebar [search]="searchInput"></app-treebar>
+      <app-treebar
+        (selectedId)="changedId($event)"
+        [search]="searchInput"
+      ></app-treebar>
     </ul>
   </aside>
 </div>

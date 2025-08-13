@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LocationService } from '../lokalizacje.service';
+import { LocationService } from './lokalizacje-sidebar.service';
 import { Treebar } from '../../treebar/treebar';
-import { PlusModalLokalComponent } from "../../components/plus-modal-lokal/plus-modal-lokal.component";
+import { PlusModalLokalComponent } from '../../components/plus-modal-lokal/plus-modal-lokal.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 
 @Component({
@@ -10,13 +10,17 @@ import { SearchBarComponent } from '../../components/search-bar/search-bar.compo
   imports: [CommonModule, Treebar, PlusModalLokalComponent, SearchBarComponent],
   standalone: true,
   templateUrl: './lokalizacje-sidebar.component.html',
-  styleUrls: ['./lokalizacje-sidebar.component.scss']
+  styleUrls: ['./lokalizacje-sidebar.component.scss'],
 })
 export class LokalizacjeSidebarComponent {
   locations: any[] = [];
+  selectedId: any = output<any>();
   editing: string = '';
   searchInput: string = '';
-  constructor(private readonly locationService: LocationService) { }
+  constructor(private readonly locationService: LocationService) {}
+  changedId(event: any) {
+    this.selectedId.emit(event);
+  }
   onSearch(event: string): void {
     this.searchInput = event;
 
@@ -27,7 +31,7 @@ export class LokalizacjeSidebarComponent {
     this.locationService.getLocations().subscribe({
       next: (data: any) => {
         this.locations = data;
-      }
+      },
     });
   }
 

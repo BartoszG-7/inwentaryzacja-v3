@@ -28,7 +28,7 @@ export class DataService {
   async treebar(): Promise<any> {
     return {
       projects: await this.ProjectModel.find({}).select('name location').exec(),
-      locations: await this.LocationModel.find({}).select('name').exec(),
+      locations: await this.LocationModel.find({}).exec(),
     };
   }
 
