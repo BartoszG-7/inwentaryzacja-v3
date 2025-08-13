@@ -1,34 +1,35 @@
-<div class="right-project-wrapper">
-	<div class="project-header d-flex justify-content-between align-items-center mb-3 px-2 py-2">
-		<div class="project-title fw-bold fs-4">Projekt - Mamografia</div>
-		<div class="header-buttons d-flex gap-2">
-			<button class="btn btn-outline-light btn-sm">SKANUJ</button>
-			<button class="btn btn-outline-light btn-sm">DODAJ</button>
-			<button class="btn btn-outline-light btn-sm">EDYTUJ</button>
+<div class="container right-project-container">
+	<div class="header-row">
+		<span class="header-title">Projekt - Mamografia</span>
+		<div class="header-actions">
+			<button class="header-btn">SKANUJ</button>
+			<button class="header-btn">DODAJ</button>
+			<button class="header-btn">EDYTUJ</button>
+			<button class="header-btn">USUN</button>
 		</div>
 	</div>
-	<div class="table-responsive">
-		<table class="table table-dark table-bordered table-hover align-middle mb-0 project-table-bootstrap">
+	<div class="table-responsive right-table-responsive">
+		<table class="table table-dark table-bordered table-hover align-middle mb-0 right-project-table">
 			<thead>
 				<tr>
-					<th style="width:40px"></th>
-					<th style="width:140px">SN WAMASOFT</th>
-					<th style="width:140px">SN PRODUCENTA</th>
-					<th style="width:120px">MAC</th>
-					<th style="width:120px">IP</th>
-					<th style="width:120px">BRAMA</th>
-					<th style="width:120px">MASKA</th>
-					<th style="width:120px">ANYDESK</th>
-					<th style="width:120px">DNS1</th>
-					<th style="width:120px">DNS2</th>
-					<th style="width:120px">SERWER</th>
-					<th style="width:60px"></th>
+					  <th style="width:32px"></th>
+					  <th style="width:110px">SN WAMASOFT</th>
+					  <th style="width:110px">SN PRODUCENTA</th>
+					  <th style="width:90px">MAC</th>
+					  <th style="width:90px">IP</th>
+					  <th style="width:90px">BRAMA</th>
+					  <th style="width:90px">MASKA</th>
+					  <th style="width:90px">ANYDESK</th>
+					  <th style="width:90px">DNS1</th>
+					  <th style="width:90px">DNS2</th>
+					  <th style="width:90px">SERWER</th>
+					  <th style="width:90px"></th>
 				</tr>
 			</thead>
 			<tbody>
 				<ng-container *ngFor="let group of groupedRows">
-					<tr class="table-secondary group-label-row">
-						<td colspan="13" class="fw-bold text-uppercase">{{ group.name }}</td>
+					<tr class="group-label-row">
+						<td colspan="12" class="fw-bold text-uppercase">{{ group.name }}</td>
 					</tr>
 					<tr *ngFor="let row of group.rows">
 						<td><input type="checkbox" /></td>
@@ -43,7 +44,7 @@
 						<td (dblclick)="copyCell(row.dns2)">{{ row.dns2 }}</td>
 						<td (dblclick)="copyCell(row.serwer)">{{ row.serwer }}</td>
 						<td class="text-end">
-							<button class="btn btn-outline-info btn-sm px-2 py-1"><i class="bi bi-pencil"></i> Edytuj</button>
+							<button class="header-btn btn-edit-row"><i class="bi bi-pencil"></i> Edytuj</button>
 						</td>
 					</tr>
 				</ng-container>
