@@ -65,7 +65,11 @@ export class AddProjectComponent {
             this.router
               .navigateByUrl('/', { skipLocationChange: true })
               .then(() => {
-                this.router.navigate([currentUrl]);
+                this.router.navigate([
+                  currentUrl.split('/')[currentUrl.split('/').length - 2] +
+                    '/' +
+                    JSON.stringify({ type: 'location', id: this.locationId() }),
+                ]);
               });
           },
           error: (err) => {

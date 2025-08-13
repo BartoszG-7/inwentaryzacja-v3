@@ -1,5 +1,13 @@
-import { Component, input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { AddProjectComponent } from '../../components/add-project/add-project.component';
+import { ActivatedRoute } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-lokalizacje-right-comp',

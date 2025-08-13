@@ -13,8 +13,11 @@ export const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'inwentaryzacja', component: LokalizacjeMainComponent },
+      {
+        path: 'inwentaryzacja/:data',
+        component: LokalizacjeMainComponent,
+      },
       { path: 'magazyn', component: MagazynMainComponent },
-    ]
-  }
+    ],
+  },
 ];

@@ -2,7 +2,12 @@
   <div class="header-flex">
     <!-- Mobile: Hamburger menu icon (left) -->
     @if (showLeftMenu && !isLoginPage) {
-    <div class="menu-icon left-menu" (click)="toggleLeftMenu()" [class.open]="leftMenuOpen" title="Open left menu">
+    <div
+      class="menu-icon left-menu"
+      (click)="toggleLeftMenu()"
+      [class.open]="leftMenuOpen"
+      title="Open left menu"
+    >
       <i class="bi bi-list"></i>
     </div>
     }
@@ -14,14 +19,23 @@
     <div class="header-links"></div>
     <!-- Desktop: Logout button (top right) -->
     @if (!isLoginPage) {
-    <button class="logout-btn" (click)="loginHandler()" title="Logout" tabindex="0">
+    <button
+      class="logout-btn"
+      (click)="loginHandler()"
+      title="Logout"
+      tabindex="0"
+    >
       <i class="bi bi-box-arrow-right"></i>
     </button>
     }
     <!-- Mobile: Right menu icon (right) -->
     @if (showRightMenu && !isLoginPage) {
-    <div class="menu-icon right-menu mobile-only" (click)="toggleRightMenu()" [class.open]="rightMenuOpen"
-      title="Open right menu">
+    <div
+      class="menu-icon right-menu mobile-only"
+      (click)="toggleRightMenu()"
+      [class.open]="rightMenuOpen"
+      title="Open right menu"
+    >
       <i class="bi bi-three-dots-vertical"></i>
     </div>
     }
@@ -31,17 +45,40 @@
   <nav class="side-menu left" [class.open]="leftMenuOpen">
     <button class="close-btn" (click)="toggleLeftMenu()">&times;</button>
     <ul class="sidebar-menu-left">
-      <li routerLink="/home" (click)="toggleLeftMenu()" [class.active]="isActive('/home', true)">Home</li>
-      <li routerLink="/inwentaryzacja" (click)="toggleLeftMenu()" [class.active]="isActive('/inwentaryzacja')">
-        Inwentaryzacja</li>
-      <li routerLink="/magazyn" (click)="toggleLeftMenu()" [class.active]="isActive('/magazyn')">Magazyn</li>
+      <li
+        routerLink="/home"
+        (click)="toggleLeftMenu()"
+        [class.active]="isActive('/home', true)"
+      >
+        Home
+      </li>
+      <li
+        routerLink="/inwentaryzacja/{}"
+        (click)="toggleLeftMenu()"
+        [class.active]="isActive('/inwentaryzacja')"
+      >
+        Inwentaryzacja
+      </li>
+      <li
+        routerLink="/magazyn"
+        (click)="toggleLeftMenu()"
+        [class.active]="isActive('/magazyn')"
+      >
+        Magazyn
+      </li>
     </ul>
     <!-- Mobile: KIT and Logout row at bottom -->
     @if (isMobile) {
     <div class="sidebar-kit-logout-row">
       <h4 class="logout-label">Log Out</h4>
-      <a class="logout-btn-mobile" routerLink="/logout" (click)="loginHandler()" title="Logout" tabindex="0"
-        [class.active]="isActive('/logout', true)">
+      <a
+        class="logout-btn-mobile"
+        routerLink="/logout"
+        (click)="loginHandler()"
+        title="Logout"
+        tabindex="0"
+        [class.active]="isActive('/logout', true)"
+      >
         <i class="bi bi-box-arrow-right"></i>
       </a>
     </div>
@@ -51,35 +88,56 @@
   <!-- Right sidebar (mobile only, slide in/out) -->
   @if (showRightMenu && selectedRoute === '/magazyn') {
   <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
-    <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
+    <button
+      class="close-btn sidebar-close-absolute"
+      (click)="toggleRightMenu()"
+    >
+      &times;
+    </button>
     <div class="sidebar-tree-list-wrapper">
       <div class="sidebar-sticky-top-block-mobile">
         <div class="sidebar-header-plus-align">
           <h2 class="sidebar-tree-title">Magazyn</h2>
-          <app-plus-modal style="padding-bottom: 0.4rem; padding-left: 0.3rem;"></app-plus-modal>
-          <app-search-bar-mobile (searchInput)="onSearch($event)"
-            style="padding-bottom: 0.3rem; padding-left: 1rem;"></app-search-bar-mobile>
+          <app-plus-modal
+            style="padding-bottom: 0.4rem; padding-left: 0.3rem"
+          ></app-plus-modal>
+          <app-search-bar-mobile
+            (searchInput)="onSearch($event)"
+            style="padding-bottom: 0.3rem; padding-left: 1rem"
+          ></app-search-bar-mobile>
         </div>
         <div class="sidebar-mobile-separator"></div>
       </div>
       <ul class="sidebar-tree-list">
-        <app-treebar [search]="searchInput" query="http://localhost:3000/device-type/list" #treebarMobile
-          [showMotherboardIcon]="true"></app-treebar>
+        <app-treebar
+          [search]="searchInput"
+          query="http://localhost:3000/device-type/list"
+          #treebarMobile
+          [showMotherboardIcon]="true"
+        ></app-treebar>
       </ul>
     </div>
   </nav>
-  }
-  @if (showRightMenu && selectedRoute !== '/magazyn') {
+  } @if (showRightMenu && selectedRoute !== '/magazyn') {
   <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
-    <button class="close-btn sidebar-close-absolute" (click)="toggleRightMenu()">&times;</button>
+    <button
+      class="close-btn sidebar-close-absolute"
+      (click)="toggleRightMenu()"
+    >
+      &times;
+    </button>
     <div class="sidebar-tree-list-wrapper">
       <div class="sidebar-sticky-top-block-mobile">
         <div class="sidebar-header-plus-align">
           <h2 class="sidebar-tree-title">Lokalizacje</h2>
-          <app-plus-modal-lokal style="padding-bottom: 0.4rem; padding-left: 0.3rem;"
-            (close)="closePlusModalLokal()"></app-plus-modal-lokal>
-          <app-search-bar-mobile (searchInput)="onSearch($event)" style=" padding-bottom: 0.3rem; padding-left:
-            1rem;"></app-search-bar-mobile>
+          <app-plus-modal-lokal
+            style="padding-bottom: 0.4rem; padding-left: 0.3rem"
+            (close)="closePlusModalLokal()"
+          ></app-plus-modal-lokal>
+          <app-search-bar-mobile
+            (searchInput)="onSearch($event)"
+            style="padding-bottom: 0.3rem; padding-left: 1rem"
+          ></app-search-bar-mobile>
         </div>
         <div class="sidebar-mobile-separator"></div>
       </div>
