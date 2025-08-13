@@ -1,1 +1,53 @@
-<p>lokalizacje-right-project works!</p>
+<div class="right-project-wrapper">
+	<div class="project-header d-flex justify-content-between align-items-center mb-3 px-2 py-2">
+		<div class="project-title fw-bold fs-4">Projekt - Mamografia</div>
+		<div class="header-buttons d-flex gap-2">
+			<button class="btn btn-outline-light btn-sm">SKANUJ</button>
+			<button class="btn btn-outline-light btn-sm">DODAJ</button>
+			<button class="btn btn-outline-light btn-sm">EDYTUJ</button>
+		</div>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-dark table-bordered table-hover align-middle mb-0 project-table-bootstrap">
+			<thead>
+				<tr>
+					<th style="width:40px"></th>
+					<th style="width:140px">SN WAMASOFT</th>
+					<th style="width:140px">SN PRODUCENTA</th>
+					<th style="width:120px">MAC</th>
+					<th style="width:120px">IP</th>
+					<th style="width:120px">BRAMA</th>
+					<th style="width:120px">MASKA</th>
+					<th style="width:120px">ANYDESK</th>
+					<th style="width:120px">DNS1</th>
+					<th style="width:120px">DNS2</th>
+					<th style="width:120px">SERWER</th>
+					<th style="width:60px"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<ng-container *ngFor="let group of groupedRows">
+					<tr class="table-secondary group-label-row">
+						<td colspan="13" class="fw-bold text-uppercase">{{ group.name }}</td>
+					</tr>
+					<tr *ngFor="let row of group.rows">
+						<td><input type="checkbox" /></td>
+						<td (dblclick)="copyCell(row.snWamasoft)">{{ row.snWamasoft }}</td>
+						<td (dblclick)="copyCell(row.snProducenta)">{{ row.snProducenta }}</td>
+						<td (dblclick)="copyCell(row.mac)">{{ row.mac }}</td>
+						<td (dblclick)="copyCell(row.ip)">{{ row.ip }}</td>
+						<td (dblclick)="copyCell(row.brama)">{{ row.brama }}</td>
+						<td (dblclick)="copyCell(row.maska)">{{ row.maska }}</td>
+						<td (dblclick)="copyCell(row.anydesk)">{{ row.anydesk }}</td>
+						<td (dblclick)="copyCell(row.dns1)">{{ row.dns1 }}</td>
+						<td (dblclick)="copyCell(row.dns2)">{{ row.dns2 }}</td>
+						<td (dblclick)="copyCell(row.serwer)">{{ row.serwer }}</td>
+						<td class="text-end">
+							<button class="btn btn-outline-info btn-sm px-2 py-1"><i class="bi bi-pencil"></i> Edytuj</button>
+						</td>
+					</tr>
+				</ng-container>
+			</tbody>
+		</table>
+	</div>
+</div>

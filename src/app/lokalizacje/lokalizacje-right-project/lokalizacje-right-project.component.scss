@@ -1,0 +1,40 @@
+.right-project-wrapper {
+	width: 100%;
+	min-width: 0;
+}
+
+.project-header {
+	background: #181818;
+	border-radius: 8px;
+	border: 1px solid #222;
+	color: #fff;
+	min-width: 0;
+}
+
+.header-buttons .btn {
+	min-width: 80px;
+	font-weight: 500;
+}
+
+.project-table-bootstrap {
+	width: 100%;
+	table-layout: fixed;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.project-table-bootstrap th,
+.project-table-bootstrap td {
+	vertical-align: middle;
+	word-break: break-word;
+	text-align: left;
+	padding: 0.5em 0.6em;
+}
+
+.group-label-row td {
+	background: #222 !important;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: 1px;
+	border-left: 4px solid #444;
+}
