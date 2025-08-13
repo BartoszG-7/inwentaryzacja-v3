@@ -3,15 +3,20 @@
     <div class="left-sidebar">
       <app-lokalizacje-sidebar
         (selectedId)="changedId($event)"
+        [refresh]="refresh"
       ></app-lokalizacje-sidebar>
     </div>
   }
   <div class="right-component">
     @if (!showProject) {
-      <app-lokalizacje-right-comp [selectedId]="selectedId"></app-lokalizacje-right-comp>
-    }
-    @if (showProject) {
-      <app-lokalizacje-right-project [selectedId]="selectedId"></app-lokalizacje-right-project>
+    <app-lokalizacje-right-comp
+      (refreshOut)="refreshTreebar($event)"
+      [selectedId]="selectedId"
+    ></app-lokalizacje-right-comp>
+    } @if (showProject) {
+    <app-lokalizacje-right-project
+      [selectedId]="selectedId"
+    ></app-lokalizacje-right-project>
     }
   </div>
 </div>

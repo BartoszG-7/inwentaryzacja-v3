@@ -1,10 +1,12 @@
 import {
+  ChangeDetectorRef,
   Component,
   Input,
   input,
   OnChanges,
   OnInit,
   output,
+  SimpleChange,
   SimpleChanges,
 } from '@angular/core';
 import { TreebarService } from './treebar.service';
@@ -21,7 +23,8 @@ export class Treebar implements OnInit, OnChanges {
   @Input() showMotherboardIcon: boolean = false;
   constructor(
     private treebarService: TreebarService,
-    private treebarSharedService: TreebarSharedService
+    private treebarSharedService: TreebarSharedService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {}
 
   data: Array<any> = [];
@@ -42,6 +45,7 @@ export class Treebar implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['search'] && this.fetchedData !== undefined) {
+      console.log(changes);
       this.data = [];
 
       this.searchValidated = this.search() ?? '';
@@ -65,6 +69,14 @@ export class Treebar implements OnInit, OnChanges {
         this.data = this.treebarService.dataParser({ locations: locations });
       }
     }
+  }
+  public refetchData(): void {
+    let a = '';
+    this.ngOnInit();
+    a = 's';
+    this.ngOnChanges({ search: new SimpleChange('', '', false) });
+    this.changeDetectorRef.detectChanges();
+    a = '';
   }
   ngOnInit(): void {
     this.data = [];
