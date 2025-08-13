@@ -32,6 +32,7 @@ export class Treebar implements OnInit, OnChanges {
   searchValidated: string = '{}';
   fetchedData: any;
   changeId(event: any): void {
+    console.log(event);
     if (this.query() === 'http://localhost:3000/data/treebar') {
       this.selectedId.emit(
         this.treebarService.parseDataForRightComp(this.fetchedData, event)
