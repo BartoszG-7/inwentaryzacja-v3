@@ -1,3 +1,12 @@
+.right-project-table td.text-end {
+	padding-right: 0.4em !important;
+	padding-left: 0.4em !important;
+}
+.btn-edit-row {
+	width: 100%;
+	margin: 0;
+	display: block;
+}
 @media (max-width: 900px) {
 	.right-project-container {
 		overflow-y: auto;
@@ -144,7 +153,7 @@
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		gap: 20px;
+		gap: 2px;
 		width: auto;
 		margin-bottom: 16px;
 	}
