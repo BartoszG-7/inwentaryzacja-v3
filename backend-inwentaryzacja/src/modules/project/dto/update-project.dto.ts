@@ -28,7 +28,7 @@ export class UpdateProjectDto {
   @IsString()
   @IsOptional()
   @IsIP()
-  networkIp?: string;
+  networkAddress?: string;
 
   @IsString()
   @IsOptional()

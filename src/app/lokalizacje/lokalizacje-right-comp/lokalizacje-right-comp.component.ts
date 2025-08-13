@@ -14,11 +14,14 @@ export class LokalizacjeRightCompComponent implements OnChanges {
   projects: any = [];
   address: string = '';
   mainId: string = '';
+  locationId: string = '';
   ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.selectedId());
     if (this.selectedId() !== undefined) {
       if (this.selectedId().location !== undefined) {
         this.projects = [];
         this.name = this.selectedId().location.name;
+        this.locationId = this.selectedId().location._id;
         this.selectedId().projects.forEach((project: any) => {
           this.projects.push(project);
         });

@@ -31,7 +31,7 @@ export class CreateProjectDto {
   @IsString()
   @IsNotEmpty()
   @IsIP()
-  networkIp: string;
+  networkAddress: string;
 
   @IsString()
   @IsNotEmpty()
