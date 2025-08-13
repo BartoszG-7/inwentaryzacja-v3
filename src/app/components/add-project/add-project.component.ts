@@ -61,12 +61,6 @@ export class AddProjectComponent {
         .subscribe({
           next: (obj: any) => {
             console.log(obj);
-            let currentUrl = this.router.url;
-            this.router
-              .navigateByUrl('/', { skipLocationChange: true })
-              .then(() => {
-                this.router.navigate([currentUrl]);
-              });
           },
           error: (err) => {
             console.log(err);
