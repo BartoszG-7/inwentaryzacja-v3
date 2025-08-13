@@ -46,6 +46,7 @@ export class Treeexpander implements OnInit {
         this.expanded) ||
       this.selectedProjectIndex !== null
     ) {
+      this.selected.emit({ type: 'location', id: this.locationId() });
       // If already selected and expanded, or any child is selected, unselect and collapse
       Treeexpander.selectedLocationId = null;
       Treeexpander.selectedProjectId = null;
@@ -56,7 +57,6 @@ export class Treeexpander implements OnInit {
           instance.expanded = false;
         }
       });
-      this.selected.emit({ type: 'location', id: null });
     } else {
       // Select and expand as usual
       Treeexpander.selectedLocationId = this.locationId();

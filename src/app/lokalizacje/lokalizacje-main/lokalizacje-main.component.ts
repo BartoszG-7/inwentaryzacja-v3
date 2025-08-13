@@ -23,7 +23,7 @@ export class LokalizacjeMainComponent {
   changedId(event: any) {
     this.selectedId = event;
     // If event.type is 'project', show project view
-    if (event && event.type === 'project') {
+    if (event && event.location === undefined) {
       this.showProject = true;
     } else {
       this.showProject = false;
