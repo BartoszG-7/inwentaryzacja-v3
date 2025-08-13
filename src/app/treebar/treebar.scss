@@ -13,7 +13,8 @@ app-treeexpander {
     box-sizing: border-box;
     /* Custom scrollbar styles */
     scrollbar-width: thin;
-    scrollbar-color: gray #111;
+    scrollbar-color: #333 #000;
+    scroll-behavior: smooth;
   }
 }
 @media screen and (max-width: 900px) {
@@ -30,19 +31,6 @@ app-treeexpander {
     scrollbar-width: thin;
     scrollbar-color: gray #111;
   }
-}
-/* Chrome, Edge, Safari */
-.treebar-scroll-wrapper::-webkit-scrollbar {
-  width: 8px;
-  background: #111;
-}
-.treebar-scroll-wrapper::-webkit-scrollbar-thumb {
-  background: #1e9497;
-  border-radius: 6px;
-  border: 2px solid #111;
-}
-.treebar-scroll-wrapper::-webkit-scrollbar-thumb:hover {
-  background: #176d6f;
 }
 
 .treebar-list {
