@@ -1,0 +1,33 @@
+<button class="header-btn" (click)="openEditModal()">DODAJ</button>
+
+@if (showEditModal) {
+  <div class="modal-backdrop open" (click)="closeEditModal()"></div>
+  <div class="modal-custom open">
+    <div class="modal-content">
+      <div class="modal-header modal-header-black">
+        <span class="modal-title modal-title-black">Dodaj projekt</span>
+        <button type="button" class="close" (click)="closeEditModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #editProjectForm="ngForm" (ngSubmit)="onEditSubmit(editProjectForm)">
+        <div class="modal-body">
+          <input name="name" [(ngModel)]="editFormData.name" placeholder="Nazwa" required class="form-control mb-2">
+          <input name="dns1" [(ngModel)]="editFormData.dns1" placeholder="DNS 1" class="form-control mb-2">
+          <input name="dns2" [(ngModel)]="editFormData.dns2" placeholder="DNS 2" class="form-control mb-2">
+          <input name="networkAddress" [(ngModel)]="editFormData.networkAddress" placeholder="Adres sieci" class="form-control mb-2">
+          <input name="mask" [(ngModel)]="editFormData.mask" placeholder="Maska" class="form-control mb-2">
+          <input name="gateway" [(ngModel)]="editFormData.gateway" placeholder="Brama" class="form-control mb-2">
+          <input name="addrPool" [(ngModel)]="editFormData.addrPool" placeholder="Pula adresów (przecinki)" class="form-control mb-2">
+          <input name="addrExclude" [(ngModel)]="editFormData.addrExclude" placeholder="Wykluczone adresy" class="form-control mb-2">
+          <input name="remoteAccessTag" [(ngModel)]="editFormData.remoteAccessTag" placeholder="Remote Access Tag" class="form-control mb-2">
+          <input name="location" [(ngModel)]="editFormData.location" placeholder="Lokalizacja" class="form-control mb-2">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Anuluj</button>
+          <button type="submit" class="btn btn-primary" [disabled]="editProjectForm.invalid">Zapisz</button>
+        </div>
+      </form>
+    </div>
+  </div>
+}

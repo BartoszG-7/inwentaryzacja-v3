@@ -1,0 +1,120 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 1000;
+}
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-custom {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: #fff !important;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  min-width: 320px;
+  min-height: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+}
+.modal-custom.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+.modal-header-black {
+  background: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 1rem 1.5rem 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.modal-title-black {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #111;
+}
+
+.header-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  margin-right: 0.5rem;
+}
+.header-btn:hover {
+  background: #000;
+  color: #1e9497;
+  border-color: #1e9497;
+}
+
+.close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #555;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+.close:hover {
+  background: #f3f4f6;
+  color: #111;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  padding-top: 0.5rem;
+}
