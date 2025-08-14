@@ -1,5 +1,5 @@
-
 import { Component, ComponentRef } from '@angular/core';
+import { HeaderArrowService } from './header-arrow.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -16,6 +16,7 @@ import { SearchBarMobileComponent } from "../search-bar-mobile/search-bar-mobile
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  showBackArrow = false;
   searchInput: string = '';
   onSearch(event: string): void {
     this.searchInput = event;
@@ -57,16 +58,27 @@ export class HeaderComponent {
     return this.cookieService.check('secret');
   }
 
-  constructor(private router: Router, private cookieService: CookieService) {
-    this.selectedRoute = router.url;
-    router.events.subscribe(event => {
+  constructor(private router: Router, private cookieService: CookieService, private arrowService: HeaderArrowService) {
+    this.arrowService.showArrow$.subscribe(show => {
+      this.showBackArrow = show;
+    });
+    this.selectedRoute = this.router.url;
+    this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         this.selectedRoute = event.urlAfterRedirects;
         this.updateMenus();
+        // Hide arrow if not on lokalizacje route
+        if (!this.selectedRoute.startsWith('/lokalizacje')) {
+          this.arrowService.setShowArrow(false);
+        }
       }
     });
     this.updateMenus();
     window.addEventListener('resize', () => this.updateMenus());
+  }
+
+  goToInwentaryzacja() {
+    window.location.reload();
   }
 
   updateMenus() {

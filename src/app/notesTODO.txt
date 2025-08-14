@@ -1,3 +1,6 @@
 - sidebar usuwac
 - modal na edycje projektu
 - checkbox multi delete function
+- szukajka filtr
+- posiiton fixed header row
+- arrow
