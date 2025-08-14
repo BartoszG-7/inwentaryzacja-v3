@@ -1,4 +1,13 @@
-import { Component, input, InputSignal, OnInit, output } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  input,
+  InputSignal,
+  OnChanges,
+  OnInit,
+  output,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-treeexpander',
@@ -6,10 +15,12 @@ import { Component, input, InputSignal, OnInit, output } from '@angular/core';
   templateUrl: './treeexpander.html',
   styleUrl: './treeexpander.scss',
 })
-export class Treeexpander implements OnInit {
+export class Treeexpander implements OnInit, OnChanges {
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
   projects: InputSignal<string> = input<string>('');
   location: InputSignal<string> = input<string>('');
   locationId: InputSignal<string> = input<string>('');
+  refresh = input<boolean>();
   expanded: boolean = false;
   names: string[] = [];
   selected = output<any>();
@@ -19,7 +30,19 @@ export class Treeexpander implements OnInit {
   static instances: Treeexpander[] = [];
   isSelected: boolean = false;
   selectedProjectIndex: number | null = null;
-
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['projects']) {
+      var array: any[] = [];
+      array = this.projects().split(',');
+      array.pop();
+      array.forEach((project: any, ind: number) => {
+        this.names[ind] = JSON.parse(project).name;
+      });
+      Treeexpander.instances.push(this);
+      this.isSelected = Treeexpander.selectedLocationId === this.locationId();
+      this.selectedProjectIndex = null;
+    }
+  }
   ngOnInit(): void {
     var array: any[] = [];
     array = this.projects().split(',');

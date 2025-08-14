@@ -29,13 +29,18 @@ import { HeaderArrowService } from '../../components/header/header-arrow.service
 export class LokalizacjeMainComponent {
   selectedId: any;
   showProject: boolean = false;
+  rightComp: any;
   refresh: any;
   constructor(private arrowService: HeaderArrowService) {}
 
   refreshTreebar(ref: any) {
+    
     this.refresh = ref;
   }
-
+  refreshRightComp(event: any) {
+    console.log(event);
+    this.rightComp = event;
+  }
   changedId(event: any) {
     this.selectedId = event;
     // If event.type is 'project', show project view
