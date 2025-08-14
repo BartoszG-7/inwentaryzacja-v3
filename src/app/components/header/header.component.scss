@@ -1,3 +1,27 @@
+@import 'global.scss';
+
+.back-arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+.back-arrow-btn:hover,
+.back-arrow-btn:focus,
+.back-arrow-btn:active {
+  color: $primary-color !important;
+  border-color: $primary-color;transition: color 0.15s, filter 0.15s, background 0.2s, border-color 0.2s;
+  border: 2px solid $primary-color;
+}
 @import "global.scss";
 
 // Sticky block for mobile header and search bar

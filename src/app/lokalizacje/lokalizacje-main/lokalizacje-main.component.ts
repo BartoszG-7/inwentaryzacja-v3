@@ -12,6 +12,7 @@ import { LokalizacjeRightProjectComponent } from '../lokalizacje-right-project/l
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { Treebar } from '../../treebar/treebar';
+import { HeaderArrowService } from '../../components/header/header-arrow.service';
 
 @Component({
   selector: 'app-lokalizacje-main',
@@ -29,16 +30,21 @@ export class LokalizacjeMainComponent {
   selectedId: any;
   showProject: boolean = false;
   refresh: any;
+  constructor(private arrowService: HeaderArrowService) {}
+
   refreshTreebar(ref: any) {
     this.refresh = ref;
   }
+
   changedId(event: any) {
     this.selectedId = event;
     // If event.type is 'project', show project view
     if (event && event.location === undefined) {
       this.showProject = true;
+      this.arrowService.setShowArrow(true);
     } else {
       this.showProject = false;
+      this.arrowService.setShowArrow(false);
     }
   }
 }
