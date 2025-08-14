@@ -8,15 +8,16 @@ import { MagazynRightCompService } from './magazyn-right.service';
   selector: 'app-magazyn-right-comp',
   standalone: true,
   templateUrl: './magazyn-right.component.html',
-  styleUrls: ['./magazyn-right.component.scss']
+  styleUrls: ['./magazyn-right.component.scss'],
 })
 export class MagazynRightCompComponent {
-
-  constructor(private treebarSharedService: TreebarSharedService, private magazynRightCompService: MagazynRightCompService) { }
-  name: string = "";
+  constructor(
+    private treebarSharedService: TreebarSharedService,
+    private magazynRightCompService: MagazynRightCompService
+  ) {}
+  name: string = '';
   itemCount: number = 0;
   ngOnInit(): void {
-
     this.treebarSharedService.getData().subscribe({
       next: (data: any) => {
         this.magazynRightCompService.getDeviceTypes(data.id).subscribe({
@@ -24,17 +25,15 @@ export class MagazynRightCompComponent {
             if (data[0]) {
               this.name = data[0].name;
             }
-          }
+          },
         });
 
         this.magazynRightCompService.getDevices(data.id).subscribe({
           next: (data: any) => {
-
             this.itemCount = data.length;
-
-          }
+          },
         });
-      }
+      },
     });
   }
 }

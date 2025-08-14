@@ -37,6 +37,7 @@ export class Treebar implements OnInit, OnChanges {
   currentId: any;
   fetchedData: any;
   changeId(event: any): void {
+    this.treebarSharedService.setData(event);
     if (this.query() === 'http://localhost:3000/data/treebar') {
       if (event.type === 'location') {
         this.currentId = event;
@@ -44,7 +45,6 @@ export class Treebar implements OnInit, OnChanges {
           this.treebarService.parseDataForRightComp(this.fetchedData, event)
         );
       }
-      this.treebarSharedService.setData(event);
 
       if (event.type === 'project') {
         this.selectedId.emit(event.projectId);
@@ -111,7 +111,7 @@ export class Treebar implements OnInit, OnChanges {
       next: (data: any) => {
         this.fetchedData = data;
         this.data = this.treebarService.dataParser(data);
-        console.log(this.data[11].projects);
+
         // data.locations.forEach((item: any) => {
 
         //   this.data.push({ "id": item._id, "name": item.name, projects: "" });
