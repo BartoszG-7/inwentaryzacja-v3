@@ -1,13 +1,18 @@
+// Set background for the outer container
+.magazyn-right-container {
+  width: 100%;
+  /* No centering or background here. Main layout handles it. */
+}
 @import 'global.scss';
 
 .magazyn-main-dashboard {
-  margin: 2rem 2rem 0 2rem;
-  padding: 2rem;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-  min-width: 340px;
   max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+  margin: 0;
 }
 
 .magazyn-main-header-row {
