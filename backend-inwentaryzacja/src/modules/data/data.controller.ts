@@ -24,6 +24,10 @@ export class DataController {
   async getTreebar() {
     return await this.dataService.treebar();
   }
+  @Get('get-project-data/:id')
+  async getProjectData(@Param('id') id: string) {
+    return await this.dataService.getProjectData(id);
+  }
   @Get('home')
   async getHome() {
     return await this.dataService.home();
@@ -37,7 +41,7 @@ export class DataController {
     return await this.dataService.assignDevice(data);
   }
   @Post('remove-device-from-project')
-    async unassignDevice(@Body() data: any) {
+  async unassignDevice(@Body() data: any) {
     return await this.dataService.unassignDevice(data);
   }
 }

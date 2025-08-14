@@ -38,12 +38,18 @@ export class Treebar implements OnInit, OnChanges {
   fetchedData: any;
   changeId(event: any): void {
     if (this.query() === 'http://localhost:3000/data/treebar') {
-      this.currentId = event;
-      this.selectedId.emit(
-        this.treebarService.parseDataForRightComp(this.fetchedData, event)
-      );
+      if (event.type === 'location') {
+        this.currentId = event;
+        this.selectedId.emit(
+          this.treebarService.parseDataForRightComp(this.fetchedData, event)
+        );
+      }
+      this.treebarSharedService.setData(event);
+
+      if (event.type === 'project') {
+        this.selectedId.emit(event.projectId);
+      }
     }
-    this.treebarSharedService.setData(event);
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['search'] && this.fetchedData !== undefined) {
@@ -105,10 +111,26 @@ export class Treebar implements OnInit, OnChanges {
       next: (data: any) => {
         this.fetchedData = data;
         this.data = this.treebarService.dataParser(data);
-        // Auto-select and toggle the first element if available
-        if (this.data.length > 0) {
-          this.changeId(this.data[0]);
-        }
+        console.log(this.data[11].projects);
+        // data.locations.forEach((item: any) => {
+
+        //   this.data.push({ "id": item._id, "name": item.name, projects: "" });
+
+        // });
+        // if (data.projects) {
+        //   data.projects.forEach((item: any) => {
+
+        //     this.data.forEach((treeItem: any) => {
+
+        //       if (treeItem.id === item.location) {
+
+        //         treeItem.projects = treeItem.projects + (JSON.stringify({ "name": item.name, "id": item.id }) + ",");
+
+        //       }
+
+        //     });
+        //   });
+        // }
       },
     });
   }

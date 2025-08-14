@@ -1,16 +1,27 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  input,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LokalizacjeRightProjectService } from './lokalizacje-right-project.service';
 
 @Component({
   selector: 'app-lokalizacje-right-project',
   imports: [CommonModule],
   standalone: true,
   templateUrl: './lokalizacje-right-project.component.html',
-  styleUrl: './lokalizacje-right-project.component.scss'
+  styleUrl: './lokalizacje-right-project.component.scss',
 })
-export class LokalizacjeRightProjectComponent {
-  @Input() selectedId: any;
-
+export class LokalizacjeRightProjectComponent implements OnChanges {
+  constructor(
+    private lokalizacjeRightProjectService: LokalizacjeRightProjectService
+  ) {}
+  selectedId: any = input<any>();
+  project: any;
+  devices: any;
   groupedRows = [
     {
       name: 'SERWER',
@@ -26,8 +37,8 @@ export class LokalizacjeRightProjectComponent {
           dns1: '10.67.100.10',
           dns2: '10.67.100.11',
           serwer: '10.67.100.11',
-        }
-      ]
+        },
+      ],
     },
     {
       name: 'INFOKIOSK',
@@ -43,8 +54,8 @@ export class LokalizacjeRightProjectComponent {
           dns1: '10.67.100.10',
           dns2: '10.67.100.11',
           serwer: '10.67.100.11',
-        }
-      ]
+        },
+      ],
     },
     {
       name: 'WAMA MED 43 C',
@@ -74,7 +85,7 @@ export class LokalizacjeRightProjectComponent {
           serwer: '',
         },
         // Add more rows as needed
-      ]
+      ],
     },
     {
       name: 'WAMA MED 21 C',
@@ -92,12 +103,27 @@ export class LokalizacjeRightProjectComponent {
           serwer: '',
         },
         // Add more rows as needed
-      ]
-    }
+      ],
+    },
   ];
 
   copyCell(value: string) {
     if (!value) return;
     navigator.clipboard.writeText(value);
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.selectedId());
+    if (this.selectedId()) {
+      this.lokalizacjeRightProjectService
+        .getProjectData(this.selectedId())
+        .subscribe({
+          next: (e) => {
+            console.log(e);
+            this.project = e.project[0];
+            this.devices = e.devices;
+            console.log(this.devices);
+          },
+        });
+    }
   }
 }

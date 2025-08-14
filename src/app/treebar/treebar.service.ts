@@ -67,7 +67,7 @@ export class TreebarService {
           if (treeItem.id === item.location) {
             treeItem.projects =
               treeItem.projects +
-              (JSON.stringify({ name: item.name, id: item.id }) + ',');
+              (JSON.stringify({ name: item.name, id: item._id }) + ',');
           }
         });
       });
