@@ -24,14 +24,15 @@ export class LokalizacjeRightCompComponent implements OnChanges {
   selectedId: any = input<any>();
   name: string = '';
   projects: any = [];
-  address: string = '';
+
   mainId: string = '';
   locationId: string = '';
   refreshOut = output<any>();
+  location: any;
   refreshRight = input<any>();
   refresh(ref: any) {
     this.refreshOut.emit(ref);
-    
+
     // let a = '';
     // a = 's';
     // this.ngOnChanges({});
@@ -48,11 +49,9 @@ export class LokalizacjeRightCompComponent implements OnChanges {
         this.selectedId().projects.forEach((project: any) => {
           this.projects.push(project);
         });
-        if (this.selectedId().location.address) {
-          this.address = this.selectedId().location.address;
-        } else {
-          this.address = 'BRAK ADRESU';
-        }
+
+        this.location = this.selectedId().location;
+        console.log(this.selectedId().location);
       }
     }
   }
