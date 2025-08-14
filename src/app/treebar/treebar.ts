@@ -29,8 +29,6 @@ export class Treebar implements OnInit, OnChanges {
 
   data: Array<any> = [];
   selectedId = output<any>();
-  refreshRightComp = output<boolean>();
-  refreshRightCompState: boolean = false;
   stringified: string = '';
   query = input<string>('http://localhost:3000/data/treebar');
   search = input<string>();
@@ -39,7 +37,6 @@ export class Treebar implements OnInit, OnChanges {
   currentId: any;
   fetchedData: any;
   changeId(event: any): void {
-    console.log(event);
     if (this.query() === 'http://localhost:3000/data/treebar') {
       this.currentId = event;
       this.selectedId.emit(
@@ -50,7 +47,6 @@ export class Treebar implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['search'] && this.fetchedData !== undefined) {
-      console.log(changes);
       this.data = [];
 
       this.searchValidated = this.search() ?? '';
@@ -77,15 +73,23 @@ export class Treebar implements OnInit, OnChanges {
   }
   public refetchData(): void {
     let a = '';
-    this.ngOnInit();
-    a = 's';
-    this.ngOnChanges({ search: new SimpleChange('', '', false) });
-    this.changeDetectorRef.detectChanges();
-    this.refresh = !this.refresh;
-    this.refreshRightComp.emit(this.refreshRightCompState);
-    this.refreshRightCompState = !this.refreshRightCompState;
-    a = '';
-    this.changeId(this.currentId);
+    this.treebarService.getNames(this.query()).subscribe({
+      next: (data: any) => {
+        // Store the fetched data in t  he component's property
+        console.log(data);
+        this.fetchedData = data;
+
+        this.data = this.treebarService.dataParser(data);
+        a = 's';
+        this.ngOnChanges({ search: new SimpleChange('', '', false) });
+
+        this.changeId(this.currentId);
+        this.changeDetectorRef.detectChanges();
+        this.refresh = !this.refresh;
+
+        a = '';
+      },
+    });
   }
   ngOnInit(): void {
     this.data = [];
@@ -99,6 +103,7 @@ export class Treebar implements OnInit, OnChanges {
     this.treebarService.getNames(this.query()).subscribe({
       next: (data: any) => {
         // Store the fetched data in t  he component's property
+
         this.fetchedData = data;
 
         this.data = this.treebarService.dataParser(data);

@@ -39,8 +39,6 @@ export class LokalizacjeRightCompComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-
     if (this.selectedId() !== undefined) {
       if (this.selectedId().location !== undefined) {
         this.projects = [];

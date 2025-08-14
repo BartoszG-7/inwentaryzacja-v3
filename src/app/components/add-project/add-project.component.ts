@@ -45,7 +45,7 @@ export class AddProjectComponent {
     if (form.valid) {
       // Handle submit logic here
       var addrPool: any = [];
-      console.log(this.locationId());
+
       this.addProjectService
         .saveData({
           name: this.editFormData.name,
@@ -61,9 +61,7 @@ export class AddProjectComponent {
           location: this.locationId() ?? '',
         })
         .subscribe({
-          next: (obj: any) => {
-            console.log(obj);
-          },
+          next: (obj: any) => {},
           error: (err) => {
             console.log(err);
           },

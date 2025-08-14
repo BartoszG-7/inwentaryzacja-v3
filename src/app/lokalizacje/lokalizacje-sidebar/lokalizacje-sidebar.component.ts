@@ -25,13 +25,11 @@ export class LokalizacjeSidebarComponent implements OnChanges {
   selectedId: any = output<any>();
   editing: string = '';
   searchInput: string = '';
-  refreshRightComp = output<boolean>();
+
   refresh = input<boolean>();
   @ViewChild('trbar') trbar: any;
   constructor(private readonly locationService: LocationService) {}
-  rightComp(event: any) {
-    this.refreshRightComp.emit(event);
-  }
+
   changedId(event: any) {
     this.selectedId.emit(event);
   }
@@ -44,7 +42,6 @@ export class LokalizacjeSidebarComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['refresh'].currentValue !== undefined) {
       let bar = this.trbar;
-      console.log(bar.refetchData());
     }
   }
   ngOnInit(): void {
