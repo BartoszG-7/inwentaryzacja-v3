@@ -31,6 +31,7 @@ export class LokalizacjeMainComponent {
   rightComp: any;
   refresh: any;
   refreshTreebar(ref: any) {
+    
     this.refresh = ref;
   }
   refreshRightComp(event: any) {

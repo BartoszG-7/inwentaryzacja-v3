@@ -48,7 +48,7 @@ export class Treebar implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['search'] && this.fetchedData !== undefined) {
       this.data = [];
-
+      console.log(changes);
       this.searchValidated = this.search() ?? '';
       //if (this.search() == "[]") this.searchValidated = "";
       if (this.query() === 'http://localhost:3000/data/treebar') {
@@ -72,6 +72,7 @@ export class Treebar implements OnInit, OnChanges {
     }
   }
   public refetchData(): void {
+    console.log('refetch');
     let a = '';
     this.treebarService.getNames(this.query()).subscribe({
       next: (data: any) => {

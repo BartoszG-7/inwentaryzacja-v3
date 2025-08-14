@@ -42,6 +42,7 @@ export class LokalizacjeSidebarComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['refresh'].currentValue !== undefined) {
       let bar = this.trbar;
+      bar.refetchData();
     }
   }
   ngOnInit(): void {

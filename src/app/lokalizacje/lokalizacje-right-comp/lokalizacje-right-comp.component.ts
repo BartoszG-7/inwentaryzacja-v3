@@ -31,6 +31,7 @@ export class LokalizacjeRightCompComponent implements OnChanges {
   refreshRight = input<any>();
   refresh(ref: any) {
     this.refreshOut.emit(ref);
+    
     // let a = '';
     // a = 's';
     // this.ngOnChanges({});
