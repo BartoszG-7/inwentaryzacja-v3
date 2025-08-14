@@ -15,13 +15,18 @@ input[type="search"] {
 	width: 100%;
 	padding: 0.32rem 2rem 0.32rem 0.8rem;
 	border: 1px solid #bbb;
-	border-radius: 1rem;
-	background: #fff;
-	color: #222;
+	border-radius: 1.2rem;
+	background: #222 !important;
+	color: #fff !important;
 	font-size: 0.95rem;
 	transition: border-color 0.2s, box-shadow 0.2s;
 	outline: none;
-	box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+	box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+input[type="search"]::placeholder {
+	color: #bbb !important;
+	opacity: 1;
 }
 
 .search-bar-icon {
