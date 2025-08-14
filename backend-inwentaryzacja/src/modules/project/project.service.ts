@@ -26,6 +26,7 @@ export class ProjectService {
       .exec();
   }
   async find(query: string): Promise<Project[]> {
+    
     return this.ProjectModel.find(JSON.parse(query)).exec();
   }
 

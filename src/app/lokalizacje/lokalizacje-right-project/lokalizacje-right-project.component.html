@@ -1,63 +1,71 @@
 <div class="container right-project-container">
-	<div class="header-row">
-		<span class="header-title">Projekt - Mamografia</span>
-		<div class="header-actions">
-			<button class="header-btn">SKANUJ</button>
-			<button class="header-btn">DODAJ</button>
-			<button class="header-btn">EDYTUJ</button>
-			<button class="header-btn">USUN</button>
-		</div>
-	</div>
-	<div class="table-responsive right-table-responsive">
-		<table class="table table-dark table-bordered table-hover align-middle mb-0 right-project-table">
-			<thead>
-				<tr>
-					  <th style="width:32px"></th>
-					  <th style="width:110px">SN WAMASOFT</th>
-					  <th style="width:110px">SN PRODUCENTA</th>
-					  <th style="width:90px">MAC</th>
-					  <th style="width:90px">IP</th>
-					  <th style="width:90px">BRAMA</th>
-					  <th style="width:90px">MASKA</th>
-					  <th style="width:90px">ANYDESK</th>
-					  <th style="width:90px">DNS1</th>
-					  <th style="width:90px">DNS2</th>
-					  <th style="width:90px">SERWER</th>
-					  <th style="width:90px"></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="group-gap-row">
-					<td colspan="12"></td>
-				</tr>
-				<ng-container *ngFor="let group of groupedRows; let i = index">
-					<tr class="group-label-row">
-						<td colspan="12" class="fw-bold text-uppercase">{{ group.name }}</td>
-					</tr>
-					<tr class="group-gap-row group-gap-row-after-header">
-						<td colspan="12"></td>
-					</tr>
-					<tr *ngFor="let row of group.rows">
-						<td><input type="checkbox" /></td>
-						<td (dblclick)="copyCell(row.snWamasoft)">{{ row.snWamasoft }}</td>
-						<td (dblclick)="copyCell(row.snProducenta)">{{ row.snProducenta }}</td>
-						<td (dblclick)="copyCell(row.mac)">{{ row.mac }}</td>
-						<td (dblclick)="copyCell(row.ip)">{{ row.ip }}</td>
-						<td (dblclick)="copyCell(row.brama)">{{ row.brama }}</td>
-						<td (dblclick)="copyCell(row.maska)">{{ row.maska }}</td>
-						<td (dblclick)="copyCell(row.anydesk)">{{ row.anydesk }}</td>
-						<td (dblclick)="copyCell(row.dns1)">{{ row.dns1 }}</td>
-						<td (dblclick)="copyCell(row.dns2)">{{ row.dns2 }}</td>
-						<td (dblclick)="copyCell(row.serwer)">{{ row.serwer }}</td>
-						<td class="text-end">
-							<button class="header-btn btn-edit-row"><i class="bi bi-pencil"></i> Edytuj</button>
-						</td>
-					</tr>
-					<tr *ngIf="i < groupedRows.length - 1" class="group-gap-row">
-						<td colspan="12"></td>
-					</tr>
-				</ng-container>
-			</tbody>
-		</table>
-	</div>
+  <div class="header-row">
+    <span class="header-title">{{ project.name }}</span>
+    <div class="header-actions">
+      <button class="header-btn">SKANUJ</button>
+      <button class="header-btn">DODAJ</button>
+      <button class="header-btn">EDYTUJ</button>
+      <button class="header-btn">USUN</button>
+    </div>
+  </div>
+  <div class="table-responsive right-table-responsive">
+    <table
+      class="table table-dark table-bordered table-hover align-middle mb-0 right-project-table"
+    >
+      <thead>
+        <tr>
+          <th style="width: 32px"></th>
+          <th style="width: 110px">SN WAMASOFT</th>
+          <th style="width: 110px">SN PRODUCENTA</th>
+          <th style="width: 90px">MAC</th>
+          <th style="width: 90px">IP</th>
+          <th style="width: 90px">BRAMA</th>
+          <th style="width: 90px">MASKA</th>
+          <th style="width: 90px">ANYDESK</th>
+          <th style="width: 90px">DNS1</th>
+          <th style="width: 90px">DNS2</th>
+          <th style="width: 90px">SERWER</th>
+          <th style="width: 90px"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="group-gap-row">
+          <td colspan="12"></td>
+        </tr>
+        <ng-container *ngFor="let group of groupedRows; let i = index">
+          <tr class="group-label-row">
+            <td colspan="12" class="fw-bold text-uppercase">
+              {{ group.name }}
+            </td>
+          </tr>
+          <tr class="group-gap-row group-gap-row-after-header">
+            <td colspan="12"></td>
+          </tr>
+          <tr *ngFor="let row of group.rows">
+            <td><input type="checkbox" /></td>
+            <td (dblclick)="copyCell(row.snWamasoft)">{{ row.snWamasoft }}</td>
+            <td (dblclick)="copyCell(row.snProducenta)">
+              {{ row.snProducenta }}
+            </td>
+            <td (dblclick)="copyCell(row.mac)">{{ row.mac }}</td>
+            <td (dblclick)="copyCell(row.ip)">{{ row.ip }}</td>
+            <td (dblclick)="copyCell(row.brama)">{{ row.brama }}</td>
+            <td (dblclick)="copyCell(row.maska)">{{ row.maska }}</td>
+            <td (dblclick)="copyCell(row.anydesk)">{{ row.anydesk }}</td>
+            <td (dblclick)="copyCell(row.dns1)">{{ row.dns1 }}</td>
+            <td (dblclick)="copyCell(row.dns2)">{{ row.dns2 }}</td>
+            <td (dblclick)="copyCell(row.serwer)">{{ row.serwer }}</td>
+            <td class="text-end">
+              <button class="header-btn btn-edit-row">
+                <i class="bi bi-pencil"></i> Edytuj
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="i < groupedRows.length - 1" class="group-gap-row">
+            <td colspan="12"></td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
 </div>

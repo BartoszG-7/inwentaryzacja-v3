@@ -33,10 +33,10 @@ export class Treeexpander implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['projects']) {
       var array: any[] = [];
-      array = this.projects().split(',');
+      array = this.projects().split('},');
       array.pop();
       array.forEach((project: any, ind: number) => {
-        this.names[ind] = JSON.parse(project).name;
+        this.names[ind] = JSON.parse(project + '}').name;
       });
       Treeexpander.instances.push(this);
       this.isSelected = Treeexpander.selectedLocationId === this.locationId();
@@ -45,10 +45,10 @@ export class Treeexpander implements OnInit, OnChanges {
   }
   ngOnInit(): void {
     var array: any[] = [];
-    array = this.projects().split(',');
+    array = this.projects().split('},');
     array.pop();
     array.forEach((project: any, ind: number) => {
-      this.names[ind] = JSON.parse(project).name;
+      this.names[ind] = JSON.parse(project + '}').name;
     });
     Treeexpander.instances.push(this);
     this.isSelected = Treeexpander.selectedLocationId === this.locationId();
@@ -118,9 +118,11 @@ export class Treeexpander implements OnInit, OnChanges {
         instance.selectedProjectIndex = null;
       }
     });
+    console.log(JSON.parse(this.projects().split('},')[index] + '}'));
     this.selected.emit({
       type: 'project',
       locationId: this.locationId(),
+      projectId: JSON.parse(this.projects().split('},')[index] + '}').id,
       projectName: this.names[index],
     });
     if (event && event.target && (event.target as HTMLElement).blur) {

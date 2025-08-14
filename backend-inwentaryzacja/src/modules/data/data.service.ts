@@ -24,7 +24,9 @@ export class DataService {
     private ProjectHistoryModel: Model<ProjectHistory>,
     @InjectModel(DeviceType.name) private DeviceTypeModel: Model<DeviceType>,
   ) {}
-
+  async getProjectData(id: string): Promise<any> {
+  return this.ProjectModel.find({_id: id}).exec();
+  }
   async treebar(): Promise<any> {
     return {
       projects: await this.ProjectModel.find({}).select('name location').exec(),
