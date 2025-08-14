@@ -1,19 +1,21 @@
 <header>
-  <div *ngIf="showBackArrow" class="back-arrow-container">
-    <button type="button" class="back-arrow-btn" (click)="goToInwentaryzacja()" aria-label="Powrót do inwentaryzacji">
-      <i class="bi bi-arrow-left"></i>
-    </button>
-  </div>
   <div class="header-flex">
-    <!-- Mobile: Hamburger menu icon (left) -->
+    <!-- Mobile: Hamburger menu icon (left) and back arrow -->
     @if (showLeftMenu && !isLoginPage) {
-    <div
-      class="menu-icon left-menu"
-      (click)="toggleLeftMenu()"
-      [class.open]="leftMenuOpen"
-      title="Open left menu"
-    >
-      <i class="bi bi-list"></i>
+    <div class="header-left-group">
+      <div
+        class="menu-icon left-menu"
+        (click)="toggleLeftMenu()"
+        [class.open]="leftMenuOpen"
+        title="Open left menu"
+      >
+        <i class="bi bi-list"></i>
+      </div>
+      <ng-container *ngIf="showBackArrow">
+        <button type="button" class="back-arrow-btn" (click)="goToInwentaryzacja()" aria-label="Powrót do inwentaryzacji">
+          <i class="bi bi-arrow-left"></i>
+        </button>
+      </ng-container>
     </div>
     }
     <!-- Center: KIT logo button -->

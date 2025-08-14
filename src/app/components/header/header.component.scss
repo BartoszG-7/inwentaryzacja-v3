@@ -1,3 +1,8 @@
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 @import 'global.scss';
 
 .back-arrow-btn {
@@ -13,14 +18,20 @@
   outline: none;
   cursor: pointer;
   border: none;
+  z-index: 3;
+  margin-left: -8px;
+  padding-left: 2px;
+  
 }
 
 .back-arrow-btn:hover,
 .back-arrow-btn:focus,
 .back-arrow-btn:active {
   color: $primary-color !important;
-  border-color: $primary-color;transition: color 0.15s, filter 0.15s, background 0.2s, border-color 0.2s;
+  transition: color 0.15s, filter 0.15s, background 0.2s, border-color 0.2s;
   border: 2px solid $primary-color;
+  background: rgba($primary-color, 0.08);
+  border-color: $primary-color;
 }
 @import "global.scss";
 
