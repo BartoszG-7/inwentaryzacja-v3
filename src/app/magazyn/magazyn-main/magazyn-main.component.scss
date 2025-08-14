@@ -1,15 +1,15 @@
 .magazyn-main-flex {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  height: calc(100vh - 64px);
 }
 // .left-sidebar {
 //   /* Sidebar width can be adjusted as needed */
 // }
 .right-component {
+  flex: 1;
+  background: #232326;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  height: calc(100vh - 64px);
 }
