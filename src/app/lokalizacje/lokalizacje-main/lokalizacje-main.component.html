@@ -1,11 +1,12 @@
 <div class="lokalizacje-main-flex">
+  @if (!showProject) {
   <div class="left-sidebar">
     <app-lokalizacje-sidebar
       (selectedId)="changedId($event)"
       [refresh]="refresh"
-      (refreshRightComp)="refreshRightComp($event)"
     ></app-lokalizacje-sidebar>
   </div>
+  }
   <div class="right-component">
     @if (!showProject) {
     <app-lokalizacje-right-comp

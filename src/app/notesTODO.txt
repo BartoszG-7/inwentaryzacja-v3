@@ -1,6 +1,6 @@
-
-- double click copy data cell
+- sidebar usuwac
 - modal na edycje projektu
 - checkbox multi delete function
-- najechanie inny kolor
-- naprzemian inny kolor wiersze
+- co drugi wiersz kolor
+- odstepy miedzy sekcja mniejsze wieksze
+- wrapping

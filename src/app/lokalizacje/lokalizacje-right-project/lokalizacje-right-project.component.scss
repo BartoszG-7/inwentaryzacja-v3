@@ -1,3 +1,25 @@
+// Alternate row colors for data rows using SCSS @for
+.right-project-table tbody {
+	@for $i from 1 through 200 {
+		tr:not(.group-label-row):nth-of-type(#{$i}) {
+			@if ($i % 2 == 0) {
+				td { background: #181818; }
+			} @else {
+				td { background: #111; }
+			}
+		}
+	}
+}
+
+.right-project-table td.text-end {
+	padding-right: 0.4em !important;
+	padding-left: 0.4em !important;
+}
+.btn-edit-row {
+	width: 100%;
+	margin: 0;
+	display: block;
+}
 @media (max-width: 900px) {
 	.right-project-container {
 		overflow-y: auto;
@@ -115,7 +137,8 @@
 	border-color: #888;
 	min-height: 32px;
 	max-height: 40px;
-}
+}   
+
 	.right-project-table th,
 	.right-project-table td {
 		min-height: unset !important;
@@ -144,7 +167,7 @@
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		gap: 20px;
+		gap: 2px;
 		width: auto;
 		margin-bottom: 16px;
 	}
