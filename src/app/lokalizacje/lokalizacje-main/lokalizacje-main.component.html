@@ -3,6 +3,7 @@
     <app-lokalizacje-sidebar
       (selectedId)="changedId($event)"
       [refresh]="refresh"
+      (refreshRightComp)="refreshRightComp($event)"
     ></app-lokalizacje-sidebar>
   </div>
   <div class="right-component">
@@ -10,6 +11,7 @@
     <app-lokalizacje-right-comp
       (refreshOut)="refreshTreebar($event)"
       [selectedId]="selectedId"
+      [refreshRight]="rightComp"
     ></app-lokalizacje-right-comp>
     } @if (showProject) {
     <app-lokalizacje-right-project

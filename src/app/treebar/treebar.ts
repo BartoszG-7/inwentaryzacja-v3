@@ -29,14 +29,19 @@ export class Treebar implements OnInit, OnChanges {
 
   data: Array<any> = [];
   selectedId = output<any>();
+  refreshRightComp = output<boolean>();
+  refreshRightCompState: boolean = false;
   stringified: string = '';
   query = input<string>('http://localhost:3000/data/treebar');
   search = input<string>();
   searchValidated: string = '{}';
+  refresh: boolean = false;
+  currentId: any;
   fetchedData: any;
   changeId(event: any): void {
     console.log(event);
     if (this.query() === 'http://localhost:3000/data/treebar') {
+      this.currentId = event;
       this.selectedId.emit(
         this.treebarService.parseDataForRightComp(this.fetchedData, event)
       );
@@ -76,7 +81,11 @@ export class Treebar implements OnInit, OnChanges {
     a = 's';
     this.ngOnChanges({ search: new SimpleChange('', '', false) });
     this.changeDetectorRef.detectChanges();
+    this.refresh = !this.refresh;
+    this.refreshRightComp.emit(this.refreshRightCompState);
+    this.refreshRightCompState = !this.refreshRightCompState;
     a = '';
+    this.changeId(this.currentId);
   }
   ngOnInit(): void {
     this.data = [];

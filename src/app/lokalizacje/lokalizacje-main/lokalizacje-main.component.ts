@@ -28,9 +28,14 @@ import { Treebar } from '../../treebar/treebar';
 export class LokalizacjeMainComponent {
   selectedId: any;
   showProject: boolean = false;
+  rightComp: any;
   refresh: any;
   refreshTreebar(ref: any) {
     this.refresh = ref;
+  }
+  refreshRightComp(event: any) {
+    console.log(event);
+    this.rightComp = event;
   }
   changedId(event: any) {
     this.selectedId = event;

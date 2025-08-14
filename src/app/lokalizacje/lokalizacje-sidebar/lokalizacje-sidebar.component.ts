@@ -25,9 +25,13 @@ export class LokalizacjeSidebarComponent implements OnChanges {
   selectedId: any = output<any>();
   editing: string = '';
   searchInput: string = '';
+  refreshRightComp = output<boolean>();
   refresh = input<boolean>();
   @ViewChild('trbar') trbar: any;
   constructor(private readonly locationService: LocationService) {}
+  rightComp(event: any) {
+    this.refreshRightComp.emit(event);
+  }
   changedId(event: any) {
     this.selectedId.emit(event);
   }

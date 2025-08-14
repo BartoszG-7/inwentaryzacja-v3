@@ -28,17 +28,19 @@ export class LokalizacjeRightCompComponent implements OnChanges {
   mainId: string = '';
   locationId: string = '';
   refreshOut = output<any>();
-
+  refreshRight = input<any>();
   refresh(ref: any) {
-    //let a = '';
     this.refreshOut.emit(ref);
+    // let a = '';
     // a = 's';
     // this.ngOnChanges({});
     // this.changeDetectorRef.detectChanges();
     // a = '';
   }
+
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.selectedId());
+    console.log(changes);
+
     if (this.selectedId() !== undefined) {
       if (this.selectedId().location !== undefined) {
         this.projects = [];
