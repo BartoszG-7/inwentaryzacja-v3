@@ -1,6 +1,3 @@
 - sidebar usuwac
 - modal na edycje projektu
 - checkbox multi delete function
-- co drugi wiersz kolor
-- odstepy miedzy sekcja mniejsze wieksze
-- wrapping

@@ -1,3 +1,24 @@
+// Black gap row between groups (default)
+.group-gap-row td {
+	background: #000 !important;
+	height: 32px;
+	border: none !important;
+	padding: 0 !important;
+	pointer-events: none;
+	user-select: none;
+	outline: none;
+}
+
+// Black gap row after group header (custom height)
+.group-gap-row-after-header td {
+	background: #000 !important;
+	height: 8px;
+	border: none !important;
+	padding: 0 !important;
+	pointer-events: none;
+	user-select: none;
+	outline: none;
+}
 // Alternate row colors for data rows using SCSS @for
 .right-project-table tbody {
 	@for $i from 1 through 200 {
@@ -128,7 +149,9 @@
 .right-project-table th,
 .right-project-table td {
 	vertical-align: middle;
-	word-break: break-word;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	text-align: left;
 	padding: 0.25em 0.4em;
 	font-size: 1rem;
@@ -137,7 +160,7 @@
 	border-color: #888;
 	min-height: 32px;
 	max-height: 40px;
-}   
+}
 
 	.right-project-table th,
 	.right-project-table td {
@@ -145,12 +168,16 @@
 		max-height: unset !important;
 	}
 .group-label-row td {
-	background: #222 !important;
-	color: #fff;
-	font-weight: bold;
-	letter-spacing: 1px;
-	border-left: 4px solid #444;
-}
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	 background: #222 !important;
+	 color: #fff;
+	 font-weight: bold;
+	 letter-spacing: 1px;
+	 position: relative;
+	 padding-top: 0;
+	 padding-bottom: 0;
+	}
 
 @media (max-width: 900px) {
 	.right-project-container {
