@@ -25,7 +25,10 @@ export class DataService {
     @InjectModel(DeviceType.name) private DeviceTypeModel: Model<DeviceType>,
   ) {}
   async getProjectData(id: string): Promise<any> {
-  return this.ProjectModel.find({_id: id}).exec();
+    return {
+      project: await this.ProjectModel.find({ _id: id }).exec(),
+      devices: await this.deviceModel.find({ project: id }).exec(),
+    };
   }
   async treebar(): Promise<any> {
     return {

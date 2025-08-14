@@ -21,6 +21,7 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
   ) {}
   selectedId: any = input<any>();
   project: any;
+  devices: any;
   groupedRows = [
     {
       name: 'SERWER',
@@ -117,8 +118,10 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
         .getProjectData(this.selectedId())
         .subscribe({
           next: (e) => {
-            this.project = e[0];
-            console.log(this.project);
+            console.log(e);
+            this.project = e.project[0];
+            this.devices = e.devices;
+            console.log(this.devices);
           },
         });
     }
