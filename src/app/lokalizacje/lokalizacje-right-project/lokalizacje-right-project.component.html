@@ -27,9 +27,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<ng-container *ngFor="let group of groupedRows">
+				<tr class="group-gap-row">
+					<td colspan="12"></td>
+				</tr>
+				<ng-container *ngFor="let group of groupedRows; let i = index">
 					<tr class="group-label-row">
 						<td colspan="12" class="fw-bold text-uppercase">{{ group.name }}</td>
+					</tr>
+					<tr class="group-gap-row group-gap-row-after-header">
+						<td colspan="12"></td>
 					</tr>
 					<tr *ngFor="let row of group.rows">
 						<td><input type="checkbox" /></td>
@@ -46,6 +52,9 @@
 						<td class="text-end">
 							<button class="header-btn btn-edit-row"><i class="bi bi-pencil"></i> Edytuj</button>
 						</td>
+					</tr>
+					<tr *ngIf="i < groupedRows.length - 1" class="group-gap-row">
+						<td colspan="12"></td>
 					</tr>
 				</ng-container>
 			</tbody>
