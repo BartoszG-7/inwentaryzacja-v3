@@ -1,6 +1,8 @@
+@if (location) {
 <div class="container">
   <div class="header-row">
-    <span class="header-title">{{ name }}</span>
+    <span class="header-title">{{ location.name }}</span>
+
     <div class="header-actions">
       <app-add-project
         (refresh)="refresh($event)"
@@ -10,8 +12,14 @@
     </div>
   </div>
   <div class="main-row">
-    <div class="adres-box">{{ address }}</div>
-    <div class="notatki-box">NOTATKI</div>
+    <div class="adres-box">
+      adres: {{ location.address }} @if(location.tag){tag:
+      <a> {{ location.tag }}</a
+      >}
+    </div>
+    @if(location.note) {
+    <div class="notatki-box">{{ location.note }}</div>
+    }
   </div>
   <div class="projekty-list">
     @for(project of projects; track project._id) {
@@ -19,3 +27,4 @@
     }
   </div>
 </div>
+}
