@@ -33,26 +33,25 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
   project: any;
   devices: any;
   markedDelete: Array<string> = [];
-  groupedRows = [
-    {
-      name: 'SERWER',
-      rows: [
-        {
-          id: '',
-          snWamasoft: '',
-          snProducenta: '',
-          mac: '',
-          ip: '10.67.140.21',
-          brama: '10.67.140.254',
-          maska: '255.255.255.0',
-          anydesk: '',
-          dns1: '10.67.100.10',
-          dns2: '10.67.100.11',
-          serwer: '10.67.100.11',
-        },
-      ],
-    },
-  ];
+  groupedRows: any = [];
+  // {
+  //   name: 'SERWER',
+  //   rows: [
+  //     {
+  //       id: '',
+  //       snWamasoft: '',
+  //       snProducenta: '',
+  //       mac: '',
+  //       ip: '10.67.140.21',
+  //       brama: '10.67.140.254',
+  //       maska: '255.255.255.0',
+  //       anydesk: '',
+  //       dns1: '10.67.100.10',
+  //       dns2: '10.67.100.11',
+  //       serwer: '10.67.100.11',
+  //     },
+  //   ],
+  // },
 
   copyCell(value: string) {
     if (!value) return;
