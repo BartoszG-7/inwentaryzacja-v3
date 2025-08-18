@@ -15,4 +15,170 @@
     "$oid": "6895b4304c2a9be9747d3329"
   },
   "name": "Szpital Dziecięcy Kliniczny"
+},
+{
+  "_id": {
+    "$oid": "68999e5a56f8884da1ff3625"
+  },
+  "name": "Szpital Dziecięcy Klinicznyhtryhtrhtrjtykjtyhtrhtrhtrhtrhtrh"
+},
+{
+  "_id": {
+    "$oid": "689ae20f425661a01b27d5b0"
+  },
+  "name": "ASas",
+  "tag": "x",
+  "address": "0.0.0.0",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689af197d998a10487d89bda"
+  },
+  "name": "sdafds",
+  "tag": "",
+  "address": "0.0.0.0",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689af2e3d998a10487d89be9"
+  },
+  "name": "fsdf",
+  "tag": "",
+  "address": "0.0.0.0",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689af2e8d998a10487d89bee"
+  },
+  "name": "afdsfds",
+  "tag": "",
+  "address": "0.0.0.0",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689af2ecd998a10487d89bf3"
+  },
+  "name": "adsfadsf",
+  "tag": "",
+  "address": "0.0.0.0",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689af2f0d998a10487d89bf8"
+  },
+  "name": "safadsfsadf",
+  "tag": "",
+  "address": "0.0.0.0",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689af2f3d998a10487d89bfd"
+  },
+  "name": "asfdadsfsd",
+  "tag": "",
+  "address": "0.0.0.0",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689af2f9d998a10487d89c02"
+  },
+  "name": "dafadsfdsf",
+  "tag": "",
+  "address": "0.0.0.0",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689af2fdd998a10487d89c07"
+  },
+  "name": "adfdsfasd",
+  "tag": "",
+  "address": "0.0.0.0",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689aff61d998a10487d89c6a"
+  },
+  "name": "ostatni",
+  "tag": "",
+  "address": "0.0.0.0",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c38be38279a3e888605cf"
+  },
+  "name": "skibid",
+  "tag": "",
+  "address": "test",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8c34c339350b87a7ecb6"
+  },
+  "name": "skibid",
+  "tag": "",
+  "address": "test",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d913a753d200b0cbddc23"
+  },
+  "name": "skibid",
+  "tag": "",
+  "address": "test",
+  "note": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689dc66c753d200b0cbddd9e"
+  },
+  "name": "dsds",
+  "tag": "",
+  "address": "sads",
+  "note": "sadas",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689dc766753d200b0cbdddd0"
+  },
+  "name": "y",
+  "tag": "asdwe",
+  "address": "3645",
+  "note": "sad",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a2c77003b5abf9c243d437"
+  },
+  "name": "y",
+  "tag": "asdwe",
+  "address": "3645",
+  "note": "sad",
+  "__v": 0
 }]
