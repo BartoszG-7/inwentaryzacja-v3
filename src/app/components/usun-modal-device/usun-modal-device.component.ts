@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -7,11 +7,11 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   standalone: true,
   templateUrl: './usun-modal-device.component.html',
-  styleUrls: ['./usun-modal-device.component.scss']
+  styleUrls: ['./usun-modal-device.component.scss'],
 })
 export class UsunModalDeviceComponent {
   showModal = false;
-
+  markedDelete = input<Array<string>>();
   openModal() {
     this.showModal = true;
   }
@@ -22,6 +22,7 @@ export class UsunModalDeviceComponent {
 
   confirmDelete() {
     // Add your delete logic here
+    console.log(this.markedDelete());
     this.showModal = false;
   }
 }
