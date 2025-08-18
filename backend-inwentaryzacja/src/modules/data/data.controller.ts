@@ -40,6 +40,10 @@ export class DataController {
   async assignDevice(@Body() data: any) {
     return await this.dataService.assignDevice(data);
   }
+  @Post('create-device-and-assign')
+  async createAssignDevice(@Body() data: any) {
+    return await this.dataService.assignCreateDevice(data);
+  }
   @Post('remove-device-from-project')
   async unassignDevice(@Body() data: any) {
     return await this.dataService.unassignDevice(data);
