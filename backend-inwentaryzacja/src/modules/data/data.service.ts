@@ -55,9 +55,9 @@ export class DataService {
         },
       },
       { $replaceRoot: { newRoot: '$doc' } },
-      { $limit: 5 },
     ])
       .sort({ date: -1 })
+      .limit(5)
       .exec();
 
     // Populate project and location fields
@@ -91,7 +91,6 @@ export class DataService {
       type: projectHistoryEvents.PROJECT_CREATED,
       date: new Date().toISOString(),
       tag: '',
-      deviceId: '',
       project: (await this.ProjectModel.create(projectData))._id,
     });
   }
