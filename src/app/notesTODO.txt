@@ -3,4 +3,3 @@
 - checkbox multi delete function
 - szukajka filtr
 - posiiton fixed header row
-- arrow

@@ -7,10 +7,11 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LokalizacjeRightProjectService } from './lokalizacje-right-project.service';
+import { UsunModalProjektComponent } from '../../components/usun-modal-projekt/usun-modal-projekt.component';
 
 @Component({
   selector: 'app-lokalizacje-right-project',
-  imports: [CommonModule],
+  imports: [CommonModule, UsunModalProjektComponent],
   standalone: true,
   templateUrl: './lokalizacje-right-project.component.html',
   styleUrl: './lokalizacje-right-project.component.scss',
