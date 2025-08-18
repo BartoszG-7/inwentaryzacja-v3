@@ -1,0 +1,96 @@
+// Modal backdrop fix: use semi-transparent dark overlay, not solid black
+.modal-backdrop.open {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,0.5);
+	z-index: 1000;
+}
+
+.modal-custom.open {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1001;
+	min-width: 320px;
+	max-width: 90vw;
+	background: #181818;
+	border-radius: 8px;
+	box-shadow: 0 4px 32px #000a;
+	color: #fff;
+}
+
+.modal-content {
+	padding: 24px 18px 18px 18px;
+	background: transparent;
+	border-radius: 8px;
+}
+
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #222;
+	margin-bottom: 12px;
+}
+
+.modal-title {
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #fff;
+}
+
+.close {
+	background: none;
+	border: none;
+	color: #fff;
+	font-size: 1.5rem;
+	cursor: pointer;
+	padding: 0 8px;
+}
+
+.modal-body {
+	margin-bottom: 18px;
+	color: #fff;
+}
+
+.modal-footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+}
+
+.header-btn {
+	background: transparent;
+	color: #fff;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	padding: 4px 12px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.15s, color 0.15s;
+}
+.header-btn:hover {
+	background: #000;
+	color: #1e9497;
+	border-color: #1e9497;
+}
+.btn-danger {
+	border-color: #d9534f !important;
+	color: #fff !important;
+}
+.btn-danger:hover {
+	background: #d9534f !important;
+	color: #fff !important;
+}
+.btn-secondary {
+	border-color: #888 !important;
+	color: #fff !important;
+}
+.btn-secondary:hover {
+	background: #888 !important;
+	color: #fff !important;
+}
