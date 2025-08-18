@@ -27,7 +27,10 @@ export class DataService {
   async getProjectData(id: string): Promise<any> {
     return {
       project: await this.ProjectModel.find({ _id: id }).exec(),
-      devices: await this.deviceModel.find({ project: id }).exec(),
+      devices: await this.deviceModel
+        .find({ project: id })
+        .populate('deviceType')
+        .exec(),
     };
   }
   async treebar(): Promise<any> {

@@ -7,7 +7,11 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LokalizacjeRightProjectService } from './lokalizacje-right-project.service';
-
+type Group = {
+  id: string;
+  name: string;
+  devices: Array<any>;
+};
 @Component({
   selector: 'app-lokalizacje-right-project',
   imports: [CommonModule],
@@ -19,6 +23,7 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
   constructor(
     private lokalizacjeRightProjectService: LokalizacjeRightProjectService
   ) {}
+  devicesGrouped: Array<Group> = [];
   selectedId: any = input<any>();
   project: any;
   devices: any;
@@ -40,71 +45,6 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
         },
       ],
     },
-    {
-      name: 'INFOKIOSK',
-      rows: [
-        {
-          snWamasoft: 'WMK24V/2025/0001',
-          snProducenta: '',
-          mac: '',
-          ip: '10.67.200.10',
-          brama: '10.67.200.254',
-          maska: '255.255.255.0',
-          anydesk: '',
-          dns1: '10.67.100.10',
-          dns2: '10.67.100.11',
-          serwer: '10.67.100.11',
-        },
-      ],
-    },
-    {
-      name: 'WAMA MED 43 C',
-      rows: [
-        {
-          snWamasoft: 'WM43/2025/0072',
-          snProducenta: '',
-          mac: '',
-          ip: '',
-          brama: '',
-          maska: '',
-          anydesk: '',
-          dns1: '',
-          dns2: '',
-          serwer: '',
-        },
-        {
-          snWamasoft: 'WM43C/2025/0073',
-          snProducenta: '',
-          mac: '',
-          ip: '54.87.204.98',
-          brama: '',
-          maska: '',
-          anydesk: '',
-          dns1: '',
-          dns2: '',
-          serwer: '',
-        },
-        // Add more rows as needed
-      ],
-    },
-    {
-      name: 'WAMA MED 21 C',
-      rows: [
-        {
-          snWamasoft: 'WM21/2025/0176',
-          snProducenta: '',
-          mac: '',
-          ip: '',
-          brama: '',
-          maska: '',
-          anydesk: '',
-          dns1: '',
-          dns2: '',
-          serwer: '',
-        },
-        // Add more rows as needed
-      ],
-    },
   ];
 
   copyCell(value: string) {
@@ -121,7 +61,45 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
             console.log(e);
             this.project = e.project[0];
             this.devices = e.devices;
-            console.log(this.devices);
+
+            e.devices.forEach((device: any) => {
+              var brk = false;
+              this.devicesGrouped.forEach((grouped) => {
+                if (grouped.id == device.deviceType._id && !brk) {
+                  grouped.devices.push(device);
+                  brk = true;
+                }
+              });
+              if (!brk) {
+                this.devicesGrouped.push({
+                  id: device.deviceType._id,
+                  name: device.deviceType.name,
+                  devices: [device],
+                });
+              }
+
+              console.log(this.devicesGrouped);
+            });
+            this.devicesGrouped.forEach((grouped) => {
+              this.groupedRows.push({
+                name: grouped.name,
+                rows: [],
+              });
+              grouped.devices.forEach((device) => {
+                this.groupedRows[this.groupedRows.length - 1].rows.push({
+                  snWamasoft: 'PLACEHOLDER',
+                  snProducenta: device.serialNr,
+                  mac: device.macAddr,
+                  ip: device.ip,
+                  brama: device.gateway,
+                  dns1: device.dns1,
+                  dns2: device.dns2,
+                  anydesk: device.remoteAccessId,
+                  maska: device.mask,
+                  serwer: device.serverAddress,
+                });
+              });
+            });
           },
         });
     }
