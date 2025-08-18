@@ -17,7 +17,7 @@
   </div>
   <div class="table-responsive right-table-responsive">
     <table
-      class="table table-dark table-bordered table-hover align-middle mb-0 right-project-table"
+      class="table table-dark table-bordered table-hover align-middle mb-0 right-project-table stickyhead"
     >
       <thead>
         <tr>
@@ -35,6 +35,7 @@
           <th style="width: 90px"></th>
         </tr>
       </thead>
+
       <tbody>
         <tr class="group-gap-row">
           <td colspan="12"></td>
@@ -48,8 +49,14 @@
           <tr class="group-gap-row group-gap-row-after-header">
             <td colspan="12"></td>
           </tr>
-          <tr  *ngFor="let row of group.rows">
-            <td><input type="checkbox" id="{{ row.id }}" (change)="checkboxChanged($event)"/></td>
+          <tr *ngFor="let row of group.rows">
+            <td>
+              <input
+                type="checkbox"
+                id="{{ row.id }}"
+                (change)="checkboxChanged($event)"
+              />
+            </td>
             <td (dblclick)="copyCell(row.snWamasoft)">{{ row.snWamasoft }}</td>
             <td (dblclick)="copyCell(row.snProducenta)">
               {{ row.snProducenta }}
