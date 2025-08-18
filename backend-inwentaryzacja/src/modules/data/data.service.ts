@@ -27,7 +27,10 @@ export class DataService {
   async getProjectData(id: string): Promise<any> {
     return {
       project: await this.ProjectModel.find({ _id: id }).exec(),
-      devices: await this.deviceModel.find({ project: id }).exec(),
+      devices: await this.deviceModel
+        .find({ project: id })
+        .populate('deviceType')
+        .exec(),
     };
   }
   async treebar(): Promise<any> {
@@ -52,9 +55,9 @@ export class DataService {
         },
       },
       { $replaceRoot: { newRoot: '$doc' } },
-      { $limit: 5 },
     ])
       .sort({ date: -1 })
+      .limit(5)
       .exec();
 
     // Populate project and location fields
@@ -88,7 +91,6 @@ export class DataService {
       type: projectHistoryEvents.PROJECT_CREATED,
       date: new Date().toISOString(),
       tag: '',
-      deviceId: '',
       project: (await this.ProjectModel.create(projectData))._id,
     });
   }
