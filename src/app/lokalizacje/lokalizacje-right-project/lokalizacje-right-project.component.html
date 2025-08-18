@@ -63,9 +63,11 @@
               </button>
             </td>
           </tr>
-          <tr *ngIf="i < groupedRows.length - 1" class="group-gap-row">
-            <td colspan="12"></td>
-          </tr>
+            @if (i < groupedRows.length - 1) {
+            <tr class="group-gap-row">
+              <td colspan="12"></td>
+            </tr>
+            }
         </ng-container>
       </tbody>
     </table>

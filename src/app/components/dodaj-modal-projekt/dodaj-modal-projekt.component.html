@@ -7,55 +7,56 @@
 	<div class="modal-custom open">
 		<form class="modal-content" (ngSubmit)="onSubmit()">
 			<div class="modal-header">
-				<h5 class="modal-title">Project Details</h5>
+				<h5 class="modal-title">Add Device</h5>
 				<button type="button" class="close" (click)="closeModal()" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
 				<div class="mb-3">
-					<label for="projectName" class="form-label">Name</label>
-					<input type="text" class="form-control" id="projectName" [(ngModel)]="project.name" name="name">
+					<label for="ip" class="form-label">IP Address</label>
+					<input type="text" class="form-control" id="ip" [(ngModel)]="device.ip" name="ip">
 				</div>
 				<div class="mb-3">
-					<label for="dns1" class="form-label">DNS 1</label>
-					<input type="text" class="form-control" id="dns1" [(ngModel)]="project.dns1" name="dns1">
+					<label for="deviceType" class="form-label">Device Type</label>
+					<select class="form-control" id="deviceType" [(ngModel)]="device.deviceType" name="deviceType">
+						<option value="">Select type...</option>
+						<option value="type1">Type 1</option>
+						<option value="type2">Type 2</option>
+						<option value="type3">Type 3</option>
+					</select>
 				</div>
 				<div class="mb-3">
-					<label for="dns2" class="form-label">DNS 2</label>
-					<input type="text" class="form-control" id="dns2" [(ngModel)]="project.dns2" name="dns2">
+					<label for="tag" class="form-label">Tag</label>
+					<input type="text" class="form-control" id="tag" [(ngModel)]="device.tag" name="tag">
 				</div>
 				<div class="mb-3">
-					<label for="networkAddress" class="form-label">Network Address</label>
-					<input type="text" class="form-control" id="networkAddress" [(ngModel)]="project.networkAddress" name="networkAddress">
+					<label for="macAddr" class="form-label">MAC Address</label>
+					<input type="text" class="form-control" id="macAddr" [(ngModel)]="device.macAddr" name="macAddr">
 				</div>
 				<div class="mb-3">
-					<label for="mask" class="form-label">Mask</label>
-					<input type="text" class="form-control" id="mask" [(ngModel)]="project.mask" name="mask">
+					<label for="serialNr" class="form-label">Serial Number</label>
+					<input type="text" class="form-control" id="serialNr" [(ngModel)]="device.serialNr" name="serialNr">
 				</div>
 				<div class="mb-3">
-					<label for="gateway" class="form-label">Gateway</label>
-					<input type="text" class="form-control" id="gateway" [(ngModel)]="project.gateway" name="gateway">
+					<label for="serverAddress" class="form-label">Server Address</label>
+					<input type="text" class="form-control" id="serverAddress" [(ngModel)]="device.serverAddress" name="serverAddress">
 				</div>
 				<div class="mb-3">
-					<label for="addrPool" class="form-label">Address Pool (comma separated)</label>
-					<textarea class="form-control" id="addrPool" [(ngModel)]="project.addrPool" name="addrPool"></textarea>
+					<label for="note" class="form-label">Note</label>
+					<input type="text" class="form-control" id="note" [(ngModel)]="device.note" name="note">
 				</div>
 				<div class="mb-3">
-					<label for="addrExclude" class="form-label">Address Exclude</label>
-					<input type="text" class="form-control" id="addrExclude" [(ngModel)]="project.addrExclude" name="addrExclude">
+					<label for="pinIfButton" class="form-label">Pin (if button)</label>
+					<input type="text" class="form-control" id="pinIfButton" [(ngModel)]="device.pinIfButton" name="pinIfButton">
 				</div>
 				<div class="mb-3">
-					<label for="remoteAccessTag" class="form-label">Remote Access Tag</label>
-					<input type="text" class="form-control" id="remoteAccessTag" [(ngModel)]="project.remoteAccessTag" name="remoteAccessTag">
+					<label for="remoteAccessId" class="form-label">Remote Access ID</label>
+					<input type="text" class="form-control" id="remoteAccessId" [(ngModel)]="device.remoteAccessId" name="remoteAccessId">
 				</div>
 				<div class="mb-3">
-					<label for="projectDevices" class="form-label">Project Devices (JSON)</label>
-					<textarea class="form-control" id="projectDevices" [(ngModel)]="project.projectDevices" name="projectDevices"></textarea>
-				</div>
-				<div class="mb-3">
-					<label for="location" class="form-label">Location (ObjectId)</label>
-					<input type="text" class="form-control" id="location" [(ngModel)]="project.location" name="location">
+					<label for="project" class="form-label">Project (ObjectId)</label>
+					<input type="text" class="form-control" id="project" [(ngModel)]="device.project" name="project">
 				</div>
 			</div>
 			<div class="modal-footer">
