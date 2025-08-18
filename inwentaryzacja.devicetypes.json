@@ -39,4 +39,18 @@
     "$oid": "6894a8159bf83af8ee0f03ec"
   },
   "name": "Serwer"
+},
+{
+  "_id": {
+    "$oid": "689ae217425661a01b27d5be"
+  },
+  "name": "czxczx",
+  "tag": "",
+  "maker": "",
+  "model": "",
+  "color": "",
+  "remoteAccessEnum": "",
+  "resolutionIfMonitor": "",
+  "lastTag": "",
+  "__v": 0
 }]

@@ -11,4 +11,2334 @@
   },
   "name": "Rozbudowa szpitala",
   "location": "6895b40a4c2a9be9747d3328"
+},
+{
+  "_id": {
+    "$oid": "689b15d316a138617ea0af77"
+  },
+  "name": "name2",
+  "addrPool": [],
+  "projectDevices": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689b217e11aacdc7d9a034c7"
+  },
+  "addrPool": [],
+  "projectDevices": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689b21b411aacdc7d9a034cb"
+  },
+  "addrPool": [],
+  "projectDevices": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689b22126bdfc41f9a15b4eb"
+  },
+  "addrPool": [],
+  "projectDevices": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689b222d6bdfc41f9a15b4ef"
+  },
+  "addrPool": [],
+  "projectDevices": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c5737e7a1546a1e2c13f9"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b40a4c2a9be9747d3328"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c5776e7a1546a1e2c1405"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c5c26e7a1546a1e2c143e"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b40a4c2a9be9747d3328"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c731de7a1546a1e2c1574"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c735be7a1546a1e2c1589"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c7370e7a1546a1e2c1593"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c742ac339350b87a7e9fa"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c74c2c339350b87a7ea1d"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b40a4c2a9be9747d3328"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c74fec339350b87a7ea31"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c81d5c339350b87a7eb75"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2f3d998a10487d89bfd"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c81e1c339350b87a7eb77"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2f3d998a10487d89bfd"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c81fdc339350b87a7eb83"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e8d998a10487d89bee"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8652c339350b87a7eb99"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8670c339350b87a7eba1"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b40a4c2a9be9747d3328"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8696c339350b87a7eba3"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b40a4c2a9be9747d3328"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c86aec339350b87a7ebaa"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "68999e5a56f8884da1ff3625"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c86bdc339350b87a7ebb1"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c86dac339350b87a7ebbd"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c86e5c339350b87a7ebbf"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "68999e5a56f8884da1ff3625"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c86ebc339350b87a7ebc1"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8702c339350b87a7ebc8"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8707c339350b87a7ebca"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8743c339350b87a7ebd8"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "68999e5a56f8884da1ff3625"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c87d5c339350b87a7ebe4"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8822c339350b87a7ec00"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c88a0c339350b87a7ec25"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c88afc339350b87a7ec2c"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "68999e5a56f8884da1ff3625"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c88bbc339350b87a7ec30"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e3d998a10487d89be9"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8902c339350b87a7ec39"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af197d998a10487d89bda"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8954c339350b87a7ec47"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689ae20f425661a01b27d5b0"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8a3bc339350b87a7ec55"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2ecd998a10487d89bf3"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8a78c339350b87a7ec63"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8ad8c339350b87a7ec71"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8ae1c339350b87a7ec75"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689c38be38279a3e888605cf"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8b0ec339350b87a7ec83"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2f9d998a10487d89c02"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8b8ac339350b87a7ec91"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2f0d998a10487d89bf8"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8be6c339350b87a7ec9a"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2fdd998a10487d89c07"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8c16c339350b87a7eca3"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689aff61d998a10487d89c6a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8c40c339350b87a7ecbb"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689c8c34c339350b87a7ecb6"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8ca5c339350b87a7ecc9"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689ae20f425661a01b27d5b0"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8d1ac339350b87a7ecd2"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af197d998a10487d89bda"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8d33c339350b87a7ecd6"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af197d998a10487d89bda"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8d75c339350b87a7ece4"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689ae20f425661a01b27d5b0"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8dc1c339350b87a7ecf2"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af197d998a10487d89bda"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8e27c339350b87a7ed0a"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af197d998a10487d89bda"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8e44c339350b87a7ed0c"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af197d998a10487d89bda"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8e73c339350b87a7ed1d"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af197d998a10487d89bda"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8e9bc339350b87a7ed2e"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2ecd998a10487d89bf3"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8ebfc339350b87a7ed35"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8f11c339350b87a7ed41"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689c8c34c339350b87a7ecb6"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8f3fc339350b87a7ed4a"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e8d998a10487d89bee"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689c8f5fc339350b87a7ed4e"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2fdd998a10487d89c07"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d7572753d200b0cbdda89"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689c8c34c339350b87a7ecb6"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d75c0753d200b0cbdda8d"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689c8c34c339350b87a7ecb6"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d75ee753d200b0cbddaa0"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689c8c34c339350b87a7ecb6"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d7637753d200b0cbddabd"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689aff61d998a10487d89c6a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d765e753d200b0cbddac6"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689ae20f425661a01b27d5b0"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d768c753d200b0cbddacf"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e3d998a10487d89be9"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d7693753d200b0cbddad3"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e3d998a10487d89be9"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d76a4753d200b0cbddae6"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689ae20f425661a01b27d5b0"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d865c753d200b0cbddb25"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "68999e5a56f8884da1ff3625"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d8672753d200b0cbddb29"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d86b9753d200b0cbddb32"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689c38be38279a3e888605cf"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d8777753d200b0cbddb45"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689c38be38279a3e888605cf"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d8837753d200b0cbddb4e"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2f9d998a10487d89c02"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d88a5753d200b0cbddb7f"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e3d998a10487d89be9"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d88d6753d200b0cbddb88"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689c38be38279a3e888605cf"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d8940753d200b0cbddb91"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689ae20f425661a01b27d5b0"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d896c753d200b0cbddb9f"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689c38be38279a3e888605cf"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d8a4b753d200b0cbddba8"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689aff61d998a10487d89c6a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d8a73753d200b0cbddbb1"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689ae20f425661a01b27d5b0"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d8b0a753d200b0cbddbdd"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689c38be38279a3e888605cf"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d8b39753d200b0cbddbeb"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e3d998a10487d89be9"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d8b87753d200b0cbddbf4"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2f3d998a10487d89bfd"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d90ca753d200b0cbddc07"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2fdd998a10487d89c07"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d90eb753d200b0cbddc1a"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2ecd998a10487d89bf3"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d9141753d200b0cbddc28"
+  },
+  "name": "test",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689d913a753d200b0cbddc23"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d915a753d200b0cbddc2c"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689d913a753d200b0cbddc23"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d919c753d200b0cbddc3a"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689d913a753d200b0cbddc23"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d91d2753d200b0cbddc3e"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689d913a753d200b0cbddc23"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d91fd753d200b0cbddc4c"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e8d998a10487d89bee"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d920e753d200b0cbddc50"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e8d998a10487d89bee"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d9223753d200b0cbddc59"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689aff61d998a10487d89c6a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d926c753d200b0cbddc76"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "68999e5a56f8884da1ff3625"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d9288753d200b0cbddc7f"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "68999e5a56f8884da1ff3625"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d929f753d200b0cbddc88"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "68999e5a56f8884da1ff3625"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d92bd753d200b0cbddc8f"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e3d998a10487d89be9"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d97e4753d200b0cbddc91"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2fdd998a10487d89c07"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d97ea753d200b0cbddc93"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2fdd998a10487d89c07"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d97f9753d200b0cbddc9a"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2f9d998a10487d89c02"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689d9832753d200b0cbddca1"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689aff61d998a10487d89c6a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689da16a753d200b0cbddcad"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689d913a753d200b0cbddc23"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689da2c2753d200b0cbddcb9"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e8d998a10487d89bee"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689da2e1753d200b0cbddcc5"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689da36c753d200b0cbddcd6"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b4304c2a9be9747d3329"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689da546753d200b0cbddce7"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689af2e3d998a10487d89be9"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689da567753d200b0cbddcf3"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "68999e5a56f8884da1ff3625"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689da605753d200b0cbddd0b"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689d913a753d200b0cbddc23"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689dcbdf753d200b0cbdde0c"
+  },
+  "name": "testsjsfdgsfd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "689dc766753d200b0cbdddd0"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a2c642c3ed4b9894484d62"
+  },
+  "name": "projecthis",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a2c691c3ed4b9894484d75"
+  },
+  "name": "projecthis",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a2c72803b5abf9c243d3ef"
+  },
+  "name": "projecthis",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a2c74203b5abf9c243d410"
+  },
+  "name": "projecthisddq",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a2c77503b5abf9c243d43c"
+  },
+  "name": "projecthisddq",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a2c77d03b5abf9c243d44c"
+  },
+  "name": "projecthisdsdfgsgrdq",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a2c78303b5abf9c243d452"
+  },
+  "name": "projectefsg",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a2c7f3558974e975292364"
+  },
+  "name": "projectefsg",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": "",
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a2c803558974e97529236a"
+  },
+  "name": "asdd",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a2c808558974e975292370"
+  },
+  "name": "nima",
+  "dns1": "0.0.0.0",
+  "dns2": "0.0.0.0",
+  "networkAddress": "0.0.0.0",
+  "mask": "0.0.0.0",
+  "gateway": "0.0.0.0",
+  "addrPool": [
+    "0.0.0.0"
+  ],
+  "addrExclude": null,
+  "remoteAccessTag": "s",
+  "projectDevices": [],
+  "location": {
+    "$oid": "6895b3254c2a9be9747d3327"
+  },
+  "__v": 0
 }]
