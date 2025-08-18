@@ -225,3 +225,8 @@
 		font-size: 0.95rem;
 	}
 }
+@media (max-width: 900px) {
+	app-search-bar{
+		display: none;
+	}
+}	
