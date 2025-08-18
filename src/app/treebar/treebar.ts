@@ -111,26 +111,10 @@ export class Treebar implements OnInit, OnChanges {
       next: (data: any) => {
         this.fetchedData = data;
         this.data = this.treebarService.dataParser(data);
-
-        // data.locations.forEach((item: any) => {
-
-        //   this.data.push({ "id": item._id, "name": item.name, projects: "" });
-
-        // });
-        // if (data.projects) {
-        //   data.projects.forEach((item: any) => {
-
-        //     this.data.forEach((treeItem: any) => {
-
-        //       if (treeItem.id === item.location) {
-
-        //         treeItem.projects = treeItem.projects + (JSON.stringify({ "name": item.name, "id": item.id }) + ",");
-
-        //       }
-
-        //     });
-        //   });
-        // }
+        // Auto-select and toggle the first element if available
+        if (this.data.length > 0) {
+          this.changeId(this.data[0]);
+        }
       },
     });
   }
