@@ -1,3 +1,29 @@
+.table-fixed {
+	width: 100%;
+	min-width: 900px;
+}
+
+.right-table-responsive {
+	overflow-y: auto;
+	position: relative;
+	max-height: calc(100vh - 120px); // adjust as needed for header height
+}
+
+.right-project-table thead {
+	position: static;
+	position: -webkit-sticky;
+	top: 0;
+	z-index: 20;
+	border: 2px solid #888;
+}
+
+.right-project-table thead th {
+		position: sticky;
+		top: 0;
+		background: #111;
+		
+	}
+
 @import 'global.scss';
 
 // Black gap row between groups (default)
