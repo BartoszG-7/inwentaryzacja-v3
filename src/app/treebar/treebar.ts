@@ -12,6 +12,7 @@ import {
 import { TreebarService } from './treebar.service';
 import { Treeexpander } from '../treeexpander/treeexpander';
 import { TreebarSharedService } from '../home/treebar.share.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-treebar',
@@ -24,7 +25,8 @@ export class Treebar implements OnInit, OnChanges {
   constructor(
     private treebarService: TreebarService,
     private treebarSharedService: TreebarSharedService,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   data: Array<any> = [];
@@ -37,6 +39,7 @@ export class Treebar implements OnInit, OnChanges {
   currentId: any;
   fetchedData: any;
   changeId(event: any): void {
+    console.log(event);
     this.treebarSharedService.setData(event);
     if (this.query() === 'http://localhost:3000/data/treebar') {
       if (event.type === 'location') {
@@ -111,6 +114,30 @@ export class Treebar implements OnInit, OnChanges {
       next: (data: any) => {
         this.fetchedData = data;
         this.data = this.treebarService.dataParser(data);
+        //{"type":"project","id":"6895b53d4c2a9be9747d332b"}
+        //{"type":"location","id":"6895b3254c2a9be9747d3327"}
+        //project and location redir
+        this.activatedRoute.params.subscribe({
+          next: (e) => {
+            if (e['data'] !== undefined) {
+              console.log(e['data']);
+              let data = JSON.parse(e['data']);
+              if (data !== '{}') {
+                if (data.type === 'project') {
+                  this.selectedId.emit(data.id);
+                } else if (data.type === 'location') {
+                  console.log(this.fetchedData);
+                  this.selectedId.emit(
+                    this.treebarService.parseDataForRightComp(
+                      this.fetchedData,
+                      { type: 'location', id: data.id }
+                    )
+                  );
+                }
+              }
+            }
+          },
+        });
         // Auto-select and toggle the first element if available
         if (this.data.length > 0) {
           this.changeId(this.data[0]);
