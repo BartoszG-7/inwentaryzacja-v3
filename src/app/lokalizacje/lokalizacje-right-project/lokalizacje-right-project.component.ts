@@ -25,8 +25,7 @@ type Group = {
 })
 export class LokalizacjeRightProjectComponent implements OnChanges {
   constructor(
-    private lokalizacjeRightProjectService: LokalizacjeRightProjectService,
-    private changeDetector: ChangeDetectorRef
+    private lokalizacjeRightProjectService: LokalizacjeRightProjectService
   ) {}
   devicesGrouped: Array<Group> = [];
   selectedId: any = input<any>();
@@ -101,9 +100,6 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
                   maska: device.mask,
                   serwer: device.serverAddress,
                 });
-                if (grouped.name == 'Serwer') {
-                  console.log(grouped.devices);
-                }
               });
             });
           },
