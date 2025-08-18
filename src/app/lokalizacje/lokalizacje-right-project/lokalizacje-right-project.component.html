@@ -2,9 +2,10 @@
   <div class="header-row">
     <span class="header-title">{{ project.name }}</span>
     <div class="header-actions">
+  <app-search-bar [noPaddingBottom]="true" [showFilterModal]="true"></app-search-bar>
       <button class="header-btn">SKANUJ</button>
       <button class="header-btn">EDYTUJ</button>
-      <app-dodaj-modal-projekt></app-dodaj-modal-projekt>
+      <app-dodaj-modal-device></app-dodaj-modal-device>
       <button class="header-btn">USUN</button>
       
       

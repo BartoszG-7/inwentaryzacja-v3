@@ -1,4 +1,7 @@
-<div class="search-bar-wrapper">
-    <input #searchInput (input)="onFilterChange($event)" type="search" placeholder="Szukaj...">
-    <i class="bi bi-search search-bar-icon"></i>
+<div class="search-bar-wrapper" [class.no-padding-bottom]="noPaddingBottom">
+        <input #searchInput (input)="onFilterChange($event)" type="search" placeholder="Szukaj...">
+        <i class="bi bi-search search-bar-icon"></i>
+        @if (showFilterModal) {
+            <app-filter-modal-devices></app-filter-modal-devices>
+        }
 </div>

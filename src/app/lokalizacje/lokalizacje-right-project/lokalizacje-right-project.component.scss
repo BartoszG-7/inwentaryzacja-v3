@@ -1,3 +1,5 @@
+@import 'global.scss';
+
 // Black gap row between groups (default)
 .group-gap-row td {
 	background: #000 !important;
@@ -83,7 +85,16 @@
 
 .header-actions {
 	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.search-bar-wrapper {
+	min-width: 200px;
+	flex-shrink: 0;
+	display: flex;
 	gap: 8px;
+// ...existing code...
 }
 
 .header-btn {

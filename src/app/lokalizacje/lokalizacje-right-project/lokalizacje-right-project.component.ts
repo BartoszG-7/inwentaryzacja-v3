@@ -7,7 +7,8 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LokalizacjeRightProjectService } from './lokalizacje-right-project.service';
-import { DodajModalProjektComponent } from '../../components/dodaj-modal-projekt/dodaj-modal-projekt.component';
+import { DodajModalDeviceComponent } from '../../components/dodaj-modal-device/dodaj-modal-device.component';
+import { SearchBarComponent } from '../../components/search-bar/search-bar.component';  
 
 type Group = {
   id: string;
@@ -16,7 +17,7 @@ type Group = {
 };
 @Component({
   selector: 'app-lokalizacje-right-project',
-  imports: [CommonModule, DodajModalProjektComponent],
+  imports: [CommonModule, DodajModalDeviceComponent, SearchBarComponent],
   standalone: true,
   templateUrl: './lokalizacje-right-project.component.html',
   styleUrl: './lokalizacje-right-project.component.scss',

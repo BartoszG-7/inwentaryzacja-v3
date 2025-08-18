@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-dodaj-modal-projekt',
+  selector: 'app-dodaj-modal-device',
   imports: [CommonModule, FormsModule],
   standalone: true,
-  templateUrl: './dodaj-modal-projekt.component.html',
-  styleUrl: './dodaj-modal-projekt.component.scss'
+  templateUrl: './dodaj-modal-device.component.html',
+  styleUrl: './dodaj-modal-device.component.scss'
 })
-export class DodajModalProjektComponent {
+export class DodajModalDeviceComponent {
   showModal = false;
   device = {
     ip: '',
