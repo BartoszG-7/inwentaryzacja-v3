@@ -109,6 +109,19 @@ export class DataService {
       ),
     };
   }
+  async assignCreateDevice(data: any): Promise<any> {
+    let device = await this.deviceModel.create(data);
+    return {
+      projectHistory: await this.ProjectHistoryModel.create({
+        type: projectHistoryEvents.DEVICE_ADDED_TO_PROJECT,
+        date: new Date().toISOString(),
+        tag: '',
+        deviceId: device._id,
+        project: data.project,
+      }),
+      device: device,
+    };
+  }
   async unassignDevice(data: any): Promise<any> {
     return {
       projectHistory: await this.ProjectHistoryModel.create({

@@ -5,10 +5,11 @@
   <app-search-bar [noPaddingBottom]="true" [showFilterModal]="true"></app-search-bar>
       <button class="header-btn">SKANUJ</button>
       <button class="header-btn">EDYTUJ</button>
-      <app-dodaj-modal-device></app-dodaj-modal-device>
+      <app-dodaj-modal-device
+        [projectId]="selectedId()"
+        (refresh)="onRefresh($event)"
+      ></app-dodaj-modal-device>
       <button class="header-btn">USUN</button>
-      
-      
     </div>
   </div>
   <div class="table-responsive right-table-responsive">
@@ -64,11 +65,11 @@
               </button>
             </td>
           </tr>
-            @if (i < groupedRows.length - 1) {
-            <tr class="group-gap-row">
-              <td colspan="12"></td>
-            </tr>
-            }
+          @if (i < groupedRows.length - 1) {
+          <tr class="group-gap-row">
+            <td colspan="12"></td>
+          </tr>
+          }
         </ng-container>
       </tbody>
     </table>

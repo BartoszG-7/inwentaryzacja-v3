@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   input,
   Input,
@@ -24,10 +25,12 @@ type Group = {
 })
 export class LokalizacjeRightProjectComponent implements OnChanges {
   constructor(
-    private lokalizacjeRightProjectService: LokalizacjeRightProjectService
+    private lokalizacjeRightProjectService: LokalizacjeRightProjectService,
+    private changeDetector: ChangeDetectorRef
   ) {}
   devicesGrouped: Array<Group> = [];
   selectedId: any = input<any>();
+  refresh: boolean = false;
   project: any;
   devices: any;
   groupedRows = [
@@ -61,7 +64,6 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
         .getProjectData(this.selectedId())
         .subscribe({
           next: (e) => {
-            console.log(e);
             this.project = e.project[0];
             this.devices = e.devices;
 
@@ -80,8 +82,6 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
                   devices: [device],
                 });
               }
-
-              console.log(this.devicesGrouped);
             });
             this.devicesGrouped.forEach((grouped) => {
               this.groupedRows.push({
@@ -101,10 +101,24 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
                   maska: device.mask,
                   serwer: device.serverAddress,
                 });
+                if (grouped.name == 'Serwer') {
+                  console.log(grouped.devices);
+                }
               });
             });
           },
         });
     }
+  }
+  onRefresh(bool: boolean) {
+    this.devicesGrouped = [];
+    this.groupedRows = [];
+    this.ngOnChanges({});
+    this.refresh = bool;
+    let a = 'a';
+    a = 'b';
+
+    // this.changeDetector.detectChanges();
+    a = 'a';
   }
 }
