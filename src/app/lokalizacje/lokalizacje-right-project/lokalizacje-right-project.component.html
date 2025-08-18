@@ -12,7 +12,9 @@
         [projectId]="selectedId()"
         (refresh)="onRefresh($event)"
       ></app-dodaj-modal-device>
-      <app-usun-modal-device></app-usun-modal-device>
+      <app-usun-modal-device
+        [markedDelete]="markedDelete"
+      ></app-usun-modal-device>
     </div>
   </div>
   <div class="table-responsive right-table-responsive">
