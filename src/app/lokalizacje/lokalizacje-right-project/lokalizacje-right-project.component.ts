@@ -9,7 +9,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { LokalizacjeRightProjectService } from './lokalizacje-right-project.service';
 import { DodajModalDeviceComponent } from '../../components/dodaj-modal-device/dodaj-modal-device.component';
-import { SearchBarComponent } from '../../components/search-bar/search-bar.component';  
+import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 
 type Group = {
   id: string;
@@ -32,11 +32,13 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
   refresh: boolean = false;
   project: any;
   devices: any;
+  markedDelete: Array<string> = [];
   groupedRows = [
     {
       name: 'SERWER',
       rows: [
         {
+          id: '',
           snWamasoft: '',
           snProducenta: '',
           mac: '',
@@ -89,6 +91,7 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
               });
               grouped.devices.forEach((device) => {
                 this.groupedRows[this.groupedRows.length - 1].rows.push({
+                  id: device._id,
                   snWamasoft: 'PLACEHOLDER',
                   snProducenta: device.serialNr,
                   mac: device.macAddr,
@@ -116,5 +119,17 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
 
     // this.changeDetector.detectChanges();
     a = 'a';
+  }
+  checkboxChanged(event: any) {
+    if (event.target.checked) {
+      this.markedDelete.push(event.target.id);
+    } else {
+      this.markedDelete.forEach((element, ind) => {
+        if (element == event.target.id) {
+          this.markedDelete.splice(ind, 1);
+        }
+      });
+    }
+    console.log(this.markedDelete);
   }
 }
