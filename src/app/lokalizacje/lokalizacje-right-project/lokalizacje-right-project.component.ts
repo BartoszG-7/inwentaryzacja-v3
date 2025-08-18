@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LokalizacjeRightProjectService } from './lokalizacje-right-project.service';
-import { UsunModalProjektComponent } from '../../components/usun-modal-projekt/usun-modal-projekt.component';
+import { DodajModalProjektComponent } from '../../components/dodaj-modal-projekt/dodaj-modal-projekt.component';
 
 type Group = {
   id: string;
@@ -16,7 +16,7 @@ type Group = {
 };
 @Component({
   selector: 'app-lokalizacje-right-project',
-  imports: [CommonModule, UsunModalProjektComponent],
+  imports: [CommonModule, DodajModalProjektComponent],
   standalone: true,
   templateUrl: './lokalizacje-right-project.component.html',
   styleUrl: './lokalizacje-right-project.component.scss',
