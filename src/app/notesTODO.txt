@@ -1,6 +1,3 @@
-- sidebar usuwac
 - modal na edycje projektu
-- checkbox multi delete function
-- posiiton fixed header row
 - click select for filter, click again sort asc desc allat, 
-
+- global searchbar
