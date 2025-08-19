@@ -1,27 +1,30 @@
-@import 'global';
-
+@import 'global.scss';
 
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $light-color;
+  background: $right-container-color;
   padding: 1rem;
   box-sizing: border-box;
-  min-height: calc(100vh - 56px - 71px);
+  /* footer removed, subtract header height (64px) to center correctly */
+  min-height: calc(100vh - 64px);
+  overflow-y: hidden; /* prevent vertical scrollbar on login view */
+  border-top: 1.5px solid $border-clr;
 }
 
 .login-form {
-  background: #fff;
+  background: $panel-bg;
   padding: 2rem 2.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-  border: 1px solid darkgray;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
+  border: 1.5px solid $border-clr;
   width: 100%;
-  max-width: 350px;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  color: $light-txt;
 }
 
 .login-form h2 {
@@ -38,16 +41,18 @@
 input[type="text"],
 input[type="password"] {
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid $border-clr;
   border-radius: 5px;
   font-size: 1rem;
+  background: $secondary-panel-clr;
+  color: $light-txt;
 }
 
 button[type="submit"] {
   margin-top: 1rem;
   padding: 0.6rem;
   background: $primary-color;
-  color: #fff;
+  color: $light-txt;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
