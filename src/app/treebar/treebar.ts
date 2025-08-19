@@ -92,7 +92,7 @@ export class Treebar implements OnInit, OnChanges {
         this.data = this.treebarService.dataParser(data);
         a = 's';
         this.ngOnChanges({ search: new SimpleChange('', '', false) });
-
+        console.log('CHANGED ID TREEBAR');
         this.changeId(this.currentId);
         this.changeDetectorRef.detectChanges();
         this.refresh = !this.refresh;
@@ -121,6 +121,7 @@ export class Treebar implements OnInit, OnChanges {
           next: (e) => {
             if (e['data'] !== undefined) {
               console.log(e['data']);
+              this.treebarSharedService.setData(JSON.parse(e['data']));
               let data = JSON.parse(e['data']);
               if (data !== '{}') {
                 if (data.type === 'project') {
@@ -139,9 +140,9 @@ export class Treebar implements OnInit, OnChanges {
           },
         });
         // Auto-select and toggle the first element if available
-        if (this.data.length > 0) {
-          this.changeId(this.data[0]);
-        }
+        // if (this.data.length > 0) {
+        //   this.changeId(this.data[0]);
+        // }
       },
     });
   }

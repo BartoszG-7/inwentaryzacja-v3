@@ -32,6 +32,7 @@ export class Treeexpander implements OnInit, OnChanges {
   selectedProjectIndex: number | null = null;
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['projects']) {
+      console.log('PROJECTS CHANGE TREEXPANDER');
       var array: any[] = [];
       array = this.projects().split('},');
       array.pop();
@@ -69,6 +70,7 @@ export class Treeexpander implements OnInit, OnChanges {
         this.expanded) ||
       this.selectedProjectIndex !== null
     ) {
+      console.log('SELECTED EMITTED TREEXPANDER');
       this.selected.emit({ type: 'location', id: this.locationId() });
       // If already selected and expanded, or any child is selected, unselect and collapse
       Treeexpander.selectedLocationId = null;
@@ -94,7 +96,7 @@ export class Treeexpander implements OnInit, OnChanges {
           instance.expanded = false;
         }
       });
-
+      console.log('SELECTED EMITTED TREEXPANDER');
       this.selected.emit({ type: 'location', id: this.locationId() });
     }
     if (event && event.target && (event.target as HTMLElement).blur) {
@@ -125,6 +127,7 @@ export class Treeexpander implements OnInit, OnChanges {
       }
     });
     console.log(JSON.parse(this.projects().split('},')[index] + '}'));
+    console.log('SELECTED EMITTED TREEXPANDER');
     this.selected.emit({
       type: 'project',
       locationId: this.locationId(),

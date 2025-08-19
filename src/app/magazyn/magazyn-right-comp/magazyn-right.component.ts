@@ -20,6 +20,7 @@ export class MagazynRightCompComponent {
   ngOnInit(): void {
     this.treebarSharedService.getData().subscribe({
       next: (data: any) => {
+        console.log(data);
         this.magazynRightCompService.getDeviceTypes(data.id).subscribe({
           next: (data: any) => {
             if (data[0]) {

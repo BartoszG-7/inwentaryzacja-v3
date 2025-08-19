@@ -17,7 +17,7 @@ export const routes: Routes = [
         path: 'inwentaryzacja/:data',
         component: LokalizacjeMainComponent,
       },
-      { path: 'magazyn', component: MagazynMainComponent },
+      { path: 'magazyn/:data', component: MagazynMainComponent },
     ],
   },
 ];
