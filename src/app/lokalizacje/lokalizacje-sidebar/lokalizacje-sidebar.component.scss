@@ -1,12 +1,14 @@
+@import "global.scss";
+
 // Sticky block for header and search bar
 .sidebar-sticky-top-block {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: #000;
+  background: $sidebar-clr;
 }
 .sidebar-searchbar-sticky-bg {
-  background: #000;
+  background: $sidebar-clr;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +19,6 @@
   display: none;
   height: 4px;
   width: 100%;
-  background: linear-gradient(90deg, #1e9497 0%, #111 100%);
   background-color: #1e9497;
   margin: 0.3em 0 0.7em 0;
   border-radius: 2px;
@@ -38,8 +39,6 @@
   }
 }
 
-@import "global.scss";
-
 // --- Sidebar Header and Underline ---
 .sidebar-static-header,
 .sidebar-tree-title {
@@ -51,10 +50,9 @@
   display: block;
   width: 100%;
   height: 2.5px;
-  background: linear-gradient(90deg, #888 0%, #111 100%);
   margin: 0.3em 0 0.7em 0;
   border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.13);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
 }
 
 // --- Make sidebar scrollbar internal ---
@@ -66,9 +64,10 @@
   position: sticky;
   top: 64px;
   left: 0;
-  background: #000;
+  background: $sidebar-clr;
   color: #fff;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
+  border-right: 1.5px solid $border-clr;
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -102,7 +101,7 @@
 .close-btn.closing,
 .sidebar-close-absolute:hover,
 .sidebar-close-absolute:active {
-  color: #ff5252 !important;
+  color: $red-color !important;
   background: none !important;
   border: none !important;
 }
@@ -117,9 +116,9 @@
   position: sticky;
   top: 64px;
   left: 0;
-  background: #000;
+  background: $sidebar-clr;
   color: #fff;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
   z-index: 10;
   display: block;
   //overflow-y: auto;
@@ -228,9 +227,9 @@ ul li:hover .bi-dot {
   right: 0;
   width: 250px;
   height: 100vh;
-  background: #000;
+  background: $sidebar-clr;
   color: #fff;
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
   z-index: 20;
   overflow-y: auto;
 }

@@ -40,7 +40,7 @@
   position: sticky;
   top: 0;
   z-index: 30;
-  background: $dark-color;
+  background: $header-clr;
 }
 
 .sidebar-tree-list-wrapper {
@@ -95,6 +95,7 @@ app-treebar {
     min-width: 100vw !important;
     border-radius: 0 !important;
     box-shadow: none !important;
+    
   }
   .sidebar-kit-logout-row {
     width: 100%;
@@ -106,7 +107,7 @@ app-treebar {
     position: absolute;
     left: 0;
     bottom: 0;
-    background: $dark-color;
+    background: $header-clr;
   }
 
   .kit-box-mobile {
@@ -162,7 +163,7 @@ app-treebar {
 }
 
 header {
-  background-color: $dark-color;
+  background-color: $header-clr;
   position: relative;
   z-index: 1001;
 }
@@ -379,7 +380,7 @@ header {
   top: 0;
   bottom: 0;
   width: 250px;
-  background: $dark-color;
+  background: $header-clr;
   color: $light-color;
   z-index: 1200;
   padding: 2rem 1rem 1rem 1rem;

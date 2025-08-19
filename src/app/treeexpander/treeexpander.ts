@@ -100,6 +100,12 @@ export class Treeexpander implements OnInit, OnChanges {
     if (event && event.target && (event.target as HTMLElement).blur) {
       (event.target as HTMLElement).blur();
     }
+    // Ensure UI updates immediately when expand is called programmatically
+    try {
+      this.changeDetectorRef.detectChanges();
+    } catch (err) {
+      // swallow - detection may already be running
+    }
   }
 
   selectProject(index: number, event?: Event): void {
@@ -127,6 +133,12 @@ export class Treeexpander implements OnInit, OnChanges {
     });
     if (event && event.target && (event.target as HTMLElement).blur) {
       (event.target as HTMLElement).blur();
+    }
+    // Ensure UI updates immediately when selecting a project programmatically
+    try {
+      this.changeDetectorRef.detectChanges();
+    } catch (err) {
+      // swallow
     }
   }
 }

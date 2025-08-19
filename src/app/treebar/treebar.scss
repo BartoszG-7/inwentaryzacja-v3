@@ -1,3 +1,5 @@
+@import 'global.scss';
+
 app-treeexpander {
   user-select: none;
 }
@@ -13,7 +15,7 @@ app-treeexpander {
     box-sizing: border-box;
     /* Custom scrollbar styles */
     scrollbar-width: thin;
-    scrollbar-color: #333 #000;
+    scrollbar-color: #333 $sidebar-clr;
     scroll-behavior: smooth;
   }
 }
@@ -29,7 +31,7 @@ app-treeexpander {
     box-sizing: border-box;
     /* Custom scrollbar styles */
     scrollbar-width: thin;
-    scrollbar-color: gray #111;
+    scrollbar-color: gray $sidebar-clr;
   }
 }
 
