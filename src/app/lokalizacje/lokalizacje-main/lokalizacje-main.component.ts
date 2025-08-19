@@ -42,7 +42,8 @@ export class LokalizacjeMainComponent {
     this.rightComp = event;
   }
   changedId(event: any) {
-    this.selectedId = event;
+  console.log('main changedId received:', event);
+  this.selectedId = event;
     // If event.type is 'project', show project view
     if (event && event.location === undefined) {
       this.showProject = true;

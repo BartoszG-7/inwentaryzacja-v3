@@ -41,18 +41,18 @@ export class LokalizacjeRightCompComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.selectedId() !== undefined) {
-      if (this.selectedId().location !== undefined) {
-        this.projects = [];
-        this.name = this.selectedId().location.name;
-        this.locationId = this.selectedId().location._id;
+    console.log('selectedId:', this.selectedId());
+    if (this.selectedId() !== undefined && this.selectedId().location !== undefined) {
+      this.projects = [];
+      this.name = this.selectedId().location.name;
+      this.locationId = this.selectedId().location._id;
+      this.location = this.selectedId().location;
+      if (Array.isArray(this.selectedId().projects)) {
         this.selectedId().projects.forEach((project: any) => {
           this.projects.push(project);
         });
-
-        this.location = this.selectedId().location;
-        console.log(this.selectedId().location);
       }
+      this.changeDetectorRef.detectChanges();
     }
   }
 }
