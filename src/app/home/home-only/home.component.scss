@@ -10,13 +10,14 @@ html, body {
   margin: 0 auto;
   padding: 2rem 1rem;
   box-sizing: border-box;
-  min-height: calc(100vh - 64px);
+  height: calc(100vh - 64px);
   background: $dark-bg;
 }
 
 /* center contents of each column and allow inner components to size themselves */
 .cont .row {
   align-items: stretch;
+  height: 100%;
 }
 
 .cont .col-12.col-md-4,
@@ -24,6 +25,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 
 /* parent padding and gap for child cards */
