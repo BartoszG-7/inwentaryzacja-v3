@@ -12,7 +12,12 @@
         <i class="bi bi-list"></i>
       </div>
       <ng-container *ngIf="showBackArrow">
-        <button type="button" class="back-arrow-btn" (click)="goToInwentaryzacja()" aria-label="Powrót do inwentaryzacji">
+        <button
+          type="button"
+          class="back-arrow-btn"
+          (click)="goToInwentaryzacja()"
+          aria-label="Powrót do inwentaryzacji"
+        >
           <i class="bi bi-arrow-left"></i>
         </button>
       </ng-container>
@@ -67,7 +72,7 @@
         Inwentaryzacja
       </li>
       <li
-        routerLink="/magazyn"
+        routerLink="/magazyn/{}"
         (click)="toggleLeftMenu()"
         [class.active]="isActive('/magazyn')"
       >
