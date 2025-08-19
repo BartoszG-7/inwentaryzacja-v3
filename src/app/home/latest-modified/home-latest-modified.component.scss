@@ -1,11 +1,16 @@
 @import 'global.scss';
 
+
 .project-card {
-      min-height: 70px;
-      max-width: 500px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      margin-left: 0;
-      margin-right: 0;
-      text-align: center;
-    }
+  min-height: 70px;
+  max-width: 420px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin: 0; /* spacing handled by parent padding/gap */
+  text-align: center;
+}
+
+.project-card .card-body {
+  padding: 1rem;
+}
