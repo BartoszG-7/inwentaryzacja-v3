@@ -1,10 +1,11 @@
+@import 'global.scss';
+
 .container {
   width: 100%;
   max-width: none;
   margin: 0;
   background: #000;
-  border: 2px solid #888;
-  border-radius: 8px;
+  border-top: 1.5px solid $border-clr;
   padding: 12px;
   color: #fff;
   font-family: 'Segoe UI', Arial, sans-serif;
