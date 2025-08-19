@@ -1,3 +1,5 @@
+@import "global.scss";
+
 // Sticky block for header and search bar
 .sidebar-sticky-top-block {
   position: sticky;
@@ -17,7 +19,6 @@
   display: none;
   height: 4px;
   width: 100%;
-  background: linear-gradient(90deg, #1e9497 0%, #111 100%);
   background-color: #1e9497;
   margin: 0.3em 0 0.7em 0;
   border-radius: 2px;
@@ -37,8 +38,6 @@
     display: none !important;
   }
 }
-
-@import "global.scss";
 
 // --- Sidebar Header and Underline ---
 .sidebar-static-header,
