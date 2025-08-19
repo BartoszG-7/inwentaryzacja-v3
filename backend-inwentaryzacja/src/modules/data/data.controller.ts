@@ -52,4 +52,8 @@ export class DataController {
   async unassignDevice(@Body() data: any) {
     return await this.dataService.unassignDevice(data);
   }
+  @Get('global-search/:query')
+  async globalSearch(@Param('query') query: string) {
+    return await this.dataService.globalSearch(query);
+  }
 }
