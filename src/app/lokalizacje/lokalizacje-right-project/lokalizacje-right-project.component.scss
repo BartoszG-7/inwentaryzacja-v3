@@ -24,12 +24,20 @@
   //border: 2px solid #888;
 }
 .right-project-table thead th {
-  border: 2px #888 solid !important;
+  border-top: 2px #888 solid !important;
+  border-bottom: 2px #888 solid !important;
+
   position: sticky;
   top: 0;
   z-index: 3;
   background: #111;
 }
+  // .right-project-table thead th:first-child {
+  //   border-left: 2px #888 solid !important;
+  // }
+  // .right-project-table thead th:last-child {
+  //   border-right: 2px #888 solid !important;
+  // }
 .stickyhead {
   position: sticky;
   top: 0;
