@@ -1,7 +1,56 @@
-@import 'global';
-// Vertical divider between columns
+@import 'global.scss';
+
+/* prevent horizontal overflow globally for this page */
+html, body {
+  overflow-x: hidden;
+}
+
+.cont {
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  height: calc(100vh - 64px);
+  background: $dark-bg;
+}
+
+/* center contents of each column and allow inner components to size themselves */
+.cont .row {
+  align-items: stretch;
+  height: 100%;
+}
+
+.cont .col-12.col-md-4,
+.cont .col-12.col-md-7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+/* parent padding and gap for child cards */
+.cont .col-12.col-md-4 > app-home-latest-modified,
+.cont .col-12.col-md-7 > app-home-stock-view {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
 .vertical-divider {
   width: 2px;
-  background: #e0e0e0;
+  background: $border-clr;
   height: 100%;
+}
+
+.cont h4 {
+  color: $title-txt;
+  align-self: flex-start;
+  margin-left: 0.5rem;
+}
+
+/* ensure child components expand to available width inside their column */
+.cont .col-12.col-md-4 > app-home-latest-modified,
+.cont .col-12.col-md-7 > app-home-stock-view {
+  width: 100%;
 }
