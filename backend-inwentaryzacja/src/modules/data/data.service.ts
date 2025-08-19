@@ -14,6 +14,11 @@ export enum projectHistoryEvents {
   DEVICE_ADDED_TO_PROJECT = 2,
   DEVICE_REMOVED_FROM_PROJECT = 3,
 }
+export enum searchModerators {
+  FIRST_COLUMN = '!',
+  SECOND_COLUMN = '@',
+  THIRD_COLUMN = '$',
+}
 @Injectable()
 export class DataService {
   constructor(
@@ -108,6 +113,24 @@ export class DataService {
         { project: data.projectId },
       ),
     };
+  }
+  async globalSearch(data: string) {
+    console.log(data);
+    if (data[0] === searchModerators.FIRST_COLUMN) {
+      return await this.deviceModel
+        .find({ wamaNr: { $regex: data.slice(1), $options: 'i' } })
+        .exec();
+    }
+    if (data[0] === searchModerators.SECOND_COLUMN) {
+      return await this.deviceModel
+        .find({ serialNr: { $regex: data.slice(1), $options: 'i' } })
+        .exec();
+    }
+    if (data[0] === searchModerators.THIRD_COLUMN) {
+      return await this.deviceModel
+        .find({ macAddr: { $regex: data.slice(1), $options: 'i' } })
+        .exec();
+    }
   }
   async unassignMany(data: any): Promise<any> {
     data = JSON.parse(data);
