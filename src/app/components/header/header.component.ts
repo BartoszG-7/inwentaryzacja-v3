@@ -6,14 +6,21 @@ import { CookieService } from 'ngx-cookie-service';
 import { Treebar } from '../../treebar/treebar';
 import { PlusModalComponent } from '../../components/plus-modal/plus-modal.component';
 import { PlusModalLokalComponent } from '../../components/plus-modal-lokal/plus-modal-lokal.component';
-import { SearchBarMobileComponent } from "../search-bar-mobile/search-bar-mobile.component";
+import { SearchBarMobileComponent } from '../search-bar-mobile/search-bar-mobile.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, Treebar, PlusModalComponent, PlusModalLokalComponent, SearchBarMobileComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    Treebar,
+    PlusModalComponent,
+    PlusModalLokalComponent,
+    SearchBarMobileComponent,
+  ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   showBackArrow = false;
@@ -58,8 +65,12 @@ export class HeaderComponent {
     return this.cookieService.check('secret');
   }
 
-  constructor(private router: Router, private cookieService: CookieService, private arrowService: HeaderArrowService) {
-    this.arrowService.showArrow$.subscribe(show => {
+  constructor(
+    private router: Router,
+    private cookieService: CookieService,
+    private arrowService: HeaderArrowService
+  ) {
+    this.arrowService.showArrow$.subscribe((show) => {
       this.showBackArrow = show;
     });
     this.selectedRoute = this.router.url;
@@ -78,7 +89,9 @@ export class HeaderComponent {
   }
 
   goToInwentaryzacja() {
-    window.location.reload();
+    this.router.navigate(['/inwentaryzacja/{}']).then(() => {
+      window.location.reload();
+    });
   }
 
   updateMenus() {
@@ -119,7 +132,9 @@ export class HeaderComponent {
     }
     // If closing, ensure state is synced
     if (!this.rightMenuOpen) {
-      setTimeout(() => { this.rightMenuOpen = false; }, 0);
+      setTimeout(() => {
+        this.rightMenuOpen = false;
+      }, 0);
     }
   }
 
