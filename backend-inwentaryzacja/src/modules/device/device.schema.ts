@@ -24,6 +24,8 @@ export class Device {
   @Prop() remoteAccessId: string;
 
   @Prop({ type: SchemaTypes.ObjectId, ref: 'Project' }) project: Types.ObjectId;
+
+  @Prop() wamaNr: string;
 }
 
 export const DeviceSchema = SchemaFactory.createForClass(Device);

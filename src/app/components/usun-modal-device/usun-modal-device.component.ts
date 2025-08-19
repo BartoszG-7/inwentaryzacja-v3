@@ -16,6 +16,7 @@ export class UsunModalDeviceComponent {
   refresh = output<boolean>();
   refreshState: boolean = true;
   markedDelete = input<Array<string>>();
+  projectId = input<string>();
   openModal() {
     this.showModal = true;
   }
@@ -26,17 +27,21 @@ export class UsunModalDeviceComponent {
 
   confirmDelete() {
     // Add your delete logic here
-
-    this.usunModalDeviceService.unassign(this.markedDelete()).subscribe({
-      next: (e) => {
-        console.log(e);
-        this.refresh.emit(this.refreshState);
-        this.refreshState = !this.refreshState;
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
+    console.log(
+      JSON.stringify({ ids: this.markedDelete(), projectId: this.projectId() })
+    );
+    this.usunModalDeviceService
+      .unassign(this.markedDelete(), this.projectId())
+      .subscribe({
+        next: (e) => {
+          console.log(e);
+          this.refresh.emit(this.refreshState);
+          this.refreshState = !this.refreshState;
+        },
+        error(err) {
+          console.log(err);
+        },
+      });
     this.showModal = false;
   }
 }

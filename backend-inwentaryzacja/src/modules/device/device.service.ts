@@ -25,11 +25,7 @@ export class DeviceService {
     await this.deviceModel.deleteOne({ _id: id }).exec();
     return 'OK';
   }
-  async unassign(ids: any): Promise<any> {
-    return await this.deviceModel
-      .updateMany({ _id: { $in: ids.split(',') } }, { $unset: { project: '' } })
-      .exec();
-  }
+
   async update(id: string, body: UpdateDeviceDto): Promise<string> {
     await this.deviceModel.updateOne({ _id: id }, body).exec();
     return 'OK';
