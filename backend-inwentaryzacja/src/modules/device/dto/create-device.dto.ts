@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsString, IsOptional } from 'class-validator';
+import { IsString, IsOptional, IsIP } from 'class-validator';
 import { SchemaTypes, Types } from 'mongoose';
 
 export class CreateDeviceDto {
@@ -38,4 +38,29 @@ export class CreateDeviceDto {
 
   @IsString()
   wamaNr: string;
+
+  @IsString()
+  @IsOptional()
+  @IsIP()
+  dns1?: string;
+
+  @IsString()
+  @IsOptional()
+  @IsIP()
+  dns2?: string;
+
+  @IsString()
+  @IsOptional()
+  @IsIP()
+  networkAddress?: string;
+
+  @IsString()
+  @IsOptional()
+  @IsIP()
+  mask?: string;
+
+  @IsString()
+  @IsOptional()
+  @IsIP()
+  gateway?: string;
 }

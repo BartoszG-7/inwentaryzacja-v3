@@ -26,6 +26,15 @@ export class Device {
   @Prop({ type: SchemaTypes.ObjectId, ref: 'Project' }) project: Types.ObjectId;
 
   @Prop() wamaNr: string;
-}
 
+  @Prop() dns1: string;
+
+  @Prop() dns2: string;
+
+  @Prop() networkAddress: string;
+
+  @Prop() mask: string;
+
+  @Prop() gateway: string;
+}
 export const DeviceSchema = SchemaFactory.createForClass(Device);
