@@ -30,10 +30,7 @@ export class DeviceController {
   async getFind(@Param('query') query: string) {
     return await this.deviceService.find(query);
   }
-  @Get('unassign/:ids')
-  async unassign(@Param('ids') ids: any) {
-    return await this.deviceService.unassign(ids);
-  }
+
   @Delete(':id')
   async getDelete(@Param('id') id: string) {
     return await this.deviceService.delete(id);

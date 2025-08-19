@@ -3,36 +3,39 @@ import { IsString, IsOptional } from 'class-validator';
 import { SchemaTypes, Types } from 'mongoose';
 
 export class CreateDeviceDto {
-    @IsString()
-    ip: string;
+  @IsString()
+  ip: string;
 
-    @IsString()
-    deviceType: string; // DeviceType ObjectId
+  @IsString()
+  deviceType: string; // DeviceType ObjectId
 
-    @IsString()
-    tag: string;
+  @IsString()
+  tag: string;
 
-    @IsString()
-    macAddr: string;
+  @IsString()
+  macAddr: string;
 
-    @IsString()
-    serialNr: string;
+  @IsString()
+  serialNr: string;
 
-    @IsString()
-    serverAddress: string;
+  @IsString()
+  serverAddress: string;
 
-    @IsOptional()
-    @IsString()
-    note?: string;
+  @IsOptional()
+  @IsString()
+  note?: string;
 
-    @IsOptional()
-    @IsString()
-    pinIfButton?: string;
+  @IsOptional()
+  @IsString()
+  pinIfButton?: string;
 
-    @IsString()
-    remoteAccessId: string;
+  @IsString()
+  remoteAccessId: string;
 
-    @IsOptional()
-    @Type(() => SchemaTypes.ObjectId)
-    project: Types.ObjectId;
+  @IsOptional()
+  @Type(() => SchemaTypes.ObjectId)
+  project: Types.ObjectId;
+
+  @IsString()
+  wamaNr: string;
 }

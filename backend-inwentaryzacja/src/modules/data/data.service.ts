@@ -109,6 +109,22 @@ export class DataService {
       ),
     };
   }
+  async unassignMany(data: any): Promise<any> {
+    data = JSON.parse(data);
+    console.log(data);
+    data.ids.forEach((id) => {
+      this.ProjectHistoryModel.create({
+        type: projectHistoryEvents.DEVICE_REMOVED_FROM_PROJECT,
+        date: new Date().toISOString(),
+        tag: '',
+        deviceId: id,
+        project: data.projectId,
+      });
+    });
+    return await this.deviceModel
+      .updateMany({ _id: { $in: data.ids } }, { $unset: { project: '' } })
+      .exec();
+  }
   async assignCreateDevice(data: any): Promise<any> {
     let device = await this.deviceModel.create(data);
     return {

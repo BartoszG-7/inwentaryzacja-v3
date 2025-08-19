@@ -14,6 +14,7 @@
       ></app-dodaj-modal-device>
       <app-usun-modal-device
         (refresh)="onRefresh($event)"
+        [projectId]="selectedId()"
         [markedDelete]="markedDelete"
       ></app-usun-modal-device>
     </div>
@@ -22,6 +23,20 @@
     <table
       class="table table-dark table-bordered table-hover align-middle mb-0 right-project-table stickyhead"
     >
+      <colgroup>
+        <col id="checkbox" />
+        <col id="snWama" />
+        <col id="snProd" />
+        <col id="mac" />
+        <col id="ip" />
+        <col id="gateway" />
+        <col id="mask" />
+        <col id="anydesk" />
+        <col id="dns1" />
+        <col id="dns2" />
+        <col id="server" />
+        <col id="edit" />
+      </colgroup>
       <thead>
         <tr>
           <th style="width: 32px"></th>
@@ -38,7 +53,24 @@
           <th style="width: 90px"></th>
         </tr>
       </thead>
-
+    </table>
+    <table
+      class="table table-dark table-bordered table-hover align-middle mb-0 right-project-table"
+    >
+      <colgroup>
+        <col id="checkbox" />
+        <col id="snWama" />
+        <col id="snProd" />
+        <col id="mac" />
+        <col id="ip" />
+        <col id="gateway" />
+        <col id="mask" />
+        <col id="anydesk" />
+        <col id="dns1" />
+        <col id="dns2" />
+        <col id="server" />
+        <col id="edit" />
+      </colgroup>
       <tbody>
         <tr class="group-gap-row">
           <td colspan="12"></td>
@@ -60,18 +92,36 @@
                 (change)="checkboxChanged($event)"
               />
             </td>
-            <td (dblclick)="copyCell(row.snWamasoft)">{{ row.snWamasoft }}</td>
+            <td (dblclick)="copyCell(row.snWamasoft)">
+              {{ row.snWamasoft }}
+            </td>
             <td (dblclick)="copyCell(row.snProducenta)">
               {{ row.snProducenta }}
             </td>
-            <td (dblclick)="copyCell(row.mac)">{{ row.mac }}</td>
-            <td (dblclick)="copyCell(row.ip)">{{ row.ip }}</td>
-            <td (dblclick)="copyCell(row.brama)">{{ row.brama }}</td>
-            <td (dblclick)="copyCell(row.maska)">{{ row.maska }}</td>
-            <td (dblclick)="copyCell(row.anydesk)">{{ row.anydesk }}</td>
-            <td (dblclick)="copyCell(row.dns1)">{{ row.dns1 }}</td>
-            <td (dblclick)="copyCell(row.dns2)">{{ row.dns2 }}</td>
-            <td (dblclick)="copyCell(row.serwer)">{{ row.serwer }}</td>
+            <td (dblclick)="copyCell(row.mac)">
+              {{ row.mac }}
+            </td>
+            <td (dblclick)="copyCell(row.ip)">
+              {{ row.ip }}
+            </td>
+            <td (dblclick)="copyCell(row.brama)">
+              {{ row.brama }}
+            </td>
+            <td (dblclick)="copyCell(row.maska)">
+              {{ row.maska }}
+            </td>
+            <td (dblclick)="copyCell(row.anydesk)">
+              {{ row.anydesk }}
+            </td>
+            <td (dblclick)="copyCell(row.dns1)">
+              {{ row.dns1 }}
+            </td>
+            <td (dblclick)="copyCell(row.dns2)">
+              {{ row.dns2 }}
+            </td>
+            <td (dblclick)="copyCell(row.serwer)">
+              {{ row.serwer }}
+            </td>
             <td class="text-end">
               <button class="header-btn btn-edit-row">
                 <i class="bi bi-pencil"></i> Edytuj
