@@ -124,6 +124,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between; /* anchor label top and value bottom */
   box-shadow: 0 2px 8px rgba(0,0,0,0.13);
   color: #eaeaea;
   border: 1.5px solid #35363a;
@@ -154,7 +155,7 @@
   flex-direction: column;
   gap: 0.4rem;
   color: #eaeaea;
-  border: 1.5px solid #35363a;
+  border: 1.5px solid $border-clr;
 }
 .magazyn-main-tags:hover {
   border: 1.5px solid $primary-color;
