@@ -13,12 +13,12 @@
   justify-content: center;
   align-items: center;
 }
-// Mobile-only separator under Lokalizacje header
-// Mobile-only separator under Lokalizacje header
+// Mobile-only separator under Lokalizacje header (match magazyn)
 .sidebar-mobile-separator {
   display: none;
   height: 4px;
   width: 100%;
+  background: linear-gradient(90deg, #1e9497 0%, #111 100%);
   background-color: #1e9497;
   margin: 0.3em 0 0.7em 0;
   border-radius: 2px;
@@ -32,7 +32,9 @@
 
 @media (max-width: 900px) {
   .sidebar-mobile-separator {
-    display: block;
+    display: block !important;
+    position: relative;
+    z-index: 40; /* ensure it's above header overlays */
   }
   .sidebar-static-header::after {
     display: none !important;
@@ -52,6 +54,8 @@
   height: 2.5px;
   margin: 0.3em 0 0.7em 0;
   border-radius: 2px;
+  /* match Magazyn separator so Lokalizacje shows the same desktop underline */
+  background: linear-gradient(90deg, #888 0%);
   box-shadow: 0 4px 32px rgba(0,0,0,0.22);
 }
 
@@ -65,7 +69,7 @@
   top: 64px;
   left: 0;
   background: $sidebar-clr;
-  color: #fff;
+  color: $title-txt;
   box-shadow: 0 4px 32px rgba(0,0,0,0.22);
   border-right: 1.5px solid $border-clr;
   z-index: 10;
@@ -80,7 +84,7 @@
 .close-btn {
   background: none;
   border: none;
-  color: #fff;
+  color: $title-txt;
   font-size: 2em;
   cursor: pointer;
   transition: color 0.2s;
@@ -117,7 +121,7 @@
   top: 64px;
   left: 0;
   background: $sidebar-clr;
-  color: #fff;
+  color: $title-txt;
   box-shadow: 0 4px 32px rgba(0,0,0,0.22);
   z-index: 10;
   display: block;
@@ -130,7 +134,7 @@
 }
 
 .sidebar-static-title {
-  color: #fff;
+  color: $title-txt;
   margin: 0;
   font-size: 1.4em;
   font-weight: 600;
@@ -161,7 +165,7 @@
 }
 
 .sidebar-tree-title {
-  color: #fff;
+  color: $title-txt;
   margin: 0;
   font-size: 2em;
   font-weight: 600;
@@ -203,7 +207,7 @@ ul li:hover .bi-dot {
 .tree-arrow {
   display: inline-block;
   margin-right: 0.4em;
-  color: #fff;
+  color: $title-txt;
   font-size: 1em;
   opacity: 0.7;
   vertical-align: middle;
@@ -228,7 +232,7 @@ ul li:hover .bi-dot {
   width: 250px;
   height: 100vh;
   background: $sidebar-clr;
-  color: #fff;
+  color: $title-txt;
   box-shadow: 0 4px 32px rgba(0,0,0,0.22);
   z-index: 20;
   overflow-y: auto;

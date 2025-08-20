@@ -4,10 +4,10 @@
   width: 100%;
   max-width: none;
   margin: 0;
-  background: #000;
+  background: $dark-bg;
   border-top: 1.5px solid $border-clr;
   padding: 12px;
-  color: #fff;
+  color: $title-txt;
   font-family: 'Segoe UI', Arial, sans-serif;
   box-sizing: border-box;
   min-height: calc(100vh - 64px);
@@ -36,9 +36,9 @@
 }
 
 .header-btn {
-  background: transparent;
-  color: #fff;
-  border: 1px solid #aaa;
+  background: $panel-bg;
+  color: $title-txt;
+  border: 1.5px solid $border-clr;
   border-radius: 4px;
   padding: 4px 12px;
   font-size: 1rem;
@@ -46,7 +46,7 @@
   transition: background 0.15s, color 0.15s;
 }
 .header-btn:hover {
-  background: #000;
+  background: $secondary-panel-clr;
   color: #1e9497;
   border-color: #1e9497;
 }
@@ -59,9 +59,10 @@
 
 .adres-box, .notatki-box {
   flex: 1 1 0;
-  background: #111;
-  border: 2px solid #888;
-  border-radius: 24px;
+  background: $panel-bg;
+  color: $light-txt;
+  border: 1.5px solid $border-clr;
+  border-radius: 8px;
   min-height: 180px;
   display: flex;
   align-items: center;
@@ -78,18 +79,18 @@
 }
 
 .projekt-row {
-  background: #111;
-  border: 2px solid #888;
-  border-radius: 12px;
+  background: $panel-bg;
+  border: 1.5px solid $border-clr;
+  border-radius: 8px;
   padding: 12px 18px;
   font-size: 1.1rem;
   font-weight: 400;
   margin-bottom: 0;
-  color: #fff;
+  color: $muted-txt;
   transition: background 0.15s, border 0.15s;
 }
 .projekt-row:hover {
-  background: #000;
+  background: $secondary-panel-clr;
   border-color: #1e9497;
   color: #1e9497;
 }

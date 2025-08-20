@@ -1,4 +1,4 @@
-<header>
+<header [attr.data-has-right]="showRightMenu">
   <div class="header-flex">
     <!-- Mobile: Hamburger menu icon (left) and back arrow -->
     @if (showLeftMenu && !isLoginPage) {
@@ -31,7 +31,9 @@
     <div class="header-links"></div>
     <!-- Desktop: Logout button (top right) -->
     @if (!isLoginPage) {
-  <app-global-search-modal></app-global-search-modal>
+  <span class="header-search-wrap" [attr.data-has-right]="showRightMenu" [attr.data-route]="selectedRoute">
+    <app-global-search-modal></app-global-search-modal>
+  </span>
   <button
       class="logout-btn"
       (click)="loginHandler()"

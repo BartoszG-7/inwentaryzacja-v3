@@ -103,17 +103,18 @@
 
 .header-btn {
 	background: transparent;
-	color: #fff;
-	border: 1px solid #aaa;
+    color: $title-txt;
+	background-color: $panel-bg;
+	border: 1.5px solid $border-clr;
 	border-radius: 4px;
 	padding: 4px 12px;
 	font-size: 1rem;
 	cursor: pointer;
 	transition: background 0.15s, color 0.15s;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.22);
 }
 
 .header-btn:hover {
-	background: #000;
 	color: #1e9497;
 	border-color: #1e9497;
 }
