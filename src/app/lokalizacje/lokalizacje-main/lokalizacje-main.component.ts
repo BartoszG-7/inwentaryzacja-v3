@@ -45,10 +45,12 @@ export class LokalizacjeMainComponent implements OnInit {
           // this.changedId(e.projectId);
           this.selectedId = e.projectId;
           this.showProject = true;
+          this.arrowService.setShowArrow(true);
         } else {
           if (!this.showProject) {
             this.selectedId = e;
           } else {
+            this.arrowService.setShowArrow(false);
             this.selectedId = '';
             this.router
               .navigate([
