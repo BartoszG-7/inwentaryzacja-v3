@@ -3,13 +3,18 @@
     <app-magazyn-sidebar></app-magazyn-sidebar>
   </div>
   <div class="right-component">
-    @if(id==="") {
-    <app-magazyn-right-comp
-      [idDummy]="id"
-      (idOut)="deviceList($event)"
-    ></app-magazyn-right-comp>
-    } @else{
-    <p>dvsfdverbrtgeracwaecw{{ id }}</p>
+    @if(!secondView) {
+      @if(id==="") {
+        <app-magazyn-right-comp
+          [idDummy]="id"
+          (idOut)="deviceList($event)"
+          (showSecond)="showSecondPanel()"
+        ></app-magazyn-right-comp>
+      } @else {
+        <p>dvsfdverbrtgeracwaecw{{ id }}</p>
+      }
+    } @else {
+      <app-magazyn-right-second />
     }
   </div>
 </div>
