@@ -7,39 +7,37 @@ import { UpdateLocationDto } from './dto/update-location.dto';
 
 @Injectable()
 export class LocationService {
-    constructor(@InjectModel(Location.name) private locationModel: Model<Location>) { }
+  constructor(
+    @InjectModel(Location.name) private locationModel: Model<Location>,
+  ) {}
 
+  async create(body: CreateLocationDto): Promise<Location> {
+    const createdLocation = new this.locationModel(body);
+    return createdLocation.save();
+  }
 
-    async create(body: CreateLocationDto): Promise<Location> {
-        const createdLocation = new this.locationModel(body);
-        return createdLocation.save();
+  async find(query: string): Promise<Location[]> {
+    if (query === 'treebar') {
+      return this.locationModel.find().select('name').exec();
+    } else {
+      return this.locationModel.find(JSON.parse(query)).exec();
+    }
+  }
+  async delete(id: string): Promise<string> {
+    await this.locationModel.deleteOne({ _id: id }).exec();
+    return 'OK';
+  }
 
-    }
+  async update(id: string, body: UpdateLocationDto): Promise<any> {
+    return await this.locationModel.updateOne({ _id: id }, body).exec();
+  }
+  async deleteMany(filter: any): Promise<string> {
+    await this.locationModel.deleteMany(filter).exec();
+    return 'OK';
+  }
 
-    async find(query: string): Promise<Location[]> {
-        if (query === "treebar") {
-            return this.locationModel.find().select("name").exec();
-        } else {
-        return this.locationModel.find(JSON.parse(query)).exec();
-        }
-    }
-    async delete(id: string): Promise<string> {
-        await this.locationModel.deleteOne({ _id: id }).exec();
-        return "OK";
-    }
-
-    async update(id: string, body: UpdateLocationDto): Promise<string> {
-        await this.locationModel.updateOne({ _id: id }, body).exec();
-        return "OK";
-    }
-    async deleteMany(filter: any): Promise<string> {
-        await this.locationModel.deleteMany(filter).exec();
-        return "OK";
-    }
-
-    async updateMany(filter: any, body: UpdateLocationDto): Promise<string> {
-        await this.locationModel.updateMany(filter, body).exec();
-        return "OK";
-    }
+  async updateMany(filter: any, body: UpdateLocationDto): Promise<string> {
+    await this.locationModel.updateMany(filter, body).exec();
+    return 'OK';
+  }
 }
-
