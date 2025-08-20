@@ -97,7 +97,7 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
               grouped.devices.forEach((device) => {
                 this.groupedRows[this.groupedRows.length - 1].rows.push({
                   id: device._id,
-                  snWamasoft: 'PLACEHOLDER',
+                  snWamasoft: device.wamaNr,
                   snProducenta: device.serialNr,
                   mac: device.macAddr,
                   ip: device.ip,

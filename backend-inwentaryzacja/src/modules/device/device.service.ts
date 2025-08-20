@@ -39,4 +39,14 @@ export class DeviceService {
     await this.deviceModel.updateMany(filter, body).exec();
     return 'OK';
   }
+  async searchProject(data: any) {
+    return await this.deviceModel
+      .find({
+        $and: [
+          { project: data.projectId },
+          { [data.param]: { $regex: data.query, $options: 'i' } },
+        ],
+      })
+      .exec();
+  }
 }
