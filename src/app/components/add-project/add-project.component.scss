@@ -1,3 +1,5 @@
+@import 'global.scss';
+
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -97,17 +99,19 @@
 
 .header-btn {
   background: transparent;
-  color: #fff;
-  border: 1px solid #aaa;
+  background-color: $panel-bg;
+  color: $title-txt;
+  border: 1.5px solid $border-clr;
   border-radius: 4px;
   padding: 4px 12px;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
   margin-right: 0.5rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
 }
 .header-btn:hover {
-  background: #000;
+  background: $panel-bg;
   color: #1e9497;
   border-color: #1e9497;
 }

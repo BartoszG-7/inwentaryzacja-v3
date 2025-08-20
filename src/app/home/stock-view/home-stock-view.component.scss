@@ -12,6 +12,7 @@
 }
 .stock-card:hover {
   border-color:  $primary-color;
+  background-color: $secondary-panel-clr;
 }
 
 /* Ensure the inner body is a flex container so name stays left and badge right */
