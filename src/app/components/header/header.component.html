@@ -31,7 +31,8 @@
     <div class="header-links"></div>
     <!-- Desktop: Logout button (top right) -->
     @if (!isLoginPage) {
-    <button
+  <app-global-search-modal></app-global-search-modal>
+  <button
       class="logout-btn"
       (click)="loginHandler()"
       title="Logout"

@@ -7,6 +7,7 @@ import { Treebar } from '../../treebar/treebar';
 import { PlusModalComponent } from '../../components/plus-modal/plus-modal.component';
 import { PlusModalLokalComponent } from '../../components/plus-modal-lokal/plus-modal-lokal.component';
 import { SearchBarMobileComponent } from '../search-bar-mobile/search-bar-mobile.component';
+import { GlobalSearchModalComponent } from '../../components/global-search-modal/global-search-modal.component';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,8 @@ import { SearchBarMobileComponent } from '../search-bar-mobile/search-bar-mobile
     Treebar,
     PlusModalComponent,
     PlusModalLokalComponent,
-    SearchBarMobileComponent,
+  SearchBarMobileComponent,
+  GlobalSearchModalComponent,
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
