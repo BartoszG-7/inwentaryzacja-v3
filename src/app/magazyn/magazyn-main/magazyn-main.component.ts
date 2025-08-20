@@ -11,6 +11,7 @@ import { MagazynRightCompComponent } from '../magazyn-right-comp/magazyn-right.c
 import { MagazynRightSecond } from '../magazyn-right-second/magazyn-right-second.component';
 import { MagazynSidebarComponent } from '../magazyn-sidebar/magazyn-sidebar.component';
 import { TreebarSharedService } from '../../home/treebar.share.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-magazyn-main',
@@ -22,7 +23,7 @@ import { TreebarSharedService } from '../../home/treebar.share.service';
 export class MagazynMainComponent implements OnInit, OnChanges {
   constructor(
     private treebarSharedService: TreebarSharedService,
-    private detector: ChangeDetectorRef
+    private router: Router
   ) {}
   id: any = '';
   arr: any = [];
@@ -31,27 +32,27 @@ export class MagazynMainComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log('MAGAZYN MAIN CHANGES');
   }
-  ngOnInit(id: any = this.id, detector = this.detector, arr = this.arr): void {
-    this.treebarSharedService.getData().subscribe({
-      next(value) {
-        console.log(value);
-        id = '';
-        console.log(id === '');
-        let a = 'a';
-        a = 'b';
-        arr.push('s');
-        console.log('SHOULD DETECT CHANGES');
-        detector.detach();
-        detector.detectChanges();
-        detector.reattach();
 
-        a = 'a';
+  ngOnInit(router = this.router): void {
+    this.treebarSharedService.getData().subscribe({
+      next: (value) => {
+        console.log(this.id);
+        if (this.id !== '') {
+          router
+            .navigate([
+              '/magazyn/' + JSON.stringify({ type: 'location', id: value.id }),
+            ])
+            .then(() => {
+              window.location.reload();
+            });
+        }
       },
     });
   }
   deviceList(id: any) {
     console.log(id);
     this.id = id;
+    console.log(this.id);
   }
   showSecondPanel() {
     this.secondView = true;
