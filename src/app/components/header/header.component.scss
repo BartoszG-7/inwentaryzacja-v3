@@ -14,7 +14,7 @@
   font-size: 1.5rem;
   border-radius: 8px;
   background: transparent;
-  color: #fff;
+  color: $title-txt;
   outline: none;
   cursor: pointer;
   border: none;
@@ -266,7 +266,7 @@ header {
   align-items: center;
   justify-content: center;
   background: transparent;
-  color: $light-color;
+  color: $title-txt;
   border: 2px solid transparent;
   border-radius: 6px;
   font-weight: bold;
@@ -283,7 +283,7 @@ header {
 
 .kit-box:hover,
 .kit-box:focus {
-  color: $primary-color;
+  color: $primary-color !important;
   border-color: $primary-color;
   background: transparent;
 }
@@ -291,6 +291,7 @@ header {
 .kit-box.center {
   margin: 0 auto;
   position: relative;
+  color: $title-txt;
   left: 0;
   right: 0;
   pointer-events: auto; /* make sure KIT link remains interactive */
@@ -488,7 +489,7 @@ header {
   align-items: center;
   justify-content: center;
   border: 2px solid transparent;
-  color: $light-color;
+  color: $title-txt;
   background: transparent;
   font-weight: bold;
   text-decoration: none;
