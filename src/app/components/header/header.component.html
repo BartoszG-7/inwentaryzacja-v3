@@ -99,7 +99,7 @@
   </nav>
   }
   <!-- Right sidebar (mobile only, slide in/out) -->
-  @if (showRightMenu && selectedRoute === '/magazyn') {
+  @if (showRightMenu && selectedRoute.includes('/magazyn/')) {
   <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
     <button
       class="close-btn sidebar-close-absolute"
@@ -131,7 +131,7 @@
       </ul>
     </div>
   </nav>
-  } @if (showRightMenu && selectedRoute !== '/magazyn') {
+  } @if (showRightMenu && !selectedRoute.includes("/magazyn/")) {
   <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
     <button
       class="close-btn sidebar-close-absolute"
