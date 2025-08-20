@@ -10,9 +10,10 @@ import { LokalizacjeSidebarComponent } from '../lokalizacje-sidebar/lokalizacje-
 import { LokalizacjeRightCompComponent } from '../lokalizacje-right-comp/lokalizacje-right-comp.component';
 import { LokalizacjeRightProjectComponent } from '../lokalizacje-right-project/lokalizacje-right-project.component';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Treebar } from '../../treebar/treebar';
 import { HeaderArrowService } from '../../components/header/header-arrow.service';
+import { TreebarSharedService } from '../../home/treebar.share.service';
 
 @Component({
   selector: 'app-lokalizacje-main',
@@ -26,15 +27,43 @@ import { HeaderArrowService } from '../../components/header/header-arrow.service
   templateUrl: './lokalizacje-main.component.html',
   styleUrls: ['./lokalizacje-main.component.scss'],
 })
-export class LokalizacjeMainComponent {
+export class LokalizacjeMainComponent implements OnInit {
   selectedId: any;
   showProject: boolean = false;
   rightComp: any;
   refresh: any;
-  constructor(private arrowService: HeaderArrowService) {}
-
+  constructor(
+    private arrowService: HeaderArrowService,
+    private treebarSharedService: TreebarSharedService,
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+    this.treebarSharedService.getData().subscribe({
+      next: (e) => {
+        console.log(e);
+        if (e.type === 'project') {
+          // this.changedId(e.projectId);
+          this.selectedId = e.projectId;
+          this.showProject = true;
+        } else {
+          if (!this.showProject) {
+            this.selectedId = e;
+          } else {
+            this.selectedId = '';
+            this.router
+              .navigate([
+                '/inwentaryzacja/' +
+                  JSON.stringify({ type: 'location', id: e.location._id }),
+              ])
+              .then(() => {
+                window.location.reload();
+              });
+          }
+        }
+      },
+    });
+  }
   refreshTreebar(ref: any) {
-    
     this.refresh = ref;
   }
   refreshRightComp(event: any) {
@@ -42,8 +71,8 @@ export class LokalizacjeMainComponent {
     this.rightComp = event;
   }
   changedId(event: any) {
-  console.log('main changedId received:', event);
-  this.selectedId = event;
+    console.log('main changedId received:', event);
+    this.selectedId = event;
     // If event.type is 'project', show project view
     if (event && event.location === undefined) {
       this.showProject = true;

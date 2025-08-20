@@ -13,6 +13,7 @@ import { Treebar } from '../../treebar/treebar';
 import { Treeexpander } from '../../treeexpander/treeexpander';
 import { PlusModalLokalComponent } from '../../components/plus-modal-lokal/plus-modal-lokal.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lokalizacje-sidebar',
@@ -29,11 +30,14 @@ export class LokalizacjeSidebarComponent implements OnChanges {
 
   refresh = input<boolean>();
   @ViewChild('trbar') trbar: any;
-  constructor(private readonly locationService: LocationService) {}
+  constructor(
+    private readonly locationService: LocationService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   changedId(event: any) {
-  console.log('sidebar changedId emitted:', event);
-  this.selectedId.emit(event);
+    console.log('sidebar changedId emitted:', event);
+    this.selectedId.emit(event);
   }
   onSearch(event: string): void {
     this.searchInput = event;
@@ -59,8 +63,16 @@ export class LokalizacjeSidebarComponent implements OnChanges {
             const first = tb.data[0];
             console.log('sidebar: treebar ready, selecting first', first);
             try {
-              // notify treebar which will parse data for right panel
-              tb.changeId({ type: 'location', id: first.id });
+              // notify treebar which will parse data for right pane
+              this.activatedRoute.params.subscribe({
+                next: (e) => {
+                  console.log('SIDEBAR URL PARAM DATA', e['data']);
+                  if (e['data'] === '{}') {
+                    tb.changeId({ type: 'location', id: first.id });
+                  }
+                },
+              });
+              //
             } catch (err) {
               console.error('sidebar: error calling trbar.changeId', err);
             }
@@ -88,7 +100,10 @@ export class LokalizacjeSidebarComponent implements OnChanges {
                   // continue on error for individual instances
                 }
               });
-              console.log('sidebar: set Treeexpander.selectedLocationId and updated instances for', first.id);
+              console.log(
+                'sidebar: set Treeexpander.selectedLocationId and updated instances for',
+                first.id
+              );
             } catch (err) {
               console.error('sidebar: error setting Treeexpander state', err);
             }
@@ -96,7 +111,9 @@ export class LokalizacjeSidebarComponent implements OnChanges {
             return;
           }
           if (Date.now() - start > 3000) {
-            console.warn('sidebar: treebar not ready after 3s, aborting auto-select');
+            console.warn(
+              'sidebar: treebar not ready after 3s, aborting auto-select'
+            );
             clearInterval(poll);
           }
         }, 50);

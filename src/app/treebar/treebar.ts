@@ -40,18 +40,26 @@ export class Treebar implements OnInit, OnChanges {
   fetchedData: any;
   changeId(event: any): void {
     console.log(event);
-    this.treebarSharedService.setData(event);
+
     if (this.query() === 'http://localhost:3000/data/treebar') {
       if (event.type === 'location') {
+        console.log(event);
+
         this.currentId = event;
         this.selectedId.emit(
+          this.treebarService.parseDataForRightComp(this.fetchedData, event)
+        );
+        this.treebarSharedService.setData(
           this.treebarService.parseDataForRightComp(this.fetchedData, event)
         );
       }
 
       if (event.type === 'project') {
         this.selectedId.emit(event.projectId);
+        this.treebarSharedService.setData(event);
       }
+    } else {
+      this.treebarSharedService.setData(event);
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
