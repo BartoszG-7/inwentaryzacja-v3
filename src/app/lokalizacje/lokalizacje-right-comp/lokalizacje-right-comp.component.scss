@@ -59,13 +59,17 @@
 }
 
 .adres-box, .notatki-box {
-  /* wrapper only - inner .panel-col-inner provides the visual card (background, border, shadow)
-     to avoid layered/duplicated borders and backgrounds */
   flex: 1 1 0;
+  background: $panel-bg;
+  color: $light-txt;
+  border: 1.5px solid $border-clr;
+  border-radius: 8px;
   min-height: 180px;
   display: flex;
-  align-items: stretch;
-  justify-content: stretch;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 500;
   margin-bottom: 0;
 }
 
@@ -241,7 +245,10 @@
   border-color: $primary-color;
 }
 /* adres and notatki should show hover color but not be interactive */
-/* Hover visual is handled by .panel-col-inner:hover to keep behavior consistent */
+.adres-box:hover, .notatki-box:hover {
+  background: $secondary-panel-clr !important;
+  border-color: $primary-color;
+}
 
 .list-icon {
   font-size: 1.2rem;

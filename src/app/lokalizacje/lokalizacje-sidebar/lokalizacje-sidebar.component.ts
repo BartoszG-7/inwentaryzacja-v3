@@ -10,10 +10,8 @@ import {
 import { CommonModule } from '@angular/common';
 import { LocationService } from './lokalizacje-sidebar.service';
 import { Treebar } from '../../treebar/treebar';
-import { Treeexpander } from '../../treeexpander/treeexpander';
 import { PlusModalLokalComponent } from '../../components/plus-modal-lokal/plus-modal-lokal.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lokalizacje-sidebar',
@@ -30,13 +28,9 @@ export class LokalizacjeSidebarComponent implements OnChanges {
 
   refresh = input<boolean>();
   @ViewChild('trbar') trbar: any;
-  constructor(
-    private readonly locationService: LocationService,
-  private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private readonly locationService: LocationService) {}
 
   changedId(event: any) {
-    console.log('sidebar changedId emitted:', event);
     this.selectedId.emit(event);
   }
   onSearch(event: string): void {
@@ -52,79 +46,12 @@ export class LokalizacjeSidebarComponent implements OnChanges {
     }
   }
   ngOnInit(): void {
-  // initialization: fetch locations and auto-select first when treebar ready
-  this.locationService.getLocations().subscribe({
+    this.locationService.getLocations().subscribe({
       next: (data: any) => {
         this.locations = data;
-        // Auto-select the first location once the treebar has fetched its data.
-        const start = Date.now();
-        const poll = setInterval(() => {
-          const tb = this.trbar as any;
-          if (tb && tb.fetchedData && tb.data && tb.data.length > 0) {
-            const first = tb.data[0];
-            console.log('sidebar: treebar ready, selecting first', first);
-            try {
-              // notify treebar which will parse data for right pane
-              this.activatedRoute.params.subscribe({
-                next: (e) => {
-                  console.log('SIDEBAR URL PARAM DATA', e['data']);
-                  if (e['data'] === '{}') {
-                    tb.changeId({ type: 'location', id: first.id });
-                  }
-                },
-              });
-              //
-            } catch (err) {
-              console.error('sidebar: error calling trbar.changeId', err);
-            }
-            // Update Treeexpander selection state directly so selection is idempotent
-            try {
-              (Treeexpander as any).selectedLocationId = first.id;
-              Treeexpander.instances.forEach((instance: any) => {
-                try {
-                  const instLocationId =
-                    typeof instance.locationId === 'function'
-                      ? instance.locationId()
-                      : null;
-                  instance.isSelected = instLocationId === first.id;
-                  instance.selectedProjectIndex = null;
-                  instance.expanded = instLocationId === first.id;
-                  // attempt to trigger change detection on the instance
-                  if ((instance as any).changeDetectorRef) {
-                    try {
-                      (instance as any).changeDetectorRef.detectChanges();
-                    } catch (err) {
-                      // ignore
-                    }
-                  }
-                } catch (err) {
-                  // continue on error for individual instances
-                }
-              });
-              console.log(
-                'sidebar: set Treeexpander.selectedLocationId and updated instances for',
-                first.id
-              );
-            } catch (err) {
-              console.error('sidebar: error setting Treeexpander state', err);
-            }
-            clearInterval(poll);
-            return;
-          }
-          if (Date.now() - start > 3000) {
-            console.warn(
-              'sidebar: treebar not ready after 3s, aborting auto-select'
-            );
-            clearInterval(poll);
-          }
-        }, 50);
       },
     });
   }
-
-  // Try forwarding an event to the Treebar instance; if the Treebar hasn't fetched data yet, retry a few times.
-  
-  
 
   isDesktop(): boolean {
     return window.innerWidth > 900;

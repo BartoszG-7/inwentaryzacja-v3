@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Treebar } from '../../treebar/treebar';
-import { TreebarSharedService } from '../../home/treebar.share.service';
 import { PlusModalComponent } from '../../components/plus-modal/plus-modal.component';
 import { PlusModalLokalComponent } from '../../components/plus-modal-lokal/plus-modal-lokal.component';
 import { SearchBarMobileComponent } from '../search-bar-mobile/search-bar-mobile.component';
@@ -72,20 +71,9 @@ export class HeaderComponent {
     private router: Router,
     private cookieService: CookieService,
     private arrowService: HeaderArrowService
-    , private treebarSharedService: TreebarSharedService
   ) {
     this.arrowService.showArrow$.subscribe((show) => {
       this.showBackArrow = show;
-    });
-    // keep track of last treebar selection so back arrow can return to the exact project/location
-    this.treebarSharedService.getData().subscribe({
-      next: (d) => {
-        this._lastTreebarData = d;
-        // remember the last full parsed location object so we can restore it when returning from a project
-        if (d && d.location && d.projects !== undefined) {
-          this._lastLocationData = d;
-        }
-      },
     });
     this.selectedRoute = this.router.url;
     this.router.events.subscribe((event: any) => {
@@ -102,54 +90,9 @@ export class HeaderComponent {
     window.addEventListener('resize', () => this.updateMenus());
   }
 
-  private _lastTreebarData: any;
-  private _lastLocationData: any;
-
   goToInwentaryzacja() {
-    // If we have a recent project or location, navigate specifically back to it (SPA) and push selection to shared service
-    try {
-      if (this._lastTreebarData) {
-        if (this._lastTreebarData.type === 'project') {
-          const id = this._lastTreebarData.projectId || this._lastTreebarData.id;
-          // If we have a stored full location object, navigate back to that location and restore it
-          if (this._lastLocationData) {
-            const locId = this._lastLocationData.location._id;
-            this.router.navigate(['/inwentaryzacja/' + JSON.stringify({ type: 'location', id: locId })]);
-            this.emitAfterNavigation(this._lastLocationData);
-            return;
-          }
-          // fallback: navigate to project route and emit project selection
-          this.router.navigate(['/inwentaryzacja/' + JSON.stringify({ type: 'project', id: id })]);
-          this.emitAfterNavigation({ type: 'project', projectId: id });
-          return;
-        }
-        if (this._lastTreebarData.type === 'location') {
-          const locId = this._lastTreebarData.location?._id || this._lastTreebarData.locationId || this._lastTreebarData.id;
-          this.router.navigate(['/inwentaryzacja/' + JSON.stringify({ type: 'location', id: locId })]);
-          this.emitAfterNavigation(
-            this._lastTreebarData && this._lastTreebarData.location && this._lastTreebarData.projects !== undefined
-              ? this._lastTreebarData
-              : { type: 'location', location: { _id: locId } }
-          );
-          return;
-        }
-      }
-    } catch (err) {
-      // fallback to default
-    }
-    this.router.navigate(['/inwentaryzacja/{}']);
-    this.emitAfterNavigation({});
-  }
-
-  // Emit shared data after the router finishes navigating to an inwentaryzacja route.
-  // Uses a short-lived subscription to NavigationEnd to avoid timing races.
-  private emitAfterNavigation(data: any) {
-    const sub = this.router.events.subscribe((evt: any) => {
-      if (evt instanceof NavigationEnd && evt.urlAfterRedirects && evt.urlAfterRedirects.startsWith('/inwentaryzacja')) {
-        this.treebarSharedService.setData(data);
-        sub.unsubscribe();
-      }
-    });
+  // Just hard reload current page (no extra routing)
+  window.location.reload();
   }
 
   updateMenus() {
