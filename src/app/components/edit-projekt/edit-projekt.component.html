@@ -1,0 +1,42 @@
+<button type="button" class="header-btn" (click)="openModal()">EDYTUJ</button>
+
+@if (showModal) {
+	<div class="modal-backdrop open" (click)="closeModal()"></div>
+	<div class="modal-custom open">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Edytuj projekt</h5>
+				<button type="button" class="close" (click)="closeModal()" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+				<div class="modal-body">
+					<input name="projectName" [(ngModel)]="formData.projectName" placeholder="NAZWA PROJEKTU" required class="form-control mb-2">
+
+					<div style="display:flex; gap:0.75rem;">
+						<input name="networkAddress" [(ngModel)]="formData.networkAddress" placeholder="ADRES SIECI" required class="form-control mb-2" style="flex:1">
+						<input name="mask" [(ngModel)]="formData.mask" placeholder="MASKA" required class="form-control mb-2" style="width:120px">
+					</div>
+
+					<input name="gateway" [(ngModel)]="formData.gateway" placeholder="BRAMA" class="form-control mb-2">
+					<input name="dns1" [(ngModel)]="formData.dns1" placeholder="DNS_1" class="form-control mb-2">
+					<input name="dns2" [(ngModel)]="formData.dns2" placeholder="DNS_2" class="form-control mb-2">
+
+					<label style="display:block; margin:0.35rem 0 0.25rem;">EXCLUDED_IP_POOL</label>
+								<div *ngFor="let pool of formData.excludedIpPools; let i = index; trackBy: trackByExcludedPool" style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0.5rem">
+									<input name="excludedIpPool{{i}}" [(ngModel)]="formData.excludedIpPools[i]" [ngModelOptions]="{standalone: true}" placeholder="192.168.0.10-192.168.0.20" class="form-control">
+						<button type="button" class="btn btn-outline-secondary" (click)="removeExcludedPool(i)">-</button>
+						<button type="button" class="btn btn-outline-secondary" (click)="addExcludedPool()">+</button>
+					</div>
+
+					<textarea name="notes" [(ngModel)]="formData.notes" placeholder="NOTATKI" rows="4" class="form-control"></textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" (click)="closeModal()">ANULUJ</button>
+					<button type="submit" class="btn btn-primary" [disabled]="projectForm.invalid">ZAPISZ</button>
+				</div>
+			</form>
+		</div>
+	</div>
+}

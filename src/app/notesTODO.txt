@@ -2,3 +2,4 @@
 - click select for filter, click again sort asc desc allat, 
 - global searchbar, !pierwsza kolumna, @druga kolumna, #trzecia kolumna (enum & switch)
 - inne kolorki druga wiersz (mocniejsze)
+- instant closing side bar mobile   
