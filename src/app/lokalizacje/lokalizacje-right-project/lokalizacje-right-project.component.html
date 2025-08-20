@@ -7,7 +7,7 @@
         [showFilterModal]="true"
       ></app-search-bar>
       <button class="header-btn">SKANUJ</button>
-      <button class="header-btn">EDYTUJ</button>
+      <app-edit-projekt></app-edit-projekt> <!--edit-->
       <app-dodaj-modal-device
         [projectId]="selectedId()"
         (refresh)="onRefresh($event)"

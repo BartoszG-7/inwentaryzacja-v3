@@ -2,13 +2,46 @@
 .stock-card {
   border-radius: 4px !important;
   min-height: 70px;
-  display: flex;
-  align-items: center;
   max-width: 900px;
   margin: 0; /* spacing handled by parent */
+  background-color: $panel-bg;
+  border: 1.5px solid $border-clr;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
+  color: $muted-txt;
+  cursor: pointer;
+}
+.stock-card:hover {
+  border-color:  $primary-color;
+}
+
+/* Ensure the inner body is a flex container so name stays left and badge right */
+.stock-card .card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* name left, badge right */
+  gap: 1rem;
+  padding: 0.6rem 0.9rem;
+  width: 100%;
+}
+
+/* Name styling: left aligned, bold and truncates if too long */
+.stock-card h6 {
+  margin: 0;
+  text-align: left;
+  color: $muted-txt;
+  font-weight: 600;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Small spacing for the badge and keep its look */
+.stock-card .badge {
+  margin-left: 0.5rem;
 }
 
 .badge.bg-primary {
   background-color: $primary-color !important;
-  color: #fff !important;
+  color: $light-txt !important;
 }

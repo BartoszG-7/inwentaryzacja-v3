@@ -11,6 +11,7 @@ import { LokalizacjeRightProjectService } from './lokalizacje-right-project.serv
 import { DodajModalDeviceComponent } from '../../components/dodaj-modal-device/dodaj-modal-device.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 import { UsunModalDeviceComponent } from '../../components/usun-modal-device/usun-modal-device.component';
+import { EditProjektComponent } from "../../components/edit-projekt/edit-projekt.component";
 
 type Group = {
   id: string;
@@ -24,7 +25,8 @@ type Group = {
     DodajModalDeviceComponent,
     SearchBarComponent,
     UsunModalDeviceComponent,
-  ],
+    EditProjektComponent
+],
   standalone: true,
   templateUrl: './lokalizacje-right-project.component.html',
   styleUrl: './lokalizacje-right-project.component.scss',
