@@ -119,16 +119,19 @@ export class DataService {
     if (data[0] === searchModerators.FIRST_COLUMN) {
       return await this.deviceModel
         .find({ wamaNr: { $regex: data.slice(1), $options: 'i' } })
+        .populate('project')
         .exec();
     }
     if (data[0] === searchModerators.SECOND_COLUMN) {
       return await this.deviceModel
         .find({ serialNr: { $regex: data.slice(1), $options: 'i' } })
+        .populate('project')
         .exec();
     }
     if (data[0] === searchModerators.THIRD_COLUMN) {
       return await this.deviceModel
         .find({ macAddr: { $regex: data.slice(1), $options: 'i' } })
+        .populate('project')
         .exec();
     }
   }
