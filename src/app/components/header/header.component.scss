@@ -372,6 +372,36 @@ header {
     display: flex !important;
     margin-left: auto;
   }
+
+  /* Absolute positioning of search icon to avoid centering overlay interference */
+  header[data-has-right="true"] .global-search-icon {
+    position: absolute;
+  right: 3rem; /* user requested: 3rem from the right when not on home */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+  }
+
+  header[data-has-right="false"] .global-search-icon {
+    position: absolute;
+    right: 12px; /* far right when no right menu */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+  }
+
+  /* header-search-wrap placement on mobile */
+  .header-search-wrap { display: flex; align-items: center; }
+
+  /* if there's no right menu (home), push search to the far right */
+  .header-search-wrap[data-has-right="false"] {
+    margin-left: auto;
+  }
+
+  /* if right menu exists, keep search just left of it */
+  .header-search-wrap[data-has-right="true"] {
+    margin-right: 0.5rem;
+  }
 }
 
 /* Side menus and overlay */

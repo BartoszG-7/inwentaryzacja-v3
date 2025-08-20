@@ -99,7 +99,7 @@
 
 /* icon styling to match other header icons (magazyn-plus/menu) */
 .global-search-icon {
-	font-size: 1.1em;
+	font-size: 1.1em; /* desktop/default size */
 	margin: 0em 0.5em 0 0.7em;
 	color: $light-color;
 	cursor: pointer;
@@ -168,3 +168,29 @@
 }
 .result-title { font-weight: 600; color: #fff; }
 .result-sub { font-size: 0.9rem; color: #aeb0b3; }
+
+/* Positioning on mobile based on header attribute using :host-context so encapsulation doesn't block styles */
+@media (max-width: 900px) {
+		:host-context(header[data-has-right="true"]) .global-search-icon {
+			position: absolute;
+			right: 3rem; /* adjusted to 3rem */
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 1002;
+		}
+
+	:host-context(header[data-has-right="false"]) .global-search-icon {
+		position: absolute;
+		right: 12px;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 1002;
+	}
+
+	/* enlarge icon on mobile by 25% */
+	:host-context(header) .global-search-icon {
+		font-size: 1.375em; /* 25% larger */
+		min-width: 50px;
+		min-height: 50px;
+	}
+}
