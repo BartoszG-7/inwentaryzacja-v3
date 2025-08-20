@@ -55,6 +55,7 @@
   display: flex;
   gap: 16px;
   margin-bottom: 24px;
+  
 }
 
 .adres-box, .notatki-box {
@@ -94,6 +95,182 @@
   border-color: #1e9497;
   color: #1e9497;
 }
+/* New panel layout */
+
+/* Wrapper and content: wrapper provides spacing; content only a top border */
+.lokalizacija-wrapper {
+  padding: 12px 0 0 0;
+}
+
+.lokalizacja-content {
+  border-top: 2px solid $border-clr;
+  padding-top: 16px;
+}
+
+.panel-top {
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.panel-col {
+  flex: 1 1 0;
+  display: flex;
+  align-items: stretch;
+  /* allow flex children to shrink properly so text can wrap to full available width */
+  min-width: 0;
+}
+
+.panel-col-inner {
+  background: $panel-bg;
+  border: 1.5px solid $border-clr;
+  /* match other card radii for visual consistency */
+  border-radius: 8px;
+  padding: 18px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: $light-txt;
+  /* ensure inner content can shrink inside flex layout */
+  min-width: 0;
+}
+
+.panel-col-inner:hover {
+  background-color: $secondary-panel-clr;
+}
+
+.panel-col-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: $muted-txt;
+}
+
+.panel-col-body {
+  font-size: 1.05rem;
+  color: $title-txt;
+  /* allow normal wrapping and prefer breaking long words only when necessary */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.location-tag a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+.panel-divider {
+  width: 2px;
+  background: $primary-color;
+  border-radius: 2px;
+  align-self: center;
+}
+
+.panel-sep {
+  height: 3px;
+  background: $primary-color;
+  margin: 16px 0;
+  border-radius: 2px;
+}
+
+.panel-projects {
+  background: transparent;
+}
+
+.panel-projects-title {
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: $title-txt;
+}
+
+.projekty-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Scroll wrapper for projects list, matching treebar scrollbar styles */
+.projekty-scroll {
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #333 $dark-bg;
+}
+
+@media screen and (min-width: 900px) {
+  .projekty-scroll {
+    max-height: calc(100vh - 444px); /* tuned for header + other content */
+  }
+}
+@media screen and (max-width: 900px) {
+  .projekty-scroll {
+    max-height: calc(100% - 220px);
+    scrollbar-color: gray $sidebar-clr;
+  }
+}
+
+/* WebKit scrollbar styling to match other components */
+.projekty-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.projekty-scroll::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 8px;
+}
+.projekty-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.projekt-row {
+  border-radius: 8px;
+}
+
+.projekt-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Make list items interactive like treebar */
+.projekt-row {
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.projekt-row:hover {
+  background: $secondary-panel-clr !important;
+  border-color: $primary-color;
+}
+/* adres and notatki should show hover color but not be interactive */
+.adres-box:hover, .notatki-box:hover {
+  background: $secondary-panel-clr !important;
+  border-color: $primary-color;
+}
+
+.list-icon {
+  font-size: 1.2rem;
+  color: inherit; /* inherit the row text color */
+  opacity: 0.9;
+}
+
+.projekt-name {
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  .lokalizacija-wrapper {
+    padding: 8px 0 0 0;
+  }
+  .panel-top {
+    flex-direction: column;
+  }
+  .panel-divider { display: none; }
+  .panel-sep { margin: 12px 0; }
+  .panel-col-inner { padding: 12px; }
+}
+
 
 @media (max-width: 900px) {
   .lokalizacje-main-flex {

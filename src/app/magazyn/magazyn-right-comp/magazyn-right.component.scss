@@ -1,8 +1,10 @@
+@import 'global.scss';
+
 
 @media (max-width: 600px) {
   .magazyn-main-dashboard {
     position: relative;
-    background: #23232b;
+    background: #1f1f1f !important;
     min-height: calc(100vh - 64px);
     max-height: calc(100vh - 64px);
     overflow: auto;
@@ -25,7 +27,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  
+  .magazyn-main-stat, .magazyn-main-tags{
+    background-color: $panel-bg !important;
+  }
+  .magazyn-main-stat:hover, .magazyn-main-tags:hover{
+    background-color: $secondary-panel-clr !important;
+  }
 }
 // Set background for the outer container
 .magazyn-right-container {

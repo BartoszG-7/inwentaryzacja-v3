@@ -29,6 +29,7 @@ export class LokalizacjeRightCompComponent implements OnChanges {
   mainId: string = '';
   locationId: string = '';
   refreshOut = output<any>();
+  selected = output<any>();
   location: any;
   refreshRight = input<any>();
   refresh(ref: any) {
@@ -55,5 +56,23 @@ export class LokalizacjeRightCompComponent implements OnChanges {
       }
       this.changeDetectorRef.detectChanges();
     }
+  }
+
+  // Emit selection events compatible with Treebar/Treeexpander
+  selectLocation(event?: Event) {
+    if (event && (event.target as HTMLElement).blur) (event.target as HTMLElement).blur();
+    // Emit the same parsed object the treebar emits for a location so parent handles it identically
+    try {
+      this.selected.emit(this.selectedId());
+    } catch (err) {
+      // fallback to basic shape
+      this.selected.emit({ type: 'location', id: this.location?._id });
+    }
+  }
+
+  selectProject(project: any, event?: Event) {
+    if (event && (event.target as HTMLElement).blur) (event.target as HTMLElement).blur();
+    // Emit project id like the treebar does so the parent will switch to project view
+    this.selected.emit(project._id);
   }
 }
