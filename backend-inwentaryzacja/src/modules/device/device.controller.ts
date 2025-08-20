@@ -9,6 +9,7 @@ import {
   Patch,
   Post,
   Req,
+  Search,
 } from '@nestjs/common';
 import { DeviceService } from './device.service';
 import { CreateDeviceDto } from './dto/create-device.dto';
@@ -30,7 +31,11 @@ export class DeviceController {
   async getFind(@Param('query') query: string) {
     return await this.deviceService.find(query);
   }
-
+  @Get('search-project/:data')
+  async searchProject(@Param('data') data: any) {
+    console.log(data);
+    // return await this.deviceService.searchProject(data);
+  }
   @Delete(':id')
   async getDelete(@Param('id') id: string) {
     return await this.deviceService.delete(id);
