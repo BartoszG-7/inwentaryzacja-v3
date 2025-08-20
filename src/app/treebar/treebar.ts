@@ -148,19 +148,24 @@ export class Treebar implements OnInit, OnChanges {
               // No routing data: auto-select first element (location) if available
               if (this.data.length > 0) {
                 const first = this.data[0];
-                const evt = { type: 'location', id: first.id };
-                this.currentId = evt;
-                this.changeId(evt);
+                // const evt = { type: 'location', id: first.id };
+                // this.currentId = evt;
+                // this.changeId(evt);
                 // sync Treeexpander static selection state if instances already exist
                 try {
                   (Treeexpander as any).selectedLocationId = first.id;
                   (Treeexpander as any).instances?.forEach((inst: any) => {
-                    const lid = typeof inst.locationId === 'function' ? inst.locationId() : null;
+                    const lid =
+                      typeof inst.locationId === 'function'
+                        ? inst.locationId()
+                        : null;
                     inst.isSelected = lid === first.id;
                     inst.selectedProjectIndex = null;
                     inst.expanded = lid === first.id;
                     if (inst.changeDetectorRef) {
-                      try { inst.changeDetectorRef.detectChanges(); } catch {}
+                      try {
+                        inst.changeDetectorRef.detectChanges();
+                      } catch {}
                     }
                   });
                 } catch {}
