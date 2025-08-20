@@ -9,8 +9,20 @@
   font-size: 0.9rem;
   margin: 0; /* spacing handled by parent padding/gap */
   text-align: center;
+  background-color: $panel-bg;
+  color: $light-txt;
+  border: 1.5px solid $border-clr;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
 }
 
 .project-card .card-body {
   padding: 1rem;
+}
+
+.card-title.mb-1 {
+  color: $primary-color;
+}
+
+.card-text.mb-0 {
+  color: $muted-txt;
 }

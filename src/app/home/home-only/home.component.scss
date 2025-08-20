@@ -12,6 +12,7 @@ html, body {
   box-sizing: border-box;
   height: calc(100vh - 64px);
   background: $dark-bg;
+  border-top: 1.5px solid $border-clr;
 }
 
 /* center contents of each column and allow inner components to size themselves */

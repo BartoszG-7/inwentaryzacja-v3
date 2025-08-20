@@ -6,9 +6,13 @@
   align-items: center;
   max-width: 900px;
   margin: 0; /* spacing handled by parent */
+  background-color: $panel-bg;
+  border: 1.5px solid $border-clr;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
+  color: $muted-txt;
 }
 
 .badge.bg-primary {
   background-color: $primary-color !important;
-  color: #fff !important;
+  color: $light-txt !important;
 }
