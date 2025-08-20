@@ -32,7 +32,7 @@ export class LokalizacjeSidebarComponent implements OnChanges {
   @ViewChild('trbar') trbar: any;
   constructor(
     private readonly locationService: LocationService,
-    private activatedRoute: ActivatedRoute
+  private activatedRoute: ActivatedRoute
   ) {}
 
   changedId(event: any) {
@@ -52,7 +52,8 @@ export class LokalizacjeSidebarComponent implements OnChanges {
     }
   }
   ngOnInit(): void {
-    this.locationService.getLocations().subscribe({
+  // initialization: fetch locations and auto-select first when treebar ready
+  this.locationService.getLocations().subscribe({
       next: (data: any) => {
         this.locations = data;
         // Auto-select the first location once the treebar has fetched its data.
@@ -120,6 +121,10 @@ export class LokalizacjeSidebarComponent implements OnChanges {
       },
     });
   }
+
+  // Try forwarding an event to the Treebar instance; if the Treebar hasn't fetched data yet, retry a few times.
+  
+  
 
   isDesktop(): boolean {
     return window.innerWidth > 900;
