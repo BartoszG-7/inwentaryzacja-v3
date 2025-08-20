@@ -13,12 +13,12 @@
   justify-content: center;
   align-items: center;
 }
-// Mobile-only separator under Lokalizacje header
-// Mobile-only separator under Lokalizacje header
+// Mobile-only separator under Lokalizacje header (match magazyn)
 .sidebar-mobile-separator {
   display: none;
   height: 4px;
   width: 100%;
+  background: linear-gradient(90deg, #1e9497 0%, #111 100%);
   background-color: #1e9497;
   margin: 0.3em 0 0.7em 0;
   border-radius: 2px;
@@ -32,7 +32,9 @@
 
 @media (max-width: 900px) {
   .sidebar-mobile-separator {
-    display: block;
+    display: block !important;
+    position: relative;
+    z-index: 40; /* ensure it's above header overlays */
   }
   .sidebar-static-header::after {
     display: none !important;
@@ -52,6 +54,8 @@
   height: 2.5px;
   margin: 0.3em 0 0.7em 0;
   border-radius: 2px;
+  /* match Magazyn separator so Lokalizacje shows the same desktop underline */
+  background: linear-gradient(90deg, #888 0%);
   box-shadow: 0 4px 32px rgba(0,0,0,0.22);
 }
 
