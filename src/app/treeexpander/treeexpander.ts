@@ -1,147 +1,108 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  input,
-  InputSignal,
-  OnChanges,
-  OnInit,
-  output,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, input, InputSignal, OnInit, output, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-treeexpander',
   imports: [],
   templateUrl: './treeexpander.html',
-  styleUrl: './treeexpander.scss',
+  styleUrl: './treeexpander.scss'
 })
-export class Treeexpander implements OnInit, OnChanges {
+export class Treeexpander implements OnInit {
   constructor(private changeDetectorRef: ChangeDetectorRef) {}
   projects: InputSignal<string> = input<string>('');
   location: InputSignal<string> = input<string>('');
   locationId: InputSignal<string> = input<string>('');
-  refresh = input<boolean>();
-  expanded: boolean = false;
+  showMotherboardIcon: InputSignal<boolean> = input<boolean>(false);
+  refresh = input<any>(); // added to satisfy [refresh] binding in treebar.html
+  expanded = false;
   names: string[] = [];
   selected = output<any>();
-  showMotherboardIcon: InputSignal<boolean> = input<boolean>(false);
+  // selection state
   static selectedLocationId: string | null = null;
-  static selectedProjectId: string | null = null; // project name as id
+  static selectedProjectId: string | null = null; // locationId:projectName
   static instances: Treeexpander[] = [];
-  isSelected: boolean = false;
+  isSelected = false;
   selectedProjectIndex: number | null = null;
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['projects']) {
-      console.log('PROJECTS CHANGE TREEXPANDER');
-      var array: any[] = [];
-      array = this.projects().split('},');
-      array.pop();
-      array.forEach((project: any, ind: number) => {
-        this.names[ind] = JSON.parse(project + '}').name;
-      });
-      Treeexpander.instances.push(this);
-      this.isSelected = Treeexpander.selectedLocationId === this.locationId();
-      this.selectedProjectIndex = null;
-    }
-  }
+
   ngOnInit(): void {
-    var array: any[] = [];
-    array = this.projects().split('},');
-    array.pop();
-    array.forEach((project: any, ind: number) => {
-      this.names[ind] = JSON.parse(project + '}').name;
-    });
+    this.parseProjects();
     Treeexpander.instances.push(this);
     this.isSelected = Treeexpander.selectedLocationId === this.locationId();
     this.selectedProjectIndex = null;
   }
 
-  ngOnDestroy(): void {
-    // Remove this instance from the static array when destroyed
-    const idx = Treeexpander.instances.indexOf(this);
-    if (idx > -1) {
-      Treeexpander.instances.splice(idx, 1);
-    }
+  private parseProjects(): void {
+    this.names = [];
+    if (!this.projects()) return;
+    let parts = this.projects().split('},');
+    // Original format ended each object with '}', remove trailing empty
+    if (parts[parts.length - 1] === '') parts.pop();
+    parts.forEach((p, i) => {
+      try {
+        const obj = JSON.parse(p.endsWith('}') ? p : p + '}');
+        this.names[i] = obj.name;
+      } catch {}
+    });
   }
 
   expand(event?: Event): void {
+    // toggle selection for location similar to previous implementation
     if (
-      (Treeexpander.selectedLocationId === this.locationId() &&
-        this.expanded) ||
+      (Treeexpander.selectedLocationId === this.locationId() && this.expanded) ||
       this.selectedProjectIndex !== null
     ) {
-      console.log('SELECTED EMITTED TREEXPANDER');
+      // unselect
       this.selected.emit({ type: 'location', id: this.locationId() });
-      // If already selected and expanded, or any child is selected, unselect and collapse
       Treeexpander.selectedLocationId = null;
       Treeexpander.selectedProjectId = null;
-      Treeexpander.instances.forEach((instance) => {
-        instance.isSelected = false;
-        instance.selectedProjectIndex = null;
-        if (instance === this) {
-          instance.expanded = false;
-        }
+      Treeexpander.instances.forEach((inst) => {
+        inst.isSelected = false;
+        inst.selectedProjectIndex = null;
+        if (inst === this) inst.expanded = false;
       });
     } else {
-      // Select and expand as usual
       Treeexpander.selectedLocationId = this.locationId();
       Treeexpander.selectedProjectId = null;
-      Treeexpander.instances.forEach((instance) => {
-        instance.isSelected =
-          instance.locationId() === Treeexpander.selectedLocationId;
-        instance.selectedProjectIndex = null;
-        if (instance === this) {
-          instance.expanded = true;
-        } else {
-          instance.expanded = false;
-        }
+      Treeexpander.instances.forEach((inst) => {
+        inst.isSelected = inst.locationId() === Treeexpander.selectedLocationId;
+        inst.selectedProjectIndex = null;
+        inst.expanded = inst === this;
       });
-      console.log('SELECTED EMITTED TREEXPANDER');
       this.selected.emit({ type: 'location', id: this.locationId() });
     }
     if (event && event.target && (event.target as HTMLElement).blur) {
       (event.target as HTMLElement).blur();
     }
-    // Ensure UI updates immediately when expand is called programmatically
-    try {
-      this.changeDetectorRef.detectChanges();
-    } catch (err) {
-      // swallow - detection may already be running
-    }
+    try { this.changeDetectorRef.detectChanges(); } catch {}
   }
 
   selectProject(index: number, event?: Event): void {
     Treeexpander.selectedLocationId = null;
-    Treeexpander.selectedProjectId =
-      this.locationId() + ':' + this.names[index];
-    // Update selection state for all instances
-    Treeexpander.instances.forEach((instance) => {
-      instance.isSelected = false;
-      if (
-        instance.locationId() + ':' + instance.names[index] ===
-        Treeexpander.selectedProjectId
-      ) {
-        instance.selectedProjectIndex = index;
+    Treeexpander.selectedProjectId = this.locationId() + ':' + this.names[index];
+    Treeexpander.instances.forEach((inst) => {
+      inst.isSelected = false;
+      if (inst === this) {
+        inst.selectedProjectIndex = index;
       } else {
-        instance.selectedProjectIndex = null;
+        inst.selectedProjectIndex = null;
       }
     });
-    console.log(JSON.parse(this.projects().split('},')[index] + '}'));
-    console.log('SELECTED EMITTED TREEXPANDER');
+    // parse id from original projects string
+    let parts = this.projects().split('},');
+    const raw = parts[index];
+    let projectId: string | null = null;
+    try {
+      const obj = JSON.parse(raw.endsWith('}') ? raw : raw + '}');
+      projectId = obj.id;
+    } catch {}
     this.selected.emit({
       type: 'project',
       locationId: this.locationId(),
-      projectId: JSON.parse(this.projects().split('},')[index] + '}').id,
+      projectId: projectId,
       projectName: this.names[index],
     });
     if (event && event.target && (event.target as HTMLElement).blur) {
       (event.target as HTMLElement).blur();
     }
-    // Ensure UI updates immediately when selecting a project programmatically
-    try {
-      this.changeDetectorRef.detectChanges();
-    } catch (err) {
-      // swallow
-    }
+    try { this.changeDetectorRef.detectChanges(); } catch {}
   }
 }

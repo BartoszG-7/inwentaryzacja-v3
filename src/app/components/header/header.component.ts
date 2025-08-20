@@ -91,9 +91,8 @@ export class HeaderComponent {
   }
 
   goToInwentaryzacja() {
-    this.router.navigate(['/inwentaryzacja/{}']).then(() => {
-      window.location.reload();
-    });
+  // Just hard reload current page (no extra routing)
+  window.location.reload();
   }
 
   updateMenus() {

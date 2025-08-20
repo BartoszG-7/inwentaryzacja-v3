@@ -124,6 +124,7 @@
 .panel-col-inner {
   background: $panel-bg;
   border: 1.5px solid $border-clr;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
   /* match other card radii for visual consistency */
   border-radius: 8px;
   padding: 18px;
@@ -299,6 +300,7 @@
     min-width: 0;
     width: auto;
     box-sizing: border-box;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.22);
   }
   .main-row {
     flex-direction: column;

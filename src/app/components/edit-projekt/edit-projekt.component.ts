@@ -53,7 +53,7 @@ export class EditProjektComponent {
     this.formData = {
       name: data.name,
       networkAddress: data.networkAddress,
-      mask: this.netmaskToCIDR(data.mask),
+      mask: data.mask,
       gateway: data.gateway,
       dns1: data.dns1,
       dns2: data.dns2,
@@ -96,29 +96,6 @@ export class EditProjektComponent {
     return index;
   }
 
-  CIDRToNetmask(cidr: number): any {
-    const mask: any = Array(32)
-      .fill(0)
-      .map((_, i) => (i < cidr ? 1 : 0));
-    return mask
-      .join('')
-      .match(/.{1,8}/g)
-      .map((bin: any) => parseInt(bin, 2))
-      .join('.');
-  }
-  netmaskToCIDR(netmask: any): any {
-    return (
-      netmask
-        .split('.')
-        .map(Number)
-        .map((octet: { toString: (arg0: number) => string }) =>
-          octet.toString(2).padStart(8, '0')
-        )
-        .join('')
-        .split('1').length - 1
-    );
-  }
-
   onSubmit(form: any) {
     if (form.valid) {
       console.log(
@@ -126,7 +103,6 @@ export class EditProjektComponent {
         this.formData.excludedIpPools.toString()
       );
       this.formData.addrExclude = this.formData.excludedIpPools.toString();
-      this.formData.mask = this.CIDRToNetmask(this.formData.mask);
       this.editProjektService
         .saveData(this.formData, this.data()._id)
         .subscribe({
