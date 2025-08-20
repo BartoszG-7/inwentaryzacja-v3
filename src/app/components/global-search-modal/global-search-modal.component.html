@@ -1,34 +1,61 @@
 <!-- Search icon trigger (place this in header near logout) -->
-<i class="bi bi-search global-search-icon" title="Szukaj" (click)="openModal()" tabindex="0" (keydown.enter)="openModal()" aria-label="Global search"></i>
+<i
+  class="bi bi-search global-search-icon"
+  title="Szukaj"
+  (click)="openModal()"
+  tabindex="0"
+  (keydown.enter)="openModal()"
+  aria-label="Global search"
+></i>
 
 <!-- keep modal DOM present and toggle visibility with classes so focus isn't lost -->
 @if (showModal) {
-	<div class="modal-backdrop open" (click)="closeModal()"></div>
-	<div class="modal-custom open">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Global Search</h5>
-				<button type="button" class="modal-close-btn" (click)="closeModal()" aria-label="Close">
-					<span aria-hidden="true">×</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0.5rem">
-					<input [(ngModel)]="query" [ngModelOptions]="{standalone:true}" placeholder="Search..." class="form-control" />
-					<button class="btn btn-primary" (click)="onSearch()">Szukaj</button>
-				</div>
+<div class="modal-backdrop open" (click)="closeModal()"></div>
+<div class="modal-custom open">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Global Search</h5>
+      <button
+        type="button"
+        class="modal-close-btn"
+        (click)="closeModal()"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div
+        style="
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+          margin-bottom: 0.5rem;
+        "
+      >
+        <input
+          (input)="emit($event)"
+          [(ngModel)]="query"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Search..."
+          class="form-control"
+        />
+        <button class="btn btn-primary" (click)="onSearch()">Szukaj</button>
+      </div>
 
-				<div class="search-results">
-					<div *ngIf="loading" class="search-loading">Szukam...</div>
-					<div *ngIf="!loading && results.length === 0" class="search-empty">Brak wyników</div>
-					<ul *ngIf="results.length > 0" class="results-list">
-						<li *ngFor="let r of results" class="result-item">
-							<div class="result-title">{{ r.title }}</div>
-							<div class="result-sub">{{ r.subtitle }}</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+      <div class="search-results">
+        <div *ngIf="loading" class="search-loading">Szukam...</div>
+        <div *ngIf="!loading && results.length === 0" class="search-empty">
+          Brak wyników
+        </div>
+        <ul *ngIf="results.length > 0" class="results-list">
+          <li *ngFor="let r of results[results.length - 1]" class="result-item">
+            <div class="result-title">{{ r.title }}</div>
+            <div class="result-sub">{{ r.subtitle }}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 }
