@@ -186,7 +186,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: auto;
+  pointer-events: none; /* allow clicks to pass through to header buttons */
   height: 100%;
 }
 
@@ -195,7 +195,7 @@ header {
   height: auto;
   display: block;
   margin: 0 auto;
-  pointer-events: auto;
+  pointer-events: auto; /* keep the centered KIT/logo clickable */
 }
 
 .menu-icon {
@@ -293,6 +293,7 @@ header {
   position: relative;
   left: 0;
   right: 0;
+  pointer-events: auto; /* make sure KIT link remains interactive */
 }
 
 .header-links a {
