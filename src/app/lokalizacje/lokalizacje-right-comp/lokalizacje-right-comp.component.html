@@ -1,30 +1,57 @@
 @if (location) {
-<div class="container">
+<div class="container lokalizacje-main-flex">
   <div class="header-row">
     <span class="header-title">{{ location.name }}</span>
 
     <div class="header-actions">
-      <app-add-project
-        (refresh)="refresh($event)"
-        [locationId]="locationId"
-      ></app-add-project>
+      <app-add-project (refresh)="refresh($event)" [locationId]="locationId"></app-add-project>
       <app-edit-lokalizacje [data]="this.selectedId()"></app-edit-lokalizacje>
     </div>
   </div>
-  <div class="main-row">
-    <div class="adres-box">
-      adres: {{ location.address }} @if(location.tag){tag:
-      <a> {{ location.tag }}</a
-      >}
+
+  <div class="lokalizacija-wrapper">
+    <div class="lokalizacja-content">
+    <div class="panel-top">
+  <div class="adres-box panel-col">
+        <div class="panel-col-inner">
+          <div class="panel-col-title">Adres:</div>
+          <div class="panel-col-body">
+            {{ location.address }}
+            @if(location.tag){
+              <div class="location-tag">tag: <a>{{ location.tag }}</a></div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-divider" aria-hidden="true"></div>
+
+  @if(location.note) {
+  <div class="notatki-box panel-col">
+        <div class="panel-col-inner">
+          <div class="panel-col-title">Notatki:</div>
+          <div class="panel-col-body">{{ location.note }}</div>
+        </div>
+      </div>
+      }
     </div>
-    @if(location.note) {
-    <div class="notatki-box">{{ location.note }}</div>
-    }
+
+  <div class="panel-sep" role="separator" aria-hidden="true"></div>
+
+  <div class="panel-projects">
+      <div class="panel-projects-title">Projekty lokalizacji (Lokalizacja):</div>
+      <div class="projekty-scroll">
+        <div class="projekty-list">
+          @for(project of projects; track project._id) {
+          <div class="projekt-row" role="button" tabindex="0" (click)="selectProject(project, $event)" (keydown.enter)="selectProject(project, $event)">
+            <i class="bi bi-newspaper list-icon" aria-hidden="true"></i>
+            <span class="projekt-name">{{ project.name }}</span>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="projekty-list">
-    @for(project of projects; track project._id) {
-    <div class="projekt-row">{{ project.name }}</div>
-    }
   </div>
 </div>
 } @else {
