@@ -10,10 +10,11 @@ import {
 import { AddProjectComponent } from '../../components/add-project/add-project.component';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { EditLokalizacjeComponent } from '../../components/edit-lokalizacje/edit-lokalizacje.component';
 
 @Component({
   selector: 'app-lokalizacje-right-comp',
-  imports: [AddProjectComponent],
+  imports: [AddProjectComponent, EditLokalizacjeComponent],
   standalone: true,
   templateUrl: './lokalizacje-right-comp.component.html',
   styleUrl: './lokalizacje-right-comp.component.scss',

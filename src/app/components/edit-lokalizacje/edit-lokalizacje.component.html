@@ -1,1 +1,26 @@
-<p>edit-lokalizacje works!</p>
+<button type="button" class="header-btn" (click)="openModal()">EDYTUJ</button>
+
+@if (showModal) {
+	<div class="modal-backdrop open" (click)="closeModal()"></div>
+	<div class="modal-custom open">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Edytuj lokalizację</h5>
+				<button type="button" class="close" (click)="closeModal()" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form #lokForm="ngForm" (ngSubmit)="onSubmit(lokForm)">
+				<div class="modal-body">
+					<input name="name" [(ngModel)]="formData.name" placeholder="Nazwa" required class="form-control mb-2">
+					<input name="address" [(ngModel)]="formData.address" placeholder="Adres" required class="form-control mb-2">
+					<textarea name="notes" [(ngModel)]="formData.notes" placeholder="Notatki" rows="4" class="form-control"></textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" (click)="closeModal()">ANULUJ</button>
+					<button type="submit" class="btn btn-primary" [disabled]="lokForm.invalid">ZAPISZ</button>
+				</div>
+			</form>
+		</div>
+	</div>
+}
