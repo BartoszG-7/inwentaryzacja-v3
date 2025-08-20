@@ -55,6 +55,7 @@
   display: flex;
   gap: 16px;
   margin-bottom: 24px;
+  
 }
 
 .adres-box, .notatki-box {
@@ -133,6 +134,10 @@
   color: $light-txt;
   /* ensure inner content can shrink inside flex layout */
   min-width: 0;
+}
+
+.panel-col-inner:hover {
+  background-color: $secondary-panel-clr;
 }
 
 .panel-col-title {
@@ -235,12 +240,12 @@
   transition: background 0.15s, border-color 0.15s;
 }
 .projekt-row:hover {
-  background: $secondary-panel-clr;
+  background: $secondary-panel-clr !important;
   border-color: $primary-color;
 }
 /* adres and notatki should show hover color but not be interactive */
 .adres-box:hover, .notatki-box:hover {
-  background: $secondary-panel-clr;
+  background: $secondary-panel-clr !important;
   border-color: $primary-color;
 }
 
