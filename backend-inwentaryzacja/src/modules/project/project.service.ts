@@ -26,7 +26,6 @@ export class ProjectService {
       .exec();
   }
   async find(query: string): Promise<Project[]> {
-    
     return this.ProjectModel.find(JSON.parse(query)).exec();
   }
 
@@ -35,9 +34,8 @@ export class ProjectService {
     return 'OK';
   }
 
-  async update(id: string, body: UpdateProjectDto): Promise<string> {
-    await this.ProjectModel.updateOne({ _id: id }, body).exec();
-    return 'OK';
+  async update(id: string, body: UpdateProjectDto): Promise<any> {
+    return await this.ProjectModel.updateOne({ _id: id }, body).exec();
   }
   async deleteMany(filter: any): Promise<string> {
     await this.ProjectModel.deleteMany(filter).exec();

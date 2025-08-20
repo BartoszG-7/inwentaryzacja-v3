@@ -11,7 +11,7 @@ import { LokalizacjeRightProjectService } from './lokalizacje-right-project.serv
 import { DodajModalDeviceComponent } from '../../components/dodaj-modal-device/dodaj-modal-device.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 import { UsunModalDeviceComponent } from '../../components/usun-modal-device/usun-modal-device.component';
-import { EditProjektComponent } from "../../components/edit-projekt/edit-projekt.component";
+import { EditProjektComponent } from '../../components/edit-projekt/edit-projekt.component';
 
 type Group = {
   id: string;
@@ -25,8 +25,8 @@ type Group = {
     DodajModalDeviceComponent,
     SearchBarComponent,
     UsunModalDeviceComponent,
-    EditProjektComponent
-],
+    EditProjektComponent,
+  ],
   standalone: true,
   templateUrl: './lokalizacje-right-project.component.html',
   styleUrl: './lokalizacje-right-project.component.scss',
@@ -35,6 +35,7 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
   constructor(
     private lokalizacjeRightProjectService: LokalizacjeRightProjectService
   ) {}
+
   devicesGrouped: Array<Group> = [];
   selectedId: any = input<any>();
   refresh: boolean = false;
@@ -74,7 +75,7 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
           next: (e) => {
             this.project = e.project[0];
             this.devices = e.devices;
-
+            console.log('PROJECT DATA', e);
             e.devices.forEach((device: any) => {
               var brk = false;
               this.devicesGrouped.forEach((grouped) => {

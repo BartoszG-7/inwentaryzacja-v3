@@ -1,29 +1,64 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { EditProjektService } from './edit-projekt.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-projekt',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './edit-projekt.component.html',
-  styleUrl: './edit-projekt.component.scss'
+  styleUrl: './edit-projekt.component.scss',
 })
 export class EditProjektComponent {
+  constructor(
+    private editProjektService: EditProjektService,
+    private router: Router
+  ) {}
   showModal = false;
-
+  data: any = input<any>();
   formData: any = {
-    projectName: '',
+    name: '',
     networkAddress: '',
     mask: '',
     gateway: '',
     dns1: '',
     dns2: '',
     excludedIpPools: [''],
-    notes: ''
+    notes: '',
   };
 
   openModal() {
+    //     {
+    //     "_id": "689dcbdf753d200b0cbdde0c",
+    //     "name": "testsjsfdgsfd",
+    //     "dns1": "0.0.0.0",
+    //     "dns2": "0.0.0.0",
+    //     "networkAddress": "0.0.0.0",
+    //     "mask": "0.0.0.0",
+    //     "gateway": "0.0.0.0",
+    //     "addrPool": [
+    //         "0.0.0.0"
+    //     ],
+    //     "addrExclude": "",
+    //     "remoteAccessTag": "s",
+    //     "projectDevices": [],
+    //     "location": "689dc766753d200b0cbdddd0",
+    //     "__v": 0
+    // }
+
+    console.log(this.data());
+    let data = this.data();
+    this.formData = {
+      name: data.name,
+      networkAddress: data.networkAddress,
+      mask: data.mask,
+      gateway: data.gateway,
+      dns1: data.dns1,
+      dns2: data.dns2,
+      excludedIpPools: (data.addrExclude ?? ',').split(','),
+    };
     this.showModal = true;
   }
 
@@ -34,14 +69,14 @@ export class EditProjektComponent {
 
   resetForm() {
     this.formData = {
-      projectName: '',
+      name: '',
       networkAddress: '',
       mask: '',
       gateway: '',
       dns1: '',
       dns2: '',
       excludedIpPools: [''],
-      notes: ''
+      notes: '',
     };
   }
 
@@ -63,7 +98,32 @@ export class EditProjektComponent {
 
   onSubmit(form: any) {
     if (form.valid) {
-      console.log('Edit Projekt submit', this.formData);
+      console.log(
+        'Edit Projekt submit',
+        this.formData.excludedIpPools.toString()
+      );
+      this.formData.addrExclude = this.formData.excludedIpPools.toString();
+      this.editProjektService
+        .saveData(this.formData, this.data()._id)
+        .subscribe({
+          next: (e) => {
+            console.log(e);
+            this.router
+              .navigate([
+                '/inwentaryzacja/' +
+                  JSON.stringify({
+                    type: 'project',
+                    id: this.data()._id,
+                  }),
+              ])
+              .then(() => {
+                window.location.reload();
+              });
+          },
+          error(err) {
+            console.log(err);
+          },
+        });
       this.closeModal();
     }
   }
