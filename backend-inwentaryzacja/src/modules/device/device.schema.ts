@@ -36,5 +36,7 @@ export class Device {
   @Prop() mask: string;
 
   @Prop() gateway: string;
+
+  @Prop() przesylkaNr: string;
 }
 export const DeviceSchema = SchemaFactory.createForClass(Device);

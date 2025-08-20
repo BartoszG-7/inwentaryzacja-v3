@@ -71,4 +71,8 @@ export class UpdateDeviceDto {
   @IsOptional()
   @IsIP()
   gateway?: string;
+
+  @IsString()
+  @IsOptional()
+  przesylkaNr: string;
 }

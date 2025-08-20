@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, input, output, ViewChild } from '@angular/core';
 import { Treebar } from '../../treebar/treebar';
 import { TreebarSharedService } from '../../home/treebar.share.service';
 import { MagazynRightCompService } from './magazyn-right.service';
@@ -15,11 +15,18 @@ export class MagazynRightCompComponent {
     private treebarSharedService: TreebarSharedService,
     private magazynRightCompService: MagazynRightCompService
   ) {}
+  idOut = output();
+  idDummy = input();
   name: string = '';
+  id: any = '';
   itemCount: number = 0;
+  deviceList() {
+    this.idOut.emit(this.id);
+  }
   ngOnInit(): void {
     this.treebarSharedService.getData().subscribe({
       next: (data: any) => {
+        this.id = data.id;
         console.log(data);
         this.magazynRightCompService.getDeviceTypes(data.id).subscribe({
           next: (data: any) => {

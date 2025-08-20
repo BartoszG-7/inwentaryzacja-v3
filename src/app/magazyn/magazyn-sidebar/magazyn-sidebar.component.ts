@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, output, ViewChild } from '@angular/core';
 import { Treeexpander } from '../../treeexpander/treeexpander';
 import { CommonModule } from '@angular/common';
 //import { MagazynService } from './magazyn.service';
@@ -18,6 +18,7 @@ export class MagazynSidebarComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute) {}
   @ViewChild('treebarDesktop') treebarDesktop: any;
   searchInput: string = '';
+  resetOut = output();
   onSearch(event: string): void {
     this.searchInput = event;
     console.log(this.searchInput);

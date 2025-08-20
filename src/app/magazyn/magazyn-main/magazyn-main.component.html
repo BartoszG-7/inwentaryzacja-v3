@@ -1,8 +1,15 @@
 <div class="magazyn-main-flex">
   <div class="left-sidebar">
-      <app-magazyn-sidebar></app-magazyn-sidebar>
+    <app-magazyn-sidebar></app-magazyn-sidebar>
   </div>
   <div class="right-component">
-      <app-magazyn-right-comp></app-magazyn-right-comp>
+    @if(id==="") {
+    <app-magazyn-right-comp
+      [idDummy]="id"
+      (idOut)="deviceList($event)"
+    ></app-magazyn-right-comp>
+    } @else{
+    <p>dvsfdverbrtgeracwaecw{{ id }}</p>
+    }
   </div>
 </div>

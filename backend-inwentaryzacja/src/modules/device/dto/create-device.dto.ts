@@ -63,4 +63,8 @@ export class CreateDeviceDto {
   @IsOptional()
   @IsIP()
   gateway?: string;
+
+  @IsString()
+  @IsOptional()
+  przesylkaNr: string;
 }

@@ -135,6 +135,9 @@ export class DataService {
         .exec();
     }
   }
+  async getDeviceList() {
+    return { device: await this.deviceModel.find() };
+  }
   async unassignMany(data: any): Promise<any> {
     data = JSON.parse(data);
     console.log(data);
