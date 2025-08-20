@@ -6,13 +6,22 @@ html, body {
 }
 
 .cont {
-  max-width: 100vw;
+  /* use full available width (100vw can cause overflow with scrollbars) */
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem 1rem;
+  /* make .cont and its children include padding in their width to avoid horizontal overflow */
   box-sizing: border-box;
-  height: calc(100vh - 64px);
+  /* allow content to grow on small screens instead of forcing a fixed viewport-height */
+  min-height: calc(100vh - 64px);
   background: $dark-bg;
   border-top: 1.5px solid $border-clr;
+}
+
+/* ensure padding doesn't add to width for any descendants */
+.cont, .cont * {
+  box-sizing: inherit;
 }
 
 /* center contents of each column and allow inner components to size themselves */
@@ -42,6 +51,32 @@ html, body {
   width: 2px;
   background: $border-clr;
   height: 50%;
+}
+
+/* mobile tweaks to avoid layout overflow and remove unnecessary divider */
+@media (max-width: 767.98px) {
+  .cont {
+    padding: 1.25rem 0.75rem;
+  }
+
+  /* vertical divider is not needed on narrow screens and can cause overflow */
+  .vertical-divider {
+    display: none;
+  }
+
+  /* allow columns to stretch full width on mobile */
+  .cont .col-12.col-md-4,
+  .cont .col-12.col-md-7 {
+    align-items: stretch;
+    height: auto;
+  }
+
+  /* child components should use full width but keep internal padding without overflowing */
+  .cont .col-12.col-md-4 > app-home-latest-modified,
+  .cont .col-12.col-md-7 > app-home-stock-view {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+  }
 }
 
 .cont h4 {
