@@ -13,7 +13,7 @@
       <form class="modal-body" (ngSubmit)="submit()">
         <div class="input-wrapper">
           <input #searchInput type="search" [(ngModel)]="term" name="term" placeholder="Wpisz frazę..." aria-label="Wpisz frazę" autocomplete="off" />
-          <i *ngIf="term" class="bi bi-x clear-icon" (click)="clear(searchInput)" aria-label="Wyczyść" tabindex="0"></i>
+          @if (term) { <i class="bi bi-x clear-icon" (click)="clear(searchInput)" aria-label="Wyczyść" tabindex="0"></i> }
           <i class="bi bi-search search-icon-static" aria-hidden="true"></i>
         </div>
         <div class="modal-footer">
