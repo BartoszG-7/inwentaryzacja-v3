@@ -51,16 +51,16 @@
       <thead>
         <tr>
           <th style="width: 32px"></th>
-          <th style="width: 110px">SN WAMASOFT</th>
-          <th style="width: 110px">SN PRODUCENTA</th>
-          <th style="width: 90px">MAC</th>
-          <th style="width: 90px">IP</th>
-          <th style="width: 90px">BRAMA</th>
-          <th style="width: 90px">MASKA</th>
-          <th style="width: 90px">ANYDESK</th>
-          <th style="width: 90px">DNS1</th>
-          <th style="width: 90px">DNS2</th>
-          <th style="width: 90px">SERWER</th>
+          <th style="width: 110px" (click)="toggleHeader('snWamasoft')" [class.header-active]="isHeaderActive('snWamasoft')">SN WAMASOFT <i *ngIf="isHeaderActive('snWamasoft') && activeSortDirection==='desc'" class="bi bi-arrow-down"></i><i *ngIf="isHeaderActive('snWamasoft') && activeSortDirection==='asc'" class="bi bi-arrow-up"></i></th>
+          <th style="width: 110px" (click)="toggleHeader('snProducenta')" [class.header-active]="isHeaderActive('snProducenta')">SN PRODUCENTA <i *ngIf="isHeaderActive('snProducenta') && activeSortDirection==='desc'" class="bi bi-arrow-down"></i><i *ngIf="isHeaderActive('snProducenta') && activeSortDirection==='asc'" class="bi bi-arrow-up"></i></th>
+          <th style="width: 90px" (click)="toggleHeader('mac')" [class.header-active]="isHeaderActive('mac')">MAC <i *ngIf="isHeaderActive('mac') && activeSortDirection==='desc'" class="bi bi-arrow-down"></i><i *ngIf="isHeaderActive('mac') && activeSortDirection==='asc'" class="bi bi-arrow-up"></i></th>
+          <th style="width: 90px" (click)="toggleHeader('ip')" [class.header-active]="isHeaderActive('ip')">IP <i *ngIf="isHeaderActive('ip') && activeSortDirection==='desc'" class="bi bi-arrow-down"></i><i *ngIf="isHeaderActive('ip') && activeSortDirection==='asc'" class="bi bi-arrow-up"></i></th>
+          <th style="width: 90px" (click)="toggleHeader('brama')" [class.header-active]="isHeaderActive('brama')">BRAMA <i *ngIf="isHeaderActive('brama') && activeSortDirection==='desc'" class="bi bi-arrow-down"></i><i *ngIf="isHeaderActive('brama') && activeSortDirection==='asc'" class="bi bi-arrow-up"></i></th>
+          <th style="width: 90px" (click)="toggleHeader('maska')" [class.header-active]="isHeaderActive('maska')">MASKA <i *ngIf="isHeaderActive('maska') && activeSortDirection==='desc'" class="bi bi-arrow-down"></i><i *ngIf="isHeaderActive('maska') && activeSortDirection==='asc'" class="bi bi-arrow-up"></i></th>
+          <th style="width: 90px" (click)="toggleHeader('anydesk')" [class.header-active]="isHeaderActive('anydesk')">ANYDESK <i *ngIf="isHeaderActive('anydesk') && activeSortDirection==='desc'" class="bi bi-arrow-down"></i><i *ngIf="isHeaderActive('anydesk') && activeSortDirection==='asc'" class="bi bi-arrow-up"></i></th>
+          <th style="width: 90px" (click)="toggleHeader('dns1')" [class.header-active]="isHeaderActive('dns1')">DNS1 <i *ngIf="isHeaderActive('dns1') && activeSortDirection==='desc'" class="bi bi-arrow-down"></i><i *ngIf="isHeaderActive('dns1') && activeSortDirection==='asc'" class="bi bi-arrow-up"></i></th>
+          <th style="width: 90px" (click)="toggleHeader('dns2')" [class.header-active]="isHeaderActive('dns2')">DNS2 <i *ngIf="isHeaderActive('dns2') && activeSortDirection==='desc'" class="bi bi-arrow-down"></i><i *ngIf="isHeaderActive('dns2') && activeSortDirection==='asc'" class="bi bi-arrow-up"></i></th>
+          <th style="width: 90px" (click)="toggleHeader('serwer')" [class.header-active]="isHeaderActive('serwer')">SERWER <i *ngIf="isHeaderActive('serwer') && activeSortDirection==='desc'" class="bi bi-arrow-down"></i><i *ngIf="isHeaderActive('serwer') && activeSortDirection==='asc'" class="bi bi-arrow-up"></i></th>
           <th style="width: 90px"></th>
         </tr>
       </thead>

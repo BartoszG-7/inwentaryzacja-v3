@@ -48,6 +48,9 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   markedDelete: Array<string> = [];
   groupedRows: any = [];
   urlData: any;
+  // Track selected header column key
+  activeHeaderKey: string | null = null;
+  activeSortDirection: 'asc' | 'desc' | null = null;
   ngOnInit(): void {
     this.activeRoute.params.subscribe({
       next: (e) => {
@@ -175,5 +178,28 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
         }
       });
     }
+  }
+  toggleHeader(key: string) {
+    if (this.activeHeaderKey !== key) {
+      // New header selected: highlight only, no arrow yet
+      this.activeHeaderKey = key;
+      this.activeSortDirection = null; // phase 1: active, no arrow
+      return;
+    }
+    // Same header clicked: advance phase
+    if (this.activeSortDirection === null) {
+      // phase 2: show down arrow
+      this.activeSortDirection = 'desc';
+    } else if (this.activeSortDirection === 'desc') {
+      // phase 3: show up arrow
+      this.activeSortDirection = 'asc';
+    } else if (this.activeSortDirection === 'asc') {
+      // phase 4: clear selection
+      this.activeHeaderKey = null;
+      this.activeSortDirection = null;
+    }
+  }
+  isHeaderActive(key: string) {
+    return this.activeHeaderKey === key;
   }
 }

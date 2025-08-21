@@ -326,6 +326,28 @@ col {
   background-color: #1b4949 !important;
 }
 
+/* Clickable header highlight */
+.right-project-table th {
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+.right-project-table th.header-active {
+  background-color: $secondary-panel-clr !important;
+  color: $primary-color !important;
+  box-shadow: 0 0 0 1px $primary-color inset;
+}
+.right-project-table th i.bi-arrow-down,
+.right-project-table th i.bi-arrow-up {
+  margin-left: 6px;
+  font-size: 0.85em;
+  opacity: 0.85;
+}
+/* Avoid extra space when no arrow (first active phase) */
+.right-project-table th:not(.header-active):hover {
+  background-color: #235b5b !important;
+}
+
 @media (max-width: 900px) {
   .right-project-container {
     padding: 6px;
