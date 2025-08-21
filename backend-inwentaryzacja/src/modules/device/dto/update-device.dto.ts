@@ -8,8 +8,8 @@ export class UpdateDeviceDto {
   ip?: string;
 
   @IsOptional()
-  @IsString()
-  deviceTag?: string;
+  @Type(() => SchemaTypes.ObjectId)
+  deviceType: Types.ObjectId;
 
   @IsOptional()
   @IsString()

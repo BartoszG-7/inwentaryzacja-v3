@@ -56,8 +56,8 @@ export class DataController {
   async globalSearch(@Param('query') query: string) {
     return await this.dataService.globalSearch(query);
   }
-  @Get('get-device-list')
-  async getDeviceList() {
-    return await this.dataService.getDeviceList();
+  @Get('get-device-list/:typeid')
+  async getDeviceList(@Param('typeid') typeId: any) {
+    return await this.dataService.getDeviceList(typeId);
   }
 }

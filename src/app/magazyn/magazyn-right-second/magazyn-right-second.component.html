@@ -1,37 +1,41 @@
 <div class="magazyn-right-container">
-			<div class="magazyn-main-dashboard second-panel-match">
-					<div class="second-header-panel">
-					<div class="second-header-left">
-						<div class="second-title-name">{{ title() }}</div>
-						<div class="second-title-total">{{ total() }} szt</div>
-					</div>
-					<div class="second-header-tools">
-						<!-- future icon buttons go here -->
-					</div>
-				</div>
-					<div class="second-table-wrapper">
-						<div class="table-header">
-							<span class="table-title">SZCZEGÓŁY</span>
-							<div class="table-search">
-								<input type="text" placeholder="Szukaj..." class="table-search-input" />
-							</div>
-						</div>
-			<table class="second-table">
-				<thead>
-					<tr>
-						<th class="col-szt">Szt</th>
-						<th class="col-tag">Tag</th>
-					</tr>
-				</thead>
-				<tbody>
-								@for (n of sztItems(); let i = $index; track i) {
-									<tr>
-										<td class="cell-szt">-szt{{ n }}</td>
-										<td class="cell-tag">{{ tags()[i] || '-' }}</td>
-									</tr>
-								}
-				</tbody>
-			</table>
-		</div>
-	</div>
+  <div class="magazyn-main-dashboard second-panel-match">
+    <div class="second-header-panel">
+      <div class="second-header-left">
+        <div class="second-title-name">{{ data.deviceType.name }}</div>
+        <div class="second-title-total">{{ data.device.length }} szt</div>
+      </div>
+      <div class="second-header-tools">
+        <!-- future icon buttons go here -->
+      </div>
+    </div>
+    <div class="second-table-wrapper">
+      <div class="table-header">
+        <span class="table-title">SZCZEGÓŁY</span>
+        <div class="table-search">
+          <input
+            type="text"
+            placeholder="Szukaj..."
+            class="table-search-input"
+          />
+        </div>
+      </div>
+      <table class="second-table">
+        <thead>
+          <tr>
+            <th class="col-szt">Szt</th>
+            <th class="col-tag">Tag</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (n of sztItems(); let i = $index; track i) {
+          <tr>
+            <td class="cell-szt">-szt{{ n }}</td>
+            <td class="cell-tag">{{ tags()[i] || "-" }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
