@@ -75,18 +75,27 @@
 	padding: 1rem 1.2rem 1.2rem 1.2rem;
 	max-height: 320px; /* constrain list height; panel height stays natural */
 }
+/* Thin, themed scrollbar for the scrolling list */
+.second-table-wrapper { 
+	scrollbar-width: thin; 
+	scrollbar-color: darken($border-clr,5%) $secondary-panel-clr; 
+}
+.second-table-wrapper::-webkit-scrollbar { width: 6px; }
+.second-table-wrapper::-webkit-scrollbar-track { background: $secondary-panel-clr; border-radius: 6px; }
+.second-table-wrapper::-webkit-scrollbar-thumb { background: #333; border-radius: 6px; }
+.second-table-wrapper::-webkit-scrollbar-thumb:hover { background: lighten(#333,8%); }
 
 .table-header {
 	display: flex;
  	align-items: center;
 	justify-content: space-between;
-	padding: 0 0 0.6rem 0;
-	margin: 0 0 0.6rem 0;
+	padding: 0.2rem 0 0.55rem 0; /* added small top padding, removed bottom margin to prevent overlap */
+	margin: 0; /* sticky elements with margin-bottom can visually overlap following content */
 	border-bottom: 1px solid $border-clr;
 	position: sticky;
 	top: 0;
 	background: $secondary-panel-clr;
-	z-index: 5;
+	z-index: 10;
 }
 
 .table-title {
@@ -117,6 +126,7 @@
 	border-collapse: collapse;
 	font-size: 0.95rem;
 	color: $light-txt;
+	margin-top: 0.6rem; /* spacer below sticky header so first row isn't covered */
 }
 
 
@@ -126,8 +136,11 @@
 	font-size: 0.8rem;
 	letter-spacing: 0.05em;
 	color: $muted-txt;
-	padding: 0.35rem 0 0.4rem 0;
+	padding: 0.2rem 0 0.4rem 0; /* slightly reduced top padding since we added table margin */
 }
+
+/* Ensure first row never hides behind sticky header: add top spacer inside wrapper instead of row padding */
+.second-table-wrapper { padding-top: 0.3rem; }
 
 .second-table tbody tr {
 	transition: background 0.15s, border-color 0.15s;
