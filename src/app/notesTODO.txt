@@ -1,5 +1,5 @@
 //bar
-- click select for filter, click again sort asc desc allat
+- click select for filter, click again sort asc desc allat.
 
 //michas 22.08
 - instant closing side bar on click in mobile
