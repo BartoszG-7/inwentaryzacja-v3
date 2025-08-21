@@ -1,176 +1,239 @@
-@import 'global.scss';
+@import "global.scss";
 
 // Match container behavior of the original right component
-.magazyn-right-container { width:100%; }
+.magazyn-right-container {
+  width: 100%;
+}
 
 .second-panel-match {
-	background: $panel-bg; // same as original
-	border-radius: 18px;
-	box-shadow: 0 4px 32px rgba(0,0,0,0.22);
-	max-width: 600px; // keep exactly like primary panel
-	width: 100%;
-	min-width: 520px; // reserve horizontal space so icons/functions fit similarly
-	padding: 2.5rem; // mirror original padding
-	margin: 0;
-	border: 1.5px solid $border-clr;
-	color: $light-txt;
-	display: flex;
-	flex-direction: column;
+  background: $panel-bg; // same as original
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.22);
+  max-width: 600px; // keep exactly like primary panel
+  width: 100%;
+  min-width: 520px; // reserve horizontal space so icons/functions fit similarly
+  padding: 2.5rem; // mirror original padding
+  margin: 0;
+  border: 1.5px solid $border-clr;
+  color: $light-txt;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Enhanced header mini panel */
 .second-header-panel {
-	background: $secondary-panel-clr;
-	border: 1.5px solid $border-clr;
-	border-radius: 14px;
-	padding: 1rem 1.25rem;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 1.5rem;
-	margin-bottom: 1.75rem;
-	box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  background: $secondary-panel-clr;
+  border: 1.5px solid $border-clr;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
 }
 
-.second-header-left { display: flex; flex-direction: column; gap: 0.15rem; }
+.second-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
 
 .second-title-name {
-	font-size: 1.55rem;
-	font-weight: 600;
-	letter-spacing: 0.02em;
-	color: $title-txt;
-	line-height: 1.1;
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: $title-txt;
+  line-height: 1.1;
 }
 
 .second-title-total {
-	font-size: 0.75rem;
-	font-weight: 500;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	color: $muted-txt;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $muted-txt;
 }
 
-.second-header-tools { display: flex; align-items: center; gap: 0.65rem; }
+.second-header-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
 .second-header-tools button {
-	background: transparent;
-	border: 1px solid $border-clr;
-	color: $muted-txt;
-	padding: 0.4rem 0.65rem;
-	border-radius: 8px;
-	font-size: 0.75rem;
-	letter-spacing: 0.05em;
-	cursor: pointer;
-	transition: border-color 0.15s, color 0.15s, background 0.15s;
+  background: transparent;
+  border: 1px solid $border-clr;
+  color: $muted-txt;
+  padding: 0.4rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
 }
-.second-header-tools button:hover { border-color: $primary-color; color: $primary-color; background: rgba(255,255,255,0.04); }
+.second-header-tools button:hover {
+  border-color: $primary-color;
+  color: $primary-color;
+  background: rgba(255, 255, 255, 0.04);
+}
 
-.section-label-over { margin-top: -0.5rem; }
+.section-label-over {
+  margin-top: -0.5rem;
+}
 
 .second-table-wrapper {
-	flex: 1;
-	overflow: auto; /* only this area scrolls */
-	background: $secondary-panel-clr;
-	border: 1.5px solid $border-clr;
-	border-radius: 12px;
-	padding: 1rem 1.2rem 1.2rem 1.2rem;
-	max-height: 320px; /* constrain list height; panel height stays natural */
+  flex: 1;
+  overflow: auto; /* only this area scrolls */
+  background: $secondary-panel-clr;
+  border: 1.5px solid $border-clr;
+  border-radius: 12px;
+  padding: 0 1.2rem 1.2rem 1.2rem;
+  max-height: 320px; /* constrain list height; panel height stays natural */
 }
 /* Thin, themed scrollbar for the scrolling list */
-.second-table-wrapper { 
-	scrollbar-width: thin; 
-	scrollbar-color: darken($border-clr,5%) $secondary-panel-clr; 
+.second-table-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: darken($border-clr, 5%) $secondary-panel-clr;
 }
-.second-table-wrapper::-webkit-scrollbar { width: 6px; }
-.second-table-wrapper::-webkit-scrollbar-track { background: $secondary-panel-clr; border-radius: 6px; }
-.second-table-wrapper::-webkit-scrollbar-thumb { background: #333; border-radius: 6px; }
-.second-table-wrapper::-webkit-scrollbar-thumb:hover { background: lighten(#333,8%); }
+.second-table-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+.second-table-wrapper::-webkit-scrollbar-track {
+  background: $secondary-panel-clr;
+  border-radius: 6px;
+}
+.second-table-wrapper::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 6px;
+}
+.second-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: lighten(#333, 8%);
+}
 
 .table-header {
-	display: flex;
- 	align-items: center;
-	justify-content: space-between;
-	padding: 0.2rem 0 0.55rem 0; /* added small top padding, removed bottom margin to prevent overlap */
-	margin: 0; /* sticky elements with margin-bottom can visually overlap following content */
-	border-bottom: 1px solid $border-clr;
-	position: sticky;
-	top: 0;
-	background: $secondary-panel-clr;
-	z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 0 0.55rem 0; /* added small top padding, removed bottom margin to prevent overlap */
+  margin: 0; /* sticky elements with margin-bottom can visually overlap following content */
+  border-bottom: 1px solid $border-clr;
+  position: sticky;
+  top: 0;
+  background: $secondary-panel-clr;
+  z-index: 10;
 }
 
 .table-title {
-	font-size: 0.8rem;
-	font-weight: 600;
-	letter-spacing: 0.12em;
-	color: $muted-txt;
-	text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: $muted-txt;
+  text-transform: uppercase;
 }
 
-.table-search { display: flex; align-items: center; }
-.table-search-input {
-	background: #22242b;
-	border: 1px solid $border-clr;
-	color: $light-txt;
-	padding: 0.45rem 0.65rem;
-	font-size: 0.75rem;
-	border-radius: 8px;
-	outline: none;
-	min-width: 130px;
-	transition: border-color 0.15s, background 0.15s;
+.table-search {
+  display: flex;
+  align-items: center;
 }
-.table-search-input:focus { border-color: $primary-color; background: #262830; }
-.table-search-input::placeholder { color: $muted-txt; letter-spacing: 0.05em; }
+.table-search-input {
+  background: #22242b;
+  border: 1px solid $border-clr;
+  color: $light-txt;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.75rem;
+  border-radius: 8px;
+  outline: none;
+  min-width: 130px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.table-search-input:focus {
+  border-color: $primary-color;
+  background: #262830;
+}
+.table-search-input::placeholder {
+  color: $muted-txt;
+  letter-spacing: 0.05em;
+}
 
 .second-table {
-	width: 100%;
-	border-collapse: collapse;
-	font-size: 0.95rem;
-	color: $light-txt;
-	margin-top: 0.6rem; /* spacer below sticky header so first row isn't covered */
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  color: $light-txt;
+  margin-top: 0.6rem; /* spacer below sticky header so first row isn't covered */
 }
 
-
 .second-table thead th {
-	text-align: left;
-	font-weight: 600;
-	font-size: 0.8rem;
-	letter-spacing: 0.05em;
-	color: $muted-txt;
-	padding: 0.2rem 0 0.4rem 0; /* slightly reduced top padding since we added table margin */
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: $muted-txt;
+  padding: 0.2rem 0 0.4rem 0; /* slightly reduced top padding since we added table margin */
 }
 
 /* Ensure first row never hides behind sticky header: add top spacer inside wrapper instead of row padding */
-.second-table-wrapper { padding-top: 0.3rem; }
-
-.second-table tbody tr {
-	transition: background 0.15s, border-color 0.15s;
-	border-bottom: 1px solid #2f2f35;
+.second-table-wrapper {
+  padding-top: 0;
 }
 
-.second-table tbody tr:last-child { border-bottom: none; }
+.second-table tbody tr {
+  transition: background 0.15s, border-color 0.15s;
+  border-bottom: 1px solid #2f2f35;
+}
+
+.second-table tbody tr:last-child {
+  border-bottom: none;
+}
 
 .second-table tbody tr:hover {
-	background: #2d2e36;
+  background: #2d2e36;
 }
 
 .second-table td {
-	padding: 0.55rem 1rem 0.55rem 0.15rem;
-	vertical-align: middle;
-	font-weight: 500;
-	text-align: left;
+  padding: 0.55rem 1rem 0.55rem 0.15rem;
+  vertical-align: middle;
+  font-weight: 500;
+  text-align: left;
 }
 
-.col-szt { width: 35%; }
-.col-tag { width: 65%; }
+.col-szt {
+  width: 35%;
+}
+.col-tag {
+  width: 65%;
+}
 
-.cell-szt { color: $primary-color; font-weight: 600; }
-.cell-tag { color: $muted-txt; }
+.cell-szt {
+  color: $primary-color;
+  font-weight: 600;
+}
+.cell-tag {
+  color: $muted-txt;
+}
 
 @media (max-width: 600px) {
-	.second-panel-match { border-radius: 0 !important; max-width:100%; padding: 2rem 1rem 2rem 1rem; }
-	.second-header-panel { border-radius: 10px; padding: 0.9rem 1rem; margin-bottom: 1.2rem; }
-	.second-title-name { font-size: 1.35rem; }
-	.second-table td { padding: 0.6rem 0.25rem; }
-	.col-szt { width: 40%; }
-	.col-tag { width: 60%; }
+  .second-panel-match {
+    border-radius: 0 !important;
+    max-width: 100%;
+    padding: 2rem 1rem 2rem 1rem;
+  }
+  .second-header-panel {
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .second-title-name {
+    font-size: 1.35rem;
+  }
+  .second-table td {
+    padding: 0.6rem 0.25rem;
+  }
+  .col-szt {
+    width: 40%;
+  }
+  .col-tag {
+    width: 60%;
+  }
 }

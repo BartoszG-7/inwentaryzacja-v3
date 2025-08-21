@@ -28,9 +28,9 @@
           </tr>
         </thead>
         <tbody>
-          @for (n of sztItems(); let i = $index; track i) {
+          @for (n of data.device; let i = $index; track i) {
           <tr>
-            <td class="cell-szt">-szt{{ n }}</td>
+            <td class="cell-szt">{{ n.serialNr }}</td>
             <td class="cell-tag">{{ tags()[i] || "-" }}</td>
           </tr>
           }
