@@ -1,3 +1,5 @@
+@import 'global.scss';
+
 // Modal backdrop fix: use semi-transparent dark overlay, not solid black
 .modal-backdrop.open {
 	position: fixed;
@@ -65,8 +67,9 @@
 
 .header-btn {
 	background: transparent;
-	color: #fff;
-	border: 1px solid #aaa;
+	background-color: $panel-bg;
+	color: $light-txt;
+	border: 1.5px solid #888;
 	border-radius: 4px;
 	padding: 4px 12px;
 	font-size: 1rem;
@@ -74,9 +77,9 @@
 	transition: background 0.15s, color 0.15s;
 }
 .header-btn:hover {
-	background: #000;
-	color: #1e9497;
-	border-color: #1e9497;
+	background: $secondary-panel-clr;
+	color: $primary-color;
+	border-color: $primary-color;
 }
 .btn-danger {
 	border-color: #d9534f !important;
