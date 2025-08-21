@@ -5,7 +5,6 @@
 - back arrow for sztuki monitor magazyn
 - align tag panel for magazyn
 - back arrow inside of component, not header
-- maybe change search bar color
 
 //michas 22.08
 - instant closing side bar on click in mobile

@@ -13,11 +13,7 @@
       <div class="table-header">
         <span class="table-title">DETAILS</span>
         <div class="table-search">
-          <input
-            type="text"
-            placeholder="Szukaj..."
-            class="table-search-input"
-          />
+          <app-search-bar (searchInput)="onSearch($event)" [noPaddingBottom]="true"></app-search-bar>
         </div>
       </div>
       <table class="second-table">
@@ -30,7 +26,7 @@
           </tr>
         </thead>
         <tbody>
-          @for (n of data.device; let i = $index; track i) {
+          @for (n of filteredDevices; let i = $index; track i) {
           <tr>
             <td class="cell-serial" data-label="Serial Number">{{ n.serialNr }}</td>
             <td class="cell-przesylka" data-label="Przesyłka">{{ n.przesylkaNr }}</td>
