@@ -66,6 +66,20 @@
 }
 .main-panel-link { position:absolute; top:.6rem; right:1.1rem; font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:$muted-txt; cursor:pointer; user-select:none; transition:color .15s; }
 .main-panel-link:hover, .main-panel-link:focus { color:$primary-color; }
+
+@media (max-width: 600px) {
+  .main-panel-link {
+    font-size:.52rem;
+    letter-spacing:.12em;
+    top:.35rem;
+    right:.6rem;
+    max-width:60vw;
+    text-align:right;
+    line-height:1.15;
+    white-space:normal;
+    word-break:break-word;
+  }
+}
 .second-header-tools button {
   background: transparent;
   border: 1px solid $border-clr;
