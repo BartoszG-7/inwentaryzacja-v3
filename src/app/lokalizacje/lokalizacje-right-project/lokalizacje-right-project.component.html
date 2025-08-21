@@ -2,6 +2,14 @@
   <div class="header-row">
     <span class="header-title">{{ project.name }}</span>
     <div class="header-actions">
+      <button
+        type="button"
+        class="back-arrow-btn"
+        (click)="goToInwentaryzacja()"
+        aria-label="Powrót do inwentaryzacji"
+      >
+        <i class="bi bi-arrow-left"></i>
+      </button>
       <app-search-bar
         [noPaddingBottom]="true"
         [showFilterModal]="true"
