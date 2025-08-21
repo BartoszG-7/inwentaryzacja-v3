@@ -18,8 +18,8 @@ import { GlobalSearchModalComponent } from '../../components/global-search-modal
     Treebar,
     PlusModalComponent,
     PlusModalLokalComponent,
-  SearchBarMobileComponent,
-  GlobalSearchModalComponent,
+    SearchBarMobileComponent,
+    GlobalSearchModalComponent,
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
@@ -91,8 +91,10 @@ export class HeaderComponent {
   }
 
   goToInwentaryzacja() {
-  // Just hard reload current page (no extra routing)
-  window.location.reload();
+    //route to page without selected project or location and hard reload (copilot dont break it)
+    this.router.navigate(['/inwentaryzacja/{}']).then(() => {
+      window.location.reload();
+    });
   }
 
   updateMenus() {

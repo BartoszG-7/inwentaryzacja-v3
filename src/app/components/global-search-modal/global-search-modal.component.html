@@ -49,7 +49,11 @@
           Brak wyników
         </div>
         <ul *ngIf="results.length > 0" class="results-list">
-          <li *ngFor="let r of results[results.length - 1]" class="result-item">
+          <li
+            *ngFor="let r of results[results.length - 1]"
+            id="{{ r.id }}"
+            class="result-item"
+          >
             <div class="result-title">{{ r.title }}</div>
             <div class="result-sub">{{ r.subtitle }}</div>
           </li>
