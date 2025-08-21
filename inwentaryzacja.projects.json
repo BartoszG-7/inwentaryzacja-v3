@@ -2118,13 +2118,13 @@
   "name": "testsjsfdgsfd",
   "dns1": "0.0.0.0",
   "dns2": "0.0.0.0",
-  "networkAddress": "0.0.0.0",
-  "mask": "0.0.0.0",
+  "networkAddress": "0.0.0.4",
+  "mask": "255.255.255.0",
   "gateway": "0.0.0.0",
   "addrPool": [
     "0.0.0.0"
   ],
-  "addrExclude": "",
+  "addrExclude": "192.168.1.12",
   "remoteAccessTag": "s",
   "projectDevices": [],
   "location": {

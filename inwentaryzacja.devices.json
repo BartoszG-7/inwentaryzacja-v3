@@ -10,9 +10,6 @@
   "dns2": "10.193.0.185",
   "deviceType": {
     "$oid": "6894a8159bf83af8ee0f03ec"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -43,9 +40,6 @@
   "serverAddress": "http://10.193.16.1/kiosk",
   "deviceType": {
     "$oid": "6894a5cf9bf83af8ee0f03e5"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -61,9 +55,6 @@
   "serverAddress": "http://10.193.16.1/kiosk",
   "deviceType": {
     "$oid": "6894a5cf9bf83af8ee0f03e5"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -81,9 +72,6 @@
   "serverAddress": "http://10.193.16.1/screen",
   "deviceType": {
     "$oid": "6894a5609bf83af8ee0f03e3"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -101,9 +89,6 @@
   "serverAddress": "http://10.193.16.1/screen",
   "deviceType": {
     "$oid": "6894a5609bf83af8ee0f03e3"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -121,9 +106,6 @@
   "serverAddress": "http://10.193.16.1/screen",
   "deviceType": {
     "$oid": "6894a5609bf83af8ee0f03e3"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -140,9 +122,6 @@
   "serverAddress": "http://10.193.16.1/player",
   "deviceType": {
     "$oid": "68949a599bf83af8ee0f03da"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -159,9 +138,6 @@
   "serverAddress": "http://10.193.16.1/player",
   "deviceType": {
     "$oid": "68949a599bf83af8ee0f03da"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -182,7 +158,8 @@
   },
   "project": {
     "$oid": "6895b53d4c2a9be9747d332b"
-  }
+  },
+  "przesylkaNr": "767566i56i67i"
 },
 {
   "_id": {
@@ -1775,9 +1752,6 @@
   "serverAddress": "http://10.193.16.1/kiosk",
   "deviceType": {
     "$oid": "6894a5cf9bf83af8ee0f03e5"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -1793,9 +1767,6 @@
   "serverAddress": "http://10.193.16.1/kiosk",
   "deviceType": {
     "$oid": "6894a5cf9bf83af8ee0f03e5"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -1811,9 +1782,6 @@
   "serverAddress": "http://10.193.16.1/kiosk",
   "deviceType": {
     "$oid": "6894a5cf9bf83af8ee0f03e5"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -1829,9 +1797,6 @@
   "serverAddress": "http://10.193.16.1/kiosk",
   "deviceType": {
     "$oid": "6894a5cf9bf83af8ee0f03e5"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -2021,9 +1986,6 @@
   "serverAddress": "http://10.193.16.1/player",
   "deviceType": {
     "$oid": "6894a5609bf83af8ee0f03e3"
-  },
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
   }
 },
 {
@@ -2039,9 +2001,6 @@
   "note": "dd",
   "pinIfButton": "",
   "remoteAccessId": "192.168.1.1",
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
-  },
   "__v": 0
 },
 {
@@ -2057,9 +2016,6 @@
   "note": "dd",
   "pinIfButton": "",
   "remoteAccessId": "192.168.1.1",
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
-  },
   "__v": 0
 },
 {
@@ -2075,9 +2031,6 @@
   "note": "dd",
   "pinIfButton": "",
   "remoteAccessId": "192.168.1.1",
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
-  },
   "__v": 0
 },
 {
@@ -2093,9 +2046,6 @@
   "note": "dd",
   "pinIfButton": "",
   "remoteAccessId": "192.168.1.1",
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
-  },
   "__v": 0
 },
 {
@@ -2111,9 +2061,6 @@
   "note": "dd",
   "pinIfButton": "",
   "remoteAccessId": "192.168.1.1",
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
-  },
   "__v": 0
 },
 {
@@ -2129,9 +2076,6 @@
   "note": "dd",
   "pinIfButton": "",
   "remoteAccessId": "192.168.1.1",
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
-  },
   "__v": 0
 },
 {
@@ -2147,9 +2091,6 @@
   "note": "dd",
   "pinIfButton": "",
   "remoteAccessId": "192.168.1.1",
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
-  },
   "__v": 0
 },
 {
@@ -2165,9 +2106,6 @@
   "note": "dd",
   "pinIfButton": "",
   "remoteAccessId": "192.168.1.1",
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
-  },
   "__v": 0
 },
 {
@@ -2183,9 +2121,6 @@
   "note": "dd",
   "pinIfButton": "",
   "remoteAccessId": "192.168.1.1",
-  "project": {
-    "$oid": "6895b53d4c2a9be9747d332b"
-  },
   "__v": 0
 },
 {
@@ -2239,6 +2174,126 @@
   "remoteAccessId": "192.168.1.1",
   "project": {
     "$oid": "6895b53d4c2a9be9747d332b"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a30024b69c8d381dd7a70a"
+  },
+  "ip": "192.168.1.1",
+  "deviceType": "6894a5cf9bf83af8ee0f03e5",
+  "tag": "",
+  "macAddr": "192.168.1.1",
+  "serialNr": "192.168.1.1",
+  "serverAddress": "192.168.1.1",
+  "note": "dd",
+  "pinIfButton": "",
+  "remoteAccessId": "192.168.1.1",
+  "project": {
+    "$oid": "6895b53d4c2a9be9747d332b"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a3005db69c8d381dd7a723"
+  },
+  "ip": "192.168.1.1",
+  "deviceType": "6894a5609bf83af8ee0f03e3",
+  "tag": "",
+  "macAddr": "192.168.1.1",
+  "serialNr": "192.168.1.1",
+  "serverAddress": "192.168.1.1",
+  "note": "dd",
+  "pinIfButton": "",
+  "remoteAccessId": "192.168.1.1",
+  "project": {
+    "$oid": "68a2c74203b5abf9c243d410"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a41b9ef249d0088c7c3128"
+  },
+  "ip": "192.168.1.1",
+  "deviceType": "6894a5cf9bf83af8ee0f03e5",
+  "tag": "",
+  "macAddr": "192.168.1.1",
+  "serialNr": "192.168.1.1",
+  "serverAddress": "192.168.1.1",
+  "note": "dd",
+  "pinIfButton": "",
+  "remoteAccessId": "192.168.1.1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a43461f249d0088c7c3259"
+  },
+  "ip": "192.168.1.1",
+  "deviceType": "689495939bf83af8ee0f03ca",
+  "tag": "",
+  "macAddr": "192.168.1.1",
+  "serialNr": "192.168.1.1",
+  "serverAddress": "192.168.1.1",
+  "note": "dd",
+  "pinIfButton": "",
+  "remoteAccessId": "192.168.1.1",
+  "project": {
+    "$oid": "6895b53d4c2a9be9747d332b"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a449126170b1b1ab6dfb72"
+  },
+  "ip": "192.168.1.1",
+  "deviceType": "689ae217425661a01b27d5be",
+  "tag": "",
+  "macAddr": "192.168.1.1",
+  "serialNr": "192.168.1.1",
+  "serverAddress": "192.168.1.1",
+  "note": "dd",
+  "pinIfButton": "",
+  "remoteAccessId": "192.168.1.1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a55e4e5d8c21141d82298d"
+  },
+  "ip": "192.168.1.1",
+  "deviceType": "689ae217425661a01b27d5be",
+  "tag": "",
+  "macAddr": "192.168.1.1",
+  "serialNr": "192.168.1.1",
+  "serverAddress": "192.168.1.1",
+  "note": "dd",
+  "pinIfButton": "",
+  "remoteAccessId": "192.168.1.1",
+  "project": {
+    "$oid": "6895b53d4c2a9be9747d332b"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a5835fdcf34d432b92c99e"
+  },
+  "ip": "192.168.1.1",
+  "deviceType": "689495939bf83af8ee0f03ca",
+  "tag": "",
+  "macAddr": "192.168.1.1",
+  "serialNr": "192.168.1.1",
+  "serverAddress": "192.168.1.1",
+  "note": "dd",
+  "pinIfButton": "",
+  "remoteAccessId": "192.168.1.1",
+  "project": {
+    "$oid": "689dcbdf753d200b0cbdde0c"
   },
   "__v": 0
 }]
