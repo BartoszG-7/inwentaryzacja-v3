@@ -16,7 +16,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-magazyn-main',
   standalone: true,
-  imports: [CommonModule, MagazynRightCompComponent, MagazynSidebarComponent, MagazynRightSecond],
+  imports: [
+    CommonModule,
+    MagazynRightCompComponent,
+    MagazynSidebarComponent,
+    MagazynRightSecond,
+  ],
   templateUrl: './magazyn-main.component.html',
   styleUrls: ['./magazyn-main.component.scss'],
 })
@@ -28,7 +33,7 @@ export class MagazynMainComponent implements OnInit, OnChanges {
   id: any = '';
   arr: any = [];
   // controls whether the alternative second right panel is shown
-  secondView = false;
+
   ngOnChanges(changes: SimpleChanges): void {
     console.log('MAGAZYN MAIN CHANGES');
   }
@@ -53,8 +58,5 @@ export class MagazynMainComponent implements OnInit, OnChanges {
     console.log(id);
     this.id = id;
     console.log(this.id);
-  }
-  showSecondPanel() {
-    this.secondView = true;
   }
 }
