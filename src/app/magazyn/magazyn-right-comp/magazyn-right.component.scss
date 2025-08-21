@@ -151,6 +151,17 @@
   margin-left: 1.2rem;
 }
 
+.magazyn-main-empty-msg {
+  background: #292a33;
+  border: 1.5px solid $border-clr;
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  color: $muted-txt;
+  font-size: .9rem;
+  letter-spacing: .03em;
+  line-height: 1.4;
+}
+
 /* Ensure on small screens the main dashboard has no rounded corners.
    Placing this override after the desktop rules prevents later desktop
    declarations from reintroducing the radius. */
