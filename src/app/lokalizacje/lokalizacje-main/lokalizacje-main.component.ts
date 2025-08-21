@@ -14,6 +14,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Treebar } from '../../treebar/treebar';
 import { HeaderArrowService } from '../../components/header/header-arrow.service';
 import { TreebarSharedService } from '../../home/treebar.share.service';
+import { Treeexpander } from '../../treeexpander/treeexpander';
 
 @Component({
   selector: 'app-lokalizacje-main',
@@ -47,25 +48,30 @@ export class LokalizacjeMainComponent implements OnInit {
           console.log('STOPPROJ', e.stopProj);
           if (!e.stopProj) {
             this.showProject = true;
+            this.selectedId = e.projectId;
+
+            this.arrowService.setShowArrow(true);
+          } else {
+            this.showProject = false;
+            console.log('INSTANCES MAIN', e);
           }
           console.log('AFTER IF STOPPROJ', this.showProject);
-          this.selectedId = e.projectId;
-
-          this.arrowService.setShowArrow(true);
-        } else {
+          console.log(e);
+        } else if (e.type === 'location') {
           if (!this.showProject) {
             this.selectedId = e;
           } else {
             console.log('THIS.showProject', this.showProject);
             this.arrowService.setShowArrow(false);
             this.selectedId = '';
+            console.log('URLCHANHGED1', this.router.url);
             this.router
               .navigate([
                 '/inwentaryzacja/' +
                   JSON.stringify({ type: 'location', id: e.location._id }),
               ])
               .then(() => {
-                console.log('LOKALIZACJE MAIN COMP RELOAD');
+                console.log('LOKALIZACJE MAIN COMP RELOAD', this.router.url);
                 window.location.reload();
               });
           }

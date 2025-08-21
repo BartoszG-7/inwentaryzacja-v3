@@ -1,8 +1,7 @@
 @for (item of data; track item.date) {
 <div
   class="card mb-2 project-card"
-  (click)="redirect($event)"
-  id="{{ item.project._id }}"
+  (click)="redirect(item.project._id, item.project.location._id)"
 >
   <div class="card-body py-2 px-3">
     @if(item.project!==null) {

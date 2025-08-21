@@ -50,6 +50,7 @@ export class Treebar implements OnInit, OnChanges {
         this.selectedId.emit(
           this.treebarService.parseDataForRightComp(this.fetchedData, event)
         );
+        console.log('DATA SENT');
         this.treebarSharedService.setData(
           this.treebarService.parseDataForRightComp(this.fetchedData, event)
         );
@@ -58,9 +59,11 @@ export class Treebar implements OnInit, OnChanges {
       if (event.type === 'project') {
         event.stopProj = this.stopProj;
         this.selectedId.emit(event.projectId);
+        console.log('DATA SENT');
         this.treebarSharedService.setData(event);
       }
     } else {
+      console.log('DATA SENT');
       this.treebarSharedService.setData(event);
     }
   }
@@ -131,6 +134,7 @@ export class Treebar implements OnInit, OnChanges {
           next: (e) => {
             if (e['data'] !== undefined) {
               console.log(e['data']);
+              console.log('DATA SENT');
               this.treebarSharedService.setData(JSON.parse(e['data']));
               let data = JSON.parse(e['data']);
               if (data !== '{}') {
@@ -139,7 +143,10 @@ export class Treebar implements OnInit, OnChanges {
                     this.selectedId.emit(data.id);
                   } else {
                     this.stopProj = true;
-                    this.setTRX('project', data.id);
+                    Treeexpander.instances.forEach((instance) => {
+                      console.log('INSTANCES', JSON.parse(instance.projects()));
+                    });
+                    this.setTRX('location', data.id);
                   }
                 } else if (data.type === 'location') {
                   this.setTRX('location', data.id);

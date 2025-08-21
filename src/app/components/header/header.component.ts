@@ -39,15 +39,7 @@ export class HeaderComponent implements OnInit {
     // Here you can implement the logic to handle the search input
     // For example, you might want to filter the locations based on the search term
   }
-  ngOnInit() {
-    console.log('PARAMS', this.activeRoute);
-    this.activeRoute.firstChild?.params.subscribe({
-      next: (e) => {
-        this.urlData = JSON.parse(e['data']);
-        console.log('URLDATA', e);
-      },
-    });
-  }
+  ngOnInit() {}
   leftMenuOpen = false;
   rightMenuOpen = false;
   showLeftMenu = true;
@@ -90,6 +82,14 @@ export class HeaderComponent implements OnInit {
   ) {
     this.arrowService.showArrow$.subscribe((show) => {
       this.showBackArrow = show;
+
+      console.log('INIT');
+      this.activeRoute.firstChild?.params.subscribe({
+        next: (e) => {
+          this.urlData = JSON.parse(e['data']);
+          console.log('URLDATA', e);
+        },
+      });
     });
     this.selectedRoute = this.router.url;
     this.router.events.subscribe((event: any) => {
@@ -109,14 +109,26 @@ export class HeaderComponent implements OnInit {
   goToInwentaryzacja() {
     // this.router.navigate(['/inwentaryzacja/{}']);
     //route to page without selected project or location and hard reload (copilot dont break it)
-    console.log('BUTTON DATA', this.urlData);
-    this.urlData.stopProj = true;
 
-    this.router
-      .navigate(['/inwentaryzacja/' + JSON.stringify(this.urlData)])
-      .then(() => {
+    console.log('BUTTON DATA');
+    if (this.urlData.idLoc != undefined) {
+      this.router
+        .navigate([
+          '/inwentaryzacja/' +
+            (JSON.stringify({ type: 'location', id: this.urlData.idLoc }) ??
+              '{}'),
+        ])
+        .then(() => {
+          window.location.reload();
+        });
+    } else {
+      this.router.navigate(['/inwentaryzacja/{}']).then(() => {
         window.location.reload();
       });
+    }
+    // this.router.navigate(['/inwentaryzacja/{}']).then(() => {
+    //   window.location.reload();
+    // });
   }
 
   updateMenus() {

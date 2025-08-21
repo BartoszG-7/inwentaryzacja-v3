@@ -15,26 +15,16 @@ export class HomeLatestModifiedComponent implements OnInit {
   data: any;
   ngOnInit(): void {
     this.data = this.modified();
-    console.log(this.data);
+    console.log('MDOFIED', this.data);
   }
-  redirect(event: any) {
-    if (event.target.parentElement.id == '') {
-      console.log(event.target.parentElement.parentElement.id);
-      this.router.navigate([
-        '/inwentaryzacja/' +
-          JSON.stringify({
-            type: 'project',
-            id: event.target.parentElement.parentElement.id,
-          }),
-      ]);
-    } else {
-      this.router.navigate([
-        '/inwentaryzacja/' +
-          JSON.stringify({
-            type: 'project',
-            id: event.target.parentElement.id,
-          }),
-      ]);
-    }
+  redirect(idProj: any, idLoc: any) {
+    this.router.navigate([
+      '/inwentaryzacja/' +
+        JSON.stringify({
+          type: 'project',
+          id: idProj,
+          idLoc: idLoc,
+        }),
+    ]);
   }
 }

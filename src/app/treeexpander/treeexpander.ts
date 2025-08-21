@@ -1,10 +1,17 @@
-import { Component, input, InputSignal, OnInit, output, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  input,
+  InputSignal,
+  OnInit,
+  output,
+  ChangeDetectorRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-treeexpander',
   imports: [],
   templateUrl: './treeexpander.html',
-  styleUrl: './treeexpander.scss'
+  styleUrl: './treeexpander.scss',
 })
 export class Treeexpander implements OnInit {
   constructor(private changeDetectorRef: ChangeDetectorRef) {}
@@ -47,7 +54,8 @@ export class Treeexpander implements OnInit {
   expand(event?: Event): void {
     // toggle selection for location similar to previous implementation
     if (
-      (Treeexpander.selectedLocationId === this.locationId() && this.expanded) ||
+      (Treeexpander.selectedLocationId === this.locationId() &&
+        this.expanded) ||
       this.selectedProjectIndex !== null
     ) {
       // unselect
@@ -72,12 +80,15 @@ export class Treeexpander implements OnInit {
     if (event && event.target && (event.target as HTMLElement).blur) {
       (event.target as HTMLElement).blur();
     }
-    try { this.changeDetectorRef.detectChanges(); } catch {}
+    try {
+      this.changeDetectorRef.detectChanges();
+    } catch {}
   }
 
   selectProject(index: number, event?: Event): void {
     Treeexpander.selectedLocationId = null;
-    Treeexpander.selectedProjectId = this.locationId() + ':' + this.names[index];
+    Treeexpander.selectedProjectId =
+      this.locationId() + ':' + this.names[index];
     Treeexpander.instances.forEach((inst) => {
       inst.isSelected = false;
       if (inst === this) {
@@ -103,6 +114,8 @@ export class Treeexpander implements OnInit {
     if (event && event.target && (event.target as HTMLElement).blur) {
       (event.target as HTMLElement).blur();
     }
-    try { this.changeDetectorRef.detectChanges(); } catch {}
+    try {
+      this.changeDetectorRef.detectChanges();
+    } catch {}
   }
 }
