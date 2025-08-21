@@ -1,9 +1,6 @@
 //bar
 - click select for filter, click again sort asc desc allat
-- functions for magazyn list
 - scroll for notatki
-- back arrow for sztuki monitor magazyn
-- align tag panel for magazyn
 - back arrow inside of component, not header
 
 //michas 22.08
@@ -15,3 +12,4 @@
 - project cant be displayed if treebar element isnt toggled
 - toggle and filter/sortowanie for table projekty
 - format json adres w lokalizacjach
+- magazyn sztuki panel odnosnik (GO BACK TO MAIN PANEL) ma dzialac dla kazdych urzadzen

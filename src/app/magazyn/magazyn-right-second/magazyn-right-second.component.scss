@@ -20,6 +20,7 @@
   display: flex;
   flex-direction: column;
   transition: max-width 0.2s ease;
+  position: relative;
 }
 
 /* Enhanced header mini panel */
@@ -63,6 +64,8 @@
   align-items: center;
   gap: 0.65rem;
 }
+.main-panel-link { position:absolute; top:.6rem; right:1.1rem; font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:$muted-txt; cursor:pointer; user-select:none; transition:color .15s; }
+.main-panel-link:hover, .main-panel-link:focus { color:$primary-color; }
 .second-header-tools button {
   background: transparent;
   border: 1px solid $border-clr;

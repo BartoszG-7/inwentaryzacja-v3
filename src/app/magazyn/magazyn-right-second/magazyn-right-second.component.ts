@@ -58,6 +58,10 @@ export class MagazynRightSecond implements OnInit {
         .some(v => (v || '').toString().toLowerCase().includes(t));
     });
   }
+  
+    refreshMainPanel() {
+      window.location.reload();
+    }
 
   toggleOne(id: string, checked: boolean) {
     if (!id) return;

@@ -1,12 +1,13 @@
 <div class="magazyn-right-container">
   <div class="magazyn-main-dashboard second-panel-match">
+  <span class="main-panel-link" (click)="refreshMainPanel()" role="button" tabindex="0">GO BACK TO MAIN PANEL</span>
     <div class="second-header-panel">
       <div class="second-header-left">
         <div class="second-title-name">{{ data.deviceType.name }}</div>
         <div class="second-title-total">{{ data.device.length }} szt</div>
       </div>
       <div class="second-header-tools">
-        <!-- future icon buttons go here -->
+    <!-- future icon buttons go here -->
       </div>
     </div>
     <div class="second-table-wrapper">
