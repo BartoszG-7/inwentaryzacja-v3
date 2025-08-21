@@ -75,4 +75,8 @@ export class UpdateDeviceDto {
   @IsString()
   @IsOptional()
   przesylkaNr: string;
+
+  @IsString()
+  @IsOptional()
+  fakturaNr: string;
 }

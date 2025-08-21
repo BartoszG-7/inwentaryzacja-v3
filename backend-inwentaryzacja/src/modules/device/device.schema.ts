@@ -38,5 +38,7 @@ export class Device {
   @Prop() gateway: string;
 
   @Prop() przesylkaNr: string;
+
+  @Prop() fakturaNr: string;
 }
 export const DeviceSchema = SchemaFactory.createForClass(Device);

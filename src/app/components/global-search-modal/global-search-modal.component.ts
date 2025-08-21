@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { debounce, debounceTime, interval, Subject, timer } from 'rxjs';
 import { GlobalSearchModalService } from './global-search-modal.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-global-search-modal',
@@ -19,7 +20,7 @@ import { GlobalSearchModalService } from './global-search-modal.service';
 export class GlobalSearchModalComponent implements OnChanges {
   constructor(
     private globalSearchModalService: GlobalSearchModalService,
-    private changeDetector: ChangeDetectorRef
+    private router: Router
   ) {}
   showModal = false;
   query = '';
@@ -74,6 +75,13 @@ export class GlobalSearchModalComponent implements OnChanges {
   }
   redir(data: any) {
     console.log(data);
+    this.router
+      .navigate([
+        '/inwentaryzacja/' + JSON.stringify({ type: 'project', id: data.id }),
+      ])
+      .then(() => {
+        window.location.reload();
+      });
   }
   onSearch() {
     this.search.next(this.query);

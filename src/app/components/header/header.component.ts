@@ -1,7 +1,12 @@
-import { Component, ComponentRef } from '@angular/core';
+import { Component, ComponentRef, OnInit } from '@angular/core';
 import { HeaderArrowService } from './header-arrow.service';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router, NavigationEnd } from '@angular/router';
+import {
+  RouterModule,
+  Router,
+  NavigationEnd,
+  ActivatedRoute,
+} from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Treebar } from '../../treebar/treebar';
 import { PlusModalComponent } from '../../components/plus-modal/plus-modal.component';
@@ -24,14 +29,24 @@ import { GlobalSearchModalComponent } from '../../components/global-search-modal
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   showBackArrow = false;
   searchInput: string = '';
+  urlData: any;
   onSearch(event: string): void {
     this.searchInput = event;
 
     // Here you can implement the logic to handle the search input
     // For example, you might want to filter the locations based on the search term
+  }
+  ngOnInit() {
+    console.log('PARAMS', this.activeRoute);
+    this.activeRoute.firstChild?.params.subscribe({
+      next: (e) => {
+        this.urlData = JSON.parse(e['data']);
+        console.log('URLDATA', e);
+      },
+    });
   }
   leftMenuOpen = false;
   rightMenuOpen = false;
@@ -70,7 +85,8 @@ export class HeaderComponent {
   constructor(
     private router: Router,
     private cookieService: CookieService,
-    private arrowService: HeaderArrowService
+    private arrowService: HeaderArrowService,
+    private activeRoute: ActivatedRoute
   ) {
     this.arrowService.showArrow$.subscribe((show) => {
       this.showBackArrow = show;
@@ -91,10 +107,16 @@ export class HeaderComponent {
   }
 
   goToInwentaryzacja() {
+    // this.router.navigate(['/inwentaryzacja/{}']);
     //route to page without selected project or location and hard reload (copilot dont break it)
-    this.router.navigate(['/inwentaryzacja/{}']).then(() => {
-      window.location.reload();
-    });
+    console.log('BUTTON DATA', this.urlData);
+    this.urlData.stopProj = true;
+
+    this.router
+      .navigate(['/inwentaryzacja/' + JSON.stringify(this.urlData)])
+      .then(() => {
+        window.location.reload();
+      });
   }
 
   updateMenus() {

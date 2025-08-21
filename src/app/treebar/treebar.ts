@@ -35,6 +35,7 @@ export class Treebar implements OnInit, OnChanges {
   query = input<string>('http://localhost:3000/data/treebar');
   search = input<string>();
   searchValidated: string = '{}';
+  stopProj: boolean = false;
   refresh: boolean = false;
   currentId: any;
   fetchedData: any;
@@ -55,6 +56,7 @@ export class Treebar implements OnInit, OnChanges {
       }
 
       if (event.type === 'project') {
+        event.stopProj = this.stopProj;
         this.selectedId.emit(event.projectId);
         this.treebarSharedService.setData(event);
       }
@@ -133,8 +135,14 @@ export class Treebar implements OnInit, OnChanges {
               let data = JSON.parse(e['data']);
               if (data !== '{}') {
                 if (data.type === 'project') {
-                  this.selectedId.emit(data.id);
+                  if (!data.stopProj) {
+                    this.selectedId.emit(data.id);
+                  } else {
+                    this.stopProj = true;
+                    this.setTRX('project', data.id);
+                  }
                 } else if (data.type === 'location') {
+                  this.setTRX('location', data.id);
                   console.log(this.fetchedData);
                   this.selectedId.emit(
                     this.treebarService.parseDataForRightComp(
@@ -144,13 +152,16 @@ export class Treebar implements OnInit, OnChanges {
                   );
                 }
               }
-            } else {
+            }
+            if (e['data'] == '{}') {
               // No routing data: auto-select first element (location) if available
               if (this.data.length > 0) {
+                console.log('TREEBAR FIRST ELEMENT SET');
                 const first = this.data[0];
-                // const evt = { type: 'location', id: first.id };
-                // this.currentId = evt;
-                // this.changeId(evt);
+                console.log(first);
+                const evt = { type: 'location', id: first.id };
+                this.currentId = evt;
+                this.changeId(evt);
                 // sync Treeexpander static selection state if instances already exist
                 try {
                   (Treeexpander as any).selectedLocationId = first.id;
@@ -175,5 +186,45 @@ export class Treebar implements OnInit, OnChanges {
         });
       },
     });
+  }
+  setTRX(type: string, id: string) {
+    const evt = { type: type, id: id };
+    this.currentId = evt;
+    this.changeId(evt);
+    // sync Treeexpander static selection state if instances already exist
+    if (type === 'location') {
+      try {
+        (Treeexpander as any).selectedLocationId = id;
+        (Treeexpander as any).instances?.forEach((inst: any) => {
+          const lid =
+            typeof inst.locationId === 'function' ? inst.locationId() : null;
+          inst.isSelected = lid === id;
+          inst.selectedProjectIndex = null;
+          inst.expanded = lid === id;
+          if (inst.changeDetectorRef) {
+            try {
+              inst.changeDetectorRef.detectChanges();
+            } catch {}
+          }
+        });
+      } catch {}
+    }
+    if (type === 'project') {
+      try {
+        (Treeexpander as any).selectedLocationId = id;
+        (Treeexpander as any).instances?.forEach((inst: any) => {
+          const lid =
+            typeof inst.locationId === 'function' ? inst.locationId() : null;
+          inst.isSelected = lid === id;
+          inst.selectedProjectIndex = null;
+          inst.expanded = lid === id;
+          if (inst.changeDetectorRef) {
+            try {
+              inst.changeDetectorRef.detectChanges();
+            } catch {}
+          }
+        });
+      } catch {}
+    }
   }
 }

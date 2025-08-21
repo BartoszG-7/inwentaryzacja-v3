@@ -43,13 +43,20 @@ export class LokalizacjeMainComponent implements OnInit {
         console.log(e);
         if (e.type === 'project') {
           // this.changedId(e.projectId);
+          console.log('BEFORE IF STOPPROJ', this.showProject);
+          console.log('STOPPROJ', e.stopProj);
+          if (!e.stopProj) {
+            this.showProject = true;
+          }
+          console.log('AFTER IF STOPPROJ', this.showProject);
           this.selectedId = e.projectId;
-          this.showProject = true;
+
           this.arrowService.setShowArrow(true);
         } else {
           if (!this.showProject) {
             this.selectedId = e;
           } else {
+            console.log('THIS.showProject', this.showProject);
             this.arrowService.setShowArrow(false);
             this.selectedId = '';
             this.router
@@ -58,6 +65,7 @@ export class LokalizacjeMainComponent implements OnInit {
                   JSON.stringify({ type: 'location', id: e.location._id }),
               ])
               .then(() => {
+                console.log('LOKALIZACJE MAIN COMP RELOAD');
                 window.location.reload();
               });
           }
