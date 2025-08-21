@@ -1,11 +1,15 @@
 import { Component, input, InputSignal, OnInit } from '@angular/core';
+import { MagSecondDodaj } from '../../components/mag-second-dodaj/mag-second-dodaj.component';
+import { MagSecondEdit } from '../../components/mag-second-edit/mag-second-edit.component';
+import { MagSecondUsun } from '../../components/mag-second-usun/mag-second-usun.component';
+import { MagSecondSrcBar } from '../../components/mag-second-src-bar/mag-second-src-bar.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 import { MagazynRightSecondService } from './magazyn-right-second.service';
 
 @Component({
   selector: 'app-magazyn-right-second',
   standalone: true,
-  imports: [SearchBarComponent],
+  imports: [SearchBarComponent, MagSecondDodaj, MagSecondEdit, MagSecondUsun, MagSecondSrcBar],
   templateUrl: './magazyn-right-second.component.html',
   styleUrls: ['./magazyn-right-second.component.scss'],
 })

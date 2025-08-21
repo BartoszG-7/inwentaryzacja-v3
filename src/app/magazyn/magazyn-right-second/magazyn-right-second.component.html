@@ -11,7 +11,15 @@
     </div>
     <div class="second-table-wrapper">
       <div class="table-header">
-        <span class="table-title">DETAILS</span>
+        <div class="table-header-left">
+          <span class="table-title">DETAILS</span>
+          <div class="table-icons">
+            <app-mag-second-dodaj></app-mag-second-dodaj>
+            <app-mag-second-edit></app-mag-second-edit>
+            <app-mag-second-usun></app-mag-second-usun>
+            <app-mag-second-src-bar></app-mag-second-src-bar>
+          </div>
+        </div>
         <div class="table-search">
           <app-search-bar (searchInput)="onSearch($event)" [noPaddingBottom]="true"></app-search-bar>
         </div>

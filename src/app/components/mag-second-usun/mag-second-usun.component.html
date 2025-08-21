@@ -1,1 +1,24 @@
-<p>mag-second-usun works!</p>
+<button class="header-btn" (click)="openModal()" aria-label="Usuń zaznaczone">
+	<i class="bi bi-trash3" aria-hidden="true"></i>
+</button>
+
+<ng-container *ngIf="showModal">
+	<div class="modal-backdrop open" (click)="closeModal()" aria-hidden="true"></div>
+	<div class="modal-custom open" role="dialog" aria-modal="true" aria-labelledby="magSecondDeleteTitle">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 id="magSecondDeleteTitle" class="modal-title">Potwierdzenie usunięcia</h5>
+				<button type="button" class="modal-close-btn" (click)="closeModal()" aria-label="Zamknij">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Czy na pewno chcesz usunąć wybrane urządzenia? Operacja jest nieodwracalna.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn-outline-danger" (click)="confirmDelete()">Tak</button>
+				<button type="button" class="secondary-btn same-height" (click)="closeModal()">Nie</button>
+			</div>
+		</div>
+	</div>
+</ng-container>

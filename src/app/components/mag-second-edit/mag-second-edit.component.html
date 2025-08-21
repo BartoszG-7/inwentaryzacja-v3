@@ -1,1 +1,24 @@
-<p>mag-second-edit works!</p>
+<button class="header-btn" (click)="openModal()" aria-label="Edytuj urządzenie"><i class="bi bi-pencil" aria-hidden="true"></i></button>
+@if (showModal) {
+	<div class="modal-backdrop open" (click)="closeModal()" aria-hidden="true"></div>
+	<div class="modal-custom open" role="dialog" aria-modal="true" aria-labelledby="magSecondEditTitle">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 id="magSecondEditTitle" class="modal-title">Edytuj urządzenie</h5>
+				<button type="button" class="modal-close-btn" (click)="closeModal()" aria-label="Zamknij"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<form class="modal-body" (ngSubmit)="submit()" #f="ngForm">
+				<div class="fields-grid">
+					<input [(ngModel)]="form.serialNr" name="serialNr" placeholder="Serial" aria-label="Serial Number" />
+					<input [(ngModel)]="form.przesylkaNr" name="przesylkaNr" placeholder="Przesyłka Nr" aria-label="Przesyłka Number" />
+					<textarea [(ngModel)]="form.note" name="note" placeholder="Notatki" aria-label="Notatki"></textarea>
+					<input [(ngModel)]="form.fakturaNr" name="fakturaNr" placeholder="Faktura Nr" aria-label="Faktura Number" />
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="primary-btn same-height">Zapisz</button>
+					<button type="button" class="secondary-btn same-height" (click)="closeModal()">Anuluj</button>
+				</div>
+			</form>
+		</div>
+		</div>
+	}

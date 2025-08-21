@@ -126,6 +126,24 @@
   z-index: 10;
 }
 
+.table-header-left { display:flex; align-items:center; gap:.85rem; }
+.table-icons { display:flex; gap:.4rem; }
+.table-icons app-mag-second-dodaj .header-btn,
+.table-icons app-mag-second-edit .header-btn,
+.table-icons app-mag-second-usun .header-btn,
+.table-icons app-mag-second-src-bar .search-icon-btn { background:transparent; border:none; padding:.25rem .55rem; box-shadow:none; color:$muted-txt; transition:color .15s, transform .15s; }
+.table-icons app-mag-second-dodaj .header-btn:hover,
+.table-icons app-mag-second-edit .header-btn:hover,
+.table-icons app-mag-second-usun .header-btn:hover,
+.table-icons app-mag-second-src-bar .search-icon-btn:hover { color:$primary-color; border:none; background:transparent; }
+.table-icons i { font-size:1.05rem; line-height:1; display:inline-block; }
+
+/* Hide desktop search bar on narrow mobile; keep on tablet (>=600px). Mobile icon already shows its button at <=600 via its own styles */
+@media (max-width: 600px) {
+  .table-search { display: none !important; }
+}
+
+
 .table-title {
   font-size: 0.8rem;
   font-weight: 600;
