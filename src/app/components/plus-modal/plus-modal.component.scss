@@ -40,6 +40,15 @@
   transform: translate(-50%, -50%) scale(1);
 }
 
+/* Ultra-small screens (<= 360px) */
+@media (max-width: 360px) {
+  .modal-custom { min-width: 92vw; width:92vw; }
+  .modal-content { padding: 1rem 1rem 0.95rem; }
+}
+@media (max-width: 330px) {
+  .modal-custom { min-width: 94vw; }
+}
+
 /* modal-content inherits standardized styling */
 .modal-content { box-shadow: none; }
 /* input styles unified by shared partial */

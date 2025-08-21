@@ -1,99 +1,64 @@
+@import '../../styles/modal-shared';
 @import 'global.scss';
 
-// Modal backdrop fix: use semi-transparent dark overlay, not solid black
-.modal-backdrop.open {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0,0,0,0.5);
-	z-index: 1000;
-}
+/* Backdrop */
+.modal-backdrop.open { position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:5000; }
 
-.modal-custom.open {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 1001;
-	min-width: 320px;
-	max-width: 90vw;
-	background: #181818;
-	border-radius: 8px;
-	box-shadow: 0 4px 32px #000a;
-	color: #fff;
-}
+/* Container */
+.modal-custom { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(.94); background:$dark-bg !important; color:$light-txt !important; border-radius:12px; border:1.5px solid $border-clr; box-shadow:0 14px 48px rgba(0,0,0,.5); min-width:360px; opacity:0; pointer-events:none; transition:opacity .22s, transform .24s; z-index:5001; display:flex; flex-direction:column; overflow:hidden; }
+.modal-custom.open { opacity:1; pointer-events:auto; transform:translate(-50%,-50%) scale(1); }
+.modal-content { padding:1.1rem 1.25rem .95rem; box-shadow:none; }
+.modal-header { margin:0 0 .75rem 0; border:none; padding:0; }
+.modal-title { font-size:1.05rem; font-weight:600; letter-spacing:.4px; }
+.modal-footer { display:flex; justify-content:flex-end; gap:.45rem; padding-top:.25rem; }
 
-.modal-content {
-	padding: 24px 18px 18px 18px;
-	background: transparent;
-	border-radius: 8px;
-}
+/* Unified close button */
+.modal-close-btn { @extend .modal-close-btn; }
 
-.modal-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border-bottom: 1px solid #222;
-	margin-bottom: 12px;
+/* Outline red confirm button (same height as secondary) */
+.btn-outline-danger,
+.modal-footer .secondary-btn,
+.modal-footer .same-height {
+	background:transparent !important;
+	border-radius:10px;
+	padding:0.48rem 0.95rem; /* unified */
+	font-weight:600;
+	font-size:.8rem;
+	letter-spacing:.04em;
+	line-height:1.1;
+	cursor:pointer;
+	transition:background .15s, color .15s, border-color .15s, transform .12s;
 }
+.btn-outline-danger { color:$red-color !important; border:1.5px solid $red-color !important; }
+.modal-footer .secondary-btn { border:1.5px solid $border-clr !important; color:$light-txt !important; background:#262830 !important; }
+.modal-footer .secondary-btn:hover { background:#2f3238 !important; }
+.btn-outline-danger:hover { background:$red-color !important; color:#fff !important; }
+.btn-outline-danger:active { transform:translateY(1px); }
 
-.modal-title {
-	font-size: 1.2rem;
-	font-weight: bold;
-	color: #fff;
-}
+/* Ensure secondary matches same vertical rhythm */
+/* Removed .same-height custom padding (now unified above) */
 
-.close {
-	background: none;
-	border: none;
-	color: #fff;
-	font-size: 1.5rem;
-	cursor: pointer;
-	padding: 0 8px;
-}
+/* Body spacing */
+.modal-body { margin-bottom:.35rem; line-height:1.32; font-size:.88rem; }
 
-.modal-body {
-	margin-bottom: 18px;
-	color: #fff;
-}
+/* Small screens */
+@media (max-width: 360px) { .modal-custom { min-width:92vw; width:92vw; } .modal-content { padding:1rem 1rem .85rem; } }
+@media (max-width: 330px) { .modal-custom { min-width:94vw; } }
 
-.modal-footer {
-	display: flex;
-	justify-content: flex-end;
-	gap: 12px;
-}
-
-.header-btn {
-	background: transparent;
-	background-color: $panel-bg;
-	color: $light-txt;
+/* Opener button (outside modal) */
+:host > .header-btn {
+	background: $panel-bg;
+	color: $title-txt;
 	border: 1.5px solid #888;
-	border-radius: 4px;
-	padding: 4px 12px;
-	font-size: 1rem;
-	cursor: pointer;
-	transition: background 0.15s, color 0.15s;
+	border-radius:4px;
+	padding:4px 12px;
+	font-size:1rem;
+	cursor:pointer;
+	transition: background .15s, color .15s, border-color .15s;
+	box-shadow:0 4px 24px rgba(0,0,0,0.25);
 }
-.header-btn:hover {
-	background: $secondary-panel-clr;
-	color: $primary-color;
-	border-color: $primary-color;
-}
-.btn-danger {
-	border-color: #d9534f !important;
-	color: #fff !important;
-}
-.btn-danger:hover {
-	background: #d9534f !important;
-	color: #fff !important;
-}
-.btn-secondary {
-	border-color: #888 !important;
-	color: #fff !important;
-}
-.btn-secondary:hover {
-	background: #888 !important;
-	color: #fff !important;
+:host > .header-btn:hover {
+	background:$panel-bg;
+	color:$primary-color;
+	border-color:$primary-color;
 }

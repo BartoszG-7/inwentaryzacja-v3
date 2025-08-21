@@ -62,3 +62,10 @@
 .btn-primary:hover { background:$primary-dark-color; border-color:$primary-dark-color; }
 .btn-secondary { background:#262830; border:1px solid $border-clr; border-radius:10px; padding:.55rem 1rem; font-size:.8rem; }
 .btn-secondary:hover { background:#2f3238; }
+
+/* Small width adjustments */
+@media (max-width: 360px) {
+	.modal-custom { min-width: 92vw; }
+	.modal-content { padding:1rem 1rem .95rem; }
+}
+@media (max-width: 330px) { .modal-custom { min-width: 94vw; } }
