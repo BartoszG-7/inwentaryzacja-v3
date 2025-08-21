@@ -11,7 +11,7 @@
     </div>
     <div class="second-table-wrapper">
       <div class="table-header">
-        <span class="table-title">SZCZEGÓŁY</span>
+        <span class="table-title">DETAILS</span>
         <div class="table-search">
           <input
             type="text"
@@ -23,15 +23,19 @@
       <table class="second-table">
         <thead>
           <tr>
-            <th class="col-szt">Szt</th>
-            <th class="col-tag">Przesylka</th>
+            <th class="col-serial">Serial Number</th>
+            <th class="col-przesylka">Przesyłka</th>
+            <th class="col-note">Notatki</th>
+            <th class="col-invoice">Nr. Faktury</th>
           </tr>
         </thead>
         <tbody>
           @for (n of data.device; let i = $index; track i) {
           <tr>
-            <td class="cell-szt">{{ n.serialNr }}</td>
-            <td class="cell-tag">{{ n.przesylkaNr }}</td>
+            <td class="cell-serial" data-label="Serial Number">{{ n.serialNr }}</td>
+            <td class="cell-przesylka" data-label="Przesyłka">{{ n.przesylkaNr }}</td>
+            <td class="cell-note" data-label="Notatki">{{ n.note || '-' }}</td>
+            <td class="cell-invoice" data-label="Nr. Faktury">{{ n.wamaNr || '-' }}</td>
           </tr>
           }
         </tbody>
