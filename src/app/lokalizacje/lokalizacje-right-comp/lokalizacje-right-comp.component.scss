@@ -66,11 +66,57 @@
   border-radius: 8px;
   min-height: 180px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* allow inner card to stretch top instead of centering which broke scroll */
+  align-items: stretch;
+  justify-content: flex-start;
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Scroll handling for long notes: keep overall card size reasonable while allowing large text */
+/* Outer controls fixed height; inner simply fills and scrolls inside body */
+.notatki-box {
+  height: 200px; /* desktop fixed */
+}
+.notatki-box .panel-col-inner {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.notatki-box .panel-col-body {
+  /* take remaining space and scroll if overflowing */
+  flex: 1 1 auto;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #333 $panel-bg;
+  padding-right: 4px; /* room for scrollbar without overlaying text */
+}
+
+/* WebKit scrollbar styling */
+.notatki-box .panel-col-body::-webkit-scrollbar {
+  width: 8px;
+}
+.notatki-box .panel-col-body::-webkit-scrollbar-thumb {
+  background: $panel-bg;
+  border-radius: 8px;
+  border: 1px solid $border-clr;
+}
+.notatki-box .panel-col-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 900px) {
+  .notatki-box {
+    height: 160px; /* mobile fixed */
+  }
+  .adres-box, .notatki-box {
+    min-height: 160px; /* sync min-height on mobile */
+  }
 }
 
 .projekty-list {
@@ -137,10 +183,6 @@
   min-width: 0;
 }
 
-.panel-col-inner:hover {
-  background-color: $secondary-panel-clr;
-}
-
 .panel-col-title {
   font-weight: 600;
   font-size: 1rem;
@@ -198,7 +240,7 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: #333 $dark-bg;
+  scrollbar-color: #333 $dark-bg ;
 }
 
 @media screen and (min-width: 900px) {
@@ -218,8 +260,9 @@
   width: 8px;
 }
 .projekty-scroll::-webkit-scrollbar-thumb {
-  background: #444;
+  background: $panel-bg;
   border-radius: 8px;
+  border: 1px solid $border-clr;
 }
 .projekty-scroll::-webkit-scrollbar-track {
   background: transparent;

@@ -1,15 +1,13 @@
 //bar
 - click select for filter, click again sort asc desc allat
-- scroll for notatki
-- back arrow inside of component, not header
 
 //michas 22.08
 - instant closing side bar on click in mobile
 - routes, back arrow working
 - if a project or magazyn is clicked from home panel, then the back arrow takes you back to home as well
-- displaying previously selected locations and projects after pressing back arrow
 - toggling tree bar elements when using quick stock views on home
 - project cant be displayed if treebar element isnt toggled
 - toggle and filter/sortowanie for table projekty
 - format json adres w lokalizacjach
 - magazyn sztuki panel odnosnik (GO BACK TO MAIN PANEL) ma dzialac dla kazdych urzadzen
+- back arrow inside of component, not header
