@@ -16,12 +16,17 @@ export class MagazynRightCompComponent {
     private magazynRightCompService: MagazynRightCompService
   ) {}
   idOut = output();
+  // Emits when the first stat panel ("JEST") is clicked so parent can swap to the second view
+  showSecond = output<void>();
   idDummy = input();
   name: string = '';
   id: any = '';
   itemCount: number = 0;
   deviceList() {
     this.idOut.emit(this.id);
+  }
+  openSecondPanel() {
+    this.showSecond.emit();
   }
   ngOnInit(): void {
     this.treebarSharedService.getData().subscribe({
