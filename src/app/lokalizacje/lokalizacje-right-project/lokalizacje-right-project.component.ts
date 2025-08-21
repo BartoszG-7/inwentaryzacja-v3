@@ -4,6 +4,7 @@ import {
   input,
   Input,
   OnChanges,
+  OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,6 +13,7 @@ import { DodajModalDeviceComponent } from '../../components/dodaj-modal-device/d
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 import { UsunModalDeviceComponent } from '../../components/usun-modal-device/usun-modal-device.component';
 import { EditProjektComponent } from '../../components/edit-projekt/edit-projekt.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 type Group = {
   id: string;
@@ -31,9 +33,11 @@ type Group = {
   templateUrl: './lokalizacje-right-project.component.html',
   styleUrl: './lokalizacje-right-project.component.scss',
 })
-export class LokalizacjeRightProjectComponent implements OnChanges {
+export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   constructor(
-    private lokalizacjeRightProjectService: LokalizacjeRightProjectService
+    private lokalizacjeRightProjectService: LokalizacjeRightProjectService,
+    private router: Router,
+    private activeRoute: ActivatedRoute
   ) {}
 
   devicesGrouped: Array<Group> = [];
@@ -43,6 +47,39 @@ export class LokalizacjeRightProjectComponent implements OnChanges {
   devices: any;
   markedDelete: Array<string> = [];
   groupedRows: any = [];
+  urlData: any;
+  ngOnInit(): void {
+    this.activeRoute.params.subscribe({
+      next: (e) => {
+        this.urlData = JSON.parse(e['data']);
+        console.log('URLDATA', e);
+      },
+    });
+  }
+  goToInwentaryzacja() {
+    // this.router.navigate(['/inwentaryzacja/{}']);
+    //route to page without selected project or location and hard reload (copilot dont break it)
+
+    console.log('BUTTON DATA');
+    if (this.urlData.idLoc != undefined) {
+      this.router
+        .navigate([
+          '/inwentaryzacja/' +
+            (JSON.stringify({ type: 'location', id: this.urlData.idLoc }) ??
+              '{}'),
+        ])
+        .then(() => {
+          window.location.reload();
+        });
+    } else {
+      this.router.navigate(['/inwentaryzacja/{}']).then(() => {
+        window.location.reload();
+      });
+    }
+    // this.router.navigate(['/inwentaryzacja/{}']).then(() => {
+    //   window.location.reload();
+    // });
+  }
   // {
   //   name: 'SERWER',
   //   rows: [
