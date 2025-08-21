@@ -60,7 +60,7 @@
 .modal-content input,
 .modal-content textarea,
 .modal-content select {
-	padding: 0.58rem 1.05rem;
+    padding: 0.58rem 1.05rem;
 	border: 1.5px solid $border-clr;
 	border-radius: 1.05rem;
 	font-size: 1rem;
@@ -68,13 +68,13 @@
 	width: 100%;
 	box-sizing: border-box;
 	margin-bottom: 0.55rem;
-	background: #222 !important;
+	background: $panel-bg !important;
 	color: $light-txt !important;
 	transition: border-color 0.15s, background 0.15s;
 }
 .search-bar-mobile-modal-content input:focus {
 	border-color: $primary-color;
-	background: #26282c !important;
+	background: $secondary-panel-clr !important;
 }
 .search-bar-mobile-modal-content input::placeholder {
 	color: $muted-txt !important;
