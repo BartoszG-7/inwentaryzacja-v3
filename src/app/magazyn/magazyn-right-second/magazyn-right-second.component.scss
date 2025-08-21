@@ -94,7 +94,7 @@
 /* Thin, themed scrollbar for the scrolling list */
 .second-table-wrapper {
   scrollbar-width: thin;
-  scrollbar-color: darken($border-clr, 5%) $secondary-panel-clr;
+  scrollbar-color: #888 $secondary-panel-clr;
 }
 .second-table-wrapper::-webkit-scrollbar {
   width: 6px;

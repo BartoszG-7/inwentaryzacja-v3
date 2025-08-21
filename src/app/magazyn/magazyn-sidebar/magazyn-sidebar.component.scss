@@ -29,8 +29,8 @@
   display: none;
   height: 4px;
   width: 100%;
-  background: linear-gradient(90deg, #1e9497 0%, #111 100%);
-  background-color: #1e9497;
+  background: linear-gradient(90deg, $primary-color 0%, #111 100%);
+  background-color: $primary-color;
   margin: 0.3em 0 0.7em 0;
   border-radius: 2px;
   z-index: 20;
@@ -135,7 +135,7 @@
   left: 0;
   background: $sidebar-clr;
   border-right: 1.5px solid $border-clr;
-  color: #fff;
+  color: $light-txt;
   box-shadow: 0 4px 32px rgba(0,0,0,0.22);
   z-index: 10;
   display: block;
@@ -148,7 +148,7 @@
 }
 
 .sidebar-static-title {
-  color: #fff;
+  color: $title-txt;
   margin: 0;  
   font-size: 1.4em;
   font-weight: 600;
@@ -179,7 +179,7 @@
 }
 
 .sidebar-tree-title {
-  color: #fff;
+  color: $title-txt;
   margin: 0;
   font-size: 2em;
   font-weight: 600;
@@ -225,7 +225,7 @@ ul li:hover .bi-dot {
 .tree-arrow {
   display: inline-block;
   margin-right: 0.4em;
-  color: #fff;
+  color: $light-txt;
   font-size: 1em;
   opacity: 0.7;
   vertical-align: middle;
@@ -250,7 +250,7 @@ ul li:hover .bi-dot {
   width: 250px;
   height: 100vh;
   background: #000;
-  color: #fff;
+  color: $light-txt;
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.08);
   z-index: 20;
   overflow-y: auto;
