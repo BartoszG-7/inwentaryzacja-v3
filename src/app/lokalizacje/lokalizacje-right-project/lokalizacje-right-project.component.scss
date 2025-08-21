@@ -1,3 +1,5 @@
+@import 'global.scss';
+
 .table-fixed {
   width: 100%;
   // min-width: 900px;
@@ -24,13 +26,12 @@
   //border: 2px solid #888;
 }
 .right-project-table thead th {
-  border-top: 2px #888 solid !important;
+  border-top: 2px solid #888  !important;
   border-bottom: 2px #888 solid !important;
 
   position: sticky;
   top: 0;
   z-index: 3;
-  background: #111;
 }
   // .right-project-table thead th:first-child {
   //   border-left: 2px #888 solid !important;
@@ -63,7 +64,7 @@ col {
 
 // Black gap row between groups (default)
 .group-gap-row td {
-  background: #000 !important;
+  background: $dark-bg !important;
   height: 32px;
   border: none !important;
   padding: 0 !important;
@@ -74,7 +75,7 @@ col {
 
 // Black gap row after group header (custom height)
 .group-gap-row-after-header td {
-  background: #000 !important;
+  background: $dark-bg !important;
   height: 8px;
   border: none !important;
   padding: 0 !important;
@@ -88,11 +89,11 @@ col {
     tr:not(.group-label-row):nth-of-type(#{$i}) {
       @if ($i % 2 == 0) {
         td {
-          background: #222;
+          background: #252525;
         }
       } @else {
         td {
-          background: #111;
+          background: #121212;
         }
       }
     }
@@ -120,9 +121,9 @@ col {
   width: 100%;
   max-width: none;
   margin: 0;
-  background: #000;
-  border: 2px solid #888;
-  border-radius: 8px;
+  background: $dark-bg;
+  border-top: 1.5px solid $border-clr;
+  border-radius: 0px;
   padding: 12px;
   color: #fff;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -164,8 +165,9 @@ col {
 
 .header-btn {
   background: transparent;
-  color: #fff;
-  border: 1px solid #aaa;
+  color: $title-txt;
+  border: 1.5px solid #888;
+  background-color: $panel-bg;
   border-radius: 4px;
   padding: 4px 12px;
   font-size: 1rem;
@@ -174,24 +176,25 @@ col {
 }
 
 .header-btn:hover {
-  background: #000;
-  color: #1e9497;
-  border-color: #1e9497;
+  background: $panel-bg;
+  color: $primary-color;
+  border-color: $primary-color;
 }
 
 .btn-edit-row {
   padding: 4px 10px;
   font-size: 0.95rem;
   border-radius: 4px;
-  border: 1px solid #1e9497;
-  color: #1e9497;
-  background: #000;
+  border: 1.5px solid #888;
+  color: $light-txt;
+  background: $panel-bg;
   transition: background 0.15s, color 0.15s;
 }
 
 .btn-edit-row:hover {
-  background: #1e9497;
-  color: #fff;
+  background: $secondary-panel-clr;
+  color: $primary-color;
+  border-color: $primary-color;
 }
 
 .right-table-responsive {
@@ -199,7 +202,7 @@ col {
   min-width: 0;
   max-width: 100vw;
   scrollbar-width: thin;
-  scrollbar-color: #444 #181818;
+  scrollbar-color: #444 $dark-bg;
 }
 .right-table-responsive::-webkit-scrollbar {
   height: 8px;
@@ -219,9 +222,9 @@ col {
   width: 100%;
   padding: 0.25em 0.4em;
   font-size: 1rem;
-  background: #111;
+  background: $dark-bg;
   border-top-color: #000 !important;
-  color: #fff;
+  color: $light-txt;
   border-color: #888;
   border-top: none;
   min-height: 32px;

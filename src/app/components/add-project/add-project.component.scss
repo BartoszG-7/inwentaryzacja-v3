@@ -101,7 +101,7 @@
   background: transparent;
   background-color: $panel-bg;
   color: $title-txt;
-  border: 1.5px solid $border-clr;
+  border: 1.5px solid #888;
   border-radius: 4px;
   padding: 4px 12px;
   font-size: 1rem;
@@ -112,8 +112,8 @@
 }
 .header-btn:hover {
   background: $panel-bg;
-  color: #1e9497;
-  border-color: #1e9497;
+  color: $primary-color;
+  border-color: $primary-color;
 }
 
 .close {

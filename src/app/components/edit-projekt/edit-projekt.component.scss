@@ -118,8 +118,9 @@
 /* match header button styles used in lokalizacje-right-project */
 .header-btn {
 	background: transparent;
-	color: #fff;
-	border: 1px solid #aaa;
+	color: $light-txt;
+	background-color: $panel-bg;
+	border: 1.5px solid #888;
 	border-radius: 4px;
 	padding: 4px 12px;
 	font-size: 1rem;
@@ -128,8 +129,8 @@
 }
 
 .header-btn:hover {
-	background: #000;
-	color: #1e9497;
-	border-color: #1e9497;
+	background: $secondary-panel-clr;
+	color: $primary-color;
+	border-color: $primary-color;
 }
 

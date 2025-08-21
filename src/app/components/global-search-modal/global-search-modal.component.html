@@ -48,16 +48,22 @@
         <div *ngIf="!loading && results.length === 0" class="search-empty">
           Brak wyników
         </div>
-        <ul *ngIf="results.length > 0" class="results-list">
-          <li
-            *ngFor="let r of results[results.length - 1]"
-            id="{{ r.id }}"
-            class="result-item"
-          >
-            <div class="result-title">{{ r.title }}</div>
-            <div class="result-sub">{{ r.subtitle }}</div>
-          </li>
-        </ul>
+        <div *ngIf="results.length > 0" class="results-scroll">
+          <ul class="results-list" tabindex="-1">
+            @for (r of results[results.length - 1]; track r.id) {
+              <li
+                id="{{ r.id }}"
+                class="result-item"
+                (click)="redir(r)"
+                tabindex="0"
+                (keydown.enter)="redir(r)"
+              >
+                <div class="result-title">{{ r.title }}</div>
+                <div class="result-sub">{{ r.subtitle }}</div>
+              </li>
+            }
+          </ul>
+        </div>
       </div>
     </div>
   </div>
