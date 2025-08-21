@@ -10,15 +10,16 @@
   background: $panel-bg; // same as original
   border-radius: 18px;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.22);
-  max-width: 600px; // keep exactly like primary panel
+  max-width: 760px; // widened to accommodate extra columns
   width: 100%;
-  min-width: 520px; // reserve horizontal space on desktop; removed on narrow screens below
+  min-width: 640px; // ensure enough space for four columns on desktop
   padding: 2.5rem; // mirror original padding
   margin: 0;
   border: 1.5px solid $border-clr;
   color: $light-txt;
   display: flex;
   flex-direction: column;
+  transition: max-width 0.2s ease;
 }
 
 /* Enhanced header mini panel */
@@ -199,20 +200,22 @@
   text-align: left;
 }
 
-.col-szt {
-  width: 35%;
+/* New column width distribution (desktop) */
+.col-serial { width: 22%; }
+.col-przesylka { width: 22%; }
+.col-note {
+	color: $muted-txt;
+	width: 32%; 
 }
-.col-tag {
-  width: 65%;
-}
+.col-invoice { width: 24%; }
 
-.cell-szt {
+.cell-serial {
   color: $primary-color;
   font-weight: 600;
 }
-.cell-tag {
-  color: $muted-txt;
-}
+.cell-przesylka { color: $muted-txt; }
+.cell-note { color: lighten($muted-txt, 8%); font-size: 0.78rem; line-height: 1.2; }
+.cell-invoice { color: $light-txt; font-weight: 500; font-size: 0.8rem; }
 
 @media (max-width: 600px) {
   .second-panel-match {
@@ -322,12 +325,7 @@
     color: $muted-txt;
     margin-bottom: 0.15rem;
   }
-  .cell-szt {
-    font-size: 0.9rem;
-  }
-  .cell-tag {
-    font-size: 0.8rem;
-  }
+  /* In stacked mode (<=500px) labels appear via data-label so widths not needed */
 }
 
 /* Tablet-only horizontal scroll fallback (keep normal table between 501px and 820px) */

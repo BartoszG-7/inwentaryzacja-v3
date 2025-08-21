@@ -1,6 +1,6 @@
 - click select for filter, click again sort asc desc allat
-- mobile view for second-magazyn
 - modal styling
+- functions for magazyn list
 
 //michas 22.08
 - instant closing side bar on click in mobile
