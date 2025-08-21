@@ -143,6 +143,12 @@ col {
   margin-bottom: 16px;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .header-title {
   font-size: 1.4rem;
   font-weight: bold;
@@ -153,6 +159,50 @@ col {
   display: flex;
   align-items: center;
   gap: 1em;
+}
+
+/* Back arrow button styling */
+.back-arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 4px;
+  background: transparent; /* no bg by default */
+  color: $title-txt;
+  cursor: pointer;
+  line-height: 1;
+  border: 1.5px solid transparent; /* hide border initially */
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  margin-bottom: 0.4rem;
+}
+.back-arrow-btn i {
+  font-size: 1.2rem;
+  color: inherit; /* ensure it inherits button text color */
+  pointer-events: none;
+}
+.back-arrow-btn:hover {
+  background: $panel-bg;
+  color: $primary-color;
+  border-color: $primary-color;
+}
+
+.back-arrow-btn:focus-visible {
+  outline: 2px solid $primary-color;
+  
+}
+
+@media (max-width: 900px) {
+  .back-arrow-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  .back-arrow-btn i {
+    font-size: 1.1rem;
+  }
 }
 
 .search-bar-wrapper {

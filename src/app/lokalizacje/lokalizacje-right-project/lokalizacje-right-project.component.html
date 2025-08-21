@@ -1,15 +1,17 @@
 <div class="container right-project-container">
   <div class="header-row">
-    <span class="header-title">{{ project.name }}</span>
-    <div class="header-actions">
+    <div class="header-left">
       <button
         type="button"
         class="back-arrow-btn"
         (click)="goToInwentaryzacja()"
         aria-label="Powrót do inwentaryzacji"
       >
-        <i class="bi bi-arrow-left"></i>
+        <i class="bi bi-arrow-90deg-left"></i>
       </button>
+      <span class="header-title">{{ project.name }}</span>
+    </div>
+    <div class="header-actions">
       <app-search-bar
         [noPaddingBottom]="true"
         [showFilterModal]="true"
