@@ -3,6 +3,11 @@
 /* Shared modal design tokens */
 $modal-radius: 12px;
 $modal-padding: 1.35rem;
+$modal-btn-padding-y: 0.55rem;
+$modal-btn-padding-x: 1.1rem;
+$modal-btn-font-size: 0.85rem;
+$modal-btn-radius: 10px;
+$modal-btn-weight: 600;
 
 /* Base container */
 .modal-custom,
@@ -64,13 +69,14 @@ button.primary-btn,
   background: $primary-color !important;
   border: 1px solid $primary-color !important;
   color: #fff !important;
-  border-radius: 10px;
-  padding: 0.55rem 1.1rem;
-  font-weight: 600;
-  font-size: 0.85rem;
+  border-radius: $modal-btn-radius;
+  padding: $modal-btn-padding-y $modal-btn-padding-x;
+  font-weight: $modal-btn-weight;
+  font-size: $modal-btn-font-size;
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s, transform 0.12s;
+  line-height: 1.1;
 }
 .btn-primary:hover,
 button.primary-btn:hover,
@@ -86,13 +92,36 @@ button.secondary-btn {
   background: #262830 !important;
   border: 1px solid $border-clr !important;
   color: $light-txt !important;
-  border-radius: 10px;
-  padding: 0.55rem 1rem;
-  font-size: 0.8rem;
+  border-radius: $modal-btn-radius;
+  padding: $modal-btn-padding-y $modal-btn-padding-x;
+  font-weight: $modal-btn-weight;
+  font-size: $modal-btn-font-size;
+  letter-spacing: 0.04em;
   transition: background 0.15s, border-color 0.15s;
+  line-height: 1.1;
 }
 .btn-secondary:hover,
 button.secondary-btn:hover { background: #2f3238 !important; border-color: lighten($border-clr,8%); }
+
+/* Outline danger (red) reusable */
+.btn-outline-danger,
+button.outline-danger-btn {
+  background: transparent !important;
+  color: $red-color !important;
+  border: 1.5px solid $red-color !important;
+  border-radius: $modal-btn-radius;
+  padding: $modal-btn-padding-y $modal-btn-padding-x;
+  font-weight: $modal-btn-weight;
+  font-size: $modal-btn-font-size;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  line-height: 1.1;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.12s;
+}
+.btn-outline-danger:hover,
+button.outline-danger-btn:hover { background: $red-color !important; color: #fff !important; }
+.btn-outline-danger:active,
+button.outline-danger-btn:active { transform: translateY(1px); }
 
 /* Form controls */
 .modal-content input,

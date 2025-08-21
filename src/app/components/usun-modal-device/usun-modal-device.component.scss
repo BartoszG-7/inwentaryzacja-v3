@@ -15,28 +15,7 @@
 /* Unified close button */
 .modal-close-btn { @extend .modal-close-btn; }
 
-/* Outline red confirm button (same height as secondary) */
-.btn-outline-danger,
-.modal-footer .secondary-btn,
-.modal-footer .same-height {
-	background:transparent !important;
-	border-radius:10px;
-	padding:0.48rem 0.95rem; /* unified */
-	font-weight:600;
-	font-size:.8rem;
-	letter-spacing:.04em;
-	line-height:1.1;
-	cursor:pointer;
-	transition:background .15s, color .15s, border-color .15s, transform .12s;
-}
-.btn-outline-danger { color:$red-color !important; border:1.5px solid $red-color !important; }
-.modal-footer .secondary-btn { border:1.5px solid $border-clr !important; color:$light-txt !important; background:#262830 !important; }
-.modal-footer .secondary-btn:hover { background:#2f3238 !important; }
-.btn-outline-danger:hover { background:$red-color !important; color:#fff !important; }
-.btn-outline-danger:active { transform:translateY(1px); }
-
-/* Ensure secondary matches same vertical rhythm */
-/* Removed .same-height custom padding (now unified above) */
+/* Buttons now standardized via shared partial (primary/secondary/outline-danger) */
 
 /* Body spacing */
 .modal-body { margin-bottom:.35rem; line-height:1.32; font-size:.88rem; }
