@@ -2,7 +2,7 @@
 <!-- Trigger button for modal (outside modal) -->
 <button class="header-btn" (click)="openModal()">USUN</button>
 
-<div [hidden]="!showModal">
+<ng-container *ngIf="showModal">
 	<div class="modal-backdrop open" (click)="closeModal()" aria-hidden="true"></div>
 	<div class="modal-custom open" role="dialog" aria-modal="true" aria-labelledby="usunModalTitle">
 		<div class="modal-content">
@@ -21,4 +21,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</ng-container>
