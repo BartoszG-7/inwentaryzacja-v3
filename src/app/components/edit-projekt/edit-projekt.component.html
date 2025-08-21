@@ -66,12 +66,9 @@
         <label style="display: block; margin: 0.35rem 0 0.25rem"
           >EXCLUDED_IP_POOL</label
         >
+  @for (pool of formData.excludedIpPools; track $index) {
+  @let i = $index;
         <div
-          *ngFor="
-            let pool of formData.excludedIpPools;
-            let i = index;
-            trackBy: trackByExcludedPool
-          "
           style="
             display: flex;
             gap: 0.5rem;
@@ -101,6 +98,7 @@
             +
           </button>
         </div>
+        }
 
         <!-- <textarea
           name="notes"
