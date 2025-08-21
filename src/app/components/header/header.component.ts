@@ -91,7 +91,7 @@ export class HeaderComponent {
   }
 
   goToInwentaryzacja() {
-    // Just hard reload current page (no extra routing)
+    //route to page without selected project or location and hard reload (copilot dont break it)
     this.router.navigate(['/inwentaryzacja/{}']).then(() => {
       window.location.reload();
     });
