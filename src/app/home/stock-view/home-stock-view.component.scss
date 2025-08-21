@@ -6,7 +6,6 @@
   margin: 0; /* spacing handled by parent */
   background-color: $panel-bg;
   border: 1.5px solid $border-clr;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
   color: $muted-txt;
   cursor: pointer;
 }
@@ -23,6 +22,7 @@
   gap: 1rem;
   padding: 0.6rem 0.9rem;
   width: 100%;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
 }
 
 /* Name styling: left aligned, bold and truncates if too long */
