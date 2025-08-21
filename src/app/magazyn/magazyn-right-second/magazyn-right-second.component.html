@@ -31,6 +31,7 @@
             <th class="col-przesylka">Przesyłka</th>
             <th class="col-note">Notatki</th>
             <th class="col-invoice">Nr. Faktury</th>
+            <th class="col-select" aria-label="Select">&nbsp;</th>
           </tr>
         </thead>
         <tbody>
@@ -40,6 +41,9 @@
             <td class="cell-przesylka" data-label="Przesyłka">{{ n.przesylkaNr }}</td>
             <td class="cell-note" data-label="Notatki">{{ n.note || '-' }}</td>
             <td class="cell-invoice" data-label="Nr. Faktury">{{ n.wamaNr || '-' }}</td>
+            <td class="cell-select" data-label="Zaznacz">
+              <input type="checkbox" [checked]="isChecked(n.id)" (change)="toggleOne(n.id, $any($event.target).checked)" />
+            </td>
           </tr>
           }
         </tbody>

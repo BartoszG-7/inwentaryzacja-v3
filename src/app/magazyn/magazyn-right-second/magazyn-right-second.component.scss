@@ -226,6 +226,7 @@
 	width: 32%; 
 }
 .col-invoice { width: 24%; }
+.col-select { width: 40px; text-align:center; }
 
 .cell-serial {
   color: $primary-color;
@@ -234,6 +235,8 @@
 .cell-przesylka { color: $muted-txt; }
 .cell-note { color: lighten($muted-txt, 8%); font-size: 0.78rem; line-height: 1.2; }
 .cell-invoice { color: $light-txt; font-weight: 500; font-size: 0.8rem; }
+.cell-select { text-align:center; }
+.cell-select input[type='checkbox'] { cursor:pointer; width:16px; height:16px; }
 
 @media (max-width: 600px) {
   .second-panel-match {

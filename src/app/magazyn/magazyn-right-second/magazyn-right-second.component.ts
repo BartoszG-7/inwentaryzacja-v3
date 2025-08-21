@@ -19,6 +19,7 @@ export class MagazynRightSecond implements OnInit {
   total: InputSignal<number> = input<number>(71);
   data: any;
   filteredDevices: any[] = [];
+  selectedIds = new Set<string>();
   id = input<string>();
   sztItems: InputSignal<number[]> = input<number[]>([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
@@ -57,4 +58,11 @@ export class MagazynRightSecond implements OnInit {
         .some(v => (v || '').toString().toLowerCase().includes(t));
     });
   }
+
+  toggleOne(id: string, checked: boolean) {
+    if (!id) return;
+    if (checked) this.selectedIds.add(id); else this.selectedIds.delete(id);
+  }
+
+  isChecked(id: string): boolean { return !!id && this.selectedIds.has(id); }
 }
