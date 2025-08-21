@@ -24,14 +24,14 @@
         <thead>
           <tr>
             <th class="col-szt">Serial Number</th>
-            <th class="col-tag">Przesylka</th>
+            <th class="col-tag">Przesyłka</th>
           </tr>
         </thead>
         <tbody>
           @for (n of data.device; let i = $index; track i) {
           <tr>
-            <td class="cell-szt">{{ n.serialNr }}</td>
-            <td class="cell-tag">{{ n.przesylkaNr }}</td>
+            <td class="cell-szt" data-label="Serial Number">{{ n.serialNr }}</td>
+            <td class="cell-tag" data-label="Przesyłka">{{ n.przesylkaNr }}</td>
           </tr>
           }
         </tbody>

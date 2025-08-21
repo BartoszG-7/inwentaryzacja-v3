@@ -1,9 +1,12 @@
 - click select for filter, click again sort asc desc allat
 - mobile view for second-magazyn
+- modal styling
 
 //michas 22.08
 - instant closing side bar on click in mobile
 - routes, back arrow working
+- if a project or magazyn is clicked from home panel, then the back arrow takes you back to home as well
 - displaying previously selected locations and projects after pressing back arrow
 - toggling tree bar elements when using quick stock views on home
 - project cant be displayed if treebar element isnt toggled
+- toggle and filter/sortowanie for table projekty

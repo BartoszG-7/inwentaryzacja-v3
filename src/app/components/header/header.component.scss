@@ -30,7 +30,6 @@
   color: $primary-color !important;
   transition: color 0.15s, filter 0.15s, background 0.2s, border-color 0.2s;
   border: 2px solid $primary-color;
-  background: rgba($primary-color, 0.08);
   border-color: $primary-color;
 }
 @import "global.scss";
