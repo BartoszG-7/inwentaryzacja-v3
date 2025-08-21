@@ -1,3 +1,4 @@
+//bar
 - click select for filter, click again sort asc desc allat
 - functions for magazyn list
 - scroll for notatki
@@ -14,4 +15,4 @@
 - toggling tree bar elements when using quick stock views on home
 - project cant be displayed if treebar element isnt toggled
 - toggle and filter/sortowanie for table projekty
-- format json adres
+- format json adres w lokalizacjach
