@@ -67,4 +67,8 @@ export class CreateDeviceDto {
   @IsString()
   @IsOptional()
   przesylkaNr: string;
+
+  @IsString()
+  @IsOptional()
+  fakturaNr: string;
 }
