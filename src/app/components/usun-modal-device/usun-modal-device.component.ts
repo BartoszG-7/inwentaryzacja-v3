@@ -12,7 +12,7 @@ import { UsunModalDeviceService } from './usun-modal-device.service';
 })
 export class UsunModalDeviceComponent {
   constructor(private usunModalDeviceService: UsunModalDeviceService) {}
-  showModal = false;
+  showModal = false; // ensure starts hidden
   refresh = output<boolean>();
   refreshState: boolean = true;
   markedDelete = input<Array<string>>();

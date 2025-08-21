@@ -1,16 +1,15 @@
 <i class="bi bi-search search-bar-icon" title="Wyszukaj..." (click)="openModal()"></i>
 
 @if (showModal) {
-<div class="search-bar-mobile-modal-backdrop" (click)="closeModal()"></div>
-<div class="search-bar-mobile-modal">
-  <div class="search-bar-mobile-modal-content">
-    <button class="close-btn" (click)="closeModal()">&times;</button>
-    <h3 class="search-bar-mobile-modal-title">Wyszukaj</h3>
-    <form (ngSubmit)="onSearch()">
-      <input name="search" (input)="onFilterChange($event)" [(ngModel)]="searchValue"
-        placeholder="Wpisz szukaną frazę..." required />
-      <button type="submit" (click)="onSubmit()" class="search-btn">Szukaj</button>
-    </form>
+  <div class="search-bar-mobile-modal-backdrop" (click)="closeModal()"></div>
+  <div class="search-bar-mobile-modal modal-custom open">
+    <div class="search-bar-mobile-modal-content modal-content">
+      <button class="modal-close-btn" type="button" (click)="closeModal()">&times;</button>
+      <h3 class="search-bar-mobile-modal-title">Wyszukaj</h3>
+      <form (ngSubmit)="onSearch()">
+        <input name="search" (input)="onFilterChange($event)" [(ngModel)]="searchValue" placeholder="Wpisz szukaną frazę..." required />
+        <button type="submit" (click)="onSubmit()" class="search-btn">Szukaj</button>
+      </form>
+    </div>
   </div>
-</div>
 }

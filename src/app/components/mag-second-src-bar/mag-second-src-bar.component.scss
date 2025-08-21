@@ -1,0 +1,30 @@
+@import '../../styles/_modal-shared';
+@import 'global.scss';
+
+/* Mobile-only trigger icon (now exactly matches mag-second-dodaj/edit/usun header buttons) */
+.search-icon-btn { background:$panel-bg; color:$title-txt; border:1.5px solid #888; border-radius:4px; padding:4px 12px; font-size:1rem; cursor:pointer; transition: background .15s, color .15s, border-color .15s; box-shadow:0 4px 24px rgba(0,0,0,0.25); display:none; align-items:center; justify-content:center; }
+.search-icon-btn:hover, .search-icon-btn:focus { color:$primary-color; border-color:$primary-color; outline:none; }
+@media (max-width: 600px) { .search-icon-btn { display:inline-flex; } }
+
+/* Reuse shared modal style with small width */
+.modal-backdrop.open { position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:5200; }
+.modal-custom { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(.94); background:$dark-bg !important; color:$light-txt !important; border-radius:12px; border:1.5px solid $border-clr; box-shadow:0 14px 48px rgba(0,0,0,.5); min-width:340px; opacity:0; pointer-events:none; transition:opacity .22s, transform .24s; z-index:5201; display:flex; flex-direction:column; }
+.modal-custom.open { opacity:1; pointer-events:auto; transform:translate(-50%,-50%) scale(1); }
+.modal-content { padding:1.05rem 1.2rem .9rem; box-shadow:none; }
+.modal-header { margin:0 0 .6rem 0; border:none; padding:0; }
+.modal-title { font-size:1.05rem; font-weight:600; letter-spacing:.4px; }
+.modal-footer { display:flex; justify-content:flex-end; gap:.45rem; padding-top:.55rem; }
+.modal-close-btn { @extend .modal-close-btn; }
+
+/* Input */
+.input-wrapper { position:relative; }
+.input-wrapper input { width:100%; padding:.55rem 2.5rem .55rem .85rem; border:1.5px solid $border-clr; border-radius:1rem; background:$panel-bg !important; color:$light-txt !important; font-size:.9rem; outline:none; transition:border-color .15s, background .15s; -webkit-appearance:none; appearance:none; }
+.input-wrapper input::-webkit-search-cancel-button { -webkit-appearance: none; height:0; width:0; margin:0; }
+/* Edge / IE legacy */
+.input-wrapper input::-ms-clear { display:none; width:0; height:0; }
+.input-wrapper input:focus { border-color:$primary-color; background:$secondary-panel-clr !important; }
+.input-wrapper .clear-icon { position:absolute; right:2.1rem; top:50%; transform:translateY(-50%); color:#888; cursor:pointer; font-size:1.1rem; }
+.input-wrapper .search-icon-static { position:absolute; right:.75rem; top:50%; transform:translateY(-50%); color:#888; font-size:1.1rem; }
+.input-wrapper .clear-icon:hover { color:$primary-color; }
+
+@media (max-width: 380px) { .modal-custom { min-width:92vw; width:92vw; } }

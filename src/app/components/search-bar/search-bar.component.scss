@@ -79,14 +79,14 @@ input[type="search"] {
 }
 
 input[type="search"] {
-	width: 100%;
+    width: 100%;
 		padding: 0.32rem 2.2rem 0.32rem 0.8rem;
-	border: 1px solid #bbb;
+	border: 1px solid $border-clr;
 	border-radius: 1.2rem;
-	background: #222 !important;
+	background: $panel-bg !important;
 	color: #fff !important;
 	font-size: 0.95rem;
-	transition: border-color 0.2s, box-shadow 0.2s;
+	transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 	outline: none;
 	box-shadow: 0 1px 4px rgba(0,0,0,0.12);
 }
@@ -114,8 +114,9 @@ input[type="search"]::placeholder {
 }
 
 input[type="search"]:focus {
-	border-color: $primary-color;
-	box-shadow: 0 0 0 2px #007bff22;
+    border-color: $primary-color;
+	background: $secondary-panel-clr !important;
+	box-shadow: 0 0 0 2px rgba($primary-color,0.18);
 }
 
 

@@ -17,98 +17,106 @@
       </button>
     </div>
     <div class="modal-body">
-      <div class="mb-3">
-        <label for="ip" class="form-label">IP Address</label>
+      <div class="mb-2">
         <input
           type="text"
           class="form-control"
           id="ip"
           [(ngModel)]="device.ip"
           name="ip"
+          placeholder="IP Address"
+          aria-label="IP Address"
         />
       </div>
-      <div class="mb-3">
-        <label for="deviceType" class="form-label">Device Type</label>
+      <div class="mb-2">
         <select
           class="form-control"
           id="deviceType"
           [(ngModel)]="device.deviceType"
           name="deviceType"
+          aria-label="Device Type"
         >
-          <option value="">Select type...</option>
+          <option value="">Device Type...</option>
           @for(type of deviceTypes; track type.id) {
           <option value="{{ type.id }}">{{ type.name }}</option>
           }
         </select>
       </div>
-      <div class="mb-3">
-        <label for="tag" class="form-label">Tag</label>
+      <div class="mb-2">
         <input
           type="text"
           class="form-control"
           id="tag"
           [(ngModel)]="device.tag"
           name="tag"
+          placeholder="Tag"
+          aria-label="Tag"
         />
       </div>
-      <div class="mb-3">
-        <label for="macAddr" class="form-label">MAC Address</label>
+      <div class="mb-2">
         <input
           type="text"
           class="form-control"
           id="macAddr"
           [(ngModel)]="device.macAddr"
           name="macAddr"
+          placeholder="MAC Address"
+          aria-label="MAC Address"
         />
       </div>
-      <div class="mb-3">
-        <label for="serialNr" class="form-label">Serial Number</label>
+      <div class="mb-2">
         <input
           type="text"
           class="form-control"
           id="serialNr"
           [(ngModel)]="device.serialNr"
           name="serialNr"
+          placeholder="Serial Number"
+          aria-label="Serial Number"
         />
       </div>
-      <div class="mb-3">
-        <label for="serverAddress" class="form-label">Server Address</label>
+      <div class="mb-2">
         <input
           type="text"
           class="form-control"
           id="serverAddress"
           [(ngModel)]="device.serverAddress"
           name="serverAddress"
+          placeholder="Server Address"
+          aria-label="Server Address"
         />
       </div>
-      <div class="mb-3">
-        <label for="note" class="form-label">Note</label>
+      <div class="mb-2">
         <input
           type="text"
           class="form-control"
           id="note"
           [(ngModel)]="device.note"
           name="note"
+          placeholder="Note"
+          aria-label="Note"
         />
       </div>
-      <div class="mb-3">
-        <label for="pinIfButton" class="form-label">Pin (if button)</label>
+      <div class="mb-2">
         <input
           type="text"
           class="form-control"
           id="pinIfButton"
           [(ngModel)]="device.pinIfButton"
           name="pinIfButton"
+          placeholder="Pin (if button)"
+          aria-label="Pin (if button)"
         />
       </div>
-      <div class="mb-3">
-        <label for="remoteAccessId" class="form-label">Remote Access ID</label>
+      <div class="mb-2">
         <input
           type="text"
           class="form-control"
           id="remoteAccessId"
           [(ngModel)]="device.remoteAccessId"
           name="remoteAccessId"
+          placeholder="Remote Access ID"
+          aria-label="Remote Access ID"
         />
       </div>
     </div>

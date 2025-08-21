@@ -1,43 +1,17 @@
 @import '../../styles/modal-shared';
 @import 'global.scss';
 
-/* Backdrop */
 .modal-backdrop.open { position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:5000; }
-
-/* Container */
 .modal-custom { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(.94); background:$dark-bg !important; color:$light-txt !important; border-radius:12px; border:1.5px solid $border-clr; box-shadow:0 14px 48px rgba(0,0,0,.5); min-width:360px; opacity:0; pointer-events:none; transition:opacity .22s, transform .24s; z-index:5001; display:flex; flex-direction:column; overflow:hidden; }
 .modal-custom.open { opacity:1; pointer-events:auto; transform:translate(-50%,-50%) scale(1); }
 .modal-content { padding:1.1rem 1.25rem .95rem; box-shadow:none; }
 .modal-header { margin:0 0 .75rem 0; border:none; padding:0; }
 .modal-title { font-size:1.05rem; font-weight:600; letter-spacing:.4px; }
 .modal-footer { display:flex; justify-content:flex-end; gap:.45rem; padding-top:.25rem; }
-
-/* Unified close button */
 .modal-close-btn { @extend .modal-close-btn; }
-
-/* Buttons now standardized via shared partial (primary/secondary/outline-danger) */
-
-/* Body spacing */
 .modal-body { margin-bottom:.35rem; line-height:1.32; font-size:.88rem; }
-
-/* Small screens */
 @media (max-width: 360px) { .modal-custom { min-width:92vw; width:92vw; } .modal-content { padding:1rem 1rem .85rem; } }
 @media (max-width: 330px) { .modal-custom { min-width:94vw; } }
+:host > .header-btn { background:$panel-bg; color:$title-txt; border:1.5px solid #888; border-radius:4px; padding:4px 12px; font-size:1rem; cursor:pointer; transition: background .15s, color .15s, border-color .15s; box-shadow:0 4px 24px rgba(0,0,0,0.25); display:inline-flex; align-items:center; justify-content:center; }
+:host > .header-btn:hover { color:$primary-color; border-color:$primary-color; }
 
-/* Opener button (outside modal) */
-:host > .header-btn {
-	background: $panel-bg;
-	color: $title-txt;
-	border: 1.5px solid #888;
-	border-radius:4px;
-	padding:4px 12px;
-	font-size:1rem;
-	cursor:pointer;
-	transition: background .15s, color .15s, border-color .15s;
-	box-shadow:0 4px 24px rgba(0,0,0,0.25);
-}
-:host > .header-btn:hover {
-	background:$panel-bg;
-	color:$primary-color;
-	border-color:$primary-color;
-}

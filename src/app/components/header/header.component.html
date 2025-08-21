@@ -58,7 +58,7 @@
   <!-- Left sidebar (slide in/out) -->
   @if (showLeftMenu) {
   <nav class="side-menu left" [class.open]="leftMenuOpen">
-    <button class="close-btn" (click)="toggleLeftMenu()">&times;</button>
+  <button class="modal-close-btn" type="button" (click)="toggleLeftMenu()">&times;</button>
     <ul class="sidebar-menu-left">
       <li
         routerLink="/home"
@@ -104,11 +104,10 @@
   @if (showRightMenu && selectedRoute.includes('/magazyn/')) {
   <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
     <button
-      class="close-btn sidebar-close-absolute"
+      class="modal-close-btn sidebar-close-absolute"
+      type="button"
       (click)="toggleRightMenu()"
-    >
-      &times;
-    </button>
+    >&times;</button>
     <div class="sidebar-tree-list-wrapper">
       <div class="sidebar-sticky-top-block-mobile">
         <div class="sidebar-header-plus-align">
@@ -136,11 +135,10 @@
   } @if (showRightMenu && !selectedRoute.includes("/magazyn/")) {
   <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
     <button
-      class="close-btn sidebar-close-absolute"
+      class="modal-close-btn sidebar-close-absolute"
+      type="button"
       (click)="toggleRightMenu()"
-    >
-      &times;
-    </button>
+    >&times;</button>
     <div class="sidebar-tree-list-wrapper">
       <div class="sidebar-sticky-top-block-mobile">
         <div class="sidebar-header-plus-align">

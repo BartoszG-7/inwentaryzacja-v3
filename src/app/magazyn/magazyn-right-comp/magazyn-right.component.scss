@@ -141,11 +141,13 @@
 .magazyn-main-tag {
   font-size: 1.08rem;
   font-weight: 500;
-  color: $primary-color;
+  color: #bcbcbc;
+  text-align: center;
 }
 .magazyn-main-tag-detail {
+  text-align: center;
   font-size: 1rem;
-  color: #bcbcbc;
+  color: $primary-color;
   margin-left: 1.2rem;
 }
 
