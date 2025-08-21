@@ -25,7 +25,7 @@ export class GlobalSearchModalComponent implements OnChanges {
   query = '';
   search = new Subject<any>();
   loading = false;
-  results: Array<[{ title: string; subtitle?: string }]> = [];
+  results: Array<[{ title: string; subtitle?: string; id: string }]> = [];
   ngOnChanges(changes: SimpleChanges): void {
     console.log('CHANGED', changes);
   }
@@ -50,6 +50,7 @@ export class GlobalSearchModalComponent implements OnChanges {
               resultsTemp.push({
                 title: element.serialNr,
                 subtitle: element.project.name ?? '',
+                id: element.project._id,
               });
             });
 
@@ -70,6 +71,9 @@ export class GlobalSearchModalComponent implements OnChanges {
 
   emit(event: any) {
     this.search.next(event.target.value);
+  }
+  redir(data: any) {
+    console.log(data);
   }
   onSearch() {
     this.search.next(this.query);
