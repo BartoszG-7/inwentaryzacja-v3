@@ -1,36 +1,140 @@
-<button class="header-btn" (click)="openModal()" aria-label="Dodaj urządzenie"><i class="bi bi-folder-plus" aria-hidden="true"></i></button>
+<button class="header-btn" (click)="openModal()" aria-label="Dodaj urządzenie">
+  <i class="bi bi-folder-plus" aria-hidden="true"></i>
+</button>
 @if (showModal) {
-	<div class="modal-backdrop open" (click)="closeModal()" aria-hidden="true"></div>
-	<div class="modal-custom open" role="dialog" aria-modal="true" aria-labelledby="magSecondAddTitle">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 id="magSecondAddTitle" class="modal-title">Dodaj urządzenie</h5>
-				<button type="button" class="modal-close-btn" (click)="closeModal()" aria-label="Zamknij"><span aria-hidden="true">&times;</span></button>
-			</div>
-			<form class="modal-body" (ngSubmit)="submit()" #f="ngForm">
-				<div class="fields-grid">
-					<input [(ngModel)]="form.ip" name="ip" placeholder="IP" aria-label="IP" />
-					<input [(ngModel)]="form.tag" name="tag" placeholder="Tag" aria-label="Tag" />
-					<input [(ngModel)]="form.macAddr" name="macAddr" placeholder="MAC" aria-label="MAC Address" />
-					<input [(ngModel)]="form.serialNr" name="serialNr" placeholder="Serial" aria-label="Serial Number" />
-					<input [(ngModel)]="form.serverAddress" name="serverAddress" placeholder="Server Address" aria-label="Server Address" />
-					<textarea [(ngModel)]="form.note" name="note" placeholder="Notatki" aria-label="Notatki"></textarea>
-					<input [(ngModel)]="form.pinIfButton" name="pinIfButton" placeholder="PIN / Button" aria-label="PIN" />
-					<input [(ngModel)]="form.remoteAccessId" name="remoteAccessId" placeholder="Remote Access ID" aria-label="Remote Access ID" />
-					<input [(ngModel)]="form.wamaNr" name="wamaNr" placeholder="Wama Nr" aria-label="Wama Number" />
-					<input [(ngModel)]="form.dns1" name="dns1" placeholder="DNS 1" aria-label="DNS 1" />
-					<input [(ngModel)]="form.dns2" name="dns2" placeholder="DNS 2" aria-label="DNS 2" />
-					<input [(ngModel)]="form.networkAddress" name="networkAddress" placeholder="Network Address" aria-label="Network Address" />
-					<input [(ngModel)]="form.mask" name="mask" placeholder="Mask" aria-label="Mask" />
-					<input [(ngModel)]="form.gateway" name="gateway" placeholder="Gateway" aria-label="Gateway" />
-					<input [(ngModel)]="form.przesylkaNr" name="przesylkaNr" placeholder="Przesyłka Nr" aria-label="Przesyłka Number" />
-					<input [(ngModel)]="form.fakturaNr" name="fakturaNr" placeholder="Faktura Nr" aria-label="Faktura Number" />
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="primary-btn same-height">Zapisz</button>
-					<button type="button" class="secondary-btn same-height" (click)="closeModal()">Anuluj</button>
-				</div>
-			</form>
-		</div>
-		</div>
-	}
+<div
+  class="modal-backdrop open"
+  (click)="closeModal()"
+  aria-hidden="true"
+></div>
+<div
+  class="modal-custom open"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="magSecondAddTitle"
+>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 id="magSecondAddTitle" class="modal-title">Dodaj urządzenie</h5>
+      <button
+        type="button"
+        class="modal-close-btn"
+        (click)="closeModal()"
+        aria-label="Zamknij"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form class="modal-body" (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="fields-grid">
+        <input
+          [(ngModel)]="form.ip"
+          name="ip"
+          placeholder="IP"
+          aria-label="IP"
+        />
+        <input
+          [(ngModel)]="form.tag"
+          name="tag"
+          placeholder="Tag"
+          aria-label="Tag"
+        />
+        <input
+          [(ngModel)]="form.macAddr"
+          name="macAddr"
+          placeholder="MAC"
+          aria-label="MAC Address"
+        />
+        <input
+          [(ngModel)]="form.serialNr"
+          name="serialNr"
+          placeholder="Serial"
+          aria-label="Serial Number"
+        />
+        <input
+          [(ngModel)]="form.serverAddress"
+          name="serverAddress"
+          placeholder="Server Address"
+          aria-label="Server Address"
+        />
+        <textarea
+          [(ngModel)]="form.note"
+          name="note"
+          placeholder="Notatki"
+          aria-label="Notatki"
+        ></textarea>
+        <input
+          [(ngModel)]="form.pinIfButton"
+          name="pinIfButton"
+          placeholder="PIN / Button"
+          aria-label="PIN"
+        />
+        <input
+          [(ngModel)]="form.remoteAccessId"
+          name="remoteAccessId"
+          placeholder="Remote Access ID"
+          aria-label="Remote Access ID"
+        />
+        <input
+          [(ngModel)]="form.wamaNr"
+          name="wamaNr"
+          placeholder="Wama Nr"
+          aria-label="Wama Number"
+        />
+        <input
+          [(ngModel)]="form.dns1"
+          name="dns1"
+          placeholder="DNS 1"
+          aria-label="DNS 1"
+        />
+        <input
+          [(ngModel)]="form.dns2"
+          name="dns2"
+          placeholder="DNS 2"
+          aria-label="DNS 2"
+        />
+        <input
+          [(ngModel)]="form.networkAddress"
+          name="networkAddress"
+          placeholder="Network Address"
+          aria-label="Network Address"
+        />
+        <input
+          [(ngModel)]="form.mask"
+          name="mask"
+          placeholder="Mask"
+          aria-label="Mask"
+        />
+        <input
+          [(ngModel)]="form.gateway"
+          name="gateway"
+          placeholder="Gateway"
+          aria-label="Gateway"
+        />
+        <input
+          [(ngModel)]="form.przesylkaNr"
+          name="przesylkaNr"
+          placeholder="Przesyłka Nr"
+          aria-label="Przesyłka Number"
+        />
+        <input
+          [(ngModel)]="form.fakturaNr"
+          name="fakturaNr"
+          placeholder="Faktura Nr"
+          aria-label="Faktura Number"
+        />
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="primary-btn same-height">Zapisz</button>
+        <button
+          type="button"
+          class="secondary-btn same-height"
+          (click)="closeModal()"
+        >
+          Anuluj
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+}

@@ -165,7 +165,9 @@ export class DataService {
       .exec();
   }
   async assignCreateDevice(data: any): Promise<any> {
+
     let device = await this.deviceModel.create(data);
+
     return {
       projectHistory: await this.ProjectHistoryModel.create({
         type: projectHistoryEvents.DEVICE_ADDED_TO_PROJECT,

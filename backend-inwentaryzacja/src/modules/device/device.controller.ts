@@ -36,6 +36,10 @@ export class DeviceController {
     console.log(data);
     // return await this.deviceService.searchProject(data);
   }
+  @Delete('')
+  async deleteMany(@Body() data: any) {
+    return await this.deviceService.deleteMany(data);
+  }
   @Delete(':id')
   async getDelete(@Param('id') id: string) {
     return await this.deviceService.delete(id);

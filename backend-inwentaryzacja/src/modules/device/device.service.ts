@@ -10,10 +10,15 @@ export class DeviceService {
   constructor(@InjectModel(Device.name) private deviceModel: Model<Device>) {}
 
   async create(body: CreateDeviceDto): Promise<Device> {
-    const createddevice = new this.deviceModel(body);
+    let deviceData = body;
+    deviceData.deviceType = new Types.ObjectId(deviceData.deviceType);
+    const createddevice = new this.deviceModel(deviceData);
     return createddevice.save();
   }
-
+  async deleteMany(data: any): Promise<any> {
+    console.log(data);
+    return await this.deviceModel.deleteMany({ _id: { $in: data.ids } }).exec();
+  }
   async findId(id: string): Promise<Device[]> {
     return this.deviceModel.find({ deviceType: new Types.ObjectId(id) }).exec();
   }
@@ -30,10 +35,10 @@ export class DeviceService {
     await this.deviceModel.updateOne({ _id: id }, body).exec();
     return 'OK';
   }
-  async deleteMany(filter: any): Promise<string> {
-    await this.deviceModel.deleteMany(filter).exec();
-    return 'OK';
-  }
+  // async deleteMany(filter: any): Promise<string> {
+  //   await this.deviceModel.deleteMany(filter).exec();
+  //   return 'OK';
+  // }
 
   async updateMany(filter: any, body: UpdateDeviceDto): Promise<string> {
     await this.deviceModel.updateMany(filter, body).exec();

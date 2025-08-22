@@ -7,7 +7,7 @@ export class CreateDeviceDto {
   ip: string;
 
   @Type(() => SchemaTypes.ObjectId)
-  device: Types.ObjectId; // DeviceType ObjectId
+  deviceType: Types.ObjectId; // DeviceType ObjectId
 
   @IsString()
   tag: string;

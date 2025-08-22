@@ -81,6 +81,7 @@ export class MagazynRightSecond implements OnInit {
   }
 
   toggleOne(id: string, checked: boolean) {
+    console.log(this.filteredDevices);
     if (!id) return;
     if (checked) this.selectedIds.add(id);
     else this.selectedIds.delete(id);

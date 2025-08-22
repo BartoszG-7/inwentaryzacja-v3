@@ -21,9 +21,11 @@
         <div class="table-header-left">
           <span class="table-title">DETAILS</span>
           <div class="table-icons">
-            <app-mag-second-dodaj></app-mag-second-dodaj>
+            <app-mag-second-dodaj
+              [devicetype]="data.deviceType._id"
+            ></app-mag-second-dodaj>
             <app-mag-second-edit></app-mag-second-edit>
-            <app-mag-second-usun></app-mag-second-usun>
+            <app-mag-second-usun [Ids]="this.selectedIds"></app-mag-second-usun>
             <app-mag-second-src-bar></app-mag-second-src-bar>
           </div>
         </div>
@@ -60,8 +62,8 @@
             <td class="cell-select" data-label="Zaznacz">
               <input
                 type="checkbox"
-                [checked]="isChecked(n.id)"
-                (change)="toggleOne(n.id, $any($event.target).checked)"
+                [checked]="isChecked(n._id)"
+                (change)="toggleOne(n._id, $any($event.target).checked)"
               />
             </td>
           </tr>

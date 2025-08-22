@@ -22,4 +22,5 @@ export class MagazynRightSecondService {
       'http://localhost:3000/data/get-device-list/' + typeId
     );
   }
+  
 }
