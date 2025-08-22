@@ -31,6 +31,7 @@ export class MagazynRightSecond implements OnInit {
   filteredDevices: any[] = [];
   selectedIds = new Set<string>();
   id = input<string>();
+  editElement: any;
   sztItems: InputSignal<number[]> = input<number[]>([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
   ]);
@@ -83,8 +84,21 @@ export class MagazynRightSecond implements OnInit {
   toggleOne(id: string, checked: boolean) {
     console.log(this.filteredDevices);
     if (!id) return;
-    if (checked) this.selectedIds.add(id);
-    else this.selectedIds.delete(id);
+    if (checked) {
+      this.selectedIds.add(id);
+      let firstid = '';
+      let brk = false;
+      this.selectedIds.forEach((e) => {
+        if (!brk) firstid = e;
+        brk = true;
+      });
+     
+      this.data.device.forEach((element: any) => {
+        if (element._id === firstid) {
+          this.editElement = element;
+        }
+      });
+    } else this.selectedIds.delete(id);
   }
 
   isChecked(id: string): boolean {

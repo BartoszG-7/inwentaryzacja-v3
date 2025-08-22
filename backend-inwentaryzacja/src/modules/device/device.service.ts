@@ -31,9 +31,11 @@ export class DeviceService {
     return 'OK';
   }
 
-  async update(id: string, body: UpdateDeviceDto): Promise<string> {
-    await this.deviceModel.updateOne({ _id: id }, body).exec();
-    return 'OK';
+  async update(id: string, body: UpdateDeviceDto): Promise<any> {
+    console.log(id, body);
+    return await this.deviceModel
+      .updateOne({ _id: new Types.ObjectId(id) }, body)
+      .exec();
   }
   // async deleteMany(filter: any): Promise<string> {
   //   await this.deviceModel.deleteMany(filter).exec();

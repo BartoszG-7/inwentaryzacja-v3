@@ -21,7 +21,7 @@ export class UpdateDeviceDto {
 
   @IsOptional()
   @IsString()
-  serialNumber?: string;
+  serialNr?: string;
 
   @IsOptional()
   @IsString()
