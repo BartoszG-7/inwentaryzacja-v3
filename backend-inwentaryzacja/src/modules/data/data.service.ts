@@ -150,7 +150,6 @@ export class DataService {
   }
   async unassignMany(data: any): Promise<any> {
     data = JSON.parse(data);
-    console.log(data);
     data.ids.forEach((id) => {
       this.ProjectHistoryModel.create({
         type: projectHistoryEvents.DEVICE_REMOVED_FROM_PROJECT,
@@ -165,7 +164,6 @@ export class DataService {
       .exec();
   }
   async assignCreateDevice(data: any): Promise<any> {
-
     let device = await this.deviceModel.create(data);
 
     return {
