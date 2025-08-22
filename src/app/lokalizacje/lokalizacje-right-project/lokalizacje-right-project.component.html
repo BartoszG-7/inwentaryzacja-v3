@@ -57,7 +57,7 @@
             (click)="toggleHeader('wamaNr')"
             [class.header-active]="isHeaderActive('wamaNr')"
           >
-            SN WAMASOFT
+            SN WAMA
             <i
               *ngIf="isHeaderActive('wamaNr') && activeSortDirection === 'desc'"
               class="bi bi-arrow-down"
@@ -72,7 +72,7 @@
             (click)="toggleHeader('serialNr')"
             [class.header-active]="isHeaderActive('serialNr')"
           >
-            SN PRODUCENTA
+            SN PROD
             <i
               *ngIf="
                 isHeaderActive('serialNr') && activeSortDirection === 'desc'
@@ -263,34 +263,40 @@
                 (change)="checkboxChanged($event)"
               />
             </td>
-            <td (dblclick)="copyCell(row.snWamasoft)">
+            <td
+              title="{{ row.snWamasoft }}"
+              (dblclick)="copyCell(row.snWamasoft)"
+            >
               {{ row.snWamasoft }}
             </td>
-            <td (dblclick)="copyCell(row.snProducenta)">
+            <td
+              title="{{ row.snProducenta }}"
+              (dblclick)="copyCell(row.snProducenta)"
+            >
               {{ row.snProducenta }}
             </td>
-            <td (dblclick)="copyCell(row.mac)">
+            <td title="{{ row.mac }}" (dblclick)="copyCell(row.mac)">
               {{ row.mac }}
             </td>
-            <td (dblclick)="copyCell(row.ip)">
+            <td title="{{ row.ip }}" (dblclick)="copyCell(row.ip)">
               {{ row.ip }}
             </td>
-            <td (dblclick)="copyCell(row.brama)">
+            <td title="{{ row.brama }}" (dblclick)="copyCell(row.brama)">
               {{ row.brama }}
             </td>
-            <td (dblclick)="copyCell(row.maska)">
+            <td title="{{ row.maska }}" (dblclick)="copyCell(row.maska)">
               {{ row.maska }}
             </td>
-            <td (dblclick)="copyCell(row.anydesk)">
+            <td title="{{ row.anydesk }}" (dblclick)="copyCell(row.anydesk)">
               {{ row.anydesk }}
             </td>
-            <td (dblclick)="copyCell(row.dns1)">
+            <td title="{{ row.dns1 }}" (dblclick)="copyCell(row.dns1)">
               {{ row.dns1 }}
             </td>
-            <td (dblclick)="copyCell(row.dns2)">
+            <td title="{{ row.dns2 }}" (dblclick)="copyCell(row.dns2)">
               {{ row.dns2 }}
             </td>
-            <td (dblclick)="copyCell(row.serwer)">
+            <td title="{{ row.serwer }}" (dblclick)="copyCell(row.serwer)">
               {{ row.serwer }}
             </td>
             <td class="text-end">

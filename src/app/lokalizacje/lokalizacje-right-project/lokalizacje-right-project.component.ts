@@ -205,6 +205,36 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
       this.lokalizacjeRightProjectService.parseGroupedDevices(tempSearched);
     console.log(this.devicesGrouped);
   }
+  sortAsc(key: any) {
+    var tempdev = JSON.parse(JSON.stringify(this.devicesGrouped));
+
+    tempdev.forEach((devices: any) => {
+      let tempdevv = devices.devices;
+
+      tempdevv.sort((a: any, b: any): number => {
+        return (a[key] ?? '').localeCompare(b[key] ?? '');
+      });
+      devices.devices = tempdevv;
+    });
+
+    this.groupedRows =
+      this.lokalizacjeRightProjectService.parseGroupedDevices(tempdev);
+  }
+  sortDesc(key: any) {
+    var tempdev = JSON.parse(JSON.stringify(this.devicesGrouped));
+
+    tempdev.forEach((devices: any) => {
+      let tempdevv = devices.devices;
+
+      tempdevv.sort((a: any, b: any): number => {
+        return (b[key] ?? '').localeCompare(a[key] ?? '');
+      });
+      devices.devices = tempdevv;
+    });
+
+    this.groupedRows =
+      this.lokalizacjeRightProjectService.parseGroupedDevices(tempdev);
+  }
   toggleHeader(key: string) {
     // console.log(
     //   this.devicesGrouped[0].devices.sort((a: any, b: any): number => {
@@ -222,9 +252,11 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
 
     // Same header clicked: advance phase
     if (this.activeSortDirection === null) {
+      this.sortDesc(key);
       // phase 2: show down arrow
       this.activeSortDirection = 'desc';
     } else if (this.activeSortDirection === 'desc') {
+      this.sortAsc(key);
       // phase 3: show up arrow
       this.activeSortDirection = 'asc';
     } else if (this.activeSortDirection === 'asc') {

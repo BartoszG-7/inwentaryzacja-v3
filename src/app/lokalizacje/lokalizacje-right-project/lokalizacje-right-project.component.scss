@@ -1,4 +1,4 @@
-@import 'global.scss';
+@import "global.scss";
 
 .table-fixed {
   width: 100%;
@@ -26,19 +26,19 @@
   //border: 2px solid #888;
 }
 .right-project-table thead th {
-  border-top: 2px solid #888  !important;
+  border-top: 2px solid #888 !important;
   border-bottom: 2px #888 solid !important;
 
   position: sticky;
   top: 0;
   z-index: 3;
 }
-  // .right-project-table thead th:first-child {
-  //   border-left: 2px #888 solid !important;
-  // }
-  // .right-project-table thead th:last-child {
-  //   border-right: 2px #888 solid !important;
-  // }
+// .right-project-table thead th:first-child {
+//   border-left: 2px #888 solid !important;
+// }
+// .right-project-table thead th:last-child {
+//   border-right: 2px #888 solid !important;
+// }
 .stickyhead {
   position: sticky;
   top: 0;
@@ -51,7 +51,7 @@ col#snWama {
   width: 130px;
 }
 col#snProd {
-  width: 130px;
+  width: 100px;
 }
 col {
   width: 90px;
@@ -191,7 +191,6 @@ col {
 
 .back-arrow-btn:focus-visible {
   outline: 2px solid $primary-color;
-  
 }
 
 @media (max-width: 900px) {
