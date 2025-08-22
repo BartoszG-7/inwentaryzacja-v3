@@ -7,7 +7,7 @@ import { debounce, from, Observable, of, Subject, timer } from 'rxjs';
   selector: 'app-search-bar',
   imports: [CommonModule, FormsModule],
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss']
+  styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
   @Input() showFilterModal: boolean = false;
@@ -18,6 +18,7 @@ export class SearchBarComponent implements OnInit {
 
   onFilterChange(event: any): void {
     this.hello.next(event.target.value);
+    
   }
 
   clearSearch(input: HTMLInputElement): void {
@@ -30,7 +31,7 @@ export class SearchBarComponent implements OnInit {
     this.hello.pipe(debounce(() => timer(400))).subscribe({
       next: (data: any) => {
         this.searchInput.emit(data);
-      }
+      },
     });
   }
 }

@@ -107,6 +107,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     navigator.clipboard.writeText(value);
   }
   ngOnChanges(changes: SimpleChanges): void {
+    console.log('CHANGED', changes);
     console.log(this.selectedId());
     if (this.selectedId()) {
       this.lokalizacjeRightProjectService
@@ -158,6 +159,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     }
   }
   onRefresh(bool: boolean) {
+    console.log('REFRESH');
     this.devicesGrouped = [];
     this.groupedRows = [];
     this.ngOnChanges({});
@@ -179,13 +181,45 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
       });
     }
   }
+  searchNoSort(input: any) {
+    console.log(input);
+    var tempSearched: any = [];
+    var tempdev = JSON.parse(JSON.stringify(this.devicesGrouped));
+    tempdev.forEach((devices: any) => {
+      let tempDevice: any = [];
+      devices.devices.forEach((device: any) => {
+        if (
+          device[this.activeHeaderKey ?? '']
+            .toLowerCase()
+            .includes(input.toLowerCase())
+        ) {
+          tempDevice.push(JSON.parse(JSON.stringify(device)));
+        }
+      });
+      tempSearched.push(devices);
+
+      tempSearched[tempSearched.length - 1].devices = tempDevice;
+    });
+
+    this.groupedRows =
+      this.lokalizacjeRightProjectService.parseGroupedDevices(tempSearched);
+    console.log(this.devicesGrouped);
+  }
   toggleHeader(key: string) {
+    // console.log(
+    //   this.devicesGrouped[0].devices.sort((a: any, b: any): number => {
+    //     return a[key].localeCompare(b[key]);
+    //   })
+    // );
+
     if (this.activeHeaderKey !== key) {
       // New header selected: highlight only, no arrow yet
       this.activeHeaderKey = key;
+      console.log(this.activeHeaderKey, this.activeSortDirection);
       this.activeSortDirection = null; // phase 1: active, no arrow
       return;
     }
+
     // Same header clicked: advance phase
     if (this.activeSortDirection === null) {
       // phase 2: show down arrow
@@ -198,6 +232,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
       this.activeHeaderKey = null;
       this.activeSortDirection = null;
     }
+    console.log(this.activeHeaderKey, this.activeSortDirection);
   }
   isHeaderActive(key: string) {
     return this.activeHeaderKey === key;

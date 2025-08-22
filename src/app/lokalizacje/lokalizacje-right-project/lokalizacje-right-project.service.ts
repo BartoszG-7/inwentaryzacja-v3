@@ -20,4 +20,29 @@ export class LokalizacjeRightProjectService {
       'http://localhost:3000/data/get-project-data/' + id
     );
   }
+  parseGroupedDevices(devicesGrouped: any) {
+    var groupedRows: any = [];
+    devicesGrouped.forEach((grouped: any) => {
+      groupedRows.push({
+        name: grouped.name,
+        rows: [],
+      });
+      grouped.devices.forEach((device: any) => {
+        groupedRows[groupedRows.length - 1].rows.push({
+          id: device._id,
+          snWamasoft: device.wamaNr,
+          snProducenta: device.serialNr,
+          mac: device.macAddr,
+          ip: device.ip,
+          brama: device.gateway,
+          dns1: device.dns1,
+          dns2: device.dns2,
+          anydesk: device.remoteAccessId,
+          maska: device.mask,
+          serwer: device.serverAddress,
+        });
+      });
+    });
+    return groupedRows;
+  }
 }

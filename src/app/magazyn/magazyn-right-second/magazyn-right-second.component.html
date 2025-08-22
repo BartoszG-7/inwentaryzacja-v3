@@ -1,13 +1,19 @@
 <div class="magazyn-right-container">
   <div class="magazyn-main-dashboard second-panel-match">
-  <span class="main-panel-link" (click)="refreshMainPanel()" role="button" tabindex="0">GO BACK TO MAIN PANEL</span>
+    <span
+      class="main-panel-link"
+      (click)="refreshMainPanel()"
+      role="button"
+      tabindex="0"
+      >GO BACK TO MAIN PANEL</span
+    >
     <div class="second-header-panel">
       <div class="second-header-left">
         <div class="second-title-name">{{ data.deviceType.name }}</div>
         <div class="second-title-total">{{ data.device.length }} szt</div>
       </div>
       <div class="second-header-tools">
-    <!-- future icon buttons go here -->
+        <!-- future icon buttons go here -->
       </div>
     </div>
     <div class="second-table-wrapper">
@@ -22,7 +28,10 @@
           </div>
         </div>
         <div class="table-search">
-          <app-search-bar (searchInput)="onSearch($event)" [noPaddingBottom]="true"></app-search-bar>
+          <app-search-bar
+            (searchInput)="onSearch($event)"
+            [noPaddingBottom]="true"
+          ></app-search-bar>
         </div>
       </div>
       <table class="second-table">
@@ -38,12 +47,22 @@
         <tbody>
           @for (n of filteredDevices; let i = $index; track i) {
           <tr>
-            <td class="cell-serial" data-label="Serial Number">{{ n.serialNr }}</td>
-            <td class="cell-przesylka" data-label="Przesyłka">{{ n.przesylkaNr }}</td>
-            <td class="cell-note" data-label="Notatki">{{ n.note || '-' }}</td>
-            <td class="cell-invoice" data-label="Nr. Faktury">{{ n.wamaNr || '-' }}</td>
+            <td class="cell-serial" data-label="Serial Number">
+              {{ n.serialNr }}
+            </td>
+            <td class="cell-przesylka" data-label="Przesyłka">
+              {{ n.przesylkaNr }}
+            </td>
+            <td class="cell-note" data-label="Notatki">{{ n.note || "-" }}</td>
+            <td class="cell-invoice" data-label="Nr. Faktury">
+              {{ n.fakturaNr || "-" }}
+            </td>
             <td class="cell-select" data-label="Zaznacz">
-              <input type="checkbox" [checked]="isChecked(n.id)" (change)="toggleOne(n.id, $any($event.target).checked)" />
+              <input
+                type="checkbox"
+                [checked]="isChecked(n.id)"
+                (change)="toggleOne(n.id, $any($event.target).checked)"
+              />
             </td>
           </tr>
           }
