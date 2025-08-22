@@ -12,6 +12,8 @@ import { MagazynRightSecond } from '../magazyn-right-second/magazyn-right-second
 import { MagazynSidebarComponent } from '../magazyn-sidebar/magazyn-sidebar.component';
 import { TreebarSharedService } from '../../home/treebar.share.service';
 import { Router } from '@angular/router';
+import { MagazynSharedService } from '../../magazynShared.service';
+import { flush } from '@angular/core/testing';
 
 @Component({
   selector: 'app-magazyn-main',
@@ -28,9 +30,11 @@ import { Router } from '@angular/router';
 export class MagazynMainComponent implements OnInit, OnChanges {
   constructor(
     private treebarSharedService: TreebarSharedService,
-    private router: Router
+    private router: Router,
+    private magazynSharedService: MagazynSharedService
   ) {}
   id: any = '';
+  showList: boolean = false;
   arr: any = [];
   // controls whether the alternative second right panel is shown
 
@@ -39,6 +43,11 @@ export class MagazynMainComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(router = this.router): void {
+    this.magazynSharedService.getBool().subscribe({
+      next: (bool) => {
+        this.showList = bool;
+      },
+    });
     this.treebarSharedService.getData().subscribe({
       next: (value) => {
         console.log(this.id);

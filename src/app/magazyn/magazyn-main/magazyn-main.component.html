@@ -3,7 +3,7 @@
     <app-magazyn-sidebar></app-magazyn-sidebar>
   </div>
   <div class="right-component">
-    @if(id==="") {
+    @if(!showList) {
     <app-magazyn-right-comp
       [idDummy]="id"
       (idOut)="deviceList($event)"

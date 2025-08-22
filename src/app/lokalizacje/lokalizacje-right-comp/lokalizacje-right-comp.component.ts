@@ -8,7 +8,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { AddProjectComponent } from '../../components/add-project/add-project.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { EditLokalizacjeComponent } from '../../components/edit-lokalizacje/edit-lokalizacje.component';
 
@@ -20,7 +20,10 @@ import { EditLokalizacjeComponent } from '../../components/edit-lokalizacje/edit
   styleUrl: './lokalizacje-right-comp.component.scss',
 })
 export class LokalizacjeRightCompComponent implements OnChanges {
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private router: Router
+  ) {}
 
   selectedId: any = input<any>();
   name: string = '';
@@ -44,7 +47,10 @@ export class LokalizacjeRightCompComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('selectedId:', this.selectedId());
-    if (this.selectedId() !== undefined && this.selectedId().location !== undefined) {
+    if (
+      this.selectedId() !== undefined &&
+      this.selectedId().location !== undefined
+    ) {
       this.projects = [];
       this.name = this.selectedId().location.name;
       this.locationId = this.selectedId().location._id;
@@ -60,7 +66,8 @@ export class LokalizacjeRightCompComponent implements OnChanges {
 
   // Emit selection events compatible with Treebar/Treeexpander
   selectLocation(event?: Event) {
-    if (event && (event.target as HTMLElement).blur) (event.target as HTMLElement).blur();
+    if (event && (event.target as HTMLElement).blur)
+      (event.target as HTMLElement).blur();
     // Emit the same parsed object the treebar emits for a location so parent handles it identically
     try {
       this.selected.emit(this.selectedId());
@@ -71,8 +78,17 @@ export class LokalizacjeRightCompComponent implements OnChanges {
   }
 
   selectProject(project: any, event?: Event) {
-    if (event && (event.target as HTMLElement).blur) (event.target as HTMLElement).blur();
+    if (event && (event.target as HTMLElement).blur)
+      (event.target as HTMLElement).blur();
     // Emit project id like the treebar does so the parent will switch to project view
-    this.selected.emit(project._id);
+
+    this.router.navigate([
+      '/inwentaryzacja/' +
+        JSON.stringify({
+          type: 'project',
+          id: project._id,
+          idLoc: this.location?._id,
+        }),
+    ]);
   }
 }

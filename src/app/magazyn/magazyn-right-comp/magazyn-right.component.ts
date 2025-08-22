@@ -2,6 +2,7 @@ import { Component, ElementRef, input, output, ViewChild } from '@angular/core';
 import { Treebar } from '../../treebar/treebar';
 import { TreebarSharedService } from '../../home/treebar.share.service';
 import { MagazynRightCompService } from './magazyn-right.service';
+import { MagazynSharedService } from '../../magazynShared.service';
 // import { MagazynRightCompService } from './magazyn-right.service';
 
 @Component({
@@ -13,7 +14,8 @@ import { MagazynRightCompService } from './magazyn-right.service';
 export class MagazynRightCompComponent {
   constructor(
     private treebarSharedService: TreebarSharedService,
-    private magazynRightCompService: MagazynRightCompService
+    private magazynRightCompService: MagazynRightCompService,
+    private magazynSharedService: MagazynSharedService
   ) {}
   idOut = output();
   // Emits when the first stat panel ("JEST") is clicked so parent can swap to the second view
@@ -24,6 +26,7 @@ export class MagazynRightCompComponent {
   itemCount: number = 0;
   deviceList() {
     this.idOut.emit(this.id);
+    this.magazynSharedService.setBool(true);
   }
   openSecondPanel() {
     this.showSecond.emit();

@@ -1,12 +1,8 @@
 //bar
 
 //michas 22.08
-- instant closing side bar on click in mobile (done twin)✔️
-- routes, back arrow working (working in inwentaryzacja)
 - if a project or magazyn is clicked from home panel, then the back arrow takes you back to home as well (nuh uh aint doing allat unless hr tells me to)✖️
 - toggling tree bar elements when using quick stock views on home (what does this mean twin???)✖️
 - project cant be displayed if treebar element isnt toggled (same as above)✖️
-- toggle and filter/sortowanie for table projekty
 - format json adres w lokalizacjach
-- magazyn sztuki panel odnosnik (GO BACK TO MAIN PANEL) ma dzialac dla kazdych urzadzen
-- back arrow inside of component, not header(done that)✔️
+
