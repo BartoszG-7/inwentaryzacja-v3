@@ -6,6 +6,7 @@ import {
   output,
   ChangeDetectorRef,
 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-treeexpander',
@@ -14,7 +15,10 @@ import {
   styleUrl: './treeexpander.scss',
 })
 export class Treeexpander implements OnInit {
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private router: Router
+  ) {}
   projects: InputSignal<string> = input<string>('');
   location: InputSignal<string> = input<string>('');
   locationId: InputSignal<string> = input<string>('');
@@ -22,6 +26,7 @@ export class Treeexpander implements OnInit {
   refresh = input<any>(); // added to satisfy [refresh] binding in treebar.html
   expanded = false;
   names: string[] = [];
+  projectsJSON: any = [];
   selected = output<any>();
   // selection state
   static selectedLocationId: string | null = null;
@@ -46,8 +51,12 @@ export class Treeexpander implements OnInit {
     parts.forEach((p, i) => {
       try {
         const obj = JSON.parse(p.endsWith('}') ? p : p + '}');
+
         this.names[i] = obj.name;
-      } catch {}
+        this.projectsJSON.push(obj);
+      } catch (e) {
+        console.log(e);
+      }
     });
   }
 
@@ -86,36 +95,45 @@ export class Treeexpander implements OnInit {
   }
 
   selectProject(index: number, event?: Event): void {
-    Treeexpander.selectedLocationId = null;
-    Treeexpander.selectedProjectId =
-      this.locationId() + ':' + this.names[index];
-    Treeexpander.instances.forEach((inst) => {
-      inst.isSelected = false;
-      if (inst === this) {
-        inst.selectedProjectIndex = index;
-      } else {
-        inst.selectedProjectIndex = null;
-      }
-    });
-    // parse id from original projects string
-    let parts = this.projects().split('},');
-    const raw = parts[index];
-    let projectId: string | null = null;
-    try {
-      const obj = JSON.parse(raw.endsWith('}') ? raw : raw + '}');
-      projectId = obj.id;
-    } catch {}
-    this.selected.emit({
-      type: 'project',
-      locationId: this.locationId(),
-      projectId: projectId,
-      projectName: this.names[index],
-    });
-    if (event && event.target && (event.target as HTMLElement).blur) {
-      (event.target as HTMLElement).blur();
-    }
-    try {
-      this.changeDetectorRef.detectChanges();
-    } catch {}
+    console.log(this.projectsJSON[index]);
+    this.router.navigate([
+      '/inwentaryzacja/' +
+        JSON.stringify({
+          type: 'project',
+          id: this.projectsJSON[index].id,
+          idLoc: this.locationId(),
+        }),
+    ]);
+    // Treeexpander.selectedLocationId = null;
+    // Treeexpander.selectedProjectId =
+    //   this.locationId() + ':' + this.names[index];
+    // Treeexpander.instances.forEach((inst) => {
+    //   inst.isSelected = false;
+    //   if (inst === this) {
+    //     inst.selectedProjectIndex = index;
+    //   } else {
+    //     inst.selectedProjectIndex = null;
+    //   }
+    // });
+    // // parse id from original projects string
+    // let parts = this.projects().split('},');
+    // const raw = parts[index];
+    // let projectId: string | null = null;
+    // try {
+    //   const obj = JSON.parse(raw.endsWith('}') ? raw : raw + '}');
+    //   projectId = obj.id;
+    // } catch {}
+    // this.selected.emit({
+    //   type: 'project',
+    //   locationId: this.locationId(),
+    //   projectId: projectId,
+    //   projectName: this.names[index],
+    // });
+    // if (event && event.target && (event.target as HTMLElement).blur) {
+    //   (event.target as HTMLElement).blur();
+    // }
+    // try {
+    //   this.changeDetectorRef.detectChanges();
+    // } catch {}
   }
 }

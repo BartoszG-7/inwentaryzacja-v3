@@ -42,6 +42,9 @@ export class LokalizacjeMainComponent implements OnInit {
     this.treebarSharedService.getData().subscribe({
       next: (e) => {
         console.log(e);
+        if (e.location !== undefined) {
+          this.selectedId = e;
+        }
         if (e.type === 'project') {
           // this.changedId(e.projectId);
           console.log('BEFORE IF STOPPROJ', this.showProject);

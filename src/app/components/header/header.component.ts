@@ -13,7 +13,7 @@ import { PlusModalComponent } from '../../components/plus-modal/plus-modal.compo
 import { PlusModalLokalComponent } from '../../components/plus-modal-lokal/plus-modal-lokal.component';
 import { SearchBarMobileComponent } from '../search-bar-mobile/search-bar-mobile.component';
 import { GlobalSearchModalComponent } from '../../components/global-search-modal/global-search-modal.component';
-
+import { TreebarSharedService } from '../../home/treebar.share.service';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -39,7 +39,14 @@ export class HeaderComponent implements OnInit {
     // Here you can implement the logic to handle the search input
     // For example, you might want to filter the locations based on the search term
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.treebarSharedService.getData().subscribe({
+      next: (e) => {
+        console.log('HEADER TRBAR SERVICE', e);
+        this.rightMenuOpen = false;
+      },
+    });
+  }
   leftMenuOpen = false;
   rightMenuOpen = false;
   showLeftMenu = true;
@@ -78,7 +85,8 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private cookieService: CookieService,
     private arrowService: HeaderArrowService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private treebarSharedService: TreebarSharedService
   ) {
     this.arrowService.showArrow$.subscribe((show) => {
       this.showBackArrow = show;
