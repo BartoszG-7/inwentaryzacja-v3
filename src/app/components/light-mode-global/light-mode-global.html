@@ -1,0 +1,4 @@
+<button class="light-toggle" type="button" (click)="toggle($event)" [attr.aria-pressed]="isLight">
+	<i class="bi" [ngClass]="isLight ? 'bi-moon' : 'bi-sun'" aria-hidden="true"></i>
+	<span class="sr-only">Toggle light/dark</span>
+</button>
