@@ -101,7 +101,7 @@ button.secondary-btn {
   line-height: 1.1;
 }
 .btn-secondary:hover,
-button.secondary-btn:hover { background: #2f3238 !important; border-color: lighten($border-clr,8%); }
+button.secondary-btn:hover { background: #2f3238 !important; border-color: color-mix(in srgb, var(--border-clr), white 8%); }
 
 /* Outline danger (red) reusable */
 .btn-outline-danger,

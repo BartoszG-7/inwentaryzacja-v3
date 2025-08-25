@@ -116,7 +116,7 @@ input[type="search"]::placeholder {
 input[type="search"]:focus {
     border-color: $primary-color;
 	background: $secondary-panel-clr !important;
-	box-shadow: 0 0 0 2px rgba($primary-color,0.18);
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary-color), transparent 82%);
 }
 
 

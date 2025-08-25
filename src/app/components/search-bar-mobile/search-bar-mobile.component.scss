@@ -128,7 +128,7 @@
 }
 .modal-close-btn:hover,
 .modal-close-btn:focus {
-	background: rgba($primary-color,0.14);
+	background: color-mix(in srgb, var(--primary-color), transparent 86%);
 	border-color: $primary-color;
 	color: $primary-color;
 	outline: none;

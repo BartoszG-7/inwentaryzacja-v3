@@ -73,7 +73,7 @@
 	color: $muted-txt !important;
 	opacity: 1;
 }
-.modal-content input:focus { border-color: $primary-color; background:$secondary-panel-clr !important; box-shadow: 0 0 0 2px rgba($primary-color,0.18); }
+.modal-content input:focus { border-color: $primary-color; background:$secondary-panel-clr !important; box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary-color), transparent 82%); }
 .modal-header {
 	display: flex;
 	align-items: center;
@@ -167,7 +167,7 @@ button.modal-close-btn {
 }
 button.modal-close-btn:hover,
 button.modal-close-btn:focus {
-	background: rgba($primary-color,0.14);
+	background: color-mix(in srgb, var(--primary-color), transparent 86%);
 	border-color: $primary-color;
 	color: $primary-color;
 	outline: none;

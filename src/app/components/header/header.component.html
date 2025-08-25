@@ -12,7 +12,7 @@
         <i class="bi bi-list"></i>
       </div>
   <app-light-mode-global></app-light-mode-global>
-      <ng-container *ngIf="showBackArrow">
+      @if (showBackArrow) {
         <!-- <button
           type="button"
           class="back-arrow-btn"
@@ -21,7 +21,7 @@
         >
           <i class="bi bi-arrow-left"></i>
         </button> -->
-      </ng-container>
+      }
     </div>
     }
     <!-- Center: KIT logo button -->
