@@ -110,6 +110,16 @@ col {
 .right-project-table tbody tr:not(.group-label-row):hover td {
   background: var(--table-row-bg-hover) !important;
 }
+/* Ensure Bootstrap's table-hover doesn't override our neutral hover */
+.right-project-table {
+  --bs-table-hover-bg: transparent !important; /* neutralize default hover bg */
+}
+.right-project-table.table-hover > tbody > tr:hover {
+  background-color: transparent !important; /* prevent row bg interfering with td bg */
+}
+.right-project-table.table-hover > tbody > tr:hover > td {
+  background-color: var(--table-row-bg-hover) !important; /* enforce our theme hover color */
+}
 .btn-edit-row {
   width: 100%;
   margin: 0;
