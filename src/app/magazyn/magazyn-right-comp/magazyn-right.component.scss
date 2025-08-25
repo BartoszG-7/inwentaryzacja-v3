@@ -4,7 +4,7 @@
 @media (max-width: 600px) {
   .magazyn-main-dashboard {
     position: relative;
-  background: $panel-bg !important;
+  background: $dark-bg !important; /* use dark background for panel on mobile */
     min-height: calc(100vh - 64px);
     max-height: calc(100vh - 64px);
     overflow: auto;
