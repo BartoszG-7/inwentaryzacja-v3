@@ -24,7 +24,6 @@
             <app-mag-second-dodaj
               [devicetype]="data.deviceType._id"
             ></app-mag-second-dodaj>
-            <app-mag-second-edit [elmnt]="editElement"></app-mag-second-edit>
             <app-mag-second-usun [Ids]="this.selectedIds"></app-mag-second-usun>
             <app-mag-second-src-bar></app-mag-second-src-bar>
           </div>
@@ -60,6 +59,7 @@
               {{ n.fakturaNr || "-" }}
             </td>
             <td class="cell-select" data-label="Zaznacz">
+              <app-mag-second-edit [elmnt]="n"></app-mag-second-edit>
               <input
                 type="checkbox"
                 [checked]="isChecked(n._id)"

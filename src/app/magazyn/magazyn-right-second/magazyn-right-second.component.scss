@@ -140,7 +140,7 @@
   position: sticky;
   top: 0;
   background: $secondary-panel-clr;
-  z-index: 0;
+  z-index: 10;
 }
 
 .table-header-left { display:flex; align-items:center; gap:.85rem; }
@@ -252,8 +252,19 @@
 .cell-przesylka { color: $muted-txt; }
 .cell-note { color: lighten($muted-txt, 8%); font-size: 0.78rem; line-height: 1.2; }
 .cell-invoice { color: $light-txt; font-weight: 500; font-size: 0.8rem; }
-.cell-select { text-align:center; }
+.cell-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
 .cell-select input[type='checkbox'] { cursor:pointer; width:16px; height:16px; }
+.cell-select app-mag-second-edit { display:inline-block; vertical-align: middle; margin-right: 0; }
+
+/* Mobile: add right spacing next to the edit button */
+@media (max-width: 600px) {
+  .cell-select app-mag-second-edit { margin-right: 10px; }
+}
 
 @media (max-width: 600px) {
   .second-panel-match {
