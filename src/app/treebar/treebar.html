@@ -9,6 +9,7 @@
         location="{{ item.name }}"
         locationId="{{ item.id }}"
         (selected)="changeId($event)"
+        (refresh2)="refreshTRX($event)"
         [showMotherboardIcon]="showMotherboardIcon"
       ></app-treeexpander>
     </li>

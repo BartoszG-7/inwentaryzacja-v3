@@ -62,6 +62,7 @@ export class MagazynSidebarComponent implements OnInit {
             instance.isSelected = instLocationId === first.id;
             instance.selectedProjectIndex = null;
             instance.expanded = instLocationId === first.id;
+            console.log('INST EXPANDED', instance.expanded);
             if ((instance as any).changeDetectorRef) {
               try {
                 (instance as any).changeDetectorRef.detectChanges();

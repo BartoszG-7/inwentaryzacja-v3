@@ -9,7 +9,7 @@
       >
         <i class="bi bi-arrow-90deg-left"></i>
       </button>
-      <span class="header-title">{{ project.name }}</span>
+      <span class="header-title">{{ (project ?? { name: "" }).name }}</span>
     </div>
     <div class="header-actions">
       <app-search-bar
@@ -21,7 +21,7 @@
       <app-edit-projekt [data]="project"></app-edit-projekt>
       <!--edit-->
       <app-dodaj-modal-device
-        [projectId]="selectedId()"
+        [projectId]="selectedId"
         (refresh)="onRefresh($event)"
       ></app-dodaj-modal-device>
       <app-usun-modal-device

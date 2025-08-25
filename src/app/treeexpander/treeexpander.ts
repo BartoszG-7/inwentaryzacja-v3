@@ -5,8 +5,14 @@ import {
   OnInit,
   output,
   ChangeDetectorRef,
+  NgZone,
+  OnChanges,
+  SimpleChanges,
+  Signal,
+  signal,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LinkService } from '../linkService';
 
 @Component({
   selector: 'app-treeexpander',
@@ -14,19 +20,24 @@ import { Router } from '@angular/router';
   templateUrl: './treeexpander.html',
   styleUrl: './treeexpander.scss',
 })
-export class Treeexpander implements OnInit {
+export class Treeexpander implements OnInit, OnChanges {
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private linkService: LinkService
   ) {}
+
   projects: InputSignal<string> = input<string>('');
   location: InputSignal<string> = input<string>('');
   locationId: InputSignal<string> = input<string>('');
   showMotherboardIcon: InputSignal<boolean> = input<boolean>(false);
   refresh = input<any>(); // added to satisfy [refresh] binding in treebar.html
-  expanded = false;
+  expanded = signal(false);
   names: string[] = [];
   projectsJSON: any = [];
+  refresh2 = output<any>();
+  testSignal = signal<any>(false);
   selected = output<any>();
   // selection state
   static selectedLocationId: string | null = null;
@@ -34,12 +45,28 @@ export class Treeexpander implements OnInit {
   static instances: Treeexpander[] = [];
   isSelected = false;
   selectedProjectIndex: number | null = null;
-
+  reft: any = [];
   ngOnInit(): void {
     this.parseProjects();
     Treeexpander.instances.push(this);
+
     this.isSelected = Treeexpander.selectedLocationId === this.locationId();
     this.selectedProjectIndex = null;
+    this.linkService.getData().subscribe({
+      next: (value) => {
+        if (value.type === 'location' || value.type === 'project') {
+          if (
+            value.id === this.locationId() ||
+            value.idLoc === this.locationId()
+          ) {
+            this.isSelected = true;
+
+            this.expanded.set(true);
+            console.log('EXPANDED', this.location());
+          }
+        }
+      },
+    });
   }
 
   private parseProjects(): void {
@@ -64,7 +91,7 @@ export class Treeexpander implements OnInit {
     // toggle selection for location similar to previous implementation
     if (
       (Treeexpander.selectedLocationId === this.locationId() &&
-        this.expanded) ||
+        this.expanded()) ||
       this.selectedProjectIndex !== null
     ) {
       // unselect
@@ -74,7 +101,8 @@ export class Treeexpander implements OnInit {
       Treeexpander.instances.forEach((inst) => {
         inst.isSelected = false;
         inst.selectedProjectIndex = null;
-        if (inst === this) inst.expanded = false;
+        if (inst === this) inst.expanded.set(false);
+        console.log('INST EXPANDED', inst.expanded);
       });
     } else {
       Treeexpander.selectedLocationId = this.locationId();
@@ -82,7 +110,8 @@ export class Treeexpander implements OnInit {
       Treeexpander.instances.forEach((inst) => {
         inst.isSelected = inst.locationId() === Treeexpander.selectedLocationId;
         inst.selectedProjectIndex = null;
-        inst.expanded = inst === this;
+        inst.expanded.set(inst === this);
+        console.log('INST EXPANDED', inst.expanded);
       });
       this.selected.emit({ type: 'location', id: this.locationId() });
     }
@@ -96,6 +125,11 @@ export class Treeexpander implements OnInit {
 
   selectProject(index: number, event?: Event): void {
     console.log(this.projectsJSON[index]);
+    this.linkService.setData({
+      type: 'project',
+      id: this.projectsJSON[index].id,
+      idLoc: this.locationId(),
+    });
     this.router.navigate([
       '/inwentaryzacja/' +
         JSON.stringify({
@@ -136,4 +170,5 @@ export class Treeexpander implements OnInit {
     //   this.changeDetectorRef.detectChanges();
     // } catch {}
   }
+  ngOnChanges(changes: SimpleChanges): void {}
 }

@@ -15,6 +15,7 @@ import { Treebar } from '../../treebar/treebar';
 import { HeaderArrowService } from '../../components/header/header-arrow.service';
 import { TreebarSharedService } from '../../home/treebar.share.service';
 import { Treeexpander } from '../../treeexpander/treeexpander';
+import { LinkService } from '../../linkService';
 
 @Component({
   selector: 'app-lokalizacje-main',
@@ -36,69 +37,38 @@ export class LokalizacjeMainComponent implements OnInit {
   constructor(
     private arrowService: HeaderArrowService,
     private treebarSharedService: TreebarSharedService,
-    private router: Router
+    private router: Router,
+    private linkService: LinkService
   ) {}
   ngOnInit(): void {
-    this.treebarSharedService.getData().subscribe({
+    this.linkService.getData().subscribe({
       next: (e) => {
-        console.log(e);
-        if (e.location !== undefined) {
-          this.selectedId = e;
+        if (e.type === 'location') {
+          this.showProject = false;
+        } else if (e.type === 'project') {
+          this.showProject = true;
         }
-        if (e.type === 'project') {
-          // this.changedId(e.projectId);
-          console.log('BEFORE IF STOPPROJ', this.showProject);
-          console.log('STOPPROJ', e.stopProj);
-          if (!e.stopProj) {
-            this.showProject = true;
-            this.selectedId = e.projectId;
-
-            this.arrowService.setShowArrow(true);
-          } else {
-            this.showProject = false;
-            console.log('INSTANCES MAIN', e);
-          }
-          console.log('AFTER IF STOPPROJ', this.showProject);
-          console.log(e);
-        } else if (e.type === 'location') {
-          if (!this.showProject) {
-            this.selectedId = e;
-          } else {
-            console.log('THIS.showProject', this.showProject);
-            this.arrowService.setShowArrow(false);
-            this.selectedId = '';
-            console.log('URLCHANHGED1', this.router.url);
-            this.router
-              .navigate([
-                '/inwentaryzacja/' +
-                  JSON.stringify({ type: 'location', id: e.location._id }),
-              ])
-              .then(() => {
-                console.log('LOKALIZACJE MAIN COMP RELOAD', this.router.url);
-                window.location.reload();
-              });
-          }
-        }
+        console.log(this.showProject);
       },
     });
   }
-  refreshTreebar(ref: any) {
-    this.refresh = ref;
-  }
-  refreshRightComp(event: any) {
-    console.log(event);
-    this.rightComp = event;
-  }
-  changedId(event: any) {
-    console.log('main changedId received:', event);
-    this.selectedId = event;
-    // If event.type is 'project', show project view
-    if (event && event.location === undefined) {
-      this.showProject = true;
-      this.arrowService.setShowArrow(true);
-    } else {
-      this.showProject = false;
-      this.arrowService.setShowArrow(false);
-    }
-  }
 }
+// refreshTreebar(ref: any) {
+//   this.refresh = ref;
+// }
+// refreshRightComp(event: any) {
+//   console.log(event);
+//   this.rightComp = event;
+// }
+// changedId(event: any) {
+//   console.log('main changedId received:', event);
+//   this.selectedId = event;
+//   // If event.type is 'project', show project view
+//   if (event && event.location === undefined) {
+//     this.showProject = true;
+//     this.arrowService.setShowArrow(true);
+//   } else {
+//     this.showProject = false;
+//     this.arrowService.setShowArrow(false);
+//   }
+// }

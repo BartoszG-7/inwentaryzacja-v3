@@ -123,16 +123,13 @@ export class HeaderComponent implements OnInit {
     console.log('BUTTON DATA');
     if (this.urlData.idLoc != undefined) {
       this.router
-        .navigate([
-          '/inwentaryzacja/' +
-            (JSON.stringify({ type: 'location', id: this.urlData.idLoc }) ??
-              '{}'),
-        ])
+        .navigate(['/inwentaryzacja/'])
+
         .then(() => {
           window.location.reload();
         });
     } else {
-      this.router.navigate(['/inwentaryzacja/{}']).then(() => {
+      this.router.navigate(['/inwentaryzacja']).then(() => {
         window.location.reload();
       });
     }

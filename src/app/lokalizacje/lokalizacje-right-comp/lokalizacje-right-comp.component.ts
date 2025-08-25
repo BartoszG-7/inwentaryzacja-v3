@@ -4,6 +4,7 @@ import {
   inject,
   input,
   OnChanges,
+  OnInit,
   output,
   SimpleChanges,
 } from '@angular/core';
@@ -11,6 +12,7 @@ import { AddProjectComponent } from '../../components/add-project/add-project.co
 import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { EditLokalizacjeComponent } from '../../components/edit-lokalizacje/edit-lokalizacje.component';
+import { TreebarSharedService } from '../../home/treebar.share.service';
 
 @Component({
   selector: 'app-lokalizacje-right-comp',
@@ -19,10 +21,11 @@ import { EditLokalizacjeComponent } from '../../components/edit-lokalizacje/edit
   templateUrl: './lokalizacje-right-comp.component.html',
   styleUrl: './lokalizacje-right-comp.component.scss',
 })
-export class LokalizacjeRightCompComponent implements OnChanges {
+export class LokalizacjeRightCompComponent implements OnInit, OnChanges {
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private treebarSharedService: TreebarSharedService
   ) {}
 
   selectedId: any = input<any>();
@@ -44,7 +47,21 @@ export class LokalizacjeRightCompComponent implements OnChanges {
     // this.changeDetectorRef.detectChanges();
     // a = '';
   }
-
+  ngOnInit() {
+    this.treebarSharedService.getData().subscribe({
+      next: (value) => {
+        this.projects = [];
+        this.name = value.location.name;
+        this.locationId = value.location._id;
+        this.location = value.location;
+        if (Array.isArray(value.projects)) {
+          value.projects.forEach((project: any) => {
+            this.projects.push(project);
+          });
+        }
+      },
+    });
+  }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('selectedId:', this.selectedId());
     if (

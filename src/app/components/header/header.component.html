@@ -37,10 +37,14 @@
     <div class="header-links"></div>
     <!-- Desktop: Logout button (top right) -->
     @if (!isLoginPage) {
-  <span class="header-search-wrap" [attr.data-has-right]="showRightMenu" [attr.data-route]="selectedRoute">
-    <app-global-search-modal></app-global-search-modal>
-  </span>
-  <button
+    <span
+      class="header-search-wrap"
+      [attr.data-has-right]="showRightMenu"
+      [attr.data-route]="selectedRoute"
+    >
+      <app-global-search-modal></app-global-search-modal>
+    </span>
+    <button
       class="logout-btn"
       (click)="loginHandler()"
       title="Logout"
@@ -64,7 +68,9 @@
   <!-- Left sidebar (slide in/out) -->
   @if (showLeftMenu) {
   <nav class="side-menu left" [class.open]="leftMenuOpen">
-  <button class="modal-close-btn" type="button" (click)="toggleLeftMenu()">&times;</button>
+    <button class="modal-close-btn" type="button" (click)="toggleLeftMenu()">
+      &times;
+    </button>
     <ul class="sidebar-menu-left">
       <li
         routerLink="/home"
@@ -74,14 +80,14 @@
         Home
       </li>
       <li
-        routerLink="/inwentaryzacja/{}"
+        routerLink="/inwentaryzacja/"
         (click)="toggleLeftMenu()"
         [class.active]="isActive('/inwentaryzacja')"
       >
         Inwentaryzacja
       </li>
       <li
-        routerLink="/magazyn/{}"
+        routerLink="/magazyn/"
         (click)="toggleLeftMenu()"
         [class.active]="isActive('/magazyn')"
       >
@@ -113,7 +119,9 @@
       class="modal-close-btn sidebar-close-absolute"
       type="button"
       (click)="toggleRightMenu()"
-    >&times;</button>
+    >
+      &times;
+    </button>
     <div class="sidebar-tree-list-wrapper">
       <div class="sidebar-sticky-top-block-mobile">
         <div class="sidebar-header-plus-align">
@@ -144,7 +152,9 @@
       class="modal-close-btn sidebar-close-absolute"
       type="button"
       (click)="toggleRightMenu()"
-    >&times;</button>
+    >
+      &times;
+    </button>
     <div class="sidebar-tree-list-wrapper">
       <div class="sidebar-sticky-top-block-mobile">
         <div class="sidebar-header-plus-align">

@@ -2,6 +2,7 @@ import { Component, input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeStockViewService } from '../stock-view/home-stock-view.service';
 import { Router } from '@angular/router';
+import { LinkService } from '../../linkService';
 @Component({
   selector: 'app-home-stock-view',
   standalone: true,
@@ -12,30 +13,14 @@ import { Router } from '@angular/router';
 export class HomeStockViewComponent implements OnInit {
   constructor(
     private homeStockViewService: HomeStockViewService,
-    private router: Router
+    private router: Router,
+    private linkService: LinkService
   ) {}
   unprocessed: any = input();
   stockItems: any[] = [];
-  redirect(event: any) {
-    console.log(event.target);
-    if (event.target.id == '') {
-      console.log(event.target.parentElement.parentElement);
-      this.router.navigate([
-        '/magazyn/' +
-          JSON.stringify({
-            type: 'location',
-            id: event.target.parentElement.parentElement.id,
-          }),
-      ]);
-    } else {
-      this.router.navigate([
-        '/magazyn/' +
-          JSON.stringify({
-            type: 'location',
-            id: event.target.id,
-          }),
-      ]);
-    }
+  redirect(id: string) {
+    this.linkService.setData({ type: 'deviceType', id: id });
+    this.router.navigate(['/magazyn']);
   }
   ngOnInit(): void {
     this.homeStockViewService
