@@ -24,6 +24,11 @@
       }
     </div>
     }
+    @if (isLoginPage) {
+      <div class="header-left-group">
+        <app-light-mode-global></app-light-mode-global>
+      </div>
+    }
     <!-- Center: KIT logo button -->
     <div class="logo-container">
       <a class="kit-box center" routerLink="/home" tabindex="0">KIT</a>
