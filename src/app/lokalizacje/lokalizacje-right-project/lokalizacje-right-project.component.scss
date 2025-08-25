@@ -26,8 +26,8 @@
   //border: 2px solid #888;
 }
 .right-project-table thead th {
-  border-top: 2px solid #888 !important;
-  border-bottom: 2px #888 solid !important;
+  border-top: 2px solid $border-clr !important;
+  border-bottom: 2px $border-clr solid !important;
 
   position: sticky;
   top: 0;
@@ -89,11 +89,11 @@ col {
     tr:not(.group-label-row):nth-of-type(#{$i}) {
       @if ($i % 2 == 0) {
         td {
-          background: #252525;
+          background: color-mix(in srgb, var(--secondary-panel-clr), white 3%);
         }
       } @else {
         td {
-          background: #121212;
+          background: color-mix(in srgb, var(--secondary-panel-clr), black 4%);
         }
       }
     }
@@ -215,7 +215,7 @@ col {
 .header-btn {
   background: transparent;
   color: $title-txt;
-  border: 1.5px solid #888;
+  border: 1.5px solid $border-clr;
   background-color: $panel-bg;
   border-radius: 4px;
   padding: 4px 12px;
@@ -234,7 +234,7 @@ col {
   padding: 4px 10px;
   font-size: 0.95rem;
   border-radius: 4px;
-  border: 1.5px solid #888;
+  border: 1.5px solid $border-clr;
   color: $light-txt;
   background: $panel-bg;
   transition: background 0.15s, color 0.15s;
@@ -274,7 +274,7 @@ col {
   background: $dark-bg;
   border-top-color: #000 !important;
   color: $light-txt;
-  border-color: #888;
+  border-color: $border-clr;
   border-top: none;
   min-height: 32px;
   max-height: 40px;
@@ -293,7 +293,7 @@ col {
   font-size: 1rem;
   background: #111;
   color: #fff;
-  border-color: #888;
+  border-color: $border-clr;
   min-height: 32px;
   max-height: 40px;
 }

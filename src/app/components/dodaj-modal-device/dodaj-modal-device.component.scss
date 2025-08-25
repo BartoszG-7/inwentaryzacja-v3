@@ -16,10 +16,10 @@
 
 // Custom thin scrollbar for modal-content, matches right-table-responsive
 /* Thin scrollbar */
-.modal-content { scrollbar-width:thin; scrollbar-color:#333 transparent; }
+.modal-content { scrollbar-width:thin; scrollbar-color:$muted-txt transparent; }
 .modal-content::-webkit-scrollbar { width:6px; }
-.modal-content::-webkit-scrollbar-thumb { background:#333; border-radius:4px; }
-.modal-content::-webkit-scrollbar-thumb:hover { background:lighten(#333,10%); }
+.modal-content::-webkit-scrollbar-thumb { background:$muted-txt; border-radius:4px; }
+.modal-content::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--muted-txt), white 12%); }
 .modal-content::-webkit-scrollbar-track { background:transparent; }
 
 /* Close button replaced by unified .modal-close-btn (see shared partial) */
@@ -31,7 +31,7 @@
 .header-btn {
 	background: transparent;
 	color: $title-txt;
-	border: 1.5px solid #888;
+	border: 1.5px solid $border-clr;
 	background-color: $panel-bg;
 	border-radius: 4px;
 	padding: 4px 12px;
@@ -55,12 +55,12 @@
 	color: #bbb;
 }
 /* form-control inherits from shared styles (fallback for legacy classes) */
-.form-control { background:#22242b !important; border:1px solid $border-clr; color:$light-txt !important; border-radius:10px; font-size:.85rem; padding:.6rem .85rem; margin-bottom:.55rem; transition:border-color .15s, background .15s; }
+.form-control { background: color-mix(in srgb, var(--secondary-panel-clr), black 6%) !important; border:1px solid $border-clr; color:$light-txt !important; border-radius:10px; font-size:.85rem; padding:.6rem .85rem; margin-bottom:.55rem; transition:border-color .15s, background .15s; }
 .form-control:focus { border-color:$primary-color; background:#262a33 !important; }
 .form-control::placeholder { color:$muted-txt !important; }
 .btn-primary { background:$primary-color; border:1px solid $primary-color; border-radius:10px; margin-left:.4rem; padding:.55rem 1.1rem; font-weight:600; font-size:.85rem; letter-spacing:.03em; transition:background .15s, border-color .15s; }
 .btn-primary:hover { background:$primary-dark-color; border-color:$primary-dark-color; }
-.btn-secondary { background:#262830; border:1px solid $border-clr; border-radius:10px; padding:.55rem 1rem; font-size:.8rem; }
+.btn-secondary { background: color-mix(in srgb, var(--secondary-panel-clr), black 10%); border:1px solid $border-clr; border-radius:10px; padding:.55rem 1rem; font-size:.8rem; }
 .btn-secondary:hover { background:#2f3238; }
 
 /* Small width adjustments */

@@ -113,7 +113,7 @@
 /* Thin, themed scrollbar for the scrolling list */
 .second-table-wrapper {
   scrollbar-width: thin;
-  scrollbar-color: #888 $secondary-panel-clr;
+  scrollbar-color: $muted-txt $secondary-panel-clr;
 }
 .second-table-wrapper::-webkit-scrollbar {
   width: 6px;
@@ -123,11 +123,11 @@
   border-radius: 6px;
 }
 .second-table-wrapper::-webkit-scrollbar-thumb {
-  background: #333;
+  background: $muted-txt;
   border-radius: 6px;
 }
 .second-table-wrapper::-webkit-scrollbar-thumb:hover {
-  background: lighten(#333, 8%);
+  background: color-mix(in srgb, var(--muted-txt), white 12%);
 }
 
 .table-header {
@@ -174,7 +174,7 @@
   align-items: center;
 }
 .table-search-input {
-  background: #22242b;
+  background: color-mix(in srgb, var(--secondary-panel-clr), black 6%);
   border: 1px solid $border-clr;
   color: $light-txt;
   padding: 0.45rem 0.65rem;
@@ -186,7 +186,7 @@
 }
 .table-search-input:focus {
   border-color: $primary-color;
-  background: #262830;
+  background: color-mix(in srgb, var(--secondary-panel-clr), black 10%);
 }
 .table-search-input::placeholder {
   color: $muted-txt;
@@ -217,7 +217,7 @@
 
 .second-table tbody tr {
   transition: background 0.15s, border-color 0.15s;
-  border-bottom: 1px solid #2f2f35;
+  border-bottom: 1px solid $border-clr;
 }
 
 .second-table tbody tr:last-child {
@@ -225,7 +225,7 @@
 }
 
 .second-table tbody tr:hover {
-  background: #2d2e36;
+  background: color-mix(in srgb, var(--secondary-panel-clr), white 4%);
 }
 
 .second-table td {
