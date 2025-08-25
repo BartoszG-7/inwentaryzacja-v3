@@ -4,7 +4,7 @@
 @media (max-width: 600px) {
   .magazyn-main-dashboard {
     position: relative;
-    background: #1f1f1f !important;
+  background: $panel-bg !important;
     min-height: calc(100vh - 64px);
     max-height: calc(100vh - 64px);
     overflow: auto;
@@ -39,10 +39,10 @@
   width: 100%;
   /* No centering or background here. Main layout handles it. */
 }
-@import 'global.scss';
+ 
 
 .magazyn-main-dashboard {
-  background: #23232b;
+  background: $panel-bg;
   border-radius: 18px;
   box-shadow: 0 4px 32px rgba(0,0,0,0.22);
   max-width: 600px;
@@ -78,7 +78,7 @@
   font-size: 1.15rem;
   font-weight: 500;
   margin-bottom: 1.2rem;
-  color: #888;
+  color: $muted-txt;
   letter-spacing: 0.03em;
 }
 
@@ -89,7 +89,7 @@
   flex-wrap: wrap;
 }
 .magazyn-main-stat {
-  background: #292a33;
+  background: $secondary-panel-clr;
   border-radius: 12px;
   padding: 1.1rem 1.3rem;
   min-width: 110px;
@@ -99,8 +99,8 @@
   align-items: center;
   justify-content: space-between; /* anchor label top and value bottom */
   box-shadow: 0 2px 8px rgba(0,0,0,0.13);
-  color: #eaeaea;
-  border: 1.5px solid #35363a;
+  color: $light-txt;
+  border: 1.5px solid $border-clr;
   transition: border-color 0.2s;
 }
 .magazyn-main-stat:hover {
@@ -113,7 +113,7 @@
 
 .magazyn-main-stat-label {
   font-size: 1rem;
-  color: #bcbcbc;
+  color: $muted-txt;
   margin-bottom: 0.3rem;
   text-align: center;
 }
@@ -126,13 +126,13 @@
 
 .magazyn-main-tags {
   margin-top: 1.5rem;
-  background: #292a33;
+  background: $secondary-panel-clr;
   border-radius: 10px;
   padding: 1.1rem 1.3rem;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  color: #eaeaea;
+  color: $light-txt;
   border: 1.5px solid $border-clr;
 }
 .magazyn-main-tags:hover {
@@ -141,7 +141,7 @@
 .magazyn-main-tag {
   font-size: 1.08rem;
   font-weight: 500;
-  color: #bcbcbc;
+  color: $muted-txt;
   text-align: center;
 }
 .magazyn-main-tag-detail {
@@ -152,7 +152,7 @@
 }
 
 .magazyn-main-empty-msg {
-  background: #292a33;
+  background: $secondary-panel-clr;
   border: 1.5px solid $border-clr;
   border-radius: 12px;
   padding: 1.2rem 1.4rem;

@@ -1,4 +1,5 @@
 import { Component, input, InputSignal, OnInit } from '@angular/core';
+import { SlicePipe } from '@angular/common';
 import { MagSecondDodaj } from '../../components/mag-second-dodaj/mag-second-dodaj.component';
 import { MagSecondEdit } from '../../components/mag-second-edit/mag-second-edit.component';
 import { MagSecondUsun } from '../../components/mag-second-usun/mag-second-usun.component';
@@ -11,6 +12,7 @@ import { MagazynSharedService } from '../../magazynShared.service';
   selector: 'app-magazyn-right-second',
   standalone: true,
   imports: [
+  SlicePipe,
     SearchBarComponent,
     MagSecondDodaj,
     MagSecondEdit,

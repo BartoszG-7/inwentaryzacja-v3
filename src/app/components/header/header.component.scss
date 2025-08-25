@@ -231,7 +231,7 @@ header {
   color: $primary-color;
   border: 2px solid $primary-color;
   border-radius: 8px;
-  background: rgba($primary-color, 0.08);
+  background: color-mix(in srgb, var(--primary-color), transparent 92%);
 }
 
 @keyframes pop-in-left {
@@ -540,7 +540,7 @@ header {
 }
 .modal-close-btn.sidebar-close-absolute { position: absolute; }
 .modal-close-btn:hover,
-.modal-close-btn:focus { background: rgba($primary-color,0.14); border-color: $primary-color; color: $primary-color; outline:none; }
+.modal-close-btn:focus { background: color-mix(in srgb, var(--primary-color), transparent 86%); border-color: $primary-color; color: $primary-color; outline:none; }
 
 .menu-overlay {
   position: fixed;

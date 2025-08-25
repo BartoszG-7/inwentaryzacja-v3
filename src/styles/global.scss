@@ -1,24 +1,83 @@
-$primary-color: #1e9497;
-$dark-color: #000000;
-$light-color: #ffffff;
-$accent-color: #808080;
-$primary-dark-color: #176d6f;
-$red-color: #ff5252;
+/*
+	Runtime theming with CSS variables.
+	- :root defines the default (dark) palette.
+	- body.theme-light overrides variables for light mode.
+	SCSS variables below are mapped to CSS vars so existing styles update at runtime.
+*/
 
+:root {
+	--primary-color: #1e9497;
+	--primary-dark-color: #176d6f;
+	--red-color: #ff5252;
+	--dark-color: #000000;
+	--light-color: #ffffff;
+	--accent-color: #808080;
 
-$header-clr: #1b1b1d;
-$dark-bg: #1f1f22;
-$sidebar-clr: #1b1b1d; //#1b1b1d; //#1f1f22; //23232b
-$right-container-color: #232326;
+	--header-clr: #1b1b1d;
+	--dark-bg: #1f1f22;
+	--sidebar-clr: #1b1b1d; /* #1b1b1d; #1f1f22; 23232b */
+	--right-container-color: #272a30;
 
-//attempt of theme color
+	--border-clr: #40434a; /* a touch lighter for clearer separators */
+	--light-txt: #eceef1; /* slightly brighter text */
+	--title-txt: #fafaf7;
+	--secondary-panel-clr: #2d2f38; /* a bit lighter than before */
+	--panel-bg: #262830; /* subtle lift in base panel */
+	--muted-txt: #c4c7ce;
+	--font-clr: rgb(223, 223, 227);
 
-$border-clr: #35363a;
-$light-txt: #eaeaea;
-$title-txt: #f8f8f2;
-$secondary-panel-clr: #292a33;
-$panel-bg: #23232b;//292a33;
-$muted-txt: #bcbcbc;
-$font-clr: rgb(223, 223, 227);
+	/* Table row backgrounds (dark theme defaults) */
+	--table-row-bg-odd: color-mix(in srgb, var(--secondary-panel-clr), black 6%);
+	--table-row-bg-even: color-mix(in srgb, var(--secondary-panel-clr), black 16%);
+	--table-row-bg-hover: color-mix(in srgb, var(--secondary-panel-clr), white 6%);
+}
+
+body.theme-light {
+	--primary-color: #1e9497; /* keep brand */
+	--primary-dark-color: #176d6f;
+	--red-color: #e53935;
+	--dark-color: #000000;
+	--light-color: #1b1b1d; /* icons/text that used to be white become dark */
+	--accent-color: #9aa0a6;
+
+	--header-clr: #f5f6f8;
+	--dark-bg: #f7f8fa;
+	--sidebar-clr: #f5f6f8;
+	--right-container-color: #ffffff;
+
+	--border-clr: #d0d4d9;
+	--light-txt: #1f2937;
+	--title-txt: #0f172a;
+	--secondary-panel-clr: #ffffff;
+	--panel-bg: #ffffff;
+	--muted-txt: #5f6b7a;
+	--font-clr: #2b2b2b;
+
+	/* Table row backgrounds (light theme) */
+	--table-row-bg-odd: color-mix(in srgb, var(--secondary-panel-clr), black 3%);
+	--table-row-bg-even: color-mix(in srgb, var(--secondary-panel-clr), black 14%);
+	--table-row-bg-hover: color-mix(in srgb, var(--secondary-panel-clr), black 35%);
+}
+
+/* Map existing SCSS variables to CSS variables so all imports respond to theme changes */
+$primary-color: var(--primary-color);
+$dark-color: var(--dark-color);
+$light-color: var(--light-color);
+$accent-color: var(--accent-color);
+$primary-dark-color: var(--primary-dark-color);
+$red-color: var(--red-color);
+
+$header-clr: var(--header-clr);
+$dark-bg: var(--dark-bg);
+$sidebar-clr: var(--sidebar-clr);
+$right-container-color: var(--right-container-color);
+
+$border-clr: var(--border-clr);
+$light-txt: var(--light-txt);
+$title-txt: var(--title-txt);
+$secondary-panel-clr: var(--secondary-panel-clr);
+$panel-bg: var(--panel-bg);
+$muted-txt: var(--muted-txt);
+$font-clr: var(--font-clr);
 
 

@@ -48,15 +48,25 @@
         <tbody>
           @for (n of filteredDevices; let i = $index; track i) {
           <tr>
-            <td class="cell-serial" data-label="Serial Number">
-              {{ n.serialNr }}
+            <td class="cell-serial" data-label="Serial Number" [title]="n.serialNr || '-'">
+              <span class="trunc" tabindex="0" [attr.data-title]="n.serialNr || '-'">
+                {{ (n.serialNr?.length > 100) ? (n.serialNr | slice:0:100) + '...' : (n.serialNr || '-') }}
+              </span>
             </td>
-            <td class="cell-przesylka" data-label="Przesyłka">
-              {{ n.przesylkaNr }}
+            <td class="cell-przesylka" data-label="Przesyłka" [title]="n.przesylkaNr || '-'">
+              <span class="trunc" tabindex="0" [attr.data-title]="n.przesylkaNr || '-'">
+                {{ (n.przesylkaNr?.length > 100) ? (n.przesylkaNr | slice:0:100) + '...' : (n.przesylkaNr || '-') }}
+              </span>
             </td>
-            <td class="cell-note" data-label="Notatki">{{ n.note || "-" }}</td>
-            <td class="cell-invoice" data-label="Nr. Faktury">
-              {{ n.fakturaNr || "-" }}
+            <td class="cell-note" data-label="Notatki" [title]="n.note || '-'">
+              <span class="trunc" tabindex="0" [attr.data-title]="n.note || '-'">
+                {{ (n.note?.length > 100) ? (n.note | slice:0:100) + '...' : (n.note || '-') }}
+              </span>
+            </td>
+            <td class="cell-invoice" data-label="Nr. Faktury" [title]="n.fakturaNr || '-'">
+              <span class="trunc" tabindex="0" [attr.data-title]="n.fakturaNr || '-'">
+                {{ (n.fakturaNr?.length > 100) ? (n.fakturaNr | slice:0:100) + '...' : (n.fakturaNr || '-') }}
+              </span>
             </td>
             <td class="cell-select" data-label="Zaznacz">
               <app-mag-second-edit [elmnt]="n"></app-mag-second-edit>

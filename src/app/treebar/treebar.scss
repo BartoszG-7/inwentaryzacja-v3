@@ -15,7 +15,7 @@ app-treeexpander {
     box-sizing: border-box;
     /* Custom scrollbar styles */
     scrollbar-width: thin;
-    scrollbar-color: #333 $sidebar-clr;
+  scrollbar-color: $muted-txt $sidebar-clr;
     scroll-behavior: smooth;
   }
 }

@@ -89,7 +89,7 @@ button.primary-btn:active { transform: translateY(1px); }
 /* Neutral secondary */
 .btn-secondary,
 button.secondary-btn {
-  background: #262830 !important;
+  background: color-mix(in srgb, var(--secondary-panel-clr), black 10%) !important;
   border: 1px solid $border-clr !important;
   color: $light-txt !important;
   border-radius: $modal-btn-radius;
@@ -101,7 +101,7 @@ button.secondary-btn {
   line-height: 1.1;
 }
 .btn-secondary:hover,
-button.secondary-btn:hover { background: #2f3238 !important; border-color: lighten($border-clr,8%); }
+button.secondary-btn:hover { background: #2f3238 !important; border-color: color-mix(in srgb, var(--border-clr), white 8%); }
 
 /* Outline danger (red) reusable */
 .btn-outline-danger,
@@ -127,7 +127,7 @@ button.outline-danger-btn:active { transform: translateY(1px); }
 .modal-content input,
 .modal-content textarea,
 .modal-content select {
-  background: #22242b !important;
+  background: color-mix(in srgb, var(--secondary-panel-clr), black 6%) !important;
   border: 1px solid $border-clr !important;
   color: $light-txt !important;
   border-radius: 10px;
@@ -144,10 +144,10 @@ button.outline-danger-btn:active { transform: translateY(1px); }
 .modal-content textarea::placeholder { color: $muted-txt !important; }
 
 /* Scrollbars */
-.modal-content { scrollbar-width: thin; scrollbar-color: #333 transparent; }
+.modal-content { scrollbar-width: thin; scrollbar-color: $muted-txt transparent; }
 .modal-content::-webkit-scrollbar { width: 6px; }
-.modal-content::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-.modal-content::-webkit-scrollbar-thumb:hover { background: lighten(#333,10%); }
+.modal-content::-webkit-scrollbar-thumb { background: $muted-txt; border-radius: 4px; }
+.modal-content::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--muted-txt), white 12%); }
 
 /* Utility class to apply spacing to footer */
 .modal-footer { margin-top: 1.1rem; display: flex; justify-content: flex-end; gap: 0.55rem; }

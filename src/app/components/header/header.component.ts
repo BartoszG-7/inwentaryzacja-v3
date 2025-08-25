@@ -14,6 +14,7 @@ import { PlusModalLokalComponent } from '../../components/plus-modal-lokal/plus-
 import { SearchBarMobileComponent } from '../search-bar-mobile/search-bar-mobile.component';
 import { GlobalSearchModalComponent } from '../../components/global-search-modal/global-search-modal.component';
 import { TreebarSharedService } from '../../home/treebar.share.service';
+import { LightModeGlobal } from '../light-mode-global/light-mode-global';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -25,6 +26,7 @@ import { TreebarSharedService } from '../../home/treebar.share.service';
     PlusModalLokalComponent,
     SearchBarMobileComponent,
     GlobalSearchModalComponent,
+  LightModeGlobal,
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],

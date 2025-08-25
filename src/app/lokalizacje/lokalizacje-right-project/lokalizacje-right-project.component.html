@@ -58,14 +58,12 @@
             [class.header-active]="isHeaderActive('wamaNr')"
           >
             SN WAMA
-            <i
-              *ngIf="isHeaderActive('wamaNr') && activeSortDirection === 'desc'"
-              class="bi bi-arrow-down"
-            ></i
-            ><i
-              *ngIf="isHeaderActive('wamaNr') && activeSortDirection === 'asc'"
-              class="bi bi-arrow-up"
-            ></i>
+            @if (isHeaderActive('wamaNr') && activeSortDirection === 'desc') {
+              <i class="bi bi-arrow-down"></i>
+            }
+            @if (isHeaderActive('wamaNr') && activeSortDirection === 'asc') {
+              <i class="bi bi-arrow-up"></i>
+            }
           </th>
           <th
             style="width: 110px"
@@ -73,18 +71,12 @@
             [class.header-active]="isHeaderActive('serialNr')"
           >
             SN PROD
-            <i
-              *ngIf="
-                isHeaderActive('serialNr') && activeSortDirection === 'desc'
-              "
-              class="bi bi-arrow-down"
-            ></i
-            ><i
-              *ngIf="
-                isHeaderActive('serialNr') && activeSortDirection === 'asc'
-              "
-              class="bi bi-arrow-up"
-            ></i>
+            @if (isHeaderActive('serialNr') && activeSortDirection === 'desc') {
+              <i class="bi bi-arrow-down"></i>
+            }
+            @if (isHeaderActive('serialNr') && activeSortDirection === 'asc') {
+              <i class="bi bi-arrow-up"></i>
+            }
           </th>
           <th
             style="width: 90px"
@@ -92,16 +84,12 @@
             [class.header-active]="isHeaderActive('macAddr')"
           >
             MAC
-            <i
-              *ngIf="
-                isHeaderActive('macAddr') && activeSortDirection === 'desc'
-              "
-              class="bi bi-arrow-down"
-            ></i
-            ><i
-              *ngIf="isHeaderActive('macAddr') && activeSortDirection === 'asc'"
-              class="bi bi-arrow-up"
-            ></i>
+            @if (isHeaderActive('macAddr') && activeSortDirection === 'desc') {
+              <i class="bi bi-arrow-down"></i>
+            }
+            @if (isHeaderActive('macAddr') && activeSortDirection === 'asc') {
+              <i class="bi bi-arrow-up"></i>
+            }
           </th>
           <th
             style="width: 90px"
@@ -109,14 +97,12 @@
             [class.header-active]="isHeaderActive('ip')"
           >
             IP
-            <i
-              *ngIf="isHeaderActive('ip') && activeSortDirection === 'desc'"
-              class="bi bi-arrow-down"
-            ></i
-            ><i
-              *ngIf="isHeaderActive('ip') && activeSortDirection === 'asc'"
-              class="bi bi-arrow-up"
-            ></i>
+            @if (isHeaderActive('ip') && activeSortDirection === 'desc') {
+              <i class="bi bi-arrow-down"></i>
+            }
+            @if (isHeaderActive('ip') && activeSortDirection === 'asc') {
+              <i class="bi bi-arrow-up"></i>
+            }
           </th>
           <th
             style="width: 90px"
@@ -124,16 +110,12 @@
             [class.header-active]="isHeaderActive('gateway')"
           >
             BRAMA
-            <i
-              *ngIf="
-                isHeaderActive('gateway') && activeSortDirection === 'desc'
-              "
-              class="bi bi-arrow-down"
-            ></i
-            ><i
-              *ngIf="isHeaderActive('gateway') && activeSortDirection === 'asc'"
-              class="bi bi-arrow-up"
-            ></i>
+            @if (isHeaderActive('gateway') && activeSortDirection === 'desc') {
+              <i class="bi bi-arrow-down"></i>
+            }
+            @if (isHeaderActive('gateway') && activeSortDirection === 'asc') {
+              <i class="bi bi-arrow-up"></i>
+            }
           </th>
           <th
             style="width: 90px"
@@ -141,14 +123,12 @@
             [class.header-active]="isHeaderActive('mask')"
           >
             MASKA
-            <i
-              *ngIf="isHeaderActive('mask') && activeSortDirection === 'desc'"
-              class="bi bi-arrow-down"
-            ></i
-            ><i
-              *ngIf="isHeaderActive('mask') && activeSortDirection === 'asc'"
-              class="bi bi-arrow-up"
-            ></i>
+            @if (isHeaderActive('mask') && activeSortDirection === 'desc') {
+              <i class="bi bi-arrow-down"></i>
+            }
+            @if (isHeaderActive('mask') && activeSortDirection === 'asc') {
+              <i class="bi bi-arrow-up"></i>
+            }
           </th>
           <th
             style="width: 90px"
@@ -156,20 +136,12 @@
             [class.header-active]="isHeaderActive('remoteAccessId')"
           >
             ANYDESK
-            <i
-              *ngIf="
-                isHeaderActive('remoteAccessId') &&
-                activeSortDirection === 'desc'
-              "
-              class="bi bi-arrow-down"
-            ></i
-            ><i
-              *ngIf="
-                isHeaderActive('remoteAccessId') &&
-                activeSortDirection === 'asc'
-              "
-              class="bi bi-arrow-up"
-            ></i>
+            @if (isHeaderActive('remoteAccessId') && activeSortDirection === 'desc') {
+              <i class="bi bi-arrow-down"></i>
+            }
+            @if (isHeaderActive('remoteAccessId') && activeSortDirection === 'asc') {
+              <i class="bi bi-arrow-up"></i>
+            }
           </th>
           <th
             style="width: 90px"
@@ -177,14 +149,12 @@
             [class.header-active]="isHeaderActive('dns1')"
           >
             DNS1
-            <i
-              *ngIf="isHeaderActive('dns1') && activeSortDirection === 'desc'"
-              class="bi bi-arrow-down"
-            ></i
-            ><i
-              *ngIf="isHeaderActive('dns1') && activeSortDirection === 'asc'"
-              class="bi bi-arrow-up"
-            ></i>
+            @if (isHeaderActive('dns1') && activeSortDirection === 'desc') {
+              <i class="bi bi-arrow-down"></i>
+            }
+            @if (isHeaderActive('dns1') && activeSortDirection === 'asc') {
+              <i class="bi bi-arrow-up"></i>
+            }
           </th>
           <th
             style="width: 90px"
@@ -192,14 +162,12 @@
             [class.header-active]="isHeaderActive('dns2')"
           >
             DNS2
-            <i
-              *ngIf="isHeaderActive('dns2') && activeSortDirection === 'desc'"
-              class="bi bi-arrow-down"
-            ></i
-            ><i
-              *ngIf="isHeaderActive('dns2') && activeSortDirection === 'asc'"
-              class="bi bi-arrow-up"
-            ></i>
+            @if (isHeaderActive('dns2') && activeSortDirection === 'desc') {
+              <i class="bi bi-arrow-down"></i>
+            }
+            @if (isHeaderActive('dns2') && activeSortDirection === 'asc') {
+              <i class="bi bi-arrow-up"></i>
+            }
           </th>
           <th
             style="width: 90px"
@@ -207,19 +175,12 @@
             [class.header-active]="isHeaderActive('serverAddress')"
           >
             SERWER
-            <i
-              *ngIf="
-                isHeaderActive('serverAddress') &&
-                activeSortDirection === 'desc'
-              "
-              class="bi bi-arrow-down"
-            ></i
-            ><i
-              *ngIf="
-                isHeaderActive('serverAddress') && activeSortDirection === 'asc'
-              "
-              class="bi bi-arrow-up"
-            ></i>
+            @if (isHeaderActive('serverAddress') && activeSortDirection === 'desc') {
+              <i class="bi bi-arrow-down"></i>
+            }
+            @if (isHeaderActive('serverAddress') && activeSortDirection === 'asc') {
+              <i class="bi bi-arrow-up"></i>
+            }
           </th>
           <th style="width: 90px"></th>
         </tr>
@@ -246,7 +207,7 @@
         <tr class="group-gap-row">
           <td colspan="12"></td>
         </tr>
-        <ng-container *ngFor="let group of groupedRows; let i = index">
+        @for (group of groupedRows; track group; let i = $index) {
           <tr class="group-label-row">
             <td colspan="12" class="fw-bold text-uppercase">
               {{ group.name }}
@@ -255,62 +216,78 @@
           <tr class="group-gap-row group-gap-row-after-header">
             <td colspan="12"></td>
           </tr>
-          <tr *ngFor="let row of group.rows">
-            <td>
-              <input
-                type="checkbox"
-                id="{{ row.id }}"
-                (change)="checkboxChanged($event)"
-              />
-            </td>
-            <td
-              title="{{ row.snWamasoft }}"
-              (dblclick)="copyCell(row.snWamasoft)"
-            >
-              {{ row.snWamasoft }}
-            </td>
-            <td
-              title="{{ row.snProducenta }}"
-              (dblclick)="copyCell(row.snProducenta)"
-            >
-              {{ row.snProducenta }}
-            </td>
-            <td title="{{ row.mac }}" (dblclick)="copyCell(row.mac)">
-              {{ row.mac }}
-            </td>
-            <td title="{{ row.ip }}" (dblclick)="copyCell(row.ip)">
-              {{ row.ip }}
-            </td>
-            <td title="{{ row.brama }}" (dblclick)="copyCell(row.brama)">
-              {{ row.brama }}
-            </td>
-            <td title="{{ row.maska }}" (dblclick)="copyCell(row.maska)">
-              {{ row.maska }}
-            </td>
-            <td title="{{ row.anydesk }}" (dblclick)="copyCell(row.anydesk)">
-              {{ row.anydesk }}
-            </td>
-            <td title="{{ row.dns1 }}" (dblclick)="copyCell(row.dns1)">
-              {{ row.dns1 }}
-            </td>
-            <td title="{{ row.dns2 }}" (dblclick)="copyCell(row.dns2)">
-              {{ row.dns2 }}
-            </td>
-            <td title="{{ row.serwer }}" (dblclick)="copyCell(row.serwer)">
-              {{ row.serwer }}
-            </td>
-            <td class="text-end">
-              <button class="header-btn btn-edit-row">
-                <i class="bi bi-pencil"></i> Edytuj
-              </button>
-            </td>
-          </tr>
+          @for (row of group.rows; track row) {
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  id="{{ row.id }}"
+                  (change)="checkboxChanged($event)"
+                />
+              </td>
+              <td title="{{ row.snWamasoft }}" (dblclick)="copyCell(row.snWamasoft)">
+                <span class="trunc" tabindex="0" [attr.data-title]="row.snWamasoft">
+                  {{ (row.snWamasoft?.length > 100) ? (row.snWamasoft | slice:0:100) + '...' : row.snWamasoft }}
+                </span>
+              </td>
+              <td title="{{ row.snProducenta }}" (dblclick)="copyCell(row.snProducenta)">
+                <span class="trunc" tabindex="0" [attr.data-title]="row.snProducenta">
+                  {{ (row.snProducenta?.length > 100) ? (row.snProducenta | slice:0:100) + '...' : row.snProducenta }}
+                </span>
+              </td>
+              <td title="{{ row.mac }}" (dblclick)="copyCell(row.mac)">
+                <span class="trunc" tabindex="0" [attr.data-title]="row.mac">
+                  {{ (row.mac?.length > 100) ? (row.mac | slice:0:100) + '...' : row.mac }}
+                </span>
+              </td>
+              <td title="{{ row.ip }}" (dblclick)="copyCell(row.ip)">
+                <span class="trunc" tabindex="0" [attr.data-title]="row.ip">
+                  {{ (row.ip?.length > 100) ? (row.ip | slice:0:100) + '...' : row.ip }}
+                </span>
+              </td>
+              <td title="{{ row.brama }}" (dblclick)="copyCell(row.brama)">
+                <span class="trunc" tabindex="0" [attr.data-title]="row.brama">
+                  {{ (row.brama?.length > 100) ? (row.brama | slice:0:100) + '...' : row.brama }}
+                </span>
+              </td>
+              <td title="{{ row.maska }}" (dblclick)="copyCell(row.maska)">
+                <span class="trunc" tabindex="0" [attr.data-title]="row.maska">
+                  {{ (row.maska?.length > 100) ? (row.maska | slice:0:100) + '...' : row.maska }}
+                </span>
+              </td>
+              <td title="{{ row.anydesk }}" (dblclick)="copyCell(row.anydesk)">
+                <span class="trunc" tabindex="0" [attr.data-title]="row.anydesk">
+                  {{ (row.anydesk?.length > 100) ? (row.anydesk | slice:0:100) + '...' : row.anydesk }}
+                </span>
+              </td>
+              <td title="{{ row.dns1 }}" (dblclick)="copyCell(row.dns1)">
+                <span class="trunc" tabindex="0" [attr.data-title]="row.dns1">
+                  {{ (row.dns1?.length > 100) ? (row.dns1 | slice:0:100) + '...' : row.dns1 }}
+                </span>
+              </td>
+              <td title="{{ row.dns2 }}" (dblclick)="copyCell(row.dns2)">
+                <span class="trunc" tabindex="0" [attr.data-title]="row.dns2">
+                  {{ (row.dns2?.length > 100) ? (row.dns2 | slice:0:100) + '...' : row.dns2 }}
+                </span>
+              </td>
+              <td title="{{ row.serwer }}" (dblclick)="copyCell(row.serwer)">
+                <span class="trunc" tabindex="0" [attr.data-title]="row.serwer">
+                  {{ (row.serwer?.length > 100) ? (row.serwer | slice:0:100) + '...' : row.serwer }}
+                </span>
+              </td>
+              <td class="text-end">
+                <button class="header-btn btn-edit-row">
+                  <i class="bi bi-pencil"></i> Edytuj
+                </button>
+              </td>
+            </tr>
+          }
           @if (i < groupedRows.length - 1) {
           <tr class="group-gap-row">
             <td colspan="12"></td>
           </tr>
           }
-        </ng-container>
+        }
       </tbody>
     </table>
   </div>

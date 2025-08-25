@@ -38,7 +38,7 @@ input[type="search"] {
 	right: 2.4rem;
 	top: 50%;
 	transform: translateY(-50%);
-	color: #888;
+	color: $muted-txt;
 	font-size: 1.2rem;
 	cursor: pointer;
 	z-index: 2;
@@ -49,7 +49,7 @@ input[type="search"] {
 	right: 0.8rem;
 	top: 50%;
 	transform: translateY(-50%);
-	color: #888;
+	color: $muted-txt;
 	font-size: 1.2rem;
 	cursor: pointer;
 	z-index: 2;
@@ -102,7 +102,7 @@ input[type="search"]::placeholder {
 	right: 1.2rem;
 	top: 50%;
 	transform: translateY(-50%);
-	color: #888;
+	color: $muted-txt;
 	font-size: 1.2rem;
 	cursor: pointer;
 	transition: color 0.2s;
@@ -116,7 +116,7 @@ input[type="search"]::placeholder {
 input[type="search"]:focus {
     border-color: $primary-color;
 	background: $secondary-panel-clr !important;
-	box-shadow: 0 0 0 2px rgba($primary-color,0.18);
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary-color), transparent 82%);
 }
 
 

@@ -113,7 +113,7 @@
 /* Thin, themed scrollbar for the scrolling list */
 .second-table-wrapper {
   scrollbar-width: thin;
-  scrollbar-color: #888 $secondary-panel-clr;
+  scrollbar-color: $muted-txt $secondary-panel-clr;
 }
 .second-table-wrapper::-webkit-scrollbar {
   width: 6px;
@@ -123,11 +123,11 @@
   border-radius: 6px;
 }
 .second-table-wrapper::-webkit-scrollbar-thumb {
-  background: #333;
+  background: $muted-txt;
   border-radius: 6px;
 }
 .second-table-wrapper::-webkit-scrollbar-thumb:hover {
-  background: lighten(#333, 8%);
+  background: color-mix(in srgb, var(--muted-txt), white 12%);
 }
 
 .table-header {
@@ -174,7 +174,7 @@
   align-items: center;
 }
 .table-search-input {
-  background: #22242b;
+  background: color-mix(in srgb, var(--secondary-panel-clr), black 6%);
   border: 1px solid $border-clr;
   color: $light-txt;
   padding: 0.45rem 0.65rem;
@@ -186,7 +186,7 @@
 }
 .table-search-input:focus {
   border-color: $primary-color;
-  background: #262830;
+  background: color-mix(in srgb, var(--secondary-panel-clr), black 10%);
 }
 .table-search-input::placeholder {
   color: $muted-txt;
@@ -199,6 +199,7 @@
   font-size: 0.95rem;
   color: $light-txt;
   margin-top: 0.6rem; /* spacer below sticky header so first row isn't covered */
+  table-layout: fixed; /* keep columns within container and enable truncation */
 }
 
 .second-table thead th {
@@ -215,9 +216,16 @@
   padding-top: 0;
 }
 
+/* Desktop: prevent horizontal scrolling; content must fit */
+@media (min-width: 821px) {
+  .second-table-wrapper {
+    overflow-x: hidden;
+  }
+}
+
 .second-table tbody tr {
   transition: background 0.15s, border-color 0.15s;
-  border-bottom: 1px solid #2f2f35;
+  border-bottom: 1px solid $border-clr;
 }
 
 .second-table tbody tr:last-child {
@@ -225,7 +233,7 @@
 }
 
 .second-table tbody tr:hover {
-  background: #2d2e36;
+  background: color-mix(in srgb, var(--secondary-panel-clr), white 4%);
 }
 
 .second-table td {
@@ -233,6 +241,69 @@
   vertical-align: middle;
   font-weight: 500;
   text-align: left;
+}
+
+/* Truncated cell content with mobile-friendly focus tooltip */
+.second-table td .trunc {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  outline: none;
+}
+.second-table td .trunc:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--border-clr), white 20%);
+  border-radius: 4px;
+}
+.second-table td .trunc:focus {
+  position: relative;
+}
+.second-table td .trunc:focus::after {
+  content: attr(data-title);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 6px;
+  z-index: 20;
+  max-width: min(80vw, 520px);
+  white-space: normal;
+  word-break: break-word;
+  background: $secondary-panel-clr;
+  color: $light-txt;
+  border: 1px solid $border-clr;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+}
+@media (max-width: 600px) {
+  /* Show two lines by default on mobile for better readability */
+  .second-table td .trunc {
+    display: -webkit-box;
+  line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  .second-table td .trunc:focus::after {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  bottom: 12px; /* fullscreen margin */
+  margin-top: 0;
+  max-width: none;
+  max-height: none;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  pointer-events: auto;
+    z-index: 9999;
+    font-size: 0.95rem;
+    padding: 12px 14px;
+    box-shadow: 0 16px 40px rgba(0,0,0,.45);
+  }
 }
 
 /* New column width distribution (desktop) */
@@ -250,7 +321,7 @@
   font-weight: 600;
 }
 .cell-przesylka { color: $muted-txt; }
-.cell-note { color: lighten($muted-txt, 8%); font-size: 0.78rem; line-height: 1.2; }
+.cell-note { color: color-mix(in srgb, var(--muted-txt), white 8%); font-size: 0.78rem; line-height: 1.2; }
 .cell-invoice { color: $light-txt; font-weight: 500; font-size: 0.8rem; }
 .cell-select {
   display: flex;
@@ -273,7 +344,7 @@
   padding: 0; // remove padding so content spans full width
     min-width: 0; // allow shrink fully on mobile
   max-height: calc(100vh - 64px); // constrain to viewport minus header/nav height
-  overflow: hidden; // prevent panel itself from scrolling; inner wrapper handles it
+  overflow: visible; // allow focus tooltips to overflow and be scrollable
   display: flex;
   flex-direction: column;
     border-left: none;
@@ -346,7 +417,7 @@
     border-radius: 10px;
     padding: 0.55rem 0.75rem 0.45rem 0.75rem;
     margin-bottom: 0.7rem;
-    background: darken($secondary-panel-clr, 2%);
+  background: color-mix(in srgb, var(--secondary-panel-clr) 98%, black);
   }
   .second-table tbody tr { /* remove legacy row divider */
     border-bottom: none;

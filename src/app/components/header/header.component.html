@@ -11,7 +11,8 @@
       >
         <i class="bi bi-list"></i>
       </div>
-      <ng-container *ngIf="showBackArrow">
+  <app-light-mode-global></app-light-mode-global>
+      @if (showBackArrow) {
         <!-- <button
           type="button"
           class="back-arrow-btn"
@@ -20,8 +21,13 @@
         >
           <i class="bi bi-arrow-left"></i>
         </button> -->
-      </ng-container>
+      }
     </div>
+    }
+    @if (isLoginPage) {
+      <div class="header-left-group">
+        <app-light-mode-global></app-light-mode-global>
+      </div>
     }
     <!-- Center: KIT logo button -->
     <div class="logo-container">
