@@ -1,6 +1,7 @@
 import { Component, input, OnInit } from '@angular/core';
 import { HomeService } from './home-latest-modified.service';
 import { Router } from '@angular/router';
+import { LinkService } from '../../linkService';
 
 @Component({
   selector: 'app-home-latest-modified',
@@ -10,7 +11,11 @@ import { Router } from '@angular/router';
   templateUrl: './home-latest-modified.component.html',
 })
 export class HomeLatestModifiedComponent implements OnInit {
-  constructor(private homeService: HomeService, private router: Router) {}
+  constructor(
+    private homeService: HomeService,
+    private router: Router,
+    private linkService: LinkService
+  ) {}
   modified = input();
   data: any;
   ngOnInit(): void {
@@ -18,13 +23,7 @@ export class HomeLatestModifiedComponent implements OnInit {
     console.log('MDOFIED', this.data);
   }
   redirect(idProj: any, idLoc: any) {
-    this.router.navigate([
-      '/inwentaryzacja/' +
-        JSON.stringify({
-          type: 'project',
-          id: idProj,
-          idLoc: idLoc,
-        }),
-    ]);
+    this.linkService.setData({ type: 'project', id: idProj, idLoc: idLoc });
+    this.router.navigate(['/inwentaryzacja']);
   }
 }

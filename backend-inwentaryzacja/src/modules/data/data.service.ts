@@ -91,13 +91,21 @@ export class DataService {
       //     .exec(),
     };
   }
-  async addProject(projectData: any): Promise<any> {
+  async addProjectHistory(projectId: any): Promise<any> {
     return this.ProjectHistoryModel.create({
       type: projectHistoryEvents.PROJECT_CREATED,
       date: new Date().toISOString(),
       tag: '',
-      project: (await this.ProjectModel.create(projectData))._id,
+      project: projectId,
     });
+  }
+  async addProject(projectData: any): Promise<any> {
+    return await this.ProjectModel.create(projectData);
+ 
+  }
+  async addProjectAndHistory(projectData: any): Promise<any> {
+    let projID=await this.addProject(projectData);
+    return this.addProjectAndHistory(projID);
   }
   async assignDevice(data: any): Promise<any> {
     return {

@@ -14,10 +14,10 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       {
-        path: 'inwentaryzacja/:data',
+        path: 'inwentaryzacja',
         component: LokalizacjeMainComponent,
       },
-      { path: 'magazyn/:data', component: MagazynMainComponent },
+      { path: 'magazyn', component: MagazynMainComponent },
     ],
   },
 ];

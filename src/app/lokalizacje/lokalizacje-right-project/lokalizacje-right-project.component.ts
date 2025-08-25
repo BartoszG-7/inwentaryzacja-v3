@@ -5,6 +5,7 @@ import {
   Input,
   OnChanges,
   OnInit,
+  signal,
   SimpleChanges,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,6 +15,7 @@ import { SearchBarComponent } from '../../components/search-bar/search-bar.compo
 import { UsunModalDeviceComponent } from '../../components/usun-modal-device/usun-modal-device.component';
 import { EditProjektComponent } from '../../components/edit-projekt/edit-projekt.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LinkService } from '../../linkService';
 
 type Group = {
   id: string;
@@ -37,11 +39,12 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   constructor(
     private lokalizacjeRightProjectService: LokalizacjeRightProjectService,
     private router: Router,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private linkService: LinkService
   ) {}
 
   devicesGrouped: Array<Group> = [];
-  selectedId: any = input<any>();
+  selectedId = signal('');
   refresh: boolean = false;
   project: any;
   devices: any;
@@ -52,9 +55,13 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   activeHeaderKey: string | null = null;
   activeSortDirection: 'asc' | 'desc' | null = null;
   ngOnInit(): void {
-    this.activeRoute.params.subscribe({
+    this.linkService.getData().subscribe({
       next: (e) => {
-        this.urlData = JSON.parse(e['data']);
+        console.log(e);
+        this.urlData = e;
+        this.selectedId.set(e.id);
+        this.ngOnChanges({});
+        // this.urlData = JSON.parse(e['data']);
         console.log('URLDATA', e);
       },
     });
@@ -62,23 +69,9 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   goToInwentaryzacja() {
     // this.router.navigate(['/inwentaryzacja/{}']);
     //route to page without selected project or location and hard reload (copilot dont break it)
+    this.router.navigate(['/inwentaryzacja']);
+    this.linkService.setData({ type: 'location', id: this.urlData.idLoc });
 
-    console.log('BUTTON DATA');
-    if (this.urlData.idLoc != undefined) {
-      this.router
-        .navigate([
-          '/inwentaryzacja/' +
-            (JSON.stringify({ type: 'location', id: this.urlData.idLoc }) ??
-              '{}'),
-        ])
-        .then(() => {
-          window.location.reload();
-        });
-    } else {
-      this.router.navigate(['/inwentaryzacja/{}']).then(() => {
-        window.location.reload();
-      });
-    }
     // this.router.navigate(['/inwentaryzacja/{}']).then(() => {
     //   window.location.reload();
     // });
@@ -108,7 +101,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('CHANGED', changes);
-    console.log(this.selectedId());
+    console.log(this.selectedId);
     if (this.selectedId()) {
       this.lokalizacjeRightProjectService
         .getProjectData(this.selectedId())

@@ -34,7 +34,7 @@ export class DataController {
   }
   @Post('add-project')
   async addProject(@Body() projectData: any) {
-    return await this.dataService.addProject(projectData);
+    return await this.dataService.addProjectAndHistory(projectData);
   }
   @Get('unassign/:data')
   async unassign(@Param('data') data: any) {

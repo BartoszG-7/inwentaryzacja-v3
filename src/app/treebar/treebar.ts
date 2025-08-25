@@ -13,6 +13,7 @@ import { TreebarService } from './treebar.service';
 import { Treeexpander } from '../treeexpander/treeexpander';
 import { TreebarSharedService } from '../home/treebar.share.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LinkService } from '../linkService';
 
 @Component({
   selector: 'app-treebar',
@@ -26,7 +27,8 @@ export class Treebar implements OnInit, OnChanges {
     private treebarService: TreebarService,
     private treebarSharedService: TreebarSharedService,
     private changeDetectorRef: ChangeDetectorRef,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private linkService: LinkService
   ) {}
 
   data: Array<any> = [];
@@ -106,7 +108,7 @@ export class Treebar implements OnInit, OnChanges {
         a = 's';
         this.ngOnChanges({ search: new SimpleChange('', '', false) });
         console.log('CHANGED ID TREEBAR');
-        this.changeId(this.currentId);
+        // this.changeId(this.currentId);
         this.changeDetectorRef.detectChanges();
         this.refresh = !this.refresh;
 
@@ -117,7 +119,22 @@ export class Treebar implements OnInit, OnChanges {
   ngOnInit(): void {
     this.data = [];
     this.stringified = '';
+    this.linkService.getData().subscribe({
+      next: (value) => {
+        if (this.fetchedData === undefined) {
+          this.refetchData();
+        }
 
+        if (value.type === 'project') {
+          this.treebarSharedService.setData(
+            this.treebarService.parseDataForRightComp(this.fetchedData, {
+              type: 'location',
+              id: value.idLoc,
+            })
+          );
+        }
+      },
+    });
     if (this.search() == '') {
       this.searchValidated = '{}';
     } else {
@@ -179,7 +196,9 @@ export class Treebar implements OnInit, OnChanges {
                         : null;
                     inst.isSelected = lid === first.id;
                     inst.selectedProjectIndex = null;
+
                     inst.expanded = lid === first.id;
+                    console.log('INST EXPANDED', inst.expanded);
                     if (inst.changeDetectorRef) {
                       try {
                         inst.changeDetectorRef.detectChanges();
@@ -198,23 +217,30 @@ export class Treebar implements OnInit, OnChanges {
     const evt = { type: type, id: id };
     this.currentId = evt;
     this.changeId(evt);
+    console.log('SETRX', type);
     // sync Treeexpander static selection state if instances already exist
     if (type === 'location') {
       try {
         (Treeexpander as any).selectedLocationId = id;
-        (Treeexpander as any).instances?.forEach((inst: any) => {
+        console.log('INSTANCES', Treeexpander.instances);
+        (Treeexpander as any).instances.forEach((inst: any) => {
+          console.log('INSTANCES', Treeexpander.instances);
           const lid =
             typeof inst.locationId === 'function' ? inst.locationId() : null;
+
           inst.isSelected = lid === id;
           inst.selectedProjectIndex = null;
           inst.expanded = lid === id;
+          console.log('LID', inst.expanded);
           if (inst.changeDetectorRef) {
             try {
               inst.changeDetectorRef.detectChanges();
             } catch {}
           }
         });
-      } catch {}
+      } catch (err) {
+        console.log('TRXERR', err);
+      }
     }
     if (type === 'project') {
       try {
@@ -222,9 +248,12 @@ export class Treebar implements OnInit, OnChanges {
         (Treeexpander as any).instances?.forEach((inst: any) => {
           const lid =
             typeof inst.locationId === 'function' ? inst.locationId() : null;
+
+          console.log('LID', lid);
           inst.isSelected = lid === id;
           inst.selectedProjectIndex = null;
           inst.expanded = lid === id;
+          console.log('INST EXPANDED', inst.expanded);
           if (inst.changeDetectorRef) {
             try {
               inst.changeDetectorRef.detectChanges();
@@ -233,5 +262,8 @@ export class Treebar implements OnInit, OnChanges {
         });
       } catch {}
     }
+  }
+  refreshTRX(event: any) {
+    this.refresh = !this.refresh;
   }
 }
