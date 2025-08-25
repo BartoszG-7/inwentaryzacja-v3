@@ -89,11 +89,11 @@ col {
     tr:not(.group-label-row):nth-of-type(#{$i}) {
       @if ($i % 2 == 0) {
         td {
-          background: color-mix(in srgb, var(--secondary-panel-clr), white 3%);
+          background: var(--table-row-bg-even);
         }
       } @else {
         td {
-          background: color-mix(in srgb, var(--secondary-panel-clr), black 4%);
+          background: var(--table-row-bg-odd);
         }
       }
     }
@@ -106,13 +106,9 @@ col {
 }
 
 /* Light theme: make the alternate (even) rows a bit darker for readability */
-body.theme-light .right-project-table tbody tr:not(.group-label-row):nth-of-type(even) td {
-  background: color-mix(in srgb, var(--secondary-panel-clr), black 8%) !important;
-}
-
-/* Dark theme: slightly increase contrast between zebra rows */
-body:not(.theme-light) .right-project-table tbody tr:not(.group-label-row):nth-of-type(even) td {
-  background: color-mix(in srgb, var(--secondary-panel-clr), black 6%) !important;
+/* Unified hover color per theme */
+.right-project-table tbody tr:not(.group-label-row):hover td {
+  background: var(--table-row-bg-hover) !important;
 }
 .btn-edit-row {
   width: 100%;

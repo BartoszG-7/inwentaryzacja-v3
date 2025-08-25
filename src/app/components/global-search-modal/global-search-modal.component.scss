@@ -196,17 +196,32 @@ button.modal-close-btn:focus {
 .result-item {
 	padding: 0.65rem 0.85rem;
 	border-radius: 12px;
-	background: #1d1d1f;
+	background: $secondary-panel-clr;
 	cursor: pointer;
 	outline: none;
-	border: 1px solid rgba(255,255,255,0.05);
-	transition: background 0.15s, border-color 0.15s, transform 0.12s;
+	border: 1px solid $border-clr;
+	transition: background 0.15s, border-color 0.15s, transform 0.12s, box-shadow 0.12s;
 }
-.result-item:hover { background: #242427; border-color: rgba(255,255,255,0.12); }
-.result-item:focus-visible { background: #26282c; border-color: $primary-color; }
+.result-item:hover {
+	background: color-mix(in srgb, var(--secondary-panel-clr), var(--primary-color) 8%);
+	border-color: color-mix(in srgb, var(--primary-color), transparent 60%);
+}
+.result-item:focus-visible {
+	background: color-mix(in srgb, var(--secondary-panel-clr), var(--primary-color) 12%);
+	border-color: $primary-color;
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary-color), transparent 80%);
+}
 .result-item:active { transform: translateY(1px); }
-.result-title { font-weight: 600; color: #fff; }
-.result-sub { font-size: 0.9rem; color: #aeb0b3; }
+.result-title { font-weight: 600; color: $title-txt; }
+.result-sub { font-size: 0.9rem; color: $muted-txt; }
+
+/* Light-mode polish: subtle elevation for white cards */
+body.theme-light .result-item {
+	box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.10);
+}
+body.theme-light .result-item:hover {
+	box-shadow: 0 2px 6px rgba(16, 24, 40, 0.12);
+}
 
 /* Positioning on mobile based on header attribute using :host-context so encapsulation doesn't block styles */
 @media (max-width: 900px) {
