@@ -103,8 +103,11 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     // Show a small tooltip on the truncated span
     try {
       const target = (ev?.target as HTMLElement) || null;
-      const span = (target?.closest?.('.trunc') as HTMLElement) ||
-        ((ev?.currentTarget as HTMLElement)?.querySelector?.('.trunc') as HTMLElement);
+      const span =
+        (target?.closest?.('.trunc') as HTMLElement) ||
+        ((ev?.currentTarget as HTMLElement)?.querySelector?.(
+          '.trunc'
+        ) as HTMLElement);
       if (span) {
         // clear any existing timer for this element
         const prev = this.copyTimers.get(span);
@@ -120,7 +123,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('CHANGED', changes);
-    console.log(this.selectedId);
+    console.log('SELID', this.selectedId());
     if (this.selectedId()) {
       this.lokalizacjeRightProjectService
         .getProjectData(this.selectedId())
