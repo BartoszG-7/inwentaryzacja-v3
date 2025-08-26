@@ -17,9 +17,11 @@
       <div class="second-header-left">
         <div class="second-title-name">{{ data.deviceType.name }}</div>
         <div class="second-title-total">
-          {{ totalCount }} szt
-          <span class="badge badge-unassigned">{{ unassignedCount }} nie przypisanych</span>
-          <span class="badge badge-assigned">{{ assignedCount }} przypisanych</span>
+          <span class="total-count">{{ totalCount }} szt</span>
+          <span class="badges">
+            <span class="badge badge-assigned">{{ assignedCount }} przypisanych</span>
+            <span class="badge badge-unassigned">{{ unassignedCount }} nie przypisanych</span>
+          </span>
         </div>
       </div>
       <div class="second-header-tools">
