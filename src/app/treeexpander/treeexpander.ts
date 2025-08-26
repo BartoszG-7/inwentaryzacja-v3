@@ -95,13 +95,26 @@ export class Treeexpander implements OnInit, OnChanges {
   }
 
   expand(event?: Event): void {
-    // toggle selection for location similar to previous implementation
+    // Magazyn (device-type list): always select clicked item and expand it; don't toggle off
     if (this.showMotherboardIcon()) {
       this.magazynSharedService.setBool(false);
       this.linkService.setData({
         type: EventTypes.DEVICE_TYPE,
         id: this.locationId(),
       });
+      Treeexpander.selectedLocationId = this.locationId();
+      Treeexpander.selectedProjectId = null;
+      Treeexpander.instances.forEach((inst) => {
+        const lid = typeof inst.locationId === 'function' ? inst.locationId() : null;
+        inst.isSelected = lid === Treeexpander.selectedLocationId;
+        inst.selectedProjectIndex = null;
+        inst.expanded.set(inst === this);
+      });
+      if (event && event.target && (event.target as HTMLElement).blur) {
+        (event.target as HTMLElement).blur();
+      }
+      try { this.changeDetectorRef.detectChanges(); } catch {}
+      return;
     }
     console.log(this.expanded);
     if (

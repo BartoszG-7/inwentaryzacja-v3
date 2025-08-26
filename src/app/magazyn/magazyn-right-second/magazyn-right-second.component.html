@@ -1,5 +1,11 @@
 <div class="magazyn-right-container">
   <div class="magazyn-main-dashboard second-panel-match">
+    @if (loading) {
+    <div class="loading-overlay" role="status" aria-live="polite" aria-busy="true">
+      <div class="spinner"></div>
+      <div class="loading-text">Ładowanie…</div>
+    </div>
+    }
     <span
       class="main-panel-link"
       (click)="refreshMainPanel()"
@@ -35,7 +41,7 @@
           ></app-search-bar>
         </div>
       </div>
-      <table class="second-table">
+  <table class="second-table" [attr.aria-busy]="loading ? 'true' : 'false'">
         <thead>
           <tr>
             <th class="col-serial">Serial Number</th>
@@ -46,24 +52,29 @@
           </tr>
         </thead>
         <tbody>
+          @if (isDevicesEmpty) {
+          <tr class="empty-state-row">
+            <td colspan="5">Brak urządzeń</td>
+          </tr>
+          } @else {
           @for (n of filteredDevices; let i = $index; track i) {
           <tr>
-            <td class="cell-serial" data-label="Serial Number" [title]="n.serialNr || '-'">
+            <td class="cell-serial" data-label="Serial Number" (dblclick)="copyCell(n.serialNr, $event)">
               <span class="trunc" tabindex="0" [attr.data-title]="n.serialNr || '-'">
                 {{ (n.serialNr?.length > 100) ? (n.serialNr | slice:0:100) + '...' : (n.serialNr || '-') }}
               </span>
             </td>
-            <td class="cell-przesylka" data-label="Przesyłka" [title]="n.przesylkaNr || '-'">
+            <td class="cell-przesylka" data-label="Przesyłka" (dblclick)="copyCell(n.przesylkaNr, $event)">
               <span class="trunc" tabindex="0" [attr.data-title]="n.przesylkaNr || '-'">
                 {{ (n.przesylkaNr?.length > 100) ? (n.przesylkaNr | slice:0:100) + '...' : (n.przesylkaNr || '-') }}
               </span>
             </td>
-            <td class="cell-note" data-label="Notatki" [title]="n.note || '-'">
+            <td class="cell-note" data-label="Notatki" (dblclick)="copyCell(n.note, $event)">
               <span class="trunc" tabindex="0" [attr.data-title]="n.note || '-'">
                 {{ (n.note?.length > 100) ? (n.note | slice:0:100) + '...' : (n.note || '-') }}
               </span>
             </td>
-            <td class="cell-invoice" data-label="Nr. Faktury" [title]="n.fakturaNr || '-'">
+            <td class="cell-invoice" data-label="Nr. Faktury" (dblclick)="copyCell(n.fakturaNr, $event)">
               <span class="trunc" tabindex="0" [attr.data-title]="n.fakturaNr || '-'">
                 {{ (n.fakturaNr?.length > 100) ? (n.fakturaNr | slice:0:100) + '...' : (n.fakturaNr || '-') }}
               </span>
@@ -77,6 +88,7 @@
               />
             </td>
           </tr>
+          }
           }
         </tbody>
       </table>

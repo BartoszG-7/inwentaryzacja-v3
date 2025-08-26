@@ -34,16 +34,24 @@ export class MagazynRightSecond implements OnInit {
   selectedIds = new Set<string>();
   id = input<string>();
   editElement: any;
+  loading = true;
   sztItems: InputSignal<number[]> = input<number[]>([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
   ]);
   ngOnInit(): void {
     console.log(this.id());
+    this.loading = true;
     this.magazynRightSecondService.getDevices(this.id()).subscribe({
       next: (value) => {
         console.log(value);
         this.data = value;
         this.filteredDevices = value?.device ?? [];
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Failed to load devices', err);
+        this.filteredDevices = [];
+        this.loading = false;
       },
     });
   }
@@ -105,5 +113,42 @@ export class MagazynRightSecond implements OnInit {
 
   isChecked(id: string): boolean {
     return !!id && this.selectedIds.has(id);
+  }
+
+  // True when the filtered list is empty or undefined
+  get isDevicesEmpty(): boolean {
+    return !this.filteredDevices || this.filteredDevices.length === 0;
+  }
+
+  private copyTimers = new WeakMap<HTMLElement, any>();
+  copyCell(value: string, ev?: MouseEvent) {
+    try {
+      ev?.preventDefault?.(); ev?.stopPropagation?.();
+      const sel = window.getSelection?.();
+      if (sel && sel.removeAllRanges) sel.removeAllRanges();
+    } catch {}
+    if (!value) return;
+    navigator.clipboard.writeText(value);
+    try {
+      const target = (ev?.target as HTMLElement) || null;
+      const span = (target?.closest?.('.trunc') as HTMLElement) ||
+        ((ev?.currentTarget as HTMLElement)?.querySelector?.('.trunc') as HTMLElement);
+      if (span) {
+  const x = (ev as MouseEvent)?.clientX ?? 0;
+  const y = (ev as MouseEvent)?.clientY ?? 0;
+  span.style.setProperty('--copy-x', `${x}px`);
+  span.style.setProperty('--copy-y', `${y + 12}px`);
+        span.classList.add('no-select');
+        const prev = this.copyTimers.get(span);
+        if (prev) clearTimeout(prev);
+        span.classList.add('copied');
+  const t = setTimeout(() => {
+          span.classList.remove('copied');
+          span.classList.remove('no-select');
+          this.copyTimers.delete(span);
+  }, 600);
+        this.copyTimers.set(span, t);
+      }
+    } catch {}
   }
 }

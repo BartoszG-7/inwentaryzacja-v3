@@ -122,7 +122,20 @@ col {
   text-overflow: ellipsis;
   outline: none;
   cursor: pointer; /* indicate copyable */
+  /* allow selection by default; we'll disable it only during copy */
+  -webkit-touch-callout: none; /* suppress iOS callout on dblclick */
 }
+.right-project-table td .trunc.no-select { user-select: none; -webkit-user-select: none; }
+/* Block text selection entirely to suppress browser selection UI */
+.right-project-table td,
+.right-project-table td .trunc {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+}
+/* When showing the copied tooltip, allow overflow and position the anchor */
+/* Do not alter layout when copied (tooltip is fixed overlay) */
 .right-project-table td .trunc:focus-visible { outline: 2px solid color-mix(in srgb, var(--border-clr), white 20%); border-radius: 4px; }
 .right-project-table td .trunc:focus { position: relative; }
 .right-project-table td .trunc:focus::after {
@@ -145,12 +158,12 @@ col {
 /* Transient 'copied' tooltip */
 .right-project-table td .trunc.copied::after {
   content: 'Skopiowano';
-  position: absolute;
-  left: 50%;
+  position: fixed; /* overlay outside table/cell */
+  left: var(--copy-x, 50%);
+  top: calc(var(--copy-y, 72px));
   transform: translateX(-50%);
-  top: 100%;
-  margin-top: 6px;
-  z-index: 30;
+  margin-top: 0;
+  z-index: 9999;
   white-space: nowrap;
   background: $secondary-panel-clr;
   color: $light-txt;
@@ -158,6 +171,7 @@ col {
   border-radius: 6px;
   padding: 4px 8px;
   box-shadow: 0 6px 18px rgba(0,0,0,.28);
+  pointer-events: none;
 }
 @media (max-width: 600px) {
   .right-project-table td .trunc { display: -webkit-box; line-clamp: 2; -webkit-line-clamp: 2; -webkit-box-orient: vertical; white-space: normal; line-height: 1.3; }
@@ -226,6 +240,7 @@ col {
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
+  position: relative; /* for loading overlay */
 }
 
 .header-row {
@@ -401,6 +416,13 @@ col {
   min-height: unset !important;
   max-height: unset !important;
 }
+.empty-state-row td {
+  text-align: center;
+  color: $muted-txt;
+  background: $dark-bg !important;
+  padding: 24px 12px;
+  border: none !important;
+}
 .group-label-row td {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -485,4 +507,35 @@ col {
   app-search-bar {
     display: none;
   }
+}
+
+/* Loading overlay styles */
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--dark-bg), black 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+  backdrop-filter: blur(1px);
+}
+.spinner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid color-mix(in srgb, var(--muted-txt), transparent 40%);
+  border-top-color: var(--primary-color);
+  animation: spin 0.9s linear infinite;
+}
+.loading-text {
+  color: $muted-txt;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+@keyframes spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
 }

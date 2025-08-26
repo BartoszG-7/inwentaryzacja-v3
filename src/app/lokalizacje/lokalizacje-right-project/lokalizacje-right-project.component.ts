@@ -51,6 +51,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   markedDelete: Array<string> = [];
   groupedRows: any = [];
   urlData: any;
+  loading = true;
   // timers for transient copy tooltips keyed by the span element
   private copyTimers = new WeakMap<HTMLElement, any>();
   // Track selected header column key
@@ -61,7 +62,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
       next: (e) => {
         console.log(e);
         this.urlData = e;
-        this.selectedId.set(e.id);
+  this.selectedId.set(e.id);
         this.ngOnChanges({});
         // this.urlData = JSON.parse(e['data']);
         console.log('URLDATA', e);
@@ -69,10 +70,10 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     });
   }
   goToInwentaryzacja() {
-    // this.router.navigate(['/inwentaryzacja/{}']);
-    //route to page without selected project or location and hard reload (copilot dont break it)
-    this.router.navigate(['/inwentaryzacja']);
-    this.linkService.setData({ type: 'location', id: this.urlData.idLoc });
+  // Navigate back with a query param for location so Treebar keeps it toggled
+  this.router.navigate(['/inwentaryzacja'], { queryParams: { loc: this.urlData.idLoc } });
+  // Also broadcast for any listeners that rely on the event bus (race-safe via BehaviorSubject)
+  this.linkService.setData({ type: 'location', id: this.urlData.idLoc });
 
     // this.router.navigate(['/inwentaryzacja/{}']).then(() => {
     //   window.location.reload();
@@ -98,7 +99,15 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   // },
 
   copyCell(value: string, ev?: MouseEvent) {
-    if (!value) return;
+    // Prevent native double-click selections/callouts
+    try {
+      ev?.preventDefault?.(); ev?.stopPropagation?.();
+      const sel = window.getSelection?.();
+      if (sel && sel.removeAllRanges) sel.removeAllRanges();
+    } catch {}
+  if (!value) return;
+  // Block selection popups for a brief period after dblclick
+  this._selectionBlockUntil = Date.now() + 700;
     navigator.clipboard.writeText(value);
     // Show a small tooltip on the truncated span
     try {
@@ -109,22 +118,40 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
           '.trunc'
         ) as HTMLElement);
       if (span) {
+  // set click coordinates for fixed tooltip positioning
+  const x = (ev as MouseEvent)?.clientX ?? 0;
+  const y = (ev as MouseEvent)?.clientY ?? 0;
+  span.style.setProperty('--copy-x', `${x}px`);
+  span.style.setProperty('--copy-y', `${y + 12}px`); // offset slightly below cursor
+        // temporarily disable selection to avoid double-click highlight while copying
+  span.classList.add('no-select');
         // clear any existing timer for this element
         const prev = this.copyTimers.get(span);
         if (prev) clearTimeout(prev);
         span.classList.add('copied');
-        const t = setTimeout(() => {
+  const t = setTimeout(() => {
           span.classList.remove('copied');
+          span.classList.remove('no-select');
           this.copyTimers.delete(span);
-        }, 1200);
+  }, 600);
         this.copyTimers.set(span, t);
       }
     } catch {}
+  }
+
+  private _selectionBlockUntil = 0;
+  preventSelect(ev: Event) {
+    if (Date.now() < this._selectionBlockUntil) {
+      try { ev.preventDefault(); ev.stopPropagation(); } catch {}
+      return false;
+    }
+    return true;
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('CHANGED', changes);
     console.log('SELID', this.selectedId());
     if (this.selectedId()) {
+  this.loading = true;
       this.lokalizacjeRightProjectService
         .getProjectData(this.selectedId())
         .subscribe({
@@ -169,6 +196,15 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
                 });
               });
             });
+            this.loading = false;
+          },
+          error: (err) => {
+            console.error('Failed to load project devices', err);
+            this.project = this.project || {};
+            this.devices = [];
+            this.devicesGrouped = [];
+            this.groupedRows = [];
+            this.loading = false;
           },
         });
     }
@@ -283,5 +319,15 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   }
   isHeaderActive(key: string) {
     return this.activeHeaderKey === key;
+  }
+
+  // True when there's no groups or all groups have no rows
+  get isDevicesEmpty(): boolean {
+    const gr = this.groupedRows as Array<any> | undefined;
+    if (!gr || gr.length === 0) return true;
+    for (const g of gr) {
+      if (g && Array.isArray(g.rows) && g.rows.length > 0) return false;
+    }
+    return true;
   }
 }

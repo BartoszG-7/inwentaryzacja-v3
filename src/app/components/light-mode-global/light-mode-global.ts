@@ -11,12 +11,25 @@ import { CommonModule } from '@angular/common';
 export class LightModeGlobal {
   isLight = false;
   ngOnInit() {
-    // initialize state from body class on reloads
-    this.isLight = document.body.classList.contains('theme-light');
+    // Initialize from sessionStorage first, fallback to body class on reloads
+    try {
+      const saved = sessionStorage.getItem('theme');
+      if (saved === 'light') this.isLight = true;
+      else if (saved === 'dark') this.isLight = false;
+      else this.isLight = document.body.classList.contains('theme-light');
+    } catch {
+      this.isLight = document.body.classList.contains('theme-light');
+    }
+    // Ensure body reflects current state
+    document.body.classList.toggle('theme-light', this.isLight);
   }
   toggle(event?: Event) {
     this.isLight = !this.isLight;
     document.body.classList.toggle('theme-light', this.isLight);
+    // Persist the choice for the session
+    try {
+      sessionStorage.setItem('theme', this.isLight ? 'light' : 'dark');
+    } catch {}
     // Remove focus so the hover/focus styles don't persist after click
     const target = (event?.currentTarget || event?.target) as HTMLElement | undefined;
     target?.blur?.();
