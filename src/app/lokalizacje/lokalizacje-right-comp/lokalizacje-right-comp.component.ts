@@ -100,11 +100,10 @@ export class LokalizacjeRightCompComponent implements OnInit, OnChanges {
     if (event && (event.target as HTMLElement).blur)
       (event.target as HTMLElement).blur();
     // Emit project id like the treebar does so the parent will switch to project view
-
     this.linkService.setData({
       type: 'project',
       id: project._id,
-      idLoc: this.selectedId(),
+      idLoc: this.locationId, // must be the parent location ID string
     });
   }
 }

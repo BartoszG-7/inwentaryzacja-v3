@@ -217,9 +217,12 @@ export class Treebar implements OnInit, OnChanges {
               }
             } catch {}
             // If opening without explicit payload or query, allow auto-select-first
+            // Only reset for Lokalizacje; for Magazyn (device-type list) keep externalSelect
             if ((e['data'] == '{}' || e['data'] === undefined) && !qpLoc) {
-              this.externalSelect = false;
-              this.pendingLocationId = null;
+              if (this.query() !== 'http://localhost:3000/device-type/list') {
+                this.externalSelect = false;
+                this.pendingLocationId = null;
+              }
             }
             if (e['data'] !== undefined) {
               console.log(e['data']);
