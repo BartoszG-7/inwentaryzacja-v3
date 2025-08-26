@@ -1,7 +1,5 @@
 //bar
 - color themes refresh not changing (sessionstorage)
-- tooltip kopiowanie cursor pointer
-- static fields (cant stretch forms)
 - brak urzadzen
 
 //michas

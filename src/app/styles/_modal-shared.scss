@@ -137,6 +137,12 @@ button.outline-danger-btn:active { transform: translateY(1px); }
   outline: none;
   transition: border-color 0.15s, background 0.15s;
 }
+.modal-content textarea {
+  resize: none !important; /* prevent user drag-resize */
+  overflow: auto;          /* scroll for long content */
+  max-width: 100%;         /* never grow wider than container */
+  box-sizing: border-box;
+}
 .modal-content input:focus,
 .modal-content textarea:focus,
 .modal-content select:focus { border-color: $primary-color !important; background: #262a33 !important; }
