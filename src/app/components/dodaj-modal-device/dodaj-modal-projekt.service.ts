@@ -18,10 +18,22 @@ export class DodajModalProjektService {
       data
     );
   }
-  addToProject(payload: { deviceId: string; projectId: string }): Observable<any> {
-    return this.httpClient.post('http://localhost:3000/data/add-device-to-project', payload);
+  addToProject(payload: {
+    deviceId: string;
+    projectId: string;
+  }): Observable<any> {
+    return this.httpClient.post(
+      'http://localhost:3000/data/add-device-to-project',
+      payload
+    );
   }
-  removeFromProject(payload: { deviceId: string; projectId: string }): Observable<any> {
-    return this.httpClient.post('http://localhost:3000/data/remove-device-from-project', payload);
+  removeFromProject(payload: {
+    deviceId: string;
+    projectId: string;
+  }): Observable<any> {
+    return this.httpClient.post(
+      'http://localhost:3000/data/remove-device-from-project',
+      payload
+    );
   }
 }

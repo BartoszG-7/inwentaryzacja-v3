@@ -37,10 +37,10 @@ export class LocationService {
     tempRes.forEach((element) => {
       let tempEl = JSON.parse(JSON.stringify(element));
       tempEl.address = this.addrToString(element.address);
-      console.log('TOSTRING', tempEl);
+
       finalRes.push({ ...tempEl });
     });
-    console.log(finalRes);
+
     return finalRes;
   }
   async delete(id: string): Promise<string> {

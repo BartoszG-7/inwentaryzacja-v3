@@ -50,7 +50,7 @@ export class DataService {
     tempRes.forEach((element) => {
       let tempEl = JSON.parse(JSON.stringify(element));
       tempEl.address = this.locationService.addrToString(element.address);
-      console.log('TOSTRING', tempEl);
+     
       finalRes.push({ ...tempEl });
     });
     return {
@@ -122,6 +122,7 @@ export class DataService {
     return this.addProjectAndHistory(projID);
   }
   async assignDevice(data: any): Promise<any> {
+    console.log('ASSGN', data);
     return {
       projectHistory: await this.ProjectHistoryModel.create({
         type: projectHistoryEvents.DEVICE_ADDED_TO_PROJECT,
