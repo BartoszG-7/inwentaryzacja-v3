@@ -288,9 +288,7 @@
                   </span>
                 </td>
                 <td class="text-end">
-                  <button class="header-btn btn-edit-row">
-                    <i class="bi bi-pencil"></i> Edytuj
-                  </button>
+                  <app-edit-projekt-device [device]="row._raw" (saved)="onRefresh(true)"></app-edit-projekt-device>
                 </td>
               </tr>
             }
