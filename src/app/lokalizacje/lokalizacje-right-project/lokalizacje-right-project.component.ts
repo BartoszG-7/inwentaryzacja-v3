@@ -70,10 +70,9 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     });
   }
   goToInwentaryzacja() {
-  // Navigate back with explicit location selection so Treebar keeps it toggled
-  const payload = JSON.stringify({ type: 'location', id: this.urlData.idLoc });
-  this.router.navigate(['/inwentaryzacja/' + payload]);
-  // Also broadcast for any listeners that rely on the event bus
+  // Navigate back with a query param for location so Treebar keeps it toggled
+  this.router.navigate(['/inwentaryzacja'], { queryParams: { loc: this.urlData.idLoc } });
+  // Also broadcast for any listeners that rely on the event bus (race-safe via BehaviorSubject)
   this.linkService.setData({ type: 'location', id: this.urlData.idLoc });
 
     // this.router.navigate(['/inwentaryzacja/{}']).then(() => {

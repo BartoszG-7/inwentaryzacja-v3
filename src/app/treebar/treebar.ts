@@ -154,6 +154,7 @@ export class Treebar implements OnInit, OnChanges {
               this.externalSelect = true;
               const locId = (value as any).idLoc ?? (value as any).id;
               this.pendingLocationId = locId;
+              try { (Treeexpander as any).selectedLocationId = locId; } catch {}
               // If data already loaded, apply selection immediately
               if (this.fetchedData && this.data && this.data.length > 0 && locId) {
                 this.setTRX('location', locId);
@@ -163,6 +164,7 @@ export class Treebar implements OnInit, OnChanges {
               this.externalSelect = true;
               const locId = (value as any).id;
               this.pendingLocationId = locId;
+              try { (Treeexpander as any).selectedLocationId = locId; } catch {}
               if (this.fetchedData && this.data && this.data.length > 0 && locId) {
                 this.setTRX('location', locId);
                 this.pendingLocationId = null;
@@ -201,8 +203,24 @@ export class Treebar implements OnInit, OnChanges {
         //{"type":"project","id":"6895b53d4c2a9be9747d332b"}
         //{"type":"location","id":"6895b3254c2a9be9747d3327"}
         //project and location redir
-        this.activatedRoute.params.subscribe({
+  // React to both path params and query params
+  this.activatedRoute.params.subscribe({
           next: (e) => {
+            // If a location was provided via query param, prime external selection before any param-based auto-select
+            let qpLoc: string | null = null;
+            try {
+              qpLoc = this.activatedRoute.snapshot.queryParamMap.get('loc');
+              if (qpLoc && this.query() !== 'http://localhost:3000/device-type/list') {
+                this.externalSelect = true;
+                this.pendingLocationId = qpLoc;
+                try { (Treeexpander as any).selectedLocationId = qpLoc; } catch {}
+              }
+            } catch {}
+            // If opening without explicit payload or query, allow auto-select-first
+            if ((e['data'] == '{}' || e['data'] === undefined) && !qpLoc) {
+              this.externalSelect = false;
+              this.pendingLocationId = null;
+            }
             if (e['data'] !== undefined) {
               console.log(e['data']);
               console.log('DATA SENT');
@@ -210,6 +228,14 @@ export class Treebar implements OnInit, OnChanges {
               let data = JSON.parse(e['data']);
               if (data !== '{}') {
                 if (data.type === 'project') {
+                  // Ensure the tree highlights the location owning this project
+                  try {
+                    if (data.idLoc) {
+                      (Treeexpander as any).selectedLocationId = data.idLoc;
+                      this.setTRX('location', data.idLoc);
+                    }
+                  } catch {}
+                  // Preserve previous behavior: emit the project id to right-comp listeners
                   if (!data.stopProj) {
                     this.selectedId.emit(data.id);
                   } else {
@@ -217,7 +243,7 @@ export class Treebar implements OnInit, OnChanges {
                     Treeexpander.instances.forEach((instance) => {
                       console.log('INSTANCES', JSON.parse(instance.projects()));
                     });
-                    this.setTRX('location', data.id);
+                    if (data.idLoc) this.setTRX('location', data.idLoc);
                   }
                 } else if (data.type === 'location') {
                   this.setTRX('location', data.id);
@@ -233,7 +259,12 @@ export class Treebar implements OnInit, OnChanges {
             }
             if (e['data'] == '{}') {
               // No routing data: auto-select first element (location) if available
-              if (this.autoSelectFirst && this.data.length > 0 && !this.externalSelect) {
+              if (
+                this.autoSelectFirst &&
+                this.data.length > 0 &&
+                !this.externalSelect &&
+                !qpLoc
+              ) {
                 console.log('TREEBAR FIRST ELEMENT SET');
                 const first = this.data[0];
                 console.log(first);
@@ -297,13 +328,35 @@ export class Treebar implements OnInit, OnChanges {
               e['data'] === undefined &&
               this.query() !== 'http://localhost:3000/device-type/list' &&
               this.data.length > 0 &&
-              !this.externalSelect
+              !this.externalSelect &&
+              !qpLoc
             ) {
               // Lokalizacje opened without params: auto-select first location
               const first = this.data[0];
               this.setTRX('location', first.id);
               try {
                 this.linkService.setData({ type: EventTypes.LOCATION, id: first.id });
+              } catch {}
+            }
+          },
+        });
+        this.activatedRoute.queryParams.subscribe({
+          next: (qp) => {
+            // If a location is provided via query param, prioritize it
+            if (
+              this.query() !== 'http://localhost:3000/device-type/list' &&
+              qp && qp['loc']
+            ) {
+              const locId = qp['loc'];
+              this.externalSelect = true;
+              this.pendingLocationId = locId;
+              try { (Treeexpander as any).selectedLocationId = locId; } catch {}
+              if (this.fetchedData && this.data && this.data.length > 0) {
+                this.setTRX('location', locId);
+                this.pendingLocationId = null;
+              }
+              try {
+                this.linkService.setData({ type: EventTypes.LOCATION, id: locId });
               } catch {}
             }
           },
