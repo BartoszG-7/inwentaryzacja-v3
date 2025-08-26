@@ -43,6 +43,7 @@ export class Treebar implements OnInit, OnChanges {
   currentId: any;
   fetchedData: any;
   private externalSelect = false; // set when another part of app selects something explicitly
+  private pendingLocationId: string | null = null; // location to select once data is ready
   changeId(event: any): void {
     console.log(event);
 
@@ -146,6 +147,28 @@ export class Treebar implements OnInit, OnChanges {
               });
             } catch {}
           }
+
+          // If Lokalizacje tree receives an explicit selection via project/location, prevent auto-select-first
+          if (this.query() !== 'http://localhost:3000/device-type/list') {
+            if (value.type === 'project') {
+              this.externalSelect = true;
+              const locId = (value as any).idLoc ?? (value as any).id;
+              this.pendingLocationId = locId;
+              // If data already loaded, apply selection immediately
+              if (this.fetchedData && this.data && this.data.length > 0 && locId) {
+                this.setTRX('location', locId);
+                this.pendingLocationId = null;
+              }
+            } else if (value.type === EventTypes.LOCATION) {
+              this.externalSelect = true;
+              const locId = (value as any).id;
+              this.pendingLocationId = locId;
+              if (this.fetchedData && this.data && this.data.length > 0 && locId) {
+                this.setTRX('location', locId);
+                this.pendingLocationId = null;
+              }
+            }
+          }
         }
         if (this.fetchedData === undefined) {
           this.refetchData();
@@ -170,6 +193,11 @@ export class Treebar implements OnInit, OnChanges {
       next: (data: any) => {
         this.fetchedData = data;
         this.data = this.treebarService.dataParser(data);
+        // If a location was requested externally (e.g., from Latest Modified), apply it now
+        if (this.pendingLocationId) {
+          this.setTRX('location', this.pendingLocationId);
+          this.pendingLocationId = null;
+        }
         //{"type":"project","id":"6895b53d4c2a9be9747d332b"}
         //{"type":"location","id":"6895b3254c2a9be9747d3327"}
         //project and location redir
@@ -241,6 +269,12 @@ export class Treebar implements OnInit, OnChanges {
                     });
                   } catch {}
                 }
+                // If this is the locations tree, emit a LOCATION event too
+                if (this.query() !== 'http://localhost:3000/device-type/list') {
+                  try {
+                    this.linkService.setData({ type: EventTypes.LOCATION, id: first.id });
+                  } catch {}
+                }
               }
             } else if (
               this.autoSelectFirst &&
@@ -257,6 +291,19 @@ export class Treebar implements OnInit, OnChanges {
                   type: EventTypes.DEVICE_TYPE,
                   id: first.id,
                 });
+              } catch {}
+            } else if (
+              this.autoSelectFirst &&
+              e['data'] === undefined &&
+              this.query() !== 'http://localhost:3000/device-type/list' &&
+              this.data.length > 0 &&
+              !this.externalSelect
+            ) {
+              // Lokalizacje opened without params: auto-select first location
+              const first = this.data[0];
+              this.setTRX('location', first.id);
+              try {
+                this.linkService.setData({ type: EventTypes.LOCATION, id: first.id });
               } catch {}
             }
           },

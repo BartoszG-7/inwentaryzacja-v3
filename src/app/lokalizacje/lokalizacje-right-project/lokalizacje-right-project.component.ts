@@ -70,10 +70,11 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     });
   }
   goToInwentaryzacja() {
-    // this.router.navigate(['/inwentaryzacja/{}']);
-    //route to page without selected project or location and hard reload (copilot dont break it)
-    this.router.navigate(['/inwentaryzacja']);
-    this.linkService.setData({ type: 'location', id: this.urlData.idLoc });
+  // Navigate back with explicit location selection so Treebar keeps it toggled
+  const payload = JSON.stringify({ type: 'location', id: this.urlData.idLoc });
+  this.router.navigate(['/inwentaryzacja/' + payload]);
+  // Also broadcast for any listeners that rely on the event bus
+  this.linkService.setData({ type: 'location', id: this.urlData.idLoc });
 
     // this.router.navigate(['/inwentaryzacja/{}']).then(() => {
     //   window.location.reload();
