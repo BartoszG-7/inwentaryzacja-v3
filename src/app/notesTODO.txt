@@ -1,6 +1,5 @@
 //bar
 - color themes refresh not changing (sessionstorage)
-- brak urzadzen
 
 //michas
 - format json adres w lokalizacjach(idk jaka ma byc struktura)

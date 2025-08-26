@@ -46,6 +46,11 @@
           </tr>
         </thead>
         <tbody>
+          @if (isDevicesEmpty) {
+          <tr class="empty-state-row">
+            <td colspan="5">Brak urządzeń</td>
+          </tr>
+          } @else {
           @for (n of filteredDevices; let i = $index; track i) {
           <tr>
             <td class="cell-serial" data-label="Serial Number" (dblclick)="copyCell(n.serialNr, $event)">
@@ -77,6 +82,7 @@
               />
             </td>
           </tr>
+          }
           }
         </tbody>
       </table>

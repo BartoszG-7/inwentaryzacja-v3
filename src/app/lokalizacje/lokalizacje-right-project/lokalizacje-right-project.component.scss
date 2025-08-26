@@ -415,6 +415,13 @@ col {
   min-height: unset !important;
   max-height: unset !important;
 }
+.empty-state-row td {
+  text-align: center;
+  color: $muted-txt;
+  background: $dark-bg !important;
+  padding: 24px 12px;
+  border: none !important;
+}
 .group-label-row td {
   padding-left: 0 !important;
   padding-right: 0 !important;

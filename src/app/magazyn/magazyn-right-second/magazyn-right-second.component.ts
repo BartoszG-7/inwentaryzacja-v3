@@ -107,6 +107,11 @@ export class MagazynRightSecond implements OnInit {
     return !!id && this.selectedIds.has(id);
   }
 
+  // True when the filtered list is empty or undefined
+  get isDevicesEmpty(): boolean {
+    return !this.filteredDevices || this.filteredDevices.length === 0;
+  }
+
   private copyTimers = new WeakMap<HTMLElement, any>();
   copyCell(value: string, ev?: MouseEvent) {
     try {

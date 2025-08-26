@@ -243,6 +243,14 @@
   text-align: left;
 }
 
+.empty-state-row td {
+  text-align: center;
+  color: $muted-txt;
+  background: $secondary-panel-clr !important;
+  padding: 20px 12px;
+  border: none !important;
+}
+
 /* Truncated cell content with mobile-friendly focus tooltip */
 .second-table td .trunc {
   display: inline-block;

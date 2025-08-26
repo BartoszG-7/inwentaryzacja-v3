@@ -306,4 +306,14 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   isHeaderActive(key: string) {
     return this.activeHeaderKey === key;
   }
+
+  // True when there's no groups or all groups have no rows
+  get isDevicesEmpty(): boolean {
+    const gr = this.groupedRows as Array<any> | undefined;
+    if (!gr || gr.length === 0) return true;
+    for (const g of gr) {
+      if (g && Array.isArray(g.rows) && g.rows.length > 0) return false;
+    }
+    return true;
+  }
 }
