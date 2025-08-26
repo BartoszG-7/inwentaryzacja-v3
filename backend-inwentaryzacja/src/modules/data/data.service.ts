@@ -9,11 +9,13 @@ import { Location } from '../location/location.schema';
 import { ProjectHistory } from '../project-history/project-history.schema';
 import { DeviceType } from '../device-type/device-type.schema';
 import type { ObjectId } from 'mongoose';
+import { LocationService } from '../location/location.service';
 export enum projectHistoryEvents {
   PROJECT_CREATED = 1,
   DEVICE_ADDED_TO_PROJECT = 2,
   DEVICE_REMOVED_FROM_PROJECT = 3,
 }
+
 export enum searchModerators {
   FIRST_COLUMN = '!',
   SECOND_COLUMN = '@',
@@ -27,6 +29,7 @@ export class DataService {
     @InjectModel(Location.name) private LocationModel: Model<Location>,
     @InjectModel(ProjectHistory.name)
     private ProjectHistoryModel: Model<ProjectHistory>,
+    private locationService: LocationService,
     @InjectModel(DeviceType.name) private DeviceTypeModel: Model<DeviceType>,
   ) {}
   async getProjectData(id: string): Promise<any> {
@@ -39,9 +42,17 @@ export class DataService {
     };
   }
   async treebar(): Promise<any> {
+    let tempRes = await this.LocationModel.find({}).exec();
+    let finalRes: any = [];
+    tempRes.forEach((element) => {
+      let tempEl = JSON.parse(JSON.stringify(element));
+      tempEl.address = this.locationService.addrToString(element.address);
+      console.log('TOSTRING', tempEl);
+      finalRes.push({ ...tempEl });
+    });
     return {
       projects: await this.ProjectModel.find({}).select('name location').exec(),
-      locations: await this.LocationModel.find({}).exec(),
+      locations: finalRes,
     };
   }
 
@@ -50,6 +61,7 @@ export class DataService {
   
           return (this.DeviceTypeModel.find({}).select("name"));
       }*/
+
   async home(): Promise<any> {
     // Get the 5 newest distinct project history records by project
     const modified = await this.ProjectHistoryModel.aggregate([
@@ -101,10 +113,9 @@ export class DataService {
   }
   async addProject(projectData: any): Promise<any> {
     return await this.ProjectModel.create(projectData);
- 
   }
   async addProjectAndHistory(projectData: any): Promise<any> {
-    let projID=await this.addProject(projectData);
+    let projID = await this.addProject(projectData);
     return this.addProjectAndHistory(projID);
   }
   async assignDevice(data: any): Promise<any> {

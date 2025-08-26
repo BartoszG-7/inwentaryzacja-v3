@@ -52,9 +52,9 @@ export class DodajModalDeviceComponent implements OnInit {
   // Example: handle form submission
   onSubmit() {
     // Just send the device object as payload
-    console.log(this.projectId());
+    console.log('PROJID', this.projectId()());
     const payload = { ...this.device };
-    payload.project = this.projectId();
+    payload.project = this.projectId()();
     // TODO: send payload to backend or emit event
     console.log('Device payload:', payload);
     this.dodajModalProjektService.saveData(payload).subscribe({
