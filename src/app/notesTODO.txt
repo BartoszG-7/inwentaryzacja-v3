@@ -4,12 +4,14 @@
 - tooltip kopiowanie cursor pointer
 - static fields (cant stretch forms)
 - brak urzadzen
+- dodaj projekt: dropdown devicetype, ilosc ich potrzebnych
 
 //michas
 - format json adres w lokalizacjach(idk jaka ma byc struktura)
 - adresy tabelka
 - puste pola wyszukiwanie, jezeli klikasz na szukajke jak jest puste to wyszukuje puste pola
 - refresh magazyn-second jak sie dodaje / edytuje / usuwa
+- adresy
 
 
 

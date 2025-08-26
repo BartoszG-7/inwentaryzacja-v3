@@ -1,8 +1,9 @@
-import { Component, input, output } from '@angular/core';
+import { Component, OnInit, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AddProjectService } from './add-project.service';
 import { Router } from '@angular/router';
+import { DodajModalProjektService } from '../dodaj-modal-device/dodaj-modal-projekt.service';
 
 @Component({
   selector: 'app-add-project',
@@ -11,10 +12,11 @@ import { Router } from '@angular/router';
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.scss'],
 })
-export class AddProjectComponent {
+export class AddProjectComponent implements OnInit {
   constructor(
     private addProjectService: AddProjectService,
-    private router: Router
+    private router: Router,
+    private dodajModalProjektService: DodajModalProjektService
   ) {}
   locationId = input<string>();
   showEditModal = false;
@@ -33,6 +35,32 @@ export class AddProjectComponent {
     projectDevices: [],
     location: '',
   };
+
+  deviceTypes: Array<{ id: string; name: string }> = [];
+  projectDeviceRows: Array<{ typeId: string; needed: any }> = [
+    { typeId: '', needed: '' },
+  ];
+
+  ngOnInit(): void {
+    // load device types for dropdown
+    this.dodajModalProjektService.getDeviceTypes().subscribe({
+      next: (types) => {
+        (types || []).forEach((t: any) =>
+          this.deviceTypes.push({ id: t._id, name: t.name })
+        );
+      },
+    });
+  }
+
+  addRow() {
+    this.projectDeviceRows.push({ typeId: '', needed: '' });
+  }
+
+  removeRow(index: number) {
+    if (this.projectDeviceRows.length > 1) {
+      this.projectDeviceRows.splice(index, 1);
+    }
+  }
   openEditModal() {
     this.showEditModal = true;
   }
@@ -45,7 +73,16 @@ export class AddProjectComponent {
     if (form.valid) {
       // Handle submit logic here
       var addrPool: any = [];
-
+      const projectDevicesPayload: any[] = [];
+      for (const row of this.projectDeviceRows) {
+        const needed = Number(row.needed);
+        if (row.typeId && !Number.isNaN(needed) && needed > 0) {
+          projectDevicesPayload.push({
+            typeId: row.typeId,
+            neededDevices: needed,
+          });
+        }
+      }
       this.addProjectService
         .saveData({
           name: this.editFormData.name,
@@ -57,7 +94,7 @@ export class AddProjectComponent {
           addrPool: this.editFormData.addrPool.split(','),
           addrExclude: this.editFormData.addrExclude,
           remoteAccessTag: this.editFormData.remoteAccessTag,
-          projectDevices: [],
+          projectDevices: projectDevicesPayload,
           location: this.locationId() ?? '',
         })
         .subscribe({
@@ -68,6 +105,7 @@ export class AddProjectComponent {
         });
       this.closeEditModal();
       form.reset();
+  this.projectDeviceRows = [{ typeId: '', needed: '' }];
       this.refresh.emit(this.refreshState);
       this.refreshState = !this.refreshState;
     }
