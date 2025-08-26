@@ -1,5 +1,11 @@
 <div class="magazyn-right-container">
   <div class="magazyn-main-dashboard second-panel-match">
+    @if (loading) {
+    <div class="loading-overlay" role="status" aria-live="polite" aria-busy="true">
+      <div class="spinner"></div>
+      <div class="loading-text">Ładowanie…</div>
+    </div>
+    }
     <span
       class="main-panel-link"
       (click)="refreshMainPanel()"
@@ -35,7 +41,7 @@
           ></app-search-bar>
         </div>
       </div>
-      <table class="second-table">
+  <table class="second-table" [attr.aria-busy]="loading ? 'true' : 'false'">
         <thead>
           <tr>
             <th class="col-serial">Serial Number</th>

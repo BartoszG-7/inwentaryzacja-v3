@@ -1,4 +1,10 @@
 <div class="container right-project-container">
+  @if (loading) {
+  <div class="loading-overlay" role="status" aria-live="polite" aria-busy="true">
+    <div class="spinner"></div>
+    <div class="loading-text">Ładowanie…</div>
+  </div>
+  }
   <div class="header-row">
     <div class="header-left">
       <button
@@ -188,6 +194,7 @@
     </table>
     <table
       class="table table-dark table-bordered table-hover align-middle mb-0 right-project-table"
+      [attr.aria-busy]="loading ? 'true' : 'false'"
     >
       <colgroup>
         <col id="checkbox" />

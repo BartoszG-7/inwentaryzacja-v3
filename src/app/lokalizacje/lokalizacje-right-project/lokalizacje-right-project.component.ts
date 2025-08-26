@@ -51,6 +51,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   markedDelete: Array<string> = [];
   groupedRows: any = [];
   urlData: any;
+  loading = true;
   // timers for transient copy tooltips keyed by the span element
   private copyTimers = new WeakMap<HTMLElement, any>();
   // Track selected header column key
@@ -61,7 +62,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
       next: (e) => {
         console.log(e);
         this.urlData = e;
-        this.selectedId.set(e.id);
+  this.selectedId.set(e.id);
         this.ngOnChanges({});
         // this.urlData = JSON.parse(e['data']);
         console.log('URLDATA', e);
@@ -147,6 +148,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     console.log('CHANGED', changes);
     console.log(this.selectedId);
     if (this.selectedId()) {
+  this.loading = true;
       this.lokalizacjeRightProjectService
         .getProjectData(this.selectedId())
         .subscribe({
@@ -191,6 +193,15 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
                 });
               });
             });
+            this.loading = false;
+          },
+          error: (err) => {
+            console.error('Failed to load project devices', err);
+            this.project = this.project || {};
+            this.devices = [];
+            this.devicesGrouped = [];
+            this.groupedRows = [];
+            this.loading = false;
           },
         });
     }

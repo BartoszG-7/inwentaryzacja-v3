@@ -34,16 +34,24 @@ export class MagazynRightSecond implements OnInit {
   selectedIds = new Set<string>();
   id = input<string>();
   editElement: any;
+  loading = true;
   sztItems: InputSignal<number[]> = input<number[]>([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
   ]);
   ngOnInit(): void {
     console.log(this.id());
+    this.loading = true;
     this.magazynRightSecondService.getDevices(this.id()).subscribe({
       next: (value) => {
         console.log(value);
         this.data = value;
         this.filteredDevices = value?.device ?? [];
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Failed to load devices', err);
+        this.filteredDevices = [];
+        this.loading = false;
       },
     });
   }
