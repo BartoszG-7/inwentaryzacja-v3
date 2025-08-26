@@ -44,7 +44,10 @@ export class DeviceController {
   async getDelete(@Param('id') id: string) {
     return await this.deviceService.delete(id);
   }
-
+  @Get('assigned-by-type/:type')
+  async assignedByType(@Param('type') type: string) {
+    return await this.deviceService.assignedByType(type);
+  }
   @Patch(':id')
   async postUpdate(@Param('id') id: string, @Body() body: UpdateDeviceDto) {
     return await this.deviceService.update(id, body);

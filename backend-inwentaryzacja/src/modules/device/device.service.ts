@@ -19,6 +19,14 @@ export class DeviceService {
     console.log(data);
     return await this.deviceModel.deleteMany({ _id: { $in: data.ids } }).exec();
   }
+  async assignedByType(type: string) {
+    return await this.deviceModel
+      .countDocuments({
+        deviceType: new Types.ObjectId(type),
+        project: { $ne: null },
+      })
+      .exec();
+  }
   async findId(id: string): Promise<Device[]> {
     return this.deviceModel.find({ deviceType: new Types.ObjectId(id) }).exec();
   }

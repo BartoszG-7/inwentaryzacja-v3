@@ -22,6 +22,7 @@ export class DeviceTypeController {
   async postCreate(@Body() body: CreateDeviceTypeDto) {
     return await this.deviceTypeService.create(body);
   }
+
   @Get('list')
   async getList() {
     return await this.deviceTypeService.list();
