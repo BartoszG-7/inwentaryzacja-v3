@@ -4,6 +4,7 @@ import { TreebarSharedService } from '../../home/treebar.share.service';
 import { MagazynRightCompService } from './magazyn-right.service';
 import { MagazynSharedService } from '../../magazynShared.service';
 import { LinkService, EventTypes } from '../../linkService';
+import { UnassignedCounterService } from '../../components/unassignedCounter.service';
 // import { MagazynRightCompService } from './magazyn-right.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class MagazynRightCompComponent {
     private treebarSharedService: TreebarSharedService,
     private magazynRightCompService: MagazynRightCompService,
     private magazynSharedService: MagazynSharedService,
-    private linkService: LinkService
+    private linkService: LinkService,
+    private unassignedCounter: UnassignedCounterService
   ) {}
   idOut = output();
   // Emits when the first stat panel ("JEST") is clicked so parent can swap to the second view
@@ -40,6 +42,11 @@ export class MagazynRightCompComponent {
     this.showSecond.emit();
   }
   ngOnInit(): void {
+    this.unassignedCounter.getUnassignedByType('s').subscribe({
+      next(value) {
+        console.log(value);
+      },
+    });
     this.linkService.getData().subscribe({
       next: (value) => {
         this.id = value.id;
