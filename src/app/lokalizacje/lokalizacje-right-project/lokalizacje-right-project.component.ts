@@ -98,7 +98,15 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   // },
 
   copyCell(value: string, ev?: MouseEvent) {
-    if (!value) return;
+    // Prevent native double-click selections/callouts
+    try {
+      ev?.preventDefault?.(); ev?.stopPropagation?.();
+      const sel = window.getSelection?.();
+      if (sel && sel.removeAllRanges) sel.removeAllRanges();
+    } catch {}
+  if (!value) return;
+  // Block selection popups for a brief period after dblclick
+  this._selectionBlockUntil = Date.now() + 700;
     navigator.clipboard.writeText(value);
     // Show a small tooltip on the truncated span
     try {
@@ -106,17 +114,34 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
       const span = (target?.closest?.('.trunc') as HTMLElement) ||
         ((ev?.currentTarget as HTMLElement)?.querySelector?.('.trunc') as HTMLElement);
       if (span) {
+  // set click coordinates for fixed tooltip positioning
+  const x = (ev as MouseEvent)?.clientX ?? 0;
+  const y = (ev as MouseEvent)?.clientY ?? 0;
+  span.style.setProperty('--copy-x', `${x}px`);
+  span.style.setProperty('--copy-y', `${y + 12}px`); // offset slightly below cursor
+        // temporarily disable selection to avoid double-click highlight while copying
+  span.classList.add('no-select');
         // clear any existing timer for this element
         const prev = this.copyTimers.get(span);
         if (prev) clearTimeout(prev);
         span.classList.add('copied');
-        const t = setTimeout(() => {
+  const t = setTimeout(() => {
           span.classList.remove('copied');
+          span.classList.remove('no-select');
           this.copyTimers.delete(span);
-        }, 1200);
+  }, 600);
         this.copyTimers.set(span, t);
       }
     } catch {}
+  }
+
+  private _selectionBlockUntil = 0;
+  preventSelect(ev: Event) {
+    if (Date.now() < this._selectionBlockUntil) {
+      try { ev.preventDefault(); ev.stopPropagation(); } catch {}
+      return false;
+    }
+    return true;
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('CHANGED', changes);

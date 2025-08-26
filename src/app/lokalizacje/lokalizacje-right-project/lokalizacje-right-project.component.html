@@ -225,52 +225,52 @@
                   (change)="checkboxChanged($event)"
                 />
               </td>
-              <td title="{{ row.snWamasoft }}" (dblclick)="copyCell(row.snWamasoft, $event)">
+              <td (dblclick)="copyCell(row.snWamasoft, $event)" (selectstart)="preventSelect($event)">
                 <span class="trunc" tabindex="0" [attr.data-title]="row.snWamasoft">
                   {{ (row.snWamasoft?.length > 100) ? (row.snWamasoft | slice:0:100) + '...' : row.snWamasoft }}
                 </span>
               </td>
-              <td title="{{ row.snProducenta }}" (dblclick)="copyCell(row.snProducenta, $event)">
+              <td (dblclick)="copyCell(row.snProducenta, $event)" (selectstart)="preventSelect($event)">
                 <span class="trunc" tabindex="0" [attr.data-title]="row.snProducenta">
                   {{ (row.snProducenta?.length > 100) ? (row.snProducenta | slice:0:100) + '...' : row.snProducenta }}
                 </span>
               </td>
-              <td title="{{ row.mac }}" (dblclick)="copyCell(row.mac, $event)">
+              <td (dblclick)="copyCell(row.mac, $event)" (selectstart)="preventSelect($event)">
                 <span class="trunc" tabindex="0" [attr.data-title]="row.mac">
                   {{ (row.mac?.length > 100) ? (row.mac | slice:0:100) + '...' : row.mac }}
                 </span>
               </td>
-              <td title="{{ row.ip }}" (dblclick)="copyCell(row.ip, $event)">
+              <td (dblclick)="copyCell(row.ip, $event)" (selectstart)="preventSelect($event)">
                 <span class="trunc" tabindex="0" [attr.data-title]="row.ip">
                   {{ (row.ip?.length > 100) ? (row.ip | slice:0:100) + '...' : row.ip }}
                 </span>
               </td>
-              <td title="{{ row.brama }}" (dblclick)="copyCell(row.brama, $event)">
+              <td (dblclick)="copyCell(row.brama, $event)" (selectstart)="preventSelect($event)">
                 <span class="trunc" tabindex="0" [attr.data-title]="row.brama">
                   {{ (row.brama?.length > 100) ? (row.brama | slice:0:100) + '...' : row.brama }}
                 </span>
               </td>
-              <td title="{{ row.maska }}" (dblclick)="copyCell(row.maska, $event)">
+              <td (dblclick)="copyCell(row.maska, $event)" (selectstart)="preventSelect($event)">
                 <span class="trunc" tabindex="0" [attr.data-title]="row.maska">
                   {{ (row.maska?.length > 100) ? (row.maska | slice:0:100) + '...' : row.maska }}
                 </span>
               </td>
-              <td title="{{ row.anydesk }}" (dblclick)="copyCell(row.anydesk, $event)">
+              <td (dblclick)="copyCell(row.anydesk, $event)" (selectstart)="preventSelect($event)">
                 <span class="trunc" tabindex="0" [attr.data-title]="row.anydesk">
                   {{ (row.anydesk?.length > 100) ? (row.anydesk | slice:0:100) + '...' : row.anydesk }}
                 </span>
               </td>
-              <td title="{{ row.dns1 }}" (dblclick)="copyCell(row.dns1, $event)">
+              <td (dblclick)="copyCell(row.dns1, $event)" (selectstart)="preventSelect($event)">
                 <span class="trunc" tabindex="0" [attr.data-title]="row.dns1">
                   {{ (row.dns1?.length > 100) ? (row.dns1 | slice:0:100) + '...' : row.dns1 }}
                 </span>
               </td>
-              <td title="{{ row.dns2 }}" (dblclick)="copyCell(row.dns2, $event)">
+              <td (dblclick)="copyCell(row.dns2, $event)" (selectstart)="preventSelect($event)">
                 <span class="trunc" tabindex="0" [attr.data-title]="row.dns2">
                   {{ (row.dns2?.length > 100) ? (row.dns2 | slice:0:100) + '...' : row.dns2 }}
                 </span>
               </td>
-              <td title="{{ row.serwer }}" (dblclick)="copyCell(row.serwer, $event)">
+              <td (dblclick)="copyCell(row.serwer, $event)" (selectstart)="preventSelect($event)">
                 <span class="trunc" tabindex="0" [attr.data-title]="row.serwer">
                   {{ (row.serwer?.length > 100) ? (row.serwer | slice:0:100) + '...' : row.serwer }}
                 </span>

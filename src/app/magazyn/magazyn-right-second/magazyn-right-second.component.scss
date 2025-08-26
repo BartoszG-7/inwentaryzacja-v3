@@ -251,7 +251,19 @@
   overflow: hidden;
   text-overflow: ellipsis;
   outline: none;
+  -webkit-touch-callout: none;
 }
+.second-table td .trunc.no-select { user-select: none; -webkit-user-select: none; }
+/* Block selection on the entire table cells */
+.second-table td,
+.second-table td .trunc {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+}
+/* Ensure copied tooltip can render outside the truncated box */
+/* Tooltip is fixed; span layout remains unchanged when copied */
 .second-table td .trunc:focus-visible {
   outline: 2px solid color-mix(in srgb, var(--border-clr), white 20%);
   border-radius: 4px;
@@ -275,6 +287,24 @@
   border-radius: 8px;
   padding: 8px 10px;
   box-shadow: 0 8px 24px rgba(0,0,0,.3);
+}
+/* Transient 'copied' tooltip */
+.second-table td .trunc.copied::after {
+  content: 'Skopiowano';
+  position: fixed;
+  left: var(--copy-x, 50%);
+  top: calc(var(--copy-y, 72px));
+  transform: translateX(-50%);
+  margin-top: 0;
+  z-index: 9999;
+  white-space: nowrap;
+  background: $secondary-panel-clr;
+  color: $light-txt;
+  border: 1px solid $border-clr;
+  border-radius: 6px;
+  padding: 4px 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.28);
+  pointer-events: none;
 }
 @media (max-width: 600px) {
   /* Show two lines by default on mobile for better readability */

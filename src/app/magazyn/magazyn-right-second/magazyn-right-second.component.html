@@ -48,22 +48,22 @@
         <tbody>
           @for (n of filteredDevices; let i = $index; track i) {
           <tr>
-            <td class="cell-serial" data-label="Serial Number" [title]="n.serialNr || '-'">
+            <td class="cell-serial" data-label="Serial Number" (dblclick)="copyCell(n.serialNr, $event)">
               <span class="trunc" tabindex="0" [attr.data-title]="n.serialNr || '-'">
                 {{ (n.serialNr?.length > 100) ? (n.serialNr | slice:0:100) + '...' : (n.serialNr || '-') }}
               </span>
             </td>
-            <td class="cell-przesylka" data-label="Przesyłka" [title]="n.przesylkaNr || '-'">
+            <td class="cell-przesylka" data-label="Przesyłka" (dblclick)="copyCell(n.przesylkaNr, $event)">
               <span class="trunc" tabindex="0" [attr.data-title]="n.przesylkaNr || '-'">
                 {{ (n.przesylkaNr?.length > 100) ? (n.przesylkaNr | slice:0:100) + '...' : (n.przesylkaNr || '-') }}
               </span>
             </td>
-            <td class="cell-note" data-label="Notatki" [title]="n.note || '-'">
+            <td class="cell-note" data-label="Notatki" (dblclick)="copyCell(n.note, $event)">
               <span class="trunc" tabindex="0" [attr.data-title]="n.note || '-'">
                 {{ (n.note?.length > 100) ? (n.note | slice:0:100) + '...' : (n.note || '-') }}
               </span>
             </td>
-            <td class="cell-invoice" data-label="Nr. Faktury" [title]="n.fakturaNr || '-'">
+            <td class="cell-invoice" data-label="Nr. Faktury" (dblclick)="copyCell(n.fakturaNr, $event)">
               <span class="trunc" tabindex="0" [attr.data-title]="n.fakturaNr || '-'">
                 {{ (n.fakturaNr?.length > 100) ? (n.fakturaNr | slice:0:100) + '...' : (n.fakturaNr || '-') }}
               </span>
