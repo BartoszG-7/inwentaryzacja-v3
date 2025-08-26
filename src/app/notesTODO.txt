@@ -6,7 +6,7 @@
 - puste pola wyszukiwanie, jezeli klikasz na szukajke jak jest puste to wyszukuje puste pola
 - refresh magazyn-second jak sie dodaje / edytuje / usuwa
 - adresy
-
+-eventow wiecej
 {
 country,
 city,

@@ -14,6 +14,9 @@ export enum projectHistoryEvents {
   PROJECT_CREATED = 1,
   DEVICE_ADDED_TO_PROJECT = 2,
   DEVICE_REMOVED_FROM_PROJECT = 3,
+  PROJECT_REMOVED = 4,
+  PROJECT_EDITED = 5,
+  DEVICE_EDITED = 6,
 }
 
 export enum searchModerators {

@@ -1,15 +1,13 @@
-@for (item of data; track item.date) {
+@for (item of data; track item.date) { @if(item.project!==undefined) {
+@if(item.project.location!=undefined) {
 <div
   class="card mb-2 project-card"
   (click)="redirect(item.project._id, item.project.location._id)"
 >
   <div class="card-body py-2 px-3">
-    @if(item.project!==null) {
     <h6 class="card-title mb-1">{{ item.project.location.name }}</h6>
 
-    @if(item.project.location!=undefined) {
     <p class="card-text mb-0">{{ item.project.name }}</p>
-    } }
   </div>
 </div>
-}
+}} }
