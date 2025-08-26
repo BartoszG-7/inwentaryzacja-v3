@@ -72,7 +72,8 @@ export class DodajModalDeviceComponent implements OnInit {
         const projId = (this.projectId() as unknown as string) || '';
         for (const d of this.devices) {
           const did = d?._id as string;
-          const assignedHere = !!projId && (d?.project?.toString?.() ?? d?.project) === projId;
+          const assignedHere =
+            !!projId && (d?.project?.toString?.() ?? d?.project) === projId;
           if (did) {
             this.currentAssigned[did] = assignedHere;
             // Pre-check items already assigned to this project
@@ -95,8 +96,12 @@ export class DodajModalDeviceComponent implements OnInit {
     const projId = this.projectId() as unknown as string;
     if (!projId) return;
     // Compute diffs
-    const selectedIds = Object.keys(this.selected).filter((k) => this.selected[k]);
-    const originallyAssignedIds = Object.keys(this.currentAssigned).filter((k) => this.currentAssigned[k]);
+    const selectedIds = Object.keys(this.selected).filter(
+      (k) => this.selected[k]
+    );
+    const originallyAssignedIds = Object.keys(this.currentAssigned).filter(
+      (k) => this.currentAssigned[k]
+    );
     const selectedSet = new Set(selectedIds);
     const originalSet = new Set(originallyAssignedIds);
     const toAdd: string[] = [];
@@ -125,8 +130,9 @@ export class DodajModalDeviceComponent implements OnInit {
 
     // Process additions
     for (const id of toAdd) {
+      console.log(this.projectId()());
       this.dodajModalProjektService
-        .addToProject({ deviceId: id, projectId: projId })
+        .addToProject({ deviceId: id, projectId: this.projectId()() })
         .subscribe({
           next: () => checkDone(),
           error: (err: unknown) => {
