@@ -28,7 +28,7 @@
 
 	/* Table row backgrounds (dark theme defaults) */
 	--table-row-bg-odd: color-mix(in srgb, var(--secondary-panel-clr), black 6%);
-	--table-row-bg-even: color-mix(in srgb, var(--secondary-panel-clr), black 16%);
+	--table-row-bg-even: color-mix(in srgb, var(--secondary-panel-clr), black 25%);
 	--table-row-bg-hover: color-mix(in srgb, var(--secondary-panel-clr), white 6%);
 }
 
@@ -55,9 +55,8 @@ body.theme-light {
 
 	/* Table row backgrounds (light theme) */
 	--table-row-bg-odd: color-mix(in srgb, var(--secondary-panel-clr), black 3%);
-	--table-row-bg-even: color-mix(in srgb, var(--secondary-panel-clr), black 14%);
-	--table-row-bg-hover: color-mix(in srgb, var(--secondary-panel-clr), black 3
-	50%);
+	--table-row-bg-even: color-mix(in srgb, var(--secondary-panel-clr), black 15%);
+	--table-row-bg-hover: color-mix(in srgb, var(--secondary-panel-clr), black 40%);
 }
 
 /* Map existing SCSS variables to CSS variables so all imports respond to theme changes */

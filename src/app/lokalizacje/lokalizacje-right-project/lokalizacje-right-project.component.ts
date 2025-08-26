@@ -51,6 +51,8 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   markedDelete: Array<string> = [];
   groupedRows: any = [];
   urlData: any;
+  // timers for transient copy tooltips keyed by the span element
+  private copyTimers = new WeakMap<HTMLElement, any>();
   // Track selected header column key
   activeHeaderKey: string | null = null;
   activeSortDirection: 'asc' | 'desc' | null = null;
@@ -95,9 +97,26 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   //   ],
   // },
 
-  copyCell(value: string) {
+  copyCell(value: string, ev?: MouseEvent) {
     if (!value) return;
     navigator.clipboard.writeText(value);
+    // Show a small tooltip on the truncated span
+    try {
+      const target = (ev?.target as HTMLElement) || null;
+      const span = (target?.closest?.('.trunc') as HTMLElement) ||
+        ((ev?.currentTarget as HTMLElement)?.querySelector?.('.trunc') as HTMLElement);
+      if (span) {
+        // clear any existing timer for this element
+        const prev = this.copyTimers.get(span);
+        if (prev) clearTimeout(prev);
+        span.classList.add('copied');
+        const t = setTimeout(() => {
+          span.classList.remove('copied');
+          this.copyTimers.delete(span);
+        }, 1200);
+        this.copyTimers.set(span, t);
+      }
+    } catch {}
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('CHANGED', changes);
