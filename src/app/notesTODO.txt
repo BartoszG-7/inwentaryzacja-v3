@@ -1,5 +1,4 @@
 //bar
-- lokalizacje right projects back arrow not bringing back to parent treebar element, only sidebar works
 
 //michas
 - format json adres w lokalizacjach(idk jaka ma byc struktura)

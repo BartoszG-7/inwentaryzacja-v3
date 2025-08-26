@@ -2,130 +2,62 @@
 <button class="header-btn" (click)="openModal()">DODAJ</button>
 
 @if (showModal) {
-<div class="modal-backdrop open" (click)="closeModal()"></div>
-<div class="modal-custom open">
-  <form class="modal-content" (ngSubmit)="onSubmit()">
-    <div class="modal-header">
-      <h5 class="modal-title">Add Device</h5>
-      <button
-        type="button"
-        class="close"
-        (click)="closeModal()"
-        aria-label="Close"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control"
-          id="ip"
-          [(ngModel)]="device.ip"
-          name="ip"
-          placeholder="IP Address"
-          aria-label="IP Address"
-        />
+  <div class="modal-backdrop open" (click)="closeModal()"></div>
+  <div class="modal-custom open">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Przypisz urządzenia do projektu</h5>
+        <button type="button" class="close" (click)="closeModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div class="mb-2">
-        <select
-          class="form-control"
-          id="deviceType"
-          [(ngModel)]="device.deviceType"
-          name="deviceType"
-          aria-label="Device Type"
-        >
-          <option value="">Device Type...</option>
-          @for(type of deviceTypes; track type.id) {
-          <option value="{{ type.id }}">{{ type.name }}</option>
-          }
-        </select>
+
+      <div class="modal-body">
+        <!-- Step 1: choose device type -->
+        <div class="mb-2">
+          <label for="deviceType" class="form-label">Typ urządzenia</label>
+          <select id="deviceType" class="form-control" [(ngModel)]="selectedTypeId" name="deviceType" (change)="onTypeChange()">
+            <option value="">Wybierz typ...</option>
+            @for (type of deviceTypes; track type.id) {
+              <option [value]="type.id">{{ type.name }}</option>
+            }
+          </select>
+        </div>
+
+        <!-- Step 2: show device list with checkbox (only tag) -->
+        @if (selectedTypeId) {
+          <div class="device-list" style="max-height: 52vh; overflow-y: auto; padding-right: .25rem;">
+            <div class="list-header text-uppercase">
+              <div class="col-sn">SN</div>
+              <div class="col-tag">TAG</div>
+              <div class="col-check">ZAZNACZ</div>
+            </div>
+            @if (loadingDevices) {
+              <div class="py-2">Ładowanie…</div>
+            } @else {
+              @if (!devices.length) {
+                <div class="py-2">Brak urządzeń dla wybranego typu.</div>
+              } @else {
+                <ul class="list-unstyled m-0">
+                  @for (d of devices; track d._id) {
+                    <li class="device-row py-1">
+                      <div class="col-sn"><span class="dev-sn">{{ d.wamaNr || d.serialNr || '-' }}</span></div>
+                      <div class="col-tag"><span class="dev-tag">{{ d.tag || '-' }}</span></div>
+                      <div class="col-check"><input type="checkbox" [id]="'dev_'+d._id" [checked]="selected[d._id]" (change)="toggleOne(d._id, $any($event.target).checked)" /></div>
+                    </li>
+                  }
+                </ul>
+              }
+            }
+          </div>
+        }
+        @if (errorMsg) { <div class="text-danger mt-2">{{ errorMsg }}</div> }
       </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control"
-          id="tag"
-          [(ngModel)]="device.tag"
-          name="tag"
-          placeholder="Tag"
-          aria-label="Tag"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control"
-          id="macAddr"
-          [(ngModel)]="device.macAddr"
-          name="macAddr"
-          placeholder="MAC Address"
-          aria-label="MAC Address"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control"
-          id="serialNr"
-          [(ngModel)]="device.serialNr"
-          name="serialNr"
-          placeholder="Serial Number"
-          aria-label="Serial Number"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control"
-          id="serverAddress"
-          [(ngModel)]="device.serverAddress"
-          name="serverAddress"
-          placeholder="Server Address"
-          aria-label="Server Address"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control"
-          id="note"
-          [(ngModel)]="device.note"
-          name="note"
-          placeholder="Note"
-          aria-label="Note"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control"
-          id="pinIfButton"
-          [(ngModel)]="device.pinIfButton"
-          name="pinIfButton"
-          placeholder="Pin (if button)"
-          aria-label="Pin (if button)"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control"
-          id="remoteAccessId"
-          [(ngModel)]="device.remoteAccessId"
-          name="remoteAccessId"
-          placeholder="Remote Access ID"
-          aria-label="Remote Access ID"
-        />
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Anuluj</button>
+        <button type="button" class="btn btn-primary" [disabled]="assigning || !selectedTypeId" (click)="assignSelected()">Przypisz</button>
       </div>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" (click)="closeModal()">
-        Cancel
-      </button>
-      <button type="submit" class="btn btn-primary">Save</button>
-    </div>
-  </form>
-</div>
+  </div>
 }

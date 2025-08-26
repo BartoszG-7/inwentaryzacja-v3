@@ -2,6 +2,7 @@ import { Component, input, OnInit, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DodajModalProjektService } from './dodaj-modal-projekt.service';
+import { MagazynRightSecondService } from '../../magazyn/magazyn-right-second/magazyn-right-second.service';
 
 @Component({
   selector: 'app-dodaj-modal-device',
@@ -11,24 +12,24 @@ import { DodajModalProjektService } from './dodaj-modal-projekt.service';
   styleUrl: './dodaj-modal-device.component.scss',
 })
 export class DodajModalDeviceComponent implements OnInit {
-  constructor(private dodajModalProjektService: DodajModalProjektService) {}
+  constructor(
+    private dodajModalProjektService: DodajModalProjektService,
+    private magazynSecondService: MagazynRightSecondService
+  ) {}
   projectId: any = input<string>();
   refresh = output<boolean>();
   refreshState: boolean = true;
   showModal = false;
-  device = {
-    ip: '',
-    deviceType: '',
-    tag: '',
-    macAddr: '',
-    serialNr: '',
-    serverAddress: '',
-    note: '',
-    pinIfButton: '',
-    remoteAccessId: '',
-    project: '',
-  };
-  deviceTypes: Array<any> = [];
+  // Assignment state
+  deviceTypes: Array<{ id: string; name: string }> = [];
+  selectedTypeId: string = '';
+  loadingDevices = false;
+  devices: Array<any> = [];
+  selected: Record<string, boolean> = {};
+  // Tracks which devices were assigned to this project at load time for the chosen type
+  currentAssigned: Record<string, boolean> = {};
+  assigning = false;
+  errorMsg: string | null = null;
   ngOnInit(): void {
     this.dodajModalProjektService.getDeviceTypes().subscribe({
       next: (e) => {
@@ -47,26 +48,116 @@ export class DodajModalDeviceComponent implements OnInit {
 
   closeModal() {
     this.showModal = false;
+    this.devices = [];
+    this.selected = {};
+    this.currentAssigned = {};
+    this.selectedTypeId = '';
+    this.errorMsg = null;
   }
-
-  // Example: handle form submission
-  onSubmit() {
-    // Just send the device object as payload
-    console.log('PROJID', this.projectId()());
-    const payload = { ...this.device };
-    payload.project = this.projectId()();
-    // TODO: send payload to backend or emit event
-    console.log('Device payload:', payload);
-    this.dodajModalProjektService.saveData(payload).subscribe({
-      next: (e) => {
-        console.log(e);
-        this.refresh.emit(this.refreshState);
-        this.refreshState = !this.refreshState;
+  onTypeChange() {
+    if (!this.selectedTypeId) {
+      this.devices = [];
+      this.selected = {};
+      this.currentAssigned = {};
+      return;
+    }
+    this.loadingDevices = true;
+    this.errorMsg = null;
+    this.magazynSecondService.getDevices(this.selectedTypeId).subscribe({
+      next: (resp: any) => {
+        // resp.device is the list
+        this.devices = Array.isArray(resp?.device) ? resp.device : [];
+        this.selected = {};
+        this.currentAssigned = {};
+        const projId = (this.projectId() as unknown as string) || '';
+        for (const d of this.devices) {
+          const did = d?._id as string;
+          const assignedHere = !!projId && (d?.project?.toString?.() ?? d?.project) === projId;
+          if (did) {
+            this.currentAssigned[did] = assignedHere;
+            // Pre-check items already assigned to this project
+            this.selected[did] = assignedHere;
+          }
+        }
+        this.loadingDevices = false;
       },
-      error(err) {
-        console.log(err);
+      error: (err) => {
+        this.loadingDevices = false;
+        this.errorMsg = 'Nie udało się załadować listy urządzeń.';
+        console.error(err);
       },
     });
-    this.closeModal();
+  }
+  toggleOne(id: string, checked: boolean) {
+    this.selected[id] = checked;
+  }
+  assignSelected() {
+    const projId = this.projectId() as unknown as string;
+    if (!projId) return;
+    // Compute diffs
+    const selectedIds = Object.keys(this.selected).filter((k) => this.selected[k]);
+    const originallyAssignedIds = Object.keys(this.currentAssigned).filter((k) => this.currentAssigned[k]);
+    const selectedSet = new Set(selectedIds);
+    const originalSet = new Set(originallyAssignedIds);
+    const toAdd: string[] = [];
+    const toRemove: string[] = [];
+    // Add if selected now but not originally assigned
+    for (const id of selectedSet) if (!originalSet.has(id)) toAdd.push(id);
+    // Remove if originally assigned but not selected now
+    for (const id of originalSet) if (!selectedSet.has(id)) toRemove.push(id);
+
+    // If no changes, just close
+    if (toAdd.length === 0 && toRemove.length === 0) {
+      this.closeModal();
+      return;
+    }
+
+    this.assigning = true;
+    this.errorMsg = null;
+    const total = toAdd.length + toRemove.length;
+    let done = 0;
+    let failed = 0;
+
+    const checkDone = () => {
+      done++;
+      if (done === total) this._doneAssign(failed);
+    };
+
+    // Process additions
+    for (const id of toAdd) {
+      this.dodajModalProjektService
+        .addToProject({ deviceId: id, projectId: projId })
+        .subscribe({
+          next: () => checkDone(),
+          error: (err: unknown) => {
+            failed++;
+            console.error('Assign failed for', id, err);
+            checkDone();
+          },
+        });
+    }
+    // Process removals
+    for (const id of toRemove) {
+      this.dodajModalProjektService
+        .removeFromProject({ deviceId: id, projectId: projId })
+        .subscribe({
+          next: () => checkDone(),
+          error: (err: unknown) => {
+            failed++;
+            console.error('Unassign failed for', id, err);
+            checkDone();
+          },
+        });
+    }
+  }
+  private _doneAssign(failed: number) {
+    this.assigning = false;
+    if (failed === 0) {
+      this.refresh.emit(this.refreshState);
+      this.refreshState = !this.refreshState;
+      this.closeModal();
+    } else {
+      this.errorMsg = 'Część urządzeń nie udało się przypisać.';
+    }
   }
 }

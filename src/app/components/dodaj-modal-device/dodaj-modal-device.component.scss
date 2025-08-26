@@ -63,6 +63,15 @@
 .btn-secondary { background: color-mix(in srgb, var(--secondary-panel-clr), black 10%); border:1px solid $border-clr; border-radius:10px; padding:.55rem 1rem; font-size:.8rem; }
 .btn-secondary:hover { background:#2f3238; }
 
+/* Device item label styles */
+.dev-sn { color: $primary-color; font-weight: 600; margin-right:.35rem; }
+.dev-tag { color: $muted-txt; font-size:.9rem; }
+
+.list-header { font-size:.72rem; letter-spacing:.12em; color:$muted-txt; border-bottom:1px solid $border-clr; padding:.25rem 0 .35rem; margin-bottom:.25rem; position:sticky; top:0; background:$dark-bg; z-index:1; display:grid; grid-template-columns: 1fr 1fr 110px; align-items:center; text-align:center; }
+.col-sn, .col-tag, .col-check { text-align:center; }
+.device-row { display:grid; grid-template-columns: 1fr 1fr 110px; align-items:center; gap:.25rem; }
+.device-label { display:flex; align-items:center; gap:.35rem; justify-content:center; }
+
 /* Small width adjustments */
 @media (max-width: 360px) {
 	.modal-custom { min-width: 92vw; }
