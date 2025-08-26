@@ -5,11 +5,11 @@
   <div class="right-component">
     @if(!showList) {
     <app-magazyn-right-comp
-      [idDummy]="id"
+      [idDummy]="id()"
       (idOut)="deviceList($event)"
     ></app-magazyn-right-comp>
     } @else {
-    <app-magazyn-right-second [id]="id" />
+    <app-magazyn-right-second [id]="id()" />
     }
   </div>
 </div>

@@ -12,7 +12,7 @@ import { MagazynSharedService } from '../../magazynShared.service';
   selector: 'app-magazyn-right-second',
   standalone: true,
   imports: [
-  SlicePipe,
+    SlicePipe,
     SearchBarComponent,
     MagSecondDodaj,
     MagSecondEdit,
@@ -90,11 +90,11 @@ export class MagazynRightSecond implements OnInit {
       this.selectedIds.add(id);
       let firstid = '';
       let brk = false;
-      this.selectedIds.forEach((e) => {
-        if (!brk) firstid = e;
-        brk = true;
-      });
-     
+      // this.selectedIds.forEach((e) => {
+      //   if (!brk) firstid = e;
+      //   brk = true;
+      // });
+
       this.data.device.forEach((element: any) => {
         if (element._id === firstid) {
           this.editElement = element;

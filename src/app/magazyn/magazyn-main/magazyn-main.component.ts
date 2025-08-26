@@ -4,6 +4,7 @@ import {
   OnChanges,
   OnInit,
   output,
+  signal,
   SimpleChanges,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,6 +15,7 @@ import { TreebarSharedService } from '../../home/treebar.share.service';
 import { Router } from '@angular/router';
 import { MagazynSharedService } from '../../magazynShared.service';
 import { flush } from '@angular/core/testing';
+import { EventTypes, LinkService } from '../../linkService';
 
 @Component({
   selector: 'app-magazyn-main',
@@ -31,9 +33,10 @@ export class MagazynMainComponent implements OnInit, OnChanges {
   constructor(
     private treebarSharedService: TreebarSharedService,
     private router: Router,
-    private magazynSharedService: MagazynSharedService
+    private magazynSharedService: MagazynSharedService,
+    private linkService: LinkService
   ) {}
-  id: any = '';
+  id = signal('');
   showList: boolean = false;
   arr: any = [];
   // controls whether the alternative second right panel is shown
@@ -43,29 +46,35 @@ export class MagazynMainComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(router = this.router): void {
+    this.linkService.getData().subscribe({
+      next: (value) => {
+        console.log('VALUE', value);
+        if (value.type === EventTypes.DEVICE_TYPE) this.id.set(value.id);
+      },
+    });
     this.magazynSharedService.getBool().subscribe({
       next: (bool) => {
         this.showList = bool;
       },
     });
-    this.treebarSharedService.getData().subscribe({
-      next: (value) => {
-        console.log(this.id);
-        if (this.id !== '') {
-          router
-            .navigate([
-              '/magazyn/' + JSON.stringify({ type: 'location', id: value.id }),
-            ])
-            .then(() => {
-              window.location.reload();
-            });
-        }
-      },
-    });
+    // this.treebarSharedService.getData().subscribe({
+    //   next: (value) => {
+    //     console.log(this.id);
+    //     if (this.id !== '') {
+    //       router
+    //         .navigate([
+    //           '/magazyn/' + JSON.stringify({ type: 'location', id: value.id }),
+    //         ])
+    //         .then(() => {
+    //           window.location.reload();
+    //         });
+    //     }
+    //   },
+    // });
   }
   deviceList(id: any) {
     console.log(id);
-    this.id = id;
+    this.id.set(id);
     console.log(this.id);
   }
 }

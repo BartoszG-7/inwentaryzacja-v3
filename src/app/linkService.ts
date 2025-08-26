@@ -5,6 +5,11 @@ type LinkEvent = {
   id: string;
   idLoc?: string;
 };
+export enum EventTypes {
+  LOCATION = 'location',
+  PROJECT = 'project',
+  DEVICE_TYPE = 'deviceType',
+}
 @Injectable({
   providedIn: 'root',
 })

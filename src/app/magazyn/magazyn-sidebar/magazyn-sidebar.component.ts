@@ -6,6 +6,7 @@ import { Treebar } from '../../treebar/treebar';
 import { PlusModalComponent } from '../../components/plus-modal/plus-modal.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 import { ActivatedRoute } from '@angular/router';
+import { LinkService } from '../../linkService';
 
 @Component({
   selector: 'app-magazyn-sidebar',
@@ -15,8 +16,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./magazyn-sidebar.component.scss'],
 })
 export class MagazynSidebarComponent implements OnInit {
-  constructor(private activeRoute: ActivatedRoute) {}
+  constructor(private linkService: LinkService) {}
   @ViewChild('treebarDesktop') treebarDesktop: any;
+
   searchInput: string = '';
   resetOut = output();
   onSearch(event: string): void {
@@ -31,11 +33,9 @@ export class MagazynSidebarComponent implements OnInit {
   }
   isRedir = false;
   ngOnInit(): void {
-    this.activeRoute.params.subscribe({
+    this.linkService.getData().subscribe({
       next: (e) => {
-        if (e['data'] !== '{}') {
-          this.isRedir = true;
-        }
+        this.isRedir = true;
       },
     });
     // Wait for treebar to be ready then select first item
@@ -47,21 +47,21 @@ export class MagazynSidebarComponent implements OnInit {
         try {
           console.log('MAGAZYN SIDEBAR CHHANGEDID');
           if (!this.isRedir) {
-            tb.changeId({ type: 'location', id: first.id });
+            // tb.changeId({ type: 'location', id: first.id });
           }
         } catch (err) {
           console.error('magazyn-sidebar: error calling changeId', err);
         }
         try {
-          (Treeexpander as any).selectedLocationId = first.id;
+          // (Treeexpander as any).selectedLocationId = first.id;
           Treeexpander.instances.forEach((instance: any) => {
             const instLocationId =
               typeof instance.locationId === 'function'
                 ? instance.locationId()
                 : null;
-            instance.isSelected = instLocationId === first.id;
+            // instance.isSelected = instLocationId === first.id;
             instance.selectedProjectIndex = null;
-            instance.expanded = instLocationId === first.id;
+            instance.expanded.set(instLocationId === first.id);
             console.log('INST EXPANDED', instance.expanded);
             if ((instance as any).changeDetectorRef) {
               try {
