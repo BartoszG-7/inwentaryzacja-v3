@@ -197,8 +197,8 @@ export class Treebar implements OnInit, OnChanges {
                     inst.isSelected = lid === first.id;
                     inst.selectedProjectIndex = null;
 
-                    inst.expanded = lid === first.id;
-                    console.log('INST EXPANDED', inst.expanded);
+                    inst.expanded.set(lid === first.id);
+
                     if (inst.changeDetectorRef) {
                       try {
                         inst.changeDetectorRef.detectChanges();
@@ -230,7 +230,7 @@ export class Treebar implements OnInit, OnChanges {
 
           inst.isSelected = lid === id;
           inst.selectedProjectIndex = null;
-          inst.expanded = lid === id;
+          inst.expanded.set(lid === id);
           console.log('LID', inst.expanded);
           if (inst.changeDetectorRef) {
             try {
@@ -252,7 +252,7 @@ export class Treebar implements OnInit, OnChanges {
           console.log('LID', lid);
           inst.isSelected = lid === id;
           inst.selectedProjectIndex = null;
-          inst.expanded = lid === id;
+          inst.expanded.set(lid === id);
           console.log('INST EXPANDED', inst.expanded);
           if (inst.changeDetectorRef) {
             try {

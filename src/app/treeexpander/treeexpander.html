@@ -19,7 +19,7 @@
   <span class="bi bi-chevron-down treeexpander-chevron"></span>
   } } }
 </div>
-@if(this.expanded() && this.names.length > 0) {
+@if(this.names.length > 0) { @if(this.expanded()) {
 
 <ul class="tree-location-list-ul">
   @for (name of names; track name) {
@@ -40,4 +40,4 @@
   </li>
   }
 </ul>
-}
+} }

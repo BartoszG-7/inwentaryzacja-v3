@@ -13,7 +13,8 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LinkService } from '../linkService';
-
+import { EventTypes } from '../linkService';
+import { MagazynSharedService } from '../magazynShared.service';
 @Component({
   selector: 'app-treeexpander',
   imports: [],
@@ -24,7 +25,7 @@ export class Treeexpander implements OnInit, OnChanges {
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
+    private magazynSharedService: MagazynSharedService,
     private linkService: LinkService
   ) {}
 
@@ -49,11 +50,17 @@ export class Treeexpander implements OnInit, OnChanges {
   ngOnInit(): void {
     this.parseProjects();
     Treeexpander.instances.push(this);
-
+    console.log('EXPANDED', this.expanded);
     this.isSelected = Treeexpander.selectedLocationId === this.locationId();
     this.selectedProjectIndex = null;
     this.linkService.getData().subscribe({
       next: (value) => {
+        if (
+          value.type === EventTypes.DEVICE_TYPE &&
+          this.showMotherboardIcon()
+        ) {
+          if (value.id === this.locationId()) this.isSelected = true;
+        }
         if (value.type === 'location' || value.type === 'project') {
           if (
             value.id === this.locationId() ||
@@ -89,6 +96,14 @@ export class Treeexpander implements OnInit, OnChanges {
 
   expand(event?: Event): void {
     // toggle selection for location similar to previous implementation
+    if (this.showMotherboardIcon()) {
+      this.magazynSharedService.setBool(false);
+      this.linkService.setData({
+        type: EventTypes.DEVICE_TYPE,
+        id: this.locationId(),
+      });
+    }
+    console.log(this.expanded);
     if (
       (Treeexpander.selectedLocationId === this.locationId() &&
         this.expanded()) ||
@@ -102,7 +117,7 @@ export class Treeexpander implements OnInit, OnChanges {
         inst.isSelected = false;
         inst.selectedProjectIndex = null;
         if (inst === this) inst.expanded.set(false);
-        console.log('INST EXPANDED', inst.expanded);
+        console.log('INST EXPANDED', inst.expanded());
       });
     } else {
       Treeexpander.selectedLocationId = this.locationId();
@@ -111,7 +126,7 @@ export class Treeexpander implements OnInit, OnChanges {
         inst.isSelected = inst.locationId() === Treeexpander.selectedLocationId;
         inst.selectedProjectIndex = null;
         inst.expanded.set(inst === this);
-        console.log('INST EXPANDED', inst.expanded);
+        console.log('INST EXPANDED', inst.expanded());
       });
       this.selected.emit({ type: 'location', id: this.locationId() });
     }
