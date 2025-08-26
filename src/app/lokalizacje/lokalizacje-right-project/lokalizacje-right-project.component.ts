@@ -45,7 +45,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     private linkService: LinkService
   ) {}
 
-  devicesGrouped: Array<Group> = [];
+  devicesGrouped: Array<Group & { needed?: number }> = [];
   selectedId = signal('');
   refresh: boolean = false;
   project: any;
@@ -161,6 +161,14 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
             this.project = e.project[0];
             this.devices = e.devices;
             console.log('PROJECT DATA', e);
+            // Map needed devices per type from the project definition
+            const neededByType = new Map<string, number>();
+            const pd = (this.project?.projectDevices ?? []) as Array<any>;
+            for (const r of pd) {
+              const typeId = (r?.typeId || r?.deviceType || '').toString();
+              const needed = Number(r?.neededDevices ?? r?.needed ?? 0) || 0;
+              if (typeId) neededByType.set(typeId, needed);
+            }
             e.devices.forEach((device: any) => {
               var brk = false;
               this.devicesGrouped.forEach((grouped) => {
@@ -174,12 +182,15 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
                   id: device.deviceType._id,
                   name: device.deviceType.name,
                   devices: [device],
+                  needed: neededByType.get(device.deviceType._id) ?? 0,
                 });
               }
             });
             this.devicesGrouped.forEach((grouped) => {
               this.groupedRows.push({
                 name: grouped.name,
+                needed: grouped.needed ?? 0,
+                assigned: (grouped.devices ?? []).length,
                 rows: [],
               });
         grouped.devices.forEach((device) => {

@@ -49,14 +49,15 @@
 
 /* Smaller inline plus button next to the section title */
 .btn-inline-plus {
-  padding: 2px 8px; /* smaller than default header-btn */
-  font-size: 0.9rem;
+  padding: 1px 6px; /* smaller than default header-btn */
+  font-size: 0.85rem;
   line-height: 1;
+  min-height: 26px;
 }
-.btn-inline-plus i { font-size: 1rem; }
+.btn-inline-plus i { font-size: 0.9rem; }
 
-/* Add padding between header and the device type rows */
-.devices-header { margin-bottom: 8px; }
+/* Add padding between header (with inline plus) and the form rows below */
+.devices-header { margin-bottom: 12px; }
 
 /* Scrollable list of device rows when there are many */
 /* Device rows inherit scrolling from the modal body to avoid nested scrollbars */

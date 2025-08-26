@@ -90,6 +90,20 @@
   color: $muted-txt;
 }
 
+.second-title-total .badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  border: 1px solid $border-clr;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  color: $light-txt;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+.second-title-total .badge-unassigned { color: $muted-txt; }
+.second-title-total .badge-assigned { color: $primary-color; border-color: $primary-color; }
+
 .second-header-tools {
   display: flex;
   align-items: center;
@@ -376,13 +390,14 @@
 }
 
 /* New column width distribution (desktop) */
-.col-serial { width: 22%; }
-.col-przesylka { width: 22%; }
+.col-serial { width: 19%; }
+.col-przesylka { width: 19%; }
+.col-assigned { width: 18%; }
 .col-note {
-	color: $muted-txt;
-	width: 32%; 
+  color: $muted-txt;
+  width: 26%; 
 }
-.col-invoice { width: 24%; }
+.col-invoice { width: 19%; }
 .col-select { width: 58px; text-align:center; } /* a bit wider to fit edit+checkbox without overflow */
 
 .cell-serial {
@@ -390,6 +405,7 @@
   font-weight: 600;
 }
 .cell-przesylka { color: $muted-txt; }
+.cell-assigned { color: $light-txt; font-weight: 500; font-size: 0.82rem; }
 .cell-note { color: color-mix(in srgb, var(--muted-txt), white 8%); font-size: 0.78rem; line-height: 1.2; }
 .cell-invoice { color: $light-txt; font-weight: 500; font-size: 0.8rem; }
 .cell-select {

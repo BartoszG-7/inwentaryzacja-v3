@@ -353,6 +353,18 @@ col {
   border-color: $primary-color;
 }
 
+/* Assigned/needed badge in group header */
+.group-label-row .group-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid $border-clr;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  color: $primary-color;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
 .right-table-responsive {
   overflow-x: auto;
   min-width: 0;

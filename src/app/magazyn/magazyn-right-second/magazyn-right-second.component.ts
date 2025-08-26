@@ -31,6 +31,9 @@ export class MagazynRightSecond implements OnInit {
   total: InputSignal<number> = input<number>(71);
   data: any;
   filteredDevices: any[] = [];
+  totalCount = 0;
+  assignedCount = 0;
+  unassignedCount = 0;
   selectedIds = new Set<string>();
   id = input<string>();
   editElement: any;
@@ -46,6 +49,14 @@ export class MagazynRightSecond implements OnInit {
         console.log(value);
         this.data = value;
         this.filteredDevices = value?.device ?? [];
+        // compute counts
+        const devices = this.data?.device ?? [];
+        this.totalCount = devices.length;
+        this.assignedCount = devices.reduce(
+          (acc: number, d: any) => acc + (d?.project ? 1 : 0),
+          0
+        );
+        this.unassignedCount = Math.max(this.totalCount - this.assignedCount, 0);
         this.loading = false;
       },
       error: (err) => {

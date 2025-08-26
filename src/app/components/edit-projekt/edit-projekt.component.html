@@ -63,42 +63,85 @@
           class="form-control mb-2"
         />
 
-        <label style="display: block; margin: 0.35rem 0 0.25rem"
-          >EXCLUDED_IP_POOL</label
-        >
-  @for (pool of formData.excludedIpPools; track $index) {
-  @let i = $index;
-        <div
-          style="
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            margin-bottom: 0.5rem;
-          "
-        >
-          <input
-            name="excludedIpPool{{ i }}"
-            [(ngModel)]="formData.excludedIpPools[i]"
-            [ngModelOptions]="{ standalone: true }"
-            placeholder="192.168.0.10-192.168.0.20"
-            class="form-control"
-          />
-          <button
-            type="button"
-            class="btn btn-outline-secondary"
-            (click)="removeExcludedPool(i)"
-          >
-            -
-          </button>
-          <button
-            type="button"
-            class="btn btn-outline-secondary"
-            (click)="addExcludedPool()"
-          >
-            +
-          </button>
+        <input
+          name="remoteAccessTag"
+          [(ngModel)]="formData.remoteAccessTag"
+          placeholder="Remote Access Tag"
+          class="form-control mb-2"
+        />
+
+        <div class="mt-2">
+          <div class="d-flex align-items-center justify-content-start gap-2 devices-header">
+            <span>Wykluczone adresy</span>
+            <button type="button" class="header-btn btn-edit-row btn-inline-plus" (click)="addExcludedPool()" aria-label="Dodaj wykluczony adres">
+              <i class="bi bi-plus-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="devices-rows" role="region" aria-label="Lista wykluczonych adresów">
+            @for (pool of formData.excludedIpPools; track $index) {
+            @let i = $index;
+              <div class="row g-2 align-items-center mb-2">
+                <div class="col-11">
+                  <input
+                    class="form-control"
+                    [name]="'exclude_'+i"
+                    [(ngModel)]="formData.excludedIpPools[i]"
+                    placeholder="Wykluczony adres"
+                  />
+                </div>
+                <div class="col-1 d-flex justify-content-end">
+                  <button type="button" class="modal-close-btn" (click)="removeExcludedPool(i)" [disabled]="formData.excludedIpPools.length===1" aria-label="Usuń adres">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+            }
+          </div>
         </div>
-        }
+
+        <div class="mt-2">
+          <div class="d-flex align-items-center justify-content-start gap-2 devices-header">
+            <span>Wymagane urządzenia (opcjonalnie)</span>
+            <button type="button" class="header-btn btn-edit-row btn-inline-plus" (click)="addRow()" aria-label="Dodaj wiersz">
+              <i class="bi bi-plus-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="devices-rows" role="region" aria-label="Lista wymaganych urządzeń">
+            @for (row of projectDeviceRows; track $index) {
+              <div class="row g-2 align-items-center mb-2">
+                <div class="col-8">
+                  <select
+                    class="form-select"
+                    [name]="'type_'+$index"
+                    [(ngModel)]="row.typeId"
+                  >
+                    <option value="">Typ urządzenia…</option>
+                    @for (t of deviceTypes; track t.id) {
+                      <option [value]="t.id">{{ t.name }}</option>
+                    }
+                  </select>
+                </div>
+                <div class="col-3">
+                  <input
+                    type="number"
+                    min="1"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    class="form-control"
+                    [name]="'needed_'+$index"
+                    [(ngModel)]="row.needed"
+                    placeholder="Ilość"
+                  />
+                </div>
+                <div class="col-1 d-flex justify-content-end">
+                  <button type="button" class="modal-close-btn" (click)="removeRow($index)" [disabled]="projectDeviceRows.length===1" aria-label="Usuń wiersz">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
 
         <!-- <textarea
           name="notes"
