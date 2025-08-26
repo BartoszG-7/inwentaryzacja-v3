@@ -1,0 +1,57 @@
+@import '../../styles/_modal-shared';
+@import 'global.scss';
+
+.fields-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+}
+.fields-grid textarea {
+	grid-column: 1 / -1;
+	min-height: 72px;
+}
+
+/* Adjust modal width similar to other edit modals */
+@media (max-width: 640px) {
+	.modal-custom { min-width:92vw; width:92vw; }
+}
+
+	/* Bring in the same open/position styles used across modals */
+	.modal-backdrop.open { position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:5000; }
+	.modal-custom { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(.94); background:$dark-bg !important; color:$light-txt !important; border-radius:12px; border:1.5px solid $border-clr; box-shadow:0 14px 48px rgba(0,0,0,.5); min-width:520px; opacity:0; pointer-events:none; transition:opacity .22s, transform .24s; z-index:5001; display:flex; flex-direction:column; overflow:hidden; }
+	.modal-custom.open { opacity:1; pointer-events:auto; transform:translate(-50%,-50%) scale(1); }
+
+	/* Match header button styles from right-project */
+	.header-btn {
+		background: transparent;
+		color: $title-txt;
+		border: 1.5px solid $border-clr;
+		background-color: $panel-bg;
+		border-radius: 4px;
+		padding: 4px 12px;
+		font-size: 1rem;
+		cursor: pointer;
+		transition: background 0.15s, color 0.15s, border-color 0.15s;
+	}
+	.header-btn:hover {
+		background: $panel-bg;
+		color: $primary-color;
+		border-color: $primary-color;
+	}
+	.btn-edit-row {
+		width: 100%;
+		margin: 0;
+		display: block;
+		padding: 4px 10px;
+		font-size: 0.95rem;
+		border-radius: 4px;
+		border: 1.5px solid $border-clr;
+		color: $light-txt;
+		background: $panel-bg;
+		transition: background 0.15s, color 0.15s, border-color 0.15s;
+	}
+	.btn-edit-row:hover {
+		background: $secondary-panel-clr;
+		color: $primary-color;
+		border-color: $primary-color;
+	}

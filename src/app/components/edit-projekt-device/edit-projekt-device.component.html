@@ -1,0 +1,39 @@
+<button class="header-btn btn-edit-row" (click)="openModal()" aria-label="Edytuj wiersz">
+	<i class="bi bi-pencil" aria-hidden="true"></i> Edytuj
+	</button>
+@if (showModal) {
+	<div class="modal-backdrop open" (click)="closeModal()" aria-hidden="true"></div>
+	<div class="modal-custom open" role="dialog" aria-modal="true" aria-labelledby="editProjektDeviceTitle">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 id="editProjektDeviceTitle" class="modal-title">Edytuj urządzenie</h5>
+				<button type="button" class="modal-close-btn" (click)="closeModal()" aria-label="Zamknij">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form class="modal-body" (ngSubmit)="submit()" #f="ngForm">
+				<div class="fields-grid">
+					<input [(ngModel)]="form.wamaNr" name="wamaNr" placeholder="SN WAMA" aria-label="SN WAMA" />
+					<input [(ngModel)]="form.serialNr" name="serialNr" placeholder="SN PROD" aria-label="SN producenta" />
+					<input [(ngModel)]="form.tag" name="tag" placeholder="TAG" aria-label="TAG" />
+					<input [(ngModel)]="form.macAddr" name="macAddr" placeholder="MAC" aria-label="Adres MAC" />
+					<input [(ngModel)]="form.ip" name="ip" placeholder="IP" aria-label="Adres IP" />
+					<input [(ngModel)]="form.gateway" name="gateway" placeholder="BRAMA" aria-label="Brama" />
+					<input [(ngModel)]="form.mask" name="mask" placeholder="MASKA" aria-label="Maska" />
+					<input [(ngModel)]="form.remoteAccessId" name="remoteAccessId" placeholder="ANYDESK" aria-label="Anydesk" />
+					<input [(ngModel)]="form.dns1" name="dns1" placeholder="DNS1" aria-label="DNS1" />
+					<input [(ngModel)]="form.dns2" name="dns2" placeholder="DNS2" aria-label="DNS2" />
+					<input [(ngModel)]="form.serverAddress" name="serverAddress" placeholder="SERWER" aria-label="Serwer" />
+					<textarea [(ngModel)]="form.note" name="note" placeholder="Notatki" aria-label="Notatki"></textarea>
+					<input [(ngModel)]="form.pin" name="pin" placeholder="PIN" aria-label="PIN" />
+					<input [(ngModel)]="form.przesylkaNr" name="przesylkaNr" placeholder="Przesyłka Nr" aria-label="Przesyłka Nr" />
+					<input [(ngModel)]="form.fakturaNr" name="fakturaNr" placeholder="Faktura Nr" aria-label="Faktura Nr" />
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="primary-btn same-height">Zapisz</button>
+					<button type="button" class="secondary-btn same-height" (click)="closeModal()">Anuluj</button>
+				</div>
+			</form>
+		</div>
+	</div>
+}

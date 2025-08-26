@@ -14,6 +14,7 @@ import { DodajModalDeviceComponent } from '../../components/dodaj-modal-device/d
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 import { UsunModalDeviceComponent } from '../../components/usun-modal-device/usun-modal-device.component';
 import { EditProjektComponent } from '../../components/edit-projekt/edit-projekt.component';
+import { EditProjektDeviceComponent } from '../../components/edit-projekt-device/edit-projekt-device.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LinkService } from '../../linkService';
 
@@ -30,6 +31,7 @@ type Group = {
     SearchBarComponent,
     UsunModalDeviceComponent,
     EditProjektComponent,
+  EditProjektDeviceComponent,
   ],
   standalone: true,
   templateUrl: './lokalizacje-right-project.component.html',
@@ -180,7 +182,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
                 name: grouped.name,
                 rows: [],
               });
-              grouped.devices.forEach((device) => {
+        grouped.devices.forEach((device) => {
                 this.groupedRows[this.groupedRows.length - 1].rows.push({
                   id: device._id,
                   snWamasoft: device.wamaNr,
@@ -193,6 +195,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
                   anydesk: device.remoteAccessId,
                   maska: device.mask,
                   serwer: device.serverAddress,
+          _raw: device,
                 });
               });
             });
