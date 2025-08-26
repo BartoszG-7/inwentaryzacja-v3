@@ -2,6 +2,8 @@ import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EditProjektService } from './edit-projekt.service';
+import { DodajModalProjektService } from '../dodaj-modal-device/dodaj-modal-projekt.service';
+import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,10 +13,11 @@ import { Router } from '@angular/router';
   templateUrl: './edit-projekt.component.html',
   styleUrl: './edit-projekt.component.scss',
 })
-export class EditProjektComponent {
+export class EditProjektComponent implements OnInit {
   constructor(
     private editProjektService: EditProjektService,
-    private router: Router
+    private router: Router,
+    private dodajModalProjektService: DodajModalProjektService
   ) {}
   showModal = false;
   data: any = input<any>();
@@ -26,8 +29,23 @@ export class EditProjektComponent {
     dns1: '',
     dns2: '',
     excludedIpPools: [''],
+    remoteAccessTag: '',
     notes: '',
   };
+  deviceTypes: Array<{ id: string; name: string }> = [];
+  projectDeviceRows: Array<{ typeId: string; needed: any }> = [
+    { typeId: '', needed: '' },
+  ];
+
+  ngOnInit(): void {
+    this.dodajModalProjektService.getDeviceTypes().subscribe({
+      next: (types) => {
+        (types || []).forEach((t: any) =>
+          this.deviceTypes.push({ id: t._id, name: t.name })
+        );
+      },
+    });
+  }
 
   openModal() {
     //     {
@@ -58,7 +76,18 @@ export class EditProjektComponent {
       dns1: data.dns1,
       dns2: data.dns2,
       excludedIpPools: (data.addrExclude ?? ',').split(','),
+      remoteAccessTag: data.remoteAccessTag || '',
     };
+    // Populate required devices if present
+    const pd = Array.isArray(data.projectDevices) ? data.projectDevices : [];
+    if (pd.length > 0) {
+      this.projectDeviceRows = pd.map((r: any) => ({
+        typeId: r.typeId || r.deviceType || '',
+        needed: r.neededDevices ?? r.needed ?? '',
+      }));
+    } else {
+      this.projectDeviceRows = [{ typeId: '', needed: '' }];
+    }
     this.showModal = true;
   }
 
@@ -76,8 +105,10 @@ export class EditProjektComponent {
       dns1: '',
       dns2: '',
       excludedIpPools: [''],
+      remoteAccessTag: '',
       notes: '',
     };
+    this.projectDeviceRows = [{ typeId: '', needed: '' }];
   }
 
   addExcludedPool() {
@@ -92,19 +123,44 @@ export class EditProjektComponent {
     }
   }
 
+  addRow() {
+    this.projectDeviceRows.push({ typeId: '', needed: '' });
+  }
+  removeRow(index: number) {
+    if (this.projectDeviceRows.length > 1) {
+      this.projectDeviceRows.splice(index, 1);
+    }
+  }
+
   trackByExcludedPool(index: number, item: any) {
     return index;
   }
 
   onSubmit(form: any) {
     if (form.valid) {
-      console.log(
-        'Edit Projekt submit',
-        this.formData.excludedIpPools.toString()
-      );
-      this.formData.addrExclude = this.formData.excludedIpPools.toString();
+      const projectDevicesPayload: any[] = [];
+      for (const row of this.projectDeviceRows) {
+        const needed = Number(row.needed);
+        if (row.typeId && !Number.isNaN(needed) && needed > 0) {
+          projectDevicesPayload.push({
+            typeId: row.typeId,
+            neededDevices: needed,
+          });
+        }
+      }
+      const payload = {
+        name: this.formData.name,
+        dns1: this.formData.dns1,
+        dns2: this.formData.dns2,
+        networkAddress: this.formData.networkAddress,
+        mask: this.formData.mask,
+        gateway: this.formData.gateway,
+        addrExclude: this.formData.excludedIpPools.toString(),
+        remoteAccessTag: this.formData.remoteAccessTag,
+        projectDevices: projectDevicesPayload,
+      };
       this.editProjektService
-        .saveData(this.formData, this.data()._id)
+        .saveData(payload, this.data()._id)
         .subscribe({
           next: (e) => {
             console.log(e);
