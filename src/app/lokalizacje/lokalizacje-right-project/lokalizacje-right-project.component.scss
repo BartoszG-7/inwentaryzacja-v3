@@ -105,6 +105,14 @@ col {
   padding-left: 0.4em !important;
 }
 
+/* Table text color switches by theme */
+.table-dark {
+  color: #000 !important; /* dark theme: black */
+}
+:host-context(body.theme-light) .table-dark {
+  color: #fff !important; /* light theme: white */
+}
+
 /* Truncate long cell text and provide mobile-friendly focus tooltip */
 .right-project-table td .trunc {
   display: inline-block;
@@ -340,6 +348,9 @@ col {
   background: $dark-bg;
   border-top-color: #000 !important;
   color: $light-txt;
+  /* Ensure Bootstrap table cells (td/th) use themed text color */
+  --bs-table-color: var(--light-txt) !important;
+  --bs-table-hover-color: var(--light-txt) !important;
   border-color: $border-clr;
   border-top: none !important;
   min-height: 32px;
@@ -347,6 +358,11 @@ col {
   table-layout: fixed;
   padding-top: 0px;
   top: 0px;
+}
+/* In light theme, use dark text for cells */
+:host-context(body.theme-light) .right-project-table {
+  --bs-table-color: var(--title-txt) !important;
+  --bs-table-hover-color: var(--title-txt) !important;
 }
 .right-project-table th,
 .right-project-table td {
@@ -357,12 +373,15 @@ col {
   text-align: left;
   padding: 0.25em 0.4em;
   font-size: 1rem;
-  color: $light-txt;
   border-color: $border-clr;
   min-height: 32px;
   max-height: 40px;
 }
 
+colgroup{
+  color: black !important;
+}
+  
 .right-project-table th,
 .right-project-table td {
   min-height: unset !important;
