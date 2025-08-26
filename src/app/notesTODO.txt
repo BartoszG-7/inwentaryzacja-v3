@@ -1,19 +1,16 @@
 //bar
-- magazyn-second styles adjustment for function
+- magazyn-second styles adjustment for functions //
 - color themes refresh not changing (sessionstorage)
 - tooltip kopiowanie cursor pointer
-- puste pola wyszukiwanie
 - static fields (cant stretch forms)
-- piersze 3 kropki magazyn-second PIPE max 100 chars
-- refresh magazyn-second
 - brak urzadzen
-- top gap border on 
+- top gap border on table
 
-//michas 22.08
-- if a project or magazyn is clicked from home panel, then the back arrow takes you back to home as well (nuh uh aint doing allat unless hr tells me to)✖️
-- toggling tree bar elements when using quick stock views on home
+//michas
 - format json adres w lokalizacjach(idk jaka ma byc struktura)
 - adresy tabelka
+- puste pola wyszukiwanie, jezeli klikasz na szukajke jak jest puste to wyszukuje puste pola
+- refresh magazyn-second
 
 
 {

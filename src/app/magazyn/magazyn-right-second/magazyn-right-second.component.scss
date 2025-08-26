@@ -290,11 +290,11 @@
   position: fixed;
   left: 12px;
   right: 12px;
-  top: 12px;
-  bottom: 12px; /* fullscreen margin */
+  top: 72px; /* lowered to clear header */
+  bottom: auto;
   margin-top: 0;
   max-width: none;
-  max-height: none;
+  max-height: 70vh; /* 50% of viewport height */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
@@ -314,7 +314,7 @@
 	width: 32%; 
 }
 .col-invoice { width: 24%; }
-.col-select { width: 40px; text-align:center; }
+.col-select { width: 58px; text-align:center; } /* a bit wider to fit edit+checkbox without overflow */
 
 .cell-serial {
   color: $primary-color;
@@ -327,14 +327,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 0.25rem; /* smaller gap to avoid spilling */
 }
 .cell-select input[type='checkbox'] { cursor:pointer; width:16px; height:16px; }
 .cell-select app-mag-second-edit { display:inline-block; vertical-align: middle; margin-right: 0; }
+/* Reduce padding inside the select cell so content doesn't exceed the column width */
+.second-table td.cell-select { padding-right: 0.25rem !important; padding-left: 0.25rem !important; }
+/* Slightly reduce icon size within the select cell (affects the edit icon) */
+.second-table td.cell-select i { font-size: 0.95rem; }
 
 /* Mobile: add right spacing next to the edit button */
 @media (max-width: 600px) {
-  .cell-select app-mag-second-edit { margin-right: 10px; }
+  .cell-select app-mag-second-edit { margin-right: 8px; }
+  .second-table td.cell-select { padding-right: 0.15rem !important; padding-left: 0.15rem !important; }
 }
 
 @media (max-width: 600px) {
