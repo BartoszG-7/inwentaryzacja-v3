@@ -161,9 +161,12 @@ export class DataService {
   }
   async getDeviceList(typeId: any) {
     return {
-      device: await this.deviceModel.find({
-        deviceType: new Types.ObjectId(typeId),
-      }),
+      device: await this.deviceModel
+        .find({
+          deviceType: new Types.ObjectId(typeId),
+        })
+        .populate('project', ['name'])
+        .exec(),
       deviceType: (
         await this.DeviceTypeModel.find({
           _id: new Types.ObjectId(typeId),

@@ -376,13 +376,14 @@
 }
 
 /* New column width distribution (desktop) */
-.col-serial { width: 22%; }
-.col-przesylka { width: 22%; }
+.col-serial { width: 19%; }
+.col-przesylka { width: 19%; }
+.col-assigned { width: 18%; }
 .col-note {
-	color: $muted-txt;
-	width: 32%; 
+  color: $muted-txt;
+  width: 26%; 
 }
-.col-invoice { width: 24%; }
+.col-invoice { width: 19%; }
 .col-select { width: 58px; text-align:center; } /* a bit wider to fit edit+checkbox without overflow */
 
 .cell-serial {
@@ -390,6 +391,7 @@
   font-weight: 600;
 }
 .cell-przesylka { color: $muted-txt; }
+.cell-assigned { color: $light-txt; font-weight: 500; font-size: 0.82rem; }
 .cell-note { color: color-mix(in srgb, var(--muted-txt), white 8%); font-size: 0.78rem; line-height: 1.2; }
 .cell-invoice { color: $light-txt; font-weight: 500; font-size: 0.8rem; }
 .cell-select {

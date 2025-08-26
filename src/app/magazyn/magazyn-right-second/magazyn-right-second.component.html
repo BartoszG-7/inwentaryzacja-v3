@@ -46,6 +46,7 @@
           <tr>
             <th class="col-serial">Serial Number</th>
             <th class="col-przesylka">Przesyłka</th>
+            <th class="col-assigned">Przypisane</th>
             <th class="col-note">Notatki</th>
             <th class="col-invoice">Nr. Faktury</th>
             <th class="col-select" aria-label="Select">&nbsp;</th>
@@ -54,7 +55,7 @@
         <tbody>
           @if (isDevicesEmpty) {
           <tr class="empty-state-row">
-            <td colspan="5">Brak urządzeń</td>
+            <td colspan="6">Brak urządzeń</td>
           </tr>
           } @else {
           @for (n of filteredDevices; let i = $index; track i) {
@@ -67,6 +68,11 @@
             <td class="cell-przesylka" data-label="Przesyłka" (dblclick)="copyCell(n.przesylkaNr, $event)">
               <span class="trunc" tabindex="0" [attr.data-title]="n.przesylkaNr || '-'">
                 {{ (n.przesylkaNr?.length > 100) ? (n.przesylkaNr | slice:0:100) + '...' : (n.przesylkaNr || '-') }}
+              </span>
+            </td>
+            <td class="cell-assigned" data-label="Przypisane" (dblclick)="copyCell(n.project?.name, $event)">
+              <span class="trunc" tabindex="0" [attr.data-title]="(n.project?.name || '-')">
+                {{ (n.project?.name?.length > 100) ? (n.project?.name | slice:0:100) + '...' : (n.project?.name || '-') }}
               </span>
             </td>
             <td class="cell-note" data-label="Notatki" (dblclick)="copyCell(n.note, $event)">
