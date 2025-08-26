@@ -90,6 +90,20 @@
   color: $muted-txt;
 }
 
+.second-title-total .badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  border: 1px solid $border-clr;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  color: $light-txt;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+.second-title-total .badge-unassigned { color: $muted-txt; }
+.second-title-total .badge-assigned { color: $primary-color; border-color: $primary-color; }
+
 .second-header-tools {
   display: flex;
   align-items: center;

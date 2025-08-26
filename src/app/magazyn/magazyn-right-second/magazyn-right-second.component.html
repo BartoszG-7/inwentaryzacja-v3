@@ -16,7 +16,11 @@
     <div class="second-header-panel">
       <div class="second-header-left">
         <div class="second-title-name">{{ data.deviceType.name }}</div>
-        <div class="second-title-total">{{ data.device.length }} szt</div>
+        <div class="second-title-total">
+          {{ totalCount }} szt
+          <span class="badge badge-unassigned">{{ unassignedCount }} nie przypisanych</span>
+          <span class="badge badge-assigned">{{ assignedCount }} przypisanych</span>
+        </div>
       </div>
       <div class="second-header-tools">
         <!-- future icon buttons go here -->
@@ -61,27 +65,27 @@
           @for (n of filteredDevices; let i = $index; track i) {
           <tr>
             <td class="cell-serial" data-label="Serial Number" (dblclick)="copyCell(n.serialNr, $event)">
-              <span class="trunc" tabindex="0" [attr.data-title]="n.serialNr || '-'">
+              <span class="trunc" tabindex="0" [attr.data-title]="n.serialNr || '-'" [attr.title]="n.serialNr || '-'">
                 {{ (n.serialNr?.length > 100) ? (n.serialNr | slice:0:100) + '...' : (n.serialNr || '-') }}
               </span>
             </td>
             <td class="cell-przesylka" data-label="Przesyłka" (dblclick)="copyCell(n.przesylkaNr, $event)">
-              <span class="trunc" tabindex="0" [attr.data-title]="n.przesylkaNr || '-'">
+              <span class="trunc" tabindex="0" [attr.data-title]="n.przesylkaNr || '-'" [attr.title]="n.przesylkaNr || '-'">
                 {{ (n.przesylkaNr?.length > 100) ? (n.przesylkaNr | slice:0:100) + '...' : (n.przesylkaNr || '-') }}
               </span>
             </td>
             <td class="cell-assigned" data-label="Przypisane" (dblclick)="copyCell(n.project?.name, $event)">
-              <span class="trunc" tabindex="0" [attr.data-title]="(n.project?.name || '-')">
+              <span class="trunc" tabindex="0" [attr.data-title]="(n.project?.name || '-')" [attr.title]="n.project?.name || '-'">
                 {{ (n.project?.name?.length > 100) ? (n.project?.name | slice:0:100) + '...' : (n.project?.name || '-') }}
               </span>
             </td>
             <td class="cell-note" data-label="Notatki" (dblclick)="copyCell(n.note, $event)">
-              <span class="trunc" tabindex="0" [attr.data-title]="n.note || '-'">
+              <span class="trunc" tabindex="0" [attr.data-title]="n.note || '-'" [attr.title]="n.note || '-'">
                 {{ (n.note?.length > 100) ? (n.note | slice:0:100) + '...' : (n.note || '-') }}
               </span>
             </td>
             <td class="cell-invoice" data-label="Nr. Faktury" (dblclick)="copyCell(n.fakturaNr, $event)">
-              <span class="trunc" tabindex="0" [attr.data-title]="n.fakturaNr || '-'">
+              <span class="trunc" tabindex="0" [attr.data-title]="n.fakturaNr || '-'" [attr.title]="n.fakturaNr || '-'">
                 {{ (n.fakturaNr?.length > 100) ? (n.fakturaNr | slice:0:100) + '...' : (n.fakturaNr || '-') }}
               </span>
             </td>
