@@ -27,8 +27,8 @@ export class MagazynRightCompComponent {
   id: any = '';
   itemCount: number = 0;
   deviceList() {
-    // this.idOut.emit(this.id);
-    // this.magazynSharedService.setBool(true);
+    this.idOut.emit(this.id);
+    this.magazynSharedService.setBool(true);
   }
   openSecondPanel() {
     this.showSecond.emit();
