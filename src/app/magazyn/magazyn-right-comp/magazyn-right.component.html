@@ -1,6 +1,12 @@
 @if (name) {
   <div class="magazyn-right-container">
     <div class="magazyn-main-dashboard">
+      @if (loading) {
+      <div class="loading-overlay" role="status" aria-live="polite" aria-busy="true">
+        <div class="spinner"></div>
+        <div class="loading-text">Ładowanie…</div>
+      </div>
+      }
       <div class="magazyn-main-header-row">
         <div class="magazyn-main-title">{{ name }}</div>
       </div>
@@ -34,6 +40,12 @@
 } @else {
   <div class="magazyn-right-container">
     <div class="magazyn-main-dashboard">
+      @if (loading) {
+      <div class="loading-overlay" role="status" aria-live="polite" aria-busy="true">
+        <div class="spinner"></div>
+        <div class="loading-text">Ładowanie…</div>
+      </div>
+      }
       <div class="magazyn-main-header-row">
         <div class="magazyn-main-title">Brak danych magazynu</div>
       </div>

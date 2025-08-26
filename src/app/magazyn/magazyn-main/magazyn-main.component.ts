@@ -55,6 +55,10 @@ export class MagazynMainComponent implements OnInit, OnChanges {
     this.magazynSharedService.getBool().subscribe({
       next: (bool) => {
         this.showList = bool;
+        // ensure tree selection persists when switching to second panel
+        if (bool && this.id()) {
+          this.linkService.setData({ type: EventTypes.DEVICE_TYPE, id: this.id() });
+        }
       },
     });
     // this.treebarSharedService.getData().subscribe({

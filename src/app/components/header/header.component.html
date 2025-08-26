@@ -142,6 +142,7 @@
           query="http://localhost:3000/device-type/list"
           #treebarMobile
           [showMotherboardIcon]="true"
+          [autoSelectFirst]="true"
         ></app-treebar>
       </ul>
     </div>
@@ -171,7 +172,7 @@
         <div class="sidebar-mobile-separator"></div>
       </div>
       <ul class="sidebar-tree-list">
-        <app-treebar [search]="searchInput"></app-treebar>
+  <app-treebar [search]="searchInput"></app-treebar>
       </ul>
     </div>
   </nav>

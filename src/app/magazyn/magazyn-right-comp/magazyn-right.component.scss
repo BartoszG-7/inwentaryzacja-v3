@@ -42,6 +42,7 @@
  
 
 .magazyn-main-dashboard {
+  position: relative; /* for overlay */
   background: $panel-bg;
   border-radius: 18px;
   box-shadow: 0 4px 32px rgba(0,0,0,0.22);
@@ -53,6 +54,37 @@
   color: $title-txt;
   gap: 1.5rem;
   max-height: calc(100vh - 64px);
+}
+
+/* Loading overlay (shared pattern) */
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--secondary-panel-clr), black 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+  backdrop-filter: blur(1px);
+}
+.spinner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid color-mix(in srgb, var(--muted-txt), transparent 40%);
+  border-top-color: var(--primary-color);
+  animation: spin 0.9s linear infinite;
+}
+.loading-text {
+  color: $muted-txt;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+@keyframes spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
 }
 
 .magazyn-main-header-row {

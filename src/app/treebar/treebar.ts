@@ -13,7 +13,7 @@ import { TreebarService } from './treebar.service';
 import { Treeexpander } from '../treeexpander/treeexpander';
 import { TreebarSharedService } from '../home/treebar.share.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LinkService } from '../linkService';
+import { LinkService, EventTypes } from '../linkService';
 
 @Component({
   selector: 'app-treebar',
@@ -23,6 +23,7 @@ import { LinkService } from '../linkService';
 })
 export class Treebar implements OnInit, OnChanges {
   @Input() showMotherboardIcon: boolean = false;
+  @Input() autoSelectFirst: boolean = false; // only true in Magazyn to avoid interfering with Infokiosk
   constructor(
     private treebarService: TreebarService,
     private treebarSharedService: TreebarSharedService,
@@ -41,6 +42,7 @@ export class Treebar implements OnInit, OnChanges {
   refresh: boolean = false;
   currentId: any;
   fetchedData: any;
+  private externalSelect = false; // set when another part of app selects something explicitly
   changeId(event: any): void {
     console.log(event);
 
@@ -121,6 +123,30 @@ export class Treebar implements OnInit, OnChanges {
     this.stringified = '';
     this.linkService.getData().subscribe({
       next: (value) => {
+        if (value) {
+          // If Magazyn (device-type list) receives an explicit selection, don't auto-select first
+          if (
+            this.query() === 'http://localhost:3000/device-type/list' &&
+            value.type === EventTypes.DEVICE_TYPE
+          ) {
+            this.externalSelect = true;
+            // Ensure only the selected device type is highlighted and expanded
+            try {
+              (Treeexpander as any).selectedLocationId = value.id;
+              (Treeexpander as any).selectedProjectId = null;
+              (Treeexpander as any).instances?.forEach((inst: any) => {
+                const lid =
+                  typeof inst.locationId === 'function' ? inst.locationId() : null;
+                inst.isSelected = lid === value.id;
+                inst.selectedProjectIndex = null;
+                inst.expanded.set(lid === value.id);
+                if (inst.changeDetectorRef) {
+                  try { inst.changeDetectorRef.detectChanges(); } catch {}
+                }
+              });
+            } catch {}
+          }
+        }
         if (this.fetchedData === undefined) {
           this.refetchData();
         }
@@ -179,7 +205,7 @@ export class Treebar implements OnInit, OnChanges {
             }
             if (e['data'] == '{}') {
               // No routing data: auto-select first element (location) if available
-              if (this.data.length > 0) {
+              if (this.autoSelectFirst && this.data.length > 0 && !this.externalSelect) {
                 console.log('TREEBAR FIRST ELEMENT SET');
                 const first = this.data[0];
                 console.log(first);
@@ -206,7 +232,32 @@ export class Treebar implements OnInit, OnChanges {
                     }
                   });
                 } catch {}
+                // Also publish deviceType selection only when device-type list is used and auto-select enabled
+                if (this.query() === 'http://localhost:3000/device-type/list') {
+                  try {
+                    this.linkService.setData({
+                      type: EventTypes.DEVICE_TYPE,
+                      id: first.id,
+                    });
+                  } catch {}
+                }
               }
+            } else if (
+              this.autoSelectFirst &&
+              e['data'] === undefined &&
+              this.query() === 'http://localhost:3000/device-type/list' &&
+              this.data.length > 0 &&
+              !this.externalSelect
+            ) {
+              // Magazyn opened without params: auto-select first device type
+              const first = this.data[0];
+              this.setTRX('location', first.id);
+              try {
+                this.linkService.setData({
+                  type: EventTypes.DEVICE_TYPE,
+                  id: first.id,
+                });
+              } catch {}
             }
           },
         });
