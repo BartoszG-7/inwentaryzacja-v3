@@ -107,10 +107,10 @@ col {
 
 /* Table text color switches by theme */
 .table-dark {
-  color: #000 !important; /* dark theme: black */
+  color: transparent !important; /* dark theme: black */
 }
 :host-context(body.theme-light) .table-dark {
-  color: #fff !important; /* light theme: white */
+  color: transparent !important; /* light theme: white */
 }
 
 /* Truncate long cell text and provide mobile-friendly focus tooltip */
@@ -394,10 +394,6 @@ col {
   border-color: $border-clr;
   min-height: 32px;
   max-height: 40px;
-}
-
-colgroup{
-  color: black !important;
 }
   
 .right-project-table th,
