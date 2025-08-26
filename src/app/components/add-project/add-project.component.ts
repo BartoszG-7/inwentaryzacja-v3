@@ -29,8 +29,7 @@ export class AddProjectComponent implements OnInit {
     networkAddress: '',
     mask: '',
     gateway: '',
-    addrPool: '',
-    addrExclude: '',
+  excludedIpPools: [''] as string[],
     remoteAccessTag: '',
     projectDevices: [],
     location: '',
@@ -61,6 +60,16 @@ export class AddProjectComponent implements OnInit {
       this.projectDeviceRows.splice(index, 1);
     }
   }
+  addExcludedPool() {
+    this.editFormData.excludedIpPools.push('');
+  }
+  removeExcludedPool(index: number) {
+    if (this.editFormData.excludedIpPools.length > 1) {
+      this.editFormData.excludedIpPools.splice(index, 1);
+    } else {
+      this.editFormData.excludedIpPools[0] = '';
+    }
+  }
   openEditModal() {
     this.showEditModal = true;
   }
@@ -71,8 +80,7 @@ export class AddProjectComponent implements OnInit {
 
   onEditSubmit(form: NgForm) {
     if (form.valid) {
-      // Handle submit logic here
-      var addrPool: any = [];
+    // Handle submit logic here
       const projectDevicesPayload: any[] = [];
       for (const row of this.projectDeviceRows) {
         const needed = Number(row.needed);
@@ -91,8 +99,8 @@ export class AddProjectComponent implements OnInit {
           networkAddress: this.editFormData.networkAddress,
           mask: this.editFormData.mask,
           gateway: this.editFormData.gateway,
-          addrPool: this.editFormData.addrPool.split(','),
-          addrExclude: this.editFormData.addrExclude,
+      // addrPool removed per request
+      addrExclude: this.editFormData.excludedIpPools.toString(),
           remoteAccessTag: this.editFormData.remoteAccessTag,
           projectDevices: projectDevicesPayload,
           location: this.locationId() ?? '',
@@ -106,6 +114,7 @@ export class AddProjectComponent implements OnInit {
       this.closeEditModal();
       form.reset();
   this.projectDeviceRows = [{ typeId: '', needed: '' }];
+    this.editFormData.excludedIpPools = [''];
       this.refresh.emit(this.refreshState);
       this.refreshState = !this.refreshState;
     }

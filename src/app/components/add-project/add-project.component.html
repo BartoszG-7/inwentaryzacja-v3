@@ -59,19 +59,35 @@
           required
           class="form-control mb-2"
         />
-        <input
-          name="addrPool"
-          [(ngModel)]="editFormData.addrPool"
-          required
-          placeholder="Pula adresów (przecinki)"
-          class="form-control mb-2"
-        />
-        <input
-          name="addrExclude"
-          [(ngModel)]="editFormData.addrExclude"
-          placeholder="Wykluczone adresy"
-          class="form-control mb-2"
-        />
+        <!-- Removed Pula adresów per request -->
+        <!-- Wykluczone adresy as dynamic list -->
+        <div class="mt-2">
+          <div class="d-flex align-items-center justify-content-start gap-2 devices-header">
+            <span>Wykluczone adresy</span>
+            <button type="button" class="header-btn btn-edit-row btn-inline-plus" (click)="addExcludedPool()" aria-label="Dodaj wykluczony adres">
+              <i class="bi bi-plus-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="devices-rows" role="region" aria-label="Lista wykluczonych adresów">
+            @for (pool of editFormData.excludedIpPools; track $index) {
+              <div class="row g-2 align-items-center mb-2">
+                <div class="col-11">
+                  <input
+                    class="form-control"
+                    [name]="'exclude_'+$index"
+                    [(ngModel)]="editFormData.excludedIpPools[$index]"
+                    placeholder="Wykluczony adres"
+                  />
+                </div>
+                <div class="col-1 d-flex justify-content-end">
+                  <button type="button" class="modal-close-btn" (click)="removeExcludedPool($index)" [disabled]="editFormData.excludedIpPools.length===1" aria-label="Usuń adres">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
         <input
           name="remoteAccessTag"
           [(ngModel)]="editFormData.remoteAccessTag"

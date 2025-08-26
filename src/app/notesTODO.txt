@@ -1,4 +1,5 @@
 //bar
+- przy tworzeniu projektu musi byc opcja ile dajemy typu urzedzen do danego projektu
 
 //michas
 - format json adres w lokalizacjach(idk jaka ma byc struktura)
