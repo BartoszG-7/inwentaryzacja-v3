@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { EditLokalizacjeComponent } from '../../components/edit-lokalizacje/edit-lokalizacje.component';
 import { TreebarSharedService } from '../../home/treebar.share.service';
+import { LinkService } from '../../linkService';
 
 @Component({
   selector: 'app-lokalizacje-right-comp',
@@ -25,7 +26,8 @@ export class LokalizacjeRightCompComponent implements OnInit, OnChanges {
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
-    private treebarSharedService: TreebarSharedService
+    private treebarSharedService: TreebarSharedService,
+    private linkService: LinkService
   ) {}
 
   selectedId: any = input<any>();
@@ -99,13 +101,10 @@ export class LokalizacjeRightCompComponent implements OnInit, OnChanges {
       (event.target as HTMLElement).blur();
     // Emit project id like the treebar does so the parent will switch to project view
 
-    this.router.navigate([
-      '/inwentaryzacja/' +
-        JSON.stringify({
-          type: 'project',
-          id: project._id,
-          idLoc: this.location?._id,
-        }),
-    ]);
+    this.linkService.setData({
+      type: 'project',
+      id: project._id,
+      idLoc: this.selectedId(),
+    });
   }
 }

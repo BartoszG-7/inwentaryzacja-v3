@@ -39,49 +39,6 @@ export class MagazynSidebarComponent implements OnInit {
       },
     });
     // Wait for treebar to be ready then select first item
-    const start = Date.now();
-    const poll = setInterval(() => {
-      const tb = this.treebarDesktop as any;
-      if (tb && tb.fetchedData && tb.data && tb.data.length > 0) {
-        const first = tb.data[0];
-        try {
-          console.log('MAGAZYN SIDEBAR CHHANGEDID');
-          if (!this.isRedir) {
-            // tb.changeId({ type: 'location', id: first.id });
-          }
-        } catch (err) {
-          console.error('magazyn-sidebar: error calling changeId', err);
-        }
-        try {
-          // (Treeexpander as any).selectedLocationId = first.id;
-          Treeexpander.instances.forEach((instance: any) => {
-            const instLocationId =
-              typeof instance.locationId === 'function'
-                ? instance.locationId()
-                : null;
-            // instance.isSelected = instLocationId === first.id;
-            instance.selectedProjectIndex = null;
-            instance.expanded.set(instLocationId === first.id);
-            console.log('INST EXPANDED', instance.expanded);
-            if ((instance as any).changeDetectorRef) {
-              try {
-                (instance as any).changeDetectorRef.detectChanges();
-              } catch {}
-            }
-          });
-        } catch (err) {
-          console.error(
-            'magazyn-sidebar: error updating Treeexpander instances',
-            err
-          );
-        }
-        clearInterval(poll);
-        return;
-      }
-      if (Date.now() - start > 3000) {
-        clearInterval(poll);
-      }
-    }, 50);
   }
   //   locations: any[] = [];
   //   editing: string = '';

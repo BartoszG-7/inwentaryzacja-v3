@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 type LinkEvent = {
   type: string;
   id: string;
@@ -14,7 +14,7 @@ export enum EventTypes {
   providedIn: 'root',
 })
 export class LinkService {
-  private dataSubject: ReplaySubject<LinkEvent> = new ReplaySubject(1);
+  private dataSubject: BehaviorSubject<any> = new BehaviorSubject(null);
 
   setData(data: LinkEvent): void {
     this.dataSubject.next(data);
