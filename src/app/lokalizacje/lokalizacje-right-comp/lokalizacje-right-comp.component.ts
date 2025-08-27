@@ -40,6 +40,14 @@ export class LokalizacjeRightCompComponent implements OnInit, OnChanges {
   selected = output<any>();
   location: any;
   refreshRight = input<any>();
+
+  // Presentational helper: ensure there is a space after commas in address
+  get formattedAddress(): string {
+    const addr = this.location?.address;
+    if (!addr || typeof addr !== 'string') return addr ?? '';
+    // Replace any comma optionally followed by spaces with ', '
+    return addr.replace(/,\s*/g, ', ');
+  }
   refresh(ref: any) {
     this.refreshOut.emit(ref);
 

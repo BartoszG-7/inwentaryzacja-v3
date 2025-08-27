@@ -16,8 +16,13 @@
         <i class="bi bi-arrow-90deg-left"></i>
       </button>
       <span class="header-title">{{ (project ?? { name: "" }).name }}</span>
+      <span class="mobile-search-trigger">
+        <app-search-bar-mobile
+          (searchInput)="searchNoSort($event)"
+        ></app-search-bar-mobile>
+      </span>
     </div>
-    <div class="header-actions">
+  <div class="header-actions">
       <app-search-bar
         [noPaddingBottom]="true"
         [showFilterModal]="true"

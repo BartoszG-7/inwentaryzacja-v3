@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { LokalizacjeRightProjectService } from './lokalizacje-right-project.service';
 import { DodajModalDeviceComponent } from '../../components/dodaj-modal-device/dodaj-modal-device.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
+import { SearchBarMobileComponent } from '../../components/search-bar-mobile/search-bar-mobile.component';
 import { UsunModalDeviceComponent } from '../../components/usun-modal-device/usun-modal-device.component';
 import { EditProjektComponent } from '../../components/edit-projekt/edit-projekt.component';
 import { EditProjektDeviceComponent } from '../../components/edit-projekt-device/edit-projekt-device.component';
@@ -30,6 +31,7 @@ type Group = {
     CommonModule,
     DodajModalDeviceComponent,
     SearchBarComponent,
+  SearchBarMobileComponent,
     UsunModalDeviceComponent,
     EditProjektComponent,
   EditProjektDeviceComponent,
@@ -62,6 +64,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   // Track selected header column key
   activeHeaderKey: string | null = null;
   activeSortDirection: 'asc' | 'desc' | null = null;
+  private lastSearchValue: string | null = null;
   ngOnInit(): void {
     // Preload device type names for mapping required groups with no devices
     this.dodajModalProjektService.getDeviceTypes().subscribe({
@@ -271,17 +274,24 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   }
   searchNoSort(input: any) {
     console.log(input);
+    const term = (input ?? '').toString();
+    this.lastSearchValue = term;
     var tempSearched: any = [];
     var tempdev = JSON.parse(JSON.stringify(this.devicesGrouped));
     tempdev.forEach((devices: any) => {
       let tempDevice: any = [];
+      const key = this.activeHeaderKey || 'wamaNr';
       devices.devices.forEach((device: any) => {
-        if (
-          device[this.activeHeaderKey ?? '']
-            .toLowerCase()
-            .includes(input.toLowerCase())
-        ) {
-          tempDevice.push(JSON.parse(JSON.stringify(device)));
+        const raw = device?.[key];
+        const valueStr = (raw ?? '').toString();
+        if (term.trim() === '') {
+          // Empty search: include only items where the field is blank/undefined/null
+          const isBlank = raw === null || raw === undefined || (typeof raw === 'string' && raw.trim() === '');
+          if (isBlank) tempDevice.push(JSON.parse(JSON.stringify(device)));
+        } else {
+          if (valueStr.toLowerCase().includes(term.toLowerCase())) {
+            tempDevice.push(JSON.parse(JSON.stringify(device)));
+          }
         }
       });
       tempSearched.push(devices);
@@ -335,6 +345,8 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
       this.activeHeaderKey = key;
       console.log(this.activeHeaderKey, this.activeSortDirection);
       this.activeSortDirection = null; // phase 1: active, no arrow
+      // If a search is active, re-apply it using the new column
+      if (this.lastSearchValue !== null) this.searchNoSort(this.lastSearchValue);
       return;
     }
 
