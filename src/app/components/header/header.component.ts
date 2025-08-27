@@ -15,6 +15,7 @@ import { SearchBarMobileComponent } from '../search-bar-mobile/search-bar-mobile
 import { GlobalSearchModalComponent } from '../../components/global-search-modal/global-search-modal.component';
 import { TreebarSharedService } from '../../home/treebar.share.service';
 import { LightModeGlobal } from '../light-mode-global/light-mode-global';
+import { LinkService, EventTypes } from '../../linkService';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -89,7 +90,8 @@ export class HeaderComponent implements OnInit {
     private cookieService: CookieService,
     private arrowService: HeaderArrowService,
     private activeRoute: ActivatedRoute,
-    private treebarSharedService: TreebarSharedService
+  private treebarSharedService: TreebarSharedService,
+  private linkService: LinkService
   ) {
     this.arrowService.showArrow$.subscribe((show) => {
       this.showBackArrow = show;
@@ -201,5 +203,18 @@ export class HeaderComponent implements OnInit {
       return this.selectedRoute === path;
     }
     return this.selectedRoute.startsWith(path);
+  }
+
+  // Close the right sidebar automatically when a Magazyn device type is selected from the right menu
+  ngAfterViewInit(): void {
+    try {
+      this.linkService.getData().subscribe({
+        next: (ev: any) => {
+          if (ev && ev.type === EventTypes.DEVICE_TYPE && this.selectedRoute.includes('magazyn')) {
+            this.rightMenuOpen = false;
+          }
+        },
+      });
+    } catch {}
   }
 }
