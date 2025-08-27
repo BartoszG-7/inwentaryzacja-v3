@@ -52,7 +52,7 @@
         <div class="py-2">Brak urządzeń dla wybranego typu.</div>
         } @else {
         <ul class="list-unstyled m-0">
-          @for (d of devices; track d._id) {
+          @for (d of finalDev; track d._id) {
           <li class="device-row py-1">
             <div class="col-sn">
               <span class="dev-sn">{{ d.wamaNr || d.serialNr || "-" }}</span>

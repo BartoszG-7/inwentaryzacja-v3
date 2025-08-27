@@ -25,6 +25,7 @@ export class DodajModalDeviceComponent implements OnInit {
   selectedTypeId: string = '';
   loadingDevices = false;
   devices: Array<any> = [];
+  finalDev: Array<any> = [];
   selected: Record<string, boolean> = {};
   // Tracks which devices were assigned to this project at load time for the chosen type
   currentAssigned: Record<string, boolean> = {};
@@ -69,21 +70,28 @@ export class DodajModalDeviceComponent implements OnInit {
       next: (resp: any) => {
         // resp.device is the list
         this.devices = Array.isArray(resp?.device) ? resp.device : [];
+
         this.selected = {};
         this.currentAssigned = {};
         const projId = (this.projectId()() as unknown as string) || '';
-        for (const d of this.devices) {
-          const did = d?._id as string;
-          console.log(this.projectId()());
+        for (let d of this.devices) {
           const taken =
             d?.project?._id && d?.project?._id !== this.projectId()();
+          if (!taken) {
+            console.log(d);
+            this.finalDev.push(d);
+          }
+        }
+        for (let d of this.finalDev) {
+          const did = d?._id as string;
+
           const assignedHere =
             !!projId &&
             (d?.project?._id?.toString?.() ?? d?.project?._id) === projId;
           if (did) {
             this.currentAssigned[did] = assignedHere;
             // Pre-check items already assigned to this project
-            this.disabled[did] = taken;
+
             this.selected[did] = assignedHere;
           }
         }
