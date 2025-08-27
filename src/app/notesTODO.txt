@@ -1,5 +1,6 @@
 //bar   
 - no 4/0, just make it not addable
+- kolumna na formularzu dodawania
 
 //michas
 - puste pola wyszukiwanie, jezeli klikasz na szukajke jak jest puste to wyszukuje puste pola
