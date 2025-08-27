@@ -12,8 +12,8 @@ export class DeviceService {
   async create(body: CreateDeviceDto): Promise<Device> {
     let deviceData = body;
     deviceData.deviceType = new Types.ObjectId(deviceData.deviceType);
-    const createddevice = new this.deviceModel(deviceData);
-    return createddevice.save();
+    console.log('DEVDAT', deviceData);
+    return (await this.deviceModel.create(deviceData)).save();
   }
   async deleteMany(data: any): Promise<any> {
     console.log(data);
