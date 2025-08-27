@@ -9,6 +9,24 @@
  _| |_   _| |_
 /_/ \_\ /_/ \_\
 
+💡 jasne – tu notatka dla Bara:
+
+📌 Notatka dla Bara
+Bar, weź się ogarnij 🍻 – zamiast tylko spamować clank! i robić ascii-bajery:
+
+🚀 Dorzuć coś od siebie do kodu, a nie tylko szkło tłuczesz.
+
+🛠 Pomóż przy eventach i automatycznym DHCP, bo michas sam nie uciągnie.
+
+🔄 Pamiętaj o refreshu w lokalizacje-right-comp – tu się przydasz najbardziej.
+
+👉 ASCII fajne, ale robota sama się nie zrobi.
+
+Chcesz żebym napisał mu to w stylu commit message (np. jako wpis do repo), czy raczej jako luźny karteczka-post-it styl do przypięcia na barze
+
+
+
+
 //michas
 - eventow wiecej
 - automatyczne przypisanie adresow ip, maski, bramy, dnsow
