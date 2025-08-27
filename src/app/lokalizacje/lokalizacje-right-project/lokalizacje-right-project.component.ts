@@ -294,9 +294,13 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
           }
         }
       });
-      tempSearched.push(devices);
-
-      tempSearched[tempSearched.length - 1].devices = tempDevice;
+      // carry over group metadata so counts remain visible
+      tempSearched.push({
+        id: devices.id,
+        name: devices.name,
+        needed: devices.needed ?? 0,
+        devices: tempDevice,
+      });
     });
 
     this.groupedRows =

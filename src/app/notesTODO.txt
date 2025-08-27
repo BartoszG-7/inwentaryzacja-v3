@@ -13,8 +13,3 @@
 - eventow wiecej
 - automatyczne przypisanie adresow ip, maski, bramy, dnsow
 - refresh for lokalizacje-right-comp
-- fix mobile
-
-
-
-

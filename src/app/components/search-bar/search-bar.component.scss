@@ -79,16 +79,21 @@ input[type="search"] {
 }
 
 input[type="search"] {
-    width: 100%;
-		padding: 0.32rem 2.2rem 0.32rem 0.8rem;
-	border: 1px solid $border-clr;
-	border-radius: 1.2rem;
-	background: $panel-bg !important;
-	color: #fff !important;
-	font-size: 0.95rem;
-	transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
-	outline: none;
-	box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+		width: 100%;
+			padding: 0.32rem 2.2rem 0.32rem 0.8rem;
+		border: 1px solid $border-clr;
+		border-radius: 1.2rem;
+		background: $panel-bg !important;
+		color: $light-txt !important; /* dark theme: light text */
+		font-size: 0.95rem;
+		transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+		outline: none;
+		box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+/* Light theme: force dark text for contrast */
+:host-context(body.theme-light) input[type="search"] {
+	color: $dark-color !important; /* effectively black */
 }
 
 input[type="search"]::placeholder {
