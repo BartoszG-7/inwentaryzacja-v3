@@ -5,6 +5,7 @@ import { MagSecondEdit } from '../../components/mag-second-edit/mag-second-edit.
 import { MagSecondUsun } from '../../components/mag-second-usun/mag-second-usun.component';
 import { MagSecondSrcBar } from '../../components/mag-second-src-bar/mag-second-src-bar.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
+import { MagSecondSerial } from '../../components/mag-second-serial/mag-second-serial';
 import { MagazynRightSecondService } from './magazyn-right-second.service';
 import { MagazynSharedService } from '../../magazynShared.service';
 
@@ -18,6 +19,7 @@ import { MagazynSharedService } from '../../magazynShared.service';
     MagSecondEdit,
     MagSecondUsun,
     MagSecondSrcBar,
+  MagSecondSerial,
   ],
   templateUrl: './magazyn-right-second.component.html',
   styleUrls: ['./magazyn-right-second.component.scss'],

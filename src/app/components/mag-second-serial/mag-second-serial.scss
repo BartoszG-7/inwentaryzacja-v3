@@ -1,0 +1,21 @@
+@import '../../styles/_modal-shared';
+@import 'global.scss';
+
+/* Backdrop and container (use same pattern as other modals) */
+.modal-backdrop.open { position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:5000; }
+.modal-custom { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(.94); background:$dark-bg !important; color:$light-txt !important; border-radius:12px; border:1.5px solid $border-clr; box-shadow:0 14px 48px rgba(0,0,0,.5); min-width:360px; max-width:92vw; max-height:88vh; overflow:hidden; z-index:5001; display:flex; flex-direction:column; padding:0; transition:opacity .2s, transform .22s; opacity:0; pointer-events:none; }
+.modal-custom.open { opacity:1; pointer-events:auto; transform:translate(-50%,-50%) scale(1); }
+.modal-content { padding:1.1rem 1.25rem .95rem; box-shadow:none; }
+
+/* Body and fields */
+.device-meta { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin-bottom: 0.6rem; }
+.device-meta .label { color: $muted-txt; }
+.device-meta .value { color: $light-txt; }
+
+.serial-label { display: block; font-size: 0.8rem; color: $muted-txt; margin-bottom: 0.35rem; }
+input[type="text"] { width: 100%; padding: 0.6rem 0.75rem; border-radius: 8px; }
+.modal-body.empty { color: $muted-txt; }
+.spacer { flex: 1; }
+
+/* Small screens */
+@media (max-width: 360px) { .modal-custom { min-width:92vw; width:92vw; } .modal-content { padding:1rem 1rem .85rem; } }

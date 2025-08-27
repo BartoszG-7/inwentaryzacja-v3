@@ -71,7 +71,8 @@
 .second-header-left {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  /* Increase spacing between the title (e.g., "Monitor") and the total line (e.g., "68 szt") */
+  gap: 0.8rem;
 }
 
 .second-title-name {
@@ -101,8 +102,8 @@
   font-size: 0.7rem;
   letter-spacing: 0.04em;
 }
-.second-title-total .badge-unassigned { color: $muted-txt; }
-.second-title-total .badge-assigned { color: $primary-color; border-color: $primary-color; }
+.second-title-total .badge-unassigned { color: $primary-color; border-color: $primary-color; }
+.second-title-total .badge-assigned { color: $muted-txt; border-color: $border-clr; }
 
 /* Base: inline with reversed order already in HTML (assigned first) */
 .second-title-total { display: inline-flex; align-items: center; gap: 8px; }
@@ -125,8 +126,9 @@
     justify-items: end;
     row-gap: 4px;
   }
-  .second-title-total .badge-assigned { order: 1; }
-  .second-title-total .badge-unassigned { order: 2; }
+  /* Keep the visually important one (wolnych) on top */
+  .second-title-total .badge-unassigned { order: 1; }
+  .second-title-total .badge-assigned { order: 2; }
 }
 
 .second-header-tools {
@@ -210,7 +212,7 @@
   position: sticky;
   top: 0;
   background: $secondary-panel-clr;
-  z-index: 10;
+  z-index: 9;
 }
 
 .table-header-left { display:flex; align-items:center; gap:.85rem; }
@@ -222,7 +224,8 @@
 .table-icons app-mag-second-dodaj .header-btn:hover,
 .table-icons app-mag-second-edit .header-btn:hover,
 .table-icons app-mag-second-usun .header-btn:hover,
-.table-icons app-mag-second-src-bar .search-icon-btn:hover { color:$primary-color; border:none; background:transparent; }
+.table-icons app-mag-second-src-bar .search-icon-btn:hover,
+.table-icons .mobile-only:hover { color:$primary-color; border:none; background:transparent; }
 .table-icons i { font-size:1.05rem; line-height:1; display:inline-block; }
 
 /* Hide desktop search bar on narrow mobile; keep on tablet (>=600px). Mobile icon already shows its button at <=600 via its own styles */
@@ -407,7 +410,7 @@
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   pointer-events: auto;
-    z-index: 9999;
+    z-index: 100;
     font-size: 0.95rem;
     padding: 12px 14px;
     box-shadow: 0 16px 40px rgba(0,0,0,.45);
@@ -424,6 +427,42 @@
 }
 .col-invoice { width: 19%; }
 .col-select { width: 58px; text-align:center; } /* a bit wider to fit edit+checkbox without overflow */
+
+/* Clickable Serial Number header affordance */
+.second-table thead th.col-serial {
+  cursor: pointer;
+  user-select: none;
+  transition: color .15s ease-in-out;
+}
+.second-table thead th.col-serial:hover,
+.second-table thead th.col-serial:focus {
+  color: $primary-color;
+}
+
+/* Mobile-only header button visibility */
+.table-icons .mobile-only { display: none; }
+@media (max-width: 600px) {
+  .table-icons .mobile-only {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: $panel-bg;
+    color: $title-txt;
+    border: 1.5px solid $border-clr;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background .15s, color .15s, border-color .15s, transform .15s;
+  }
+  .table-icons .mobile-only i { font-size: 1.05rem; }
+  .table-icons .mobile-only:hover,
+  .table-icons .mobile-only:focus {
+    color: $primary-color;
+    border-color: $primary-color;
+    outline: none;
+  }
+}
 
 .cell-serial {
   color: $primary-color;

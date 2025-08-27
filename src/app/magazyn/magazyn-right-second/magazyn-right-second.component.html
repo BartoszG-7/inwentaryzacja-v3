@@ -19,8 +19,8 @@
         <div class="second-title-total">
           <span class="total-count">{{ totalCount }} szt</span>
           <span class="badges">
+            <span class="badge badge-unassigned">{{ unassignedCount }} wolnych</span>
             <span class="badge badge-assigned">{{ assignedCount }} przypisanych</span>
-            <span class="badge badge-unassigned">{{ unassignedCount }} nie przypisanych</span>
           </span>
         </div>
       </div>
@@ -38,6 +38,10 @@
             ></app-mag-second-dodaj>
             <app-mag-second-usun [Ids]="this.selectedIds"></app-mag-second-usun>
             <app-mag-second-src-bar></app-mag-second-src-bar>
+            <!-- Mobile-only trigger to set serial numbers -->
+            <button type="button" class="header-btn mobile-only" (click)="serialModal.open()" title="Ustaw numery seryjne" aria-label="Ustaw numery seryjne">
+              <i class="bi bi-upc" aria-hidden="true"></i>
+            </button>
           </div>
         </div>
         <div class="table-search">
@@ -48,9 +52,9 @@
         </div>
       </div>
   <table class="second-table" [attr.aria-busy]="loading ? 'true' : 'false'">
-        <thead>
+    <thead>
           <tr>
-            <th class="col-serial">Serial Number</th>
+      <th class="col-serial" (click)="serialModal.open()" title="Ustaw numery seryjne">Serial Number</th>
             <th class="col-przesylka">Przesyłka</th>
             <th class="col-assigned">Przypisane</th>
             <th class="col-note">Notatki</th>
@@ -104,6 +108,7 @@
           }
         </tbody>
       </table>
+  <app-mag-second-serial #serialModal [devices]="filteredDevices"></app-mag-second-serial>
     </div>
   </div>
 </div>

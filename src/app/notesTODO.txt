@@ -1,11 +1,4 @@
-//bar
-- add info global search
-- nie przypisanych -> wolnych na zielono
-- wolnych ma sie swiecic, zmienic miejsca
-- wiecej padding search bar tree list
-- wiecej padding monitor przypisane
-- fix z index adding on monitor second view
-- serial number modal, shows next nieprzypisane tagi sn
+//bar   
 - dodaj urzadzenia projekty, modal wyswietla tylko nie przypisane urzadzenia
 - no 4/0, just make it not addable
 
