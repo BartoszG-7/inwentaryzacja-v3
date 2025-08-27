@@ -1,7 +1,20 @@
 //bar
+  .-.
+ (o o)  < clank!
+ | ^ |
+ |_-_|
+ /| |\ 
+/_| |_\
+  / \
+ _| |_
+/_/ \_\
 
 //michas
 - eventow wiecej
 - automatyczne przypisanie adresow ip, maski, bramy, dnsow
 - refresh for lokalizacje-right-comp
 - fix mobile
+
+
+
+
