@@ -10,6 +10,7 @@ import { ProjectHistory } from '../project-history/project-history.schema';
 import { DeviceType } from '../device-type/device-type.schema';
 import type { ObjectId } from 'mongoose';
 import { LocationService } from '../location/location.service';
+import { timeout } from 'rxjs';
 export enum projectHistoryEvents {
   PROJECT_CREATED = 1,
   DEVICE_ADDED_TO_PROJECT = 2,
@@ -50,7 +51,7 @@ export class DataService {
     tempRes.forEach((element) => {
       let tempEl = JSON.parse(JSON.stringify(element));
       tempEl.address = this.locationService.addrToString(element.address);
-     
+
       finalRes.push({ ...tempEl });
     });
     return {
@@ -121,22 +122,51 @@ export class DataService {
     let projID = await this.addProject(projectData);
     return this.addProjectAndHistory(projID);
   }
-  async assignDevice(data: any): Promise<any> {
-    console.log('ASSGN', data);
-    return {
-      projectHistory: await this.ProjectHistoryModel.create({
-        type: projectHistoryEvents.DEVICE_ADDED_TO_PROJECT,
-        date: new Date().toISOString(),
-        tag: '',
-        deviceId: data.deviceId,
-        project: data.projectId,
-      }),
-      device: await this.deviceModel.updateOne(
-        { _id: data.deviceId },
-        { project: data.projectId },
-      ),
-    };
+  async assignHelper(data: any, deviceCount: any, splitIP: any, results: any) {
+    data.deviceIds.forEach(async (deviceId, ind) => {
+      console.log('IND', ind);
+    });
   }
+  async assignDevices(data: any): Promise<any> {
+    let ret = false;
+    let baseIp = (
+      await this.ProjectModel.find({
+        _id: new Types.ObjectId(data.projectId),
+      }).exec()
+    )[0].networkAddress;
+    let results: any = [];
+    let deviceCount =
+      (await this.deviceModel
+        .countDocuments({ project: new Types.ObjectId(data.projectId) })
+        .exec()) + 1;
+    let splitIP = baseIp.split('.');
+    for (let ind = 0; ind < data.deviceIds.length; ind++) {
+      let deviceId = data.deviceIds[ind];
+      splitIP[3] = (deviceCount + ind).toString();
+      let finalIP =
+        splitIP[0] + '.' + splitIP[1] + '.' + splitIP[2] + '.' + splitIP[3];
+      console.log('ASSGN', finalIP);
+      results.push({
+        projectHistory: await this.ProjectHistoryModel.create({
+          type: projectHistoryEvents.DEVICE_ADDED_TO_PROJECT,
+          date: new Date().toISOString(),
+          tag: '',
+          deviceId: deviceId,
+          project: data.projectId,
+        }),
+        device: await this.deviceModel
+          .updateOne(
+            { _id: deviceId },
+            { project: data.projectId, ip: finalIP },
+          )
+          .exec(),
+      });
+    }
+    return results;
+  }
+
+  //TODO: IP exclusion
+
   async globalSearch(data: string) {
     console.log(data);
     switch (data[0]) {
