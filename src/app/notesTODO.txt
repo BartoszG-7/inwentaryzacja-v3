@@ -3,7 +3,6 @@
 
 //michas
 - puste pola wyszukiwanie, jezeli klikasz na szukajke jak jest puste to wyszukuje puste pola
-- refresh magazyn-second jak sie dodaje / edytuje / usuwa
 - eventow wiecej
 - automatyczne przypisanie adresow ip, maski, bramy, dnsow
 - daj spacja adres json

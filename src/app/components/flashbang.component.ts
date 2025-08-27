@@ -104,48 +104,52 @@ export class FlashbangComponent implements OnInit, OnDestroy {
 
   private playSound(intensity: number) {
     try {
-      const AC = window.AudioContext || (window as any).webkitAudioContext;
-      this.audioCtx = new AC();
-      const ctx = this.audioCtx;
-      const gain = ctx.createGain();
-      const osc = ctx.createOscillator();
+      const audio = new Audio();
+      audio.src =
+        'https://www.myinstants.com/media/sounds/flashbang-cs_qoRhxLn.mp3';
+      audio.play();
+      // const AC = window.AudioContext || (window as any).webkitAudioContext;
+      // this.audioCtx = new AC();
+      // const ctx = this.audioCtx;
+      // const gain = ctx.createGain();
+      // const osc = ctx.createOscillator();
 
-      // quick frequency sweep to give a short "pop".
-      const now = ctx.currentTime;
-      osc.type = 'sine';
-      const startFreq = 1800;
-      const endFreq = 400;
-      osc.frequency.setValueAtTime(startFreq, now);
-      osc.frequency.exponentialRampToValueAtTime(
-        endFreq,
-        now + 0.08 + intensity * 0.04
-      );
+      // // quick frequency sweep to give a short "pop".
+      // const now = ctx.currentTime;
+      // osc.type = 'sine';
+      // const startFreq = 1800;
+      // const endFreq = 400;
+      // osc.frequency.setValueAtTime(startFreq, now);
+      // osc.frequency.exponentialRampToValueAtTime(
+      //   endFreq,
+      //   now + 0.08 + intensity * 0.04
+      // );
 
-      // gain envelope
-      gain.gain.setValueAtTime(0.0001, now);
-      gain.gain.exponentialRampToValueAtTime(0.5 * intensity, now + 0.005);
-      gain.gain.exponentialRampToValueAtTime(
-        0.0001,
-        now + 0.12 + intensity * 0.06
-      );
+      // // gain envelope
+      // gain.gain.setValueAtTime(0.0001, now);
+      // gain.gain.exponentialRampToValueAtTime(0.5 * intensity, now + 0.005);
+      // gain.gain.exponentialRampToValueAtTime(
+      //   0.0001,
+      //   now + 0.12 + intensity * 0.06
+      // );
 
-      osc.connect(gain).connect(ctx.destination);
-      osc.start(now);
-      osc.stop(now + 0.14 + intensity * 0.06);
+      // osc.connect(gain).connect(ctx.destination);
+      // osc.start(now);
+      // osc.stop(now + 0.14 + intensity * 0.06);
 
-      // cleanup
-      osc.onended = () => {
-        try {
-          gain.disconnect();
-          osc.disconnect();
-        } catch (e) {}
-        // don't close context immediately; small timeout
-        setTimeout(() => {
-          try {
-            ctx.close();
-          } catch (e) {}
-        }, 200);
-      };
+      // // cleanup
+      // osc.onended = () => {
+      //   try {
+      //     gain.disconnect();
+      //     osc.disconnect();
+      //   } catch (e) {}
+      //   // don't close context immediately; small timeout
+      //   setTimeout(() => {
+      //     try {
+      //       ctx.close();
+      //     } catch (e) {}
+      //   }, 200);
+      // };
     } catch (e) {
       // audio not supported or blocked by user gesture
       // fail silently

@@ -122,12 +122,65 @@ export class DataService {
     let projID = await this.addProject(projectData);
     return this.addProjectAndHistory(projID);
   }
-  async assignHelper(data: any, deviceCount: any, splitIP: any, results: any) {
-    data.deviceIds.forEach(async (deviceId, ind) => {
-      console.log('IND', ind);
-    });
+
+  ipToNumber(ip) {
+    return (
+      ip
+        .split('.')
+        .reduce((acc, octet) => (acc << 8) + parseInt(octet, 10), 0) >>> 0
+    );
   }
+  isIpInRange(ip, range) {
+    const [start, end] = range.split('-');
+
+    const ipNum = this.ipToNumber(ip);
+    const startNum = this.ipToNumber(start);
+    const endNum = this.ipToNumber(end);
+
+    return ipNum >= startNum && ipNum <= endNum;
+  }
+
+  finalIpValidation(splitIP: any, excludedIps: any) {
+    let finalIP =
+      splitIP[0] + '.' + splitIP[1] + '.' + splitIP[2] + '.' + splitIP[3];
+    let splitIPCopy: any = Array.from(splitIP);
+
+    excludedIps.split(',').forEach((ip) => {
+      if (ip.includes('-')) {
+        if (this.isIpInRange(finalIP, ip)) {
+          console.log('BEF', splitIPCopy);
+          splitIPCopy[3] = (Number(splitIPCopy[3]) + 1).toString();
+          console.log('AFT', splitIPCopy);
+          this.finalIpValidation(splitIPCopy, excludedIps);
+        }
+      } else {
+        if (ip === finalIP) {
+          console.log('BEF', splitIPCopy);
+
+          splitIPCopy[3] = (Number(splitIPCopy[3]) + 1).toString();
+          console.log('AFT', splitIPCopy);
+          this.finalIpValidation(splitIPCopy, excludedIps);
+        }
+      }
+    });
+    return (
+      splitIPCopy[0] +
+      '.' +
+      splitIPCopy[1] +
+      '.' +
+      splitIPCopy[2] +
+      '.' +
+      splitIPCopy[3]
+    );
+  }
+
   async assignDevices(data: any): Promise<any> {
+    let excludedIps = (
+      await this.ProjectModel.find({
+        _id: new Types.ObjectId(data.projectId),
+      }).exec()
+    )[0].addrExclude;
+
     let ret = false;
     let baseIp = (
       await this.ProjectModel.find({
@@ -143,8 +196,7 @@ export class DataService {
     for (let ind = 0; ind < data.deviceIds.length; ind++) {
       let deviceId = data.deviceIds[ind];
       splitIP[3] = (deviceCount + ind).toString();
-      let finalIP =
-        splitIP[0] + '.' + splitIP[1] + '.' + splitIP[2] + '.' + splitIP[3];
+      let finalIP = this.finalIpValidation(splitIP, excludedIps);
       console.log('ASSGN', finalIP);
       results.push({
         projectHistory: await this.ProjectHistoryModel.create({
