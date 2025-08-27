@@ -2,6 +2,6 @@
     <div class="input-icon-group">
     <input #searchInput [(ngModel)]="searchValue" (input)="onFilterChange($event)" type="search" placeholder="Szukaj..." autocomplete="off">
     <i *ngIf="searchValue" class="bi bi-x search-bar-clear custom-clear" (click)="clearSearch(searchInput)"></i>
-    <i class="bi bi-search search-bar-icon"></i>
+    <i class="bi bi-search search-bar-icon" (click)="emitSearch()"></i>
     </div>
 </div>

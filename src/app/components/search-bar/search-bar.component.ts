@@ -34,4 +34,10 @@ export class SearchBarComponent implements OnInit {
       },
     });
   }
+
+  // Emits immediately when clicking the search icon.
+  // If the field is empty, emits an empty string so parents can treat it as a request to find blank values.
+  emitSearch(): void {
+    this.searchInput.emit(this.searchValue ?? '');
+  }
 }
