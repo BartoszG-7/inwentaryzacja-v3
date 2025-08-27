@@ -23,4 +23,11 @@ export class MagazynRightSecondService {
     );
   }
   
+  updateDevice(id: string, body: any): Observable<any> {
+    return this.httpClient.patch<JSON>(
+      'http://localhost:3000/device/' + id,
+      body
+    );
+  }
+  
 }

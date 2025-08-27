@@ -48,9 +48,9 @@
         </div>
       </div>
   <table class="second-table" [attr.aria-busy]="loading ? 'true' : 'false'">
-        <thead>
+    <thead>
           <tr>
-            <th class="col-serial">Serial Number</th>
+      <th class="col-serial" (click)="serialModal.open()" title="Ustaw numery seryjne">Serial Number</th>
             <th class="col-przesylka">Przesyłka</th>
             <th class="col-assigned">Przypisane</th>
             <th class="col-note">Notatki</th>
@@ -104,6 +104,7 @@
           }
         </tbody>
       </table>
+  <app-mag-second-serial #serialModal [devices]="filteredDevices"></app-mag-second-serial>
     </div>
   </div>
 </div>

@@ -1,0 +1,31 @@
+@if (show) {
+	<div class="modal-backdrop open" (click)="close()"></div>
+	<div class="modal-custom open" role="dialog" aria-modal="true" aria-labelledby="serialModalTitle">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 id="serialModalTitle" class="modal-title">Ustaw numery seryjne</h5>
+				<button type="button" class="modal-close-btn" (click)="close()" aria-label="Zamknij">&times;</button>
+			</div>
+			@if (hasAny) {
+				<div class="modal-body">
+					<div class="device-meta">
+						<div class="meta-row"><span class="label">Urządzenie:</span><span class="value">{{ current?.name || '-' }}</span></div>
+						<div class="meta-row"><span class="label">Tag:</span><span class="value">{{ current?.wamaNr || '-' }}</span></div>
+						<div class="meta-row"><span class="label">Przesyłka:</span><span class="value">{{ current?.przesylkaNr || '-' }}</span></div>
+						<div class="meta-row"><span class="label">Index:</span><span class="value">{{ idx + 1 }} / {{ missing.length }}</span></div>
+					</div>
+					<label for="serialInput" class="serial-label">Numer seryjny</label>
+					<input id="serialInput" type="text" [(ngModel)]="currentSerial" placeholder="Wpisz numer seryjny" />
+				</div>
+			} @else {
+				<div class="modal-body empty">Brak urządzeń bez numeru seryjnego.</div>
+			}
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" (click)="prev()" [disabled]="!canPrev">← Wstecz</button>
+				<div class="spacer"></div>
+				<button type="button" class="btn btn-primary" (click)="save()" [disabled]="!current">Zapisz</button>
+				<button type="button" class="btn btn-secondary" (click)="next()" [disabled]="!canNext">Dalej →</button>
+			</div>
+		</div>
+	</div>
+}

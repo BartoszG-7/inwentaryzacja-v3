@@ -1,5 +1,4 @@
-//bar
-- fix z index adding on monitor second view
+//bar   
 - serial number modal, shows next nieprzypisane tagi sn
 - dodaj urzadzenia projekty, modal wyswietla tylko nie przypisane urzadzenia
 - no 4/0, just make it not addable
