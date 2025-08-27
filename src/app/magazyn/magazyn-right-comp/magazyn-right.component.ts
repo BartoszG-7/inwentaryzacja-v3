@@ -43,8 +43,8 @@ export class MagazynRightCompComponent {
   }
   ngOnInit(): void {
     this.unassignedCounter.getUnassignedByType('s').subscribe({
-      next(value) {
-        console.log(value);
+      next: (value: number) => {
+        console.log('Unassigned count for type s:', value);
       },
     });
     this.linkService.getData().subscribe({
