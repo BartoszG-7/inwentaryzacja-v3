@@ -71,7 +71,8 @@
 .second-header-left {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  /* Increase spacing between the title (e.g., "Monitor") and the total line (e.g., "68 szt") */
+  gap: 0.8rem;
 }
 
 .second-title-name {
@@ -101,8 +102,8 @@
   font-size: 0.7rem;
   letter-spacing: 0.04em;
 }
-.second-title-total .badge-unassigned { color: $muted-txt; }
-.second-title-total .badge-assigned { color: $primary-color; border-color: $primary-color; }
+.second-title-total .badge-unassigned { color: $primary-color; border-color: $primary-color; }
+.second-title-total .badge-assigned { color: $muted-txt; border-color: $border-clr; }
 
 /* Base: inline with reversed order already in HTML (assigned first) */
 .second-title-total { display: inline-flex; align-items: center; gap: 8px; }
@@ -125,8 +126,9 @@
     justify-items: end;
     row-gap: 4px;
   }
-  .second-title-total .badge-assigned { order: 1; }
-  .second-title-total .badge-unassigned { order: 2; }
+  /* Keep the visually important one (wolnych) on top */
+  .second-title-total .badge-unassigned { order: 1; }
+  .second-title-total .badge-assigned { order: 2; }
 }
 
 .second-header-tools {
