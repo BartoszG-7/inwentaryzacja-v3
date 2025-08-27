@@ -203,7 +203,7 @@ export class DataService {
       let deviceCount = 0;
     }
     let splitIP = baseIp.split('.');
-    for (let ind = 0; ind < data.deviceIds.length; ind++) {
+    for (let ind = 1; ind < data.deviceIds.length; ind++) {
       let deviceId = data.deviceIds[ind];
       splitIP[3] = (deviceCount + ind).toString();
       let finalIP = this.finalIpValidation(splitIP, excludedIps);
