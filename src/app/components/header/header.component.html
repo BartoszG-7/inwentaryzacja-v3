@@ -11,9 +11,9 @@
       >
         <i class="bi bi-list"></i>
       </div>
-  <app-light-mode-global></app-light-mode-global>
+      <app-light-mode-global></app-light-mode-global>
       @if (showBackArrow) {
-        <!-- <button
+      <!-- <button
           type="button"
           class="back-arrow-btn"
           (click)="goToInwentaryzacja()"
@@ -23,11 +23,10 @@
         </button> -->
       }
     </div>
-    }
-    @if (isLoginPage) {
-      <div class="header-left-group">
-        <app-light-mode-global></app-light-mode-global>
-      </div>
+    } @if (isLoginPage) {
+    <div class="header-left-group">
+      <app-light-mode-global></app-light-mode-global>
+    </div>
     }
     <!-- Center: KIT logo button -->
     <div class="logo-container">
@@ -113,7 +112,7 @@
   </nav>
   }
   <!-- Right sidebar (mobile only, slide in/out) -->
-  @if (showRightMenu && selectedRoute.includes('/magazyn/')) {
+  @if (showRightMenu && selectedRoute.includes('magazyn')) {
   <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
     <button
       class="modal-close-btn sidebar-close-absolute"
@@ -147,7 +146,7 @@
       </ul>
     </div>
   </nav>
-  } @if (showRightMenu && !selectedRoute.includes("/magazyn/")) {
+  } @if (showRightMenu && !selectedRoute.includes("magazyn")) {
   <nav class="side-menu right sidebar-tree-flex" [class.open]="rightMenuOpen">
     <button
       class="modal-close-btn sidebar-close-absolute"
@@ -172,7 +171,7 @@
         <div class="sidebar-mobile-separator"></div>
       </div>
       <ul class="sidebar-tree-list">
-  <app-treebar [search]="searchInput"></app-treebar>
+        <app-treebar [search]="searchInput"></app-treebar>
       </ul>
     </div>
   </nav>

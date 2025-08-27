@@ -120,6 +120,7 @@ export class Treebar implements OnInit, OnChanges {
     });
   }
   ngOnInit(): void {
+    console.log('QUERRR', this.query());
     this.data = [];
     this.stringified = '';
     this.linkService.getData().subscribe({
@@ -137,12 +138,16 @@ export class Treebar implements OnInit, OnChanges {
               (Treeexpander as any).selectedProjectId = null;
               (Treeexpander as any).instances?.forEach((inst: any) => {
                 const lid =
-                  typeof inst.locationId === 'function' ? inst.locationId() : null;
+                  typeof inst.locationId === 'function'
+                    ? inst.locationId()
+                    : null;
                 inst.isSelected = lid === value.id;
                 inst.selectedProjectIndex = null;
                 inst.expanded.set(lid === value.id);
                 if (inst.changeDetectorRef) {
-                  try { inst.changeDetectorRef.detectChanges(); } catch {}
+                  try {
+                    inst.changeDetectorRef.detectChanges();
+                  } catch {}
                 }
               });
             } catch {}
@@ -154,9 +159,16 @@ export class Treebar implements OnInit, OnChanges {
               this.externalSelect = true;
               const locId = (value as any).idLoc ?? (value as any).id;
               this.pendingLocationId = locId;
-              try { (Treeexpander as any).selectedLocationId = locId; } catch {}
+              try {
+                (Treeexpander as any).selectedLocationId = locId;
+              } catch {}
               // If data already loaded, apply selection immediately
-              if (this.fetchedData && this.data && this.data.length > 0 && locId) {
+              if (
+                this.fetchedData &&
+                this.data &&
+                this.data.length > 0 &&
+                locId
+              ) {
                 this.setTRX('location', locId);
                 this.pendingLocationId = null;
               }
@@ -164,8 +176,15 @@ export class Treebar implements OnInit, OnChanges {
               this.externalSelect = true;
               const locId = (value as any).id;
               this.pendingLocationId = locId;
-              try { (Treeexpander as any).selectedLocationId = locId; } catch {}
-              if (this.fetchedData && this.data && this.data.length > 0 && locId) {
+              try {
+                (Treeexpander as any).selectedLocationId = locId;
+              } catch {}
+              if (
+                this.fetchedData &&
+                this.data &&
+                this.data.length > 0 &&
+                locId
+              ) {
                 this.setTRX('location', locId);
                 this.pendingLocationId = null;
               }
@@ -203,17 +222,22 @@ export class Treebar implements OnInit, OnChanges {
         //{"type":"project","id":"6895b53d4c2a9be9747d332b"}
         //{"type":"location","id":"6895b3254c2a9be9747d3327"}
         //project and location redir
-  // React to both path params and query params
-  this.activatedRoute.params.subscribe({
+        // React to both path params and query params
+        this.activatedRoute.params.subscribe({
           next: (e) => {
             // If a location was provided via query param, prime external selection before any param-based auto-select
             let qpLoc: string | null = null;
             try {
               qpLoc = this.activatedRoute.snapshot.queryParamMap.get('loc');
-              if (qpLoc && this.query() !== 'http://localhost:3000/device-type/list') {
+              if (
+                qpLoc &&
+                this.query() !== 'http://localhost:3000/device-type/list'
+              ) {
                 this.externalSelect = true;
                 this.pendingLocationId = qpLoc;
-                try { (Treeexpander as any).selectedLocationId = qpLoc; } catch {}
+                try {
+                  (Treeexpander as any).selectedLocationId = qpLoc;
+                } catch {}
               }
             } catch {}
             // If opening without explicit payload or query, allow auto-select-first
@@ -306,7 +330,10 @@ export class Treebar implements OnInit, OnChanges {
                 // If this is the locations tree, emit a LOCATION event too
                 if (this.query() !== 'http://localhost:3000/device-type/list') {
                   try {
-                    this.linkService.setData({ type: EventTypes.LOCATION, id: first.id });
+                    this.linkService.setData({
+                      type: EventTypes.LOCATION,
+                      id: first.id,
+                    });
                   } catch {}
                 }
               }
@@ -338,7 +365,10 @@ export class Treebar implements OnInit, OnChanges {
               const first = this.data[0];
               this.setTRX('location', first.id);
               try {
-                this.linkService.setData({ type: EventTypes.LOCATION, id: first.id });
+                this.linkService.setData({
+                  type: EventTypes.LOCATION,
+                  id: first.id,
+                });
               } catch {}
             }
           },
@@ -348,18 +378,24 @@ export class Treebar implements OnInit, OnChanges {
             // If a location is provided via query param, prioritize it
             if (
               this.query() !== 'http://localhost:3000/device-type/list' &&
-              qp && qp['loc']
+              qp &&
+              qp['loc']
             ) {
               const locId = qp['loc'];
               this.externalSelect = true;
               this.pendingLocationId = locId;
-              try { (Treeexpander as any).selectedLocationId = locId; } catch {}
+              try {
+                (Treeexpander as any).selectedLocationId = locId;
+              } catch {}
               if (this.fetchedData && this.data && this.data.length > 0) {
                 this.setTRX('location', locId);
                 this.pendingLocationId = null;
               }
               try {
-                this.linkService.setData({ type: EventTypes.LOCATION, id: locId });
+                this.linkService.setData({
+                  type: EventTypes.LOCATION,
+                  id: locId,
+                });
               } catch {}
             }
           },
