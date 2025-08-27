@@ -1,4 +1,11 @@
-import { Component, input, InputSignal, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  input,
+  InputSignal,
+  NgZone,
+  OnInit,
+} from '@angular/core';
 import { SlicePipe } from '@angular/common';
 import { MagSecondDodaj } from '../../components/mag-second-dodaj/mag-second-dodaj.component';
 import { MagSecondEdit } from '../../components/mag-second-edit/mag-second-edit.component';
@@ -8,6 +15,7 @@ import { SearchBarComponent } from '../../components/search-bar/search-bar.compo
 import { MagSecondSerial } from '../../components/mag-second-serial/mag-second-serial';
 import { MagazynRightSecondService } from './magazyn-right-second.service';
 import { MagazynSharedService } from '../../magazynShared.service';
+import { MagSecondEditService } from '../../components/mag-second-edit/mag-second-edit.service';
 
 @Component({
   selector: 'app-magazyn-right-second',
@@ -19,7 +27,7 @@ import { MagazynSharedService } from '../../magazynShared.service';
     MagSecondEdit,
     MagSecondUsun,
     MagSecondSrcBar,
-  MagSecondSerial,
+    MagSecondSerial,
   ],
   templateUrl: './magazyn-right-second.component.html',
   styleUrls: ['./magazyn-right-second.component.scss'],
@@ -27,7 +35,10 @@ import { MagazynSharedService } from '../../magazynShared.service';
 export class MagazynRightSecond implements OnInit {
   constructor(
     private magazynRightSecondService: MagazynRightSecondService,
-    private magazynSharedService: MagazynSharedService
+    private magazynSharedService: MagazynSharedService,
+    private magEditService: MagSecondEditService,
+    private changeDetector: ChangeDetectorRef,
+    private ngZone: NgZone
   ) {}
   title: InputSignal<string> = input<string>('Monitor 21');
   total: InputSignal<number> = input<number>(71);
@@ -44,10 +55,19 @@ export class MagazynRightSecond implements OnInit {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
   ]);
   ngOnInit(): void {
+    this.magEditService.getData().subscribe({
+      next: (value) => {
+        this.loadDevices();
+        console.log(this.data);
+        this.changeDetector.detectChanges();
+      },
+    });
     this.loadDevices();
   }
 
-  onRefresh(_: boolean) { this.loadDevices(); }
+  onRefresh(_: boolean) {
+    this.loadDevices();
+  }
 
   private loadDevices() {
     this.loading = true;
@@ -57,8 +77,14 @@ export class MagazynRightSecond implements OnInit {
         this.filteredDevices = value?.device ?? [];
         const devices = this.data?.device ?? [];
         this.totalCount = devices.length;
-        this.assignedCount = devices.reduce((acc: number, d: any) => acc + (d?.project ? 1 : 0), 0);
-        this.unassignedCount = Math.max(this.totalCount - this.assignedCount, 0);
+        this.assignedCount = devices.reduce(
+          (acc: number, d: any) => acc + (d?.project ? 1 : 0),
+          0
+        );
+        this.unassignedCount = Math.max(
+          this.totalCount - this.assignedCount,
+          0
+        );
         this.loading = false;
       },
       error: (err) => {
@@ -137,11 +163,12 @@ export class MagazynRightSecond implements OnInit {
   formatLocationProject(d: any): string {
     const loc = d?.project?.location?.name || '';
     const proj = d?.project?.name || '';
-    return loc ? `${loc}, ${proj || '-'}` : (proj || '-');
+    return loc ? `${loc}, ${proj || '-'}` : proj || '-';
   }
   copyCell(value: string, ev?: MouseEvent) {
     try {
-      ev?.preventDefault?.(); ev?.stopPropagation?.();
+      ev?.preventDefault?.();
+      ev?.stopPropagation?.();
       const sel = window.getSelection?.();
       if (sel && sel.removeAllRanges) sel.removeAllRanges();
     } catch {}
@@ -149,22 +176,25 @@ export class MagazynRightSecond implements OnInit {
     navigator.clipboard.writeText(value);
     try {
       const target = (ev?.target as HTMLElement) || null;
-      const span = (target?.closest?.('.trunc') as HTMLElement) ||
-        ((ev?.currentTarget as HTMLElement)?.querySelector?.('.trunc') as HTMLElement);
+      const span =
+        (target?.closest?.('.trunc') as HTMLElement) ||
+        ((ev?.currentTarget as HTMLElement)?.querySelector?.(
+          '.trunc'
+        ) as HTMLElement);
       if (span) {
-  const x = (ev as MouseEvent)?.clientX ?? 0;
-  const y = (ev as MouseEvent)?.clientY ?? 0;
-  span.style.setProperty('--copy-x', `${x}px`);
-  span.style.setProperty('--copy-y', `${y + 12}px`);
+        const x = (ev as MouseEvent)?.clientX ?? 0;
+        const y = (ev as MouseEvent)?.clientY ?? 0;
+        span.style.setProperty('--copy-x', `${x}px`);
+        span.style.setProperty('--copy-y', `${y + 12}px`);
         span.classList.add('no-select');
         const prev = this.copyTimers.get(span);
         if (prev) clearTimeout(prev);
         span.classList.add('copied');
-  const t = setTimeout(() => {
+        const t = setTimeout(() => {
           span.classList.remove('copied');
           span.classList.remove('no-select');
           this.copyTimers.delete(span);
-  }, 600);
+        }, 600);
         this.copyTimers.set(span, t);
       }
     } catch {}

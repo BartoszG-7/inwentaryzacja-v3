@@ -1,7 +1,8 @@
-import { Component, input, output } from '@angular/core';
+import { ChangeDetectorRef, Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MagSecondEditService } from './mag-second-edit.service';
+import { Subject } from 'rxjs';
 
 interface EditDeviceForm {
   serialNr: string;
@@ -18,7 +19,11 @@ interface EditDeviceForm {
   styleUrls: ['./mag-second-edit.component.scss'],
 })
 export class MagSecondEdit {
-  constructor(private magEditService: MagSecondEditService) {}
+  constructor(
+    private magEditService: MagSecondEditService,
+    private changeDetector: ChangeDetectorRef
+  ) {}
+
   showModal = false;
   elmnt = input<any>();
   device = input<any>();
@@ -51,8 +56,10 @@ export class MagSecondEdit {
     let id: any = this.elmnt()._id;
 
     this.magEditService.editData(this.form, id).subscribe({
-      next(value) {
+      next: (value) => {
         console.log(value);
+        this.magEditService.sendRefresh();
+        this.changeDetector.detectChanges();
       },
     });
     this.closeModal();

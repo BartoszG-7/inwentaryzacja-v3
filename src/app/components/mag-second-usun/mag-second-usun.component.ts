@@ -1,6 +1,7 @@
 import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MagSecondUsunService } from './mag-second-usun.service';
+import { MagSecondEditService } from '../mag-second-edit/mag-second-edit.service';
 
 @Component({
   selector: 'app-mag-second-usun',
@@ -10,7 +11,10 @@ import { MagSecondUsunService } from './mag-second-usun.service';
   styleUrls: ['./mag-second-usun.component.scss'],
 })
 export class MagSecondUsun {
-  constructor(private magSecondUsunService: MagSecondUsunService) {}
+  constructor(
+    private magSecondUsunService: MagSecondUsunService,
+    private magEditService: MagSecondEditService
+  ) {}
   showModal = false;
   deviceIds = input<string[]>();
 
@@ -30,8 +34,9 @@ export class MagSecondUsun {
     });
     console.log(tempids);
     this.magSecondUsunService.delData({ ids: tempids }).subscribe({
-      next(value) {
+      next: (value) => {
         console.log(value);
+        this.magEditService.sendRefresh();
       },
       error(err) {
         console.log(err);

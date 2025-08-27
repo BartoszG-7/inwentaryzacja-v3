@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { MagSecondEditService } from '../mag-second-edit/mag-second-edit.service';
 
 @Injectable({
   providedIn: 'root',
