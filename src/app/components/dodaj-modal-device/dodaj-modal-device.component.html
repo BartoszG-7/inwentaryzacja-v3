@@ -2,62 +2,96 @@
 <button class="header-btn" (click)="openModal()">DODAJ</button>
 
 @if (showModal) {
-  <div class="modal-backdrop open" (click)="closeModal()"></div>
-  <div class="modal-custom open">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Przypisz urządzenia do projektu</h5>
-        <button type="button" class="close" (click)="closeModal()" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<div class="modal-backdrop open" (click)="closeModal()"></div>
+<div class="modal-custom open">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Przypisz urządzenia do projektu</h5>
+      <button
+        type="button"
+        class="close"
+        (click)="closeModal()"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <!-- Step 1: choose device type -->
+      <div class="mb-2">
+        <label for="deviceType" class="form-label">Typ urządzenia</label>
+        <select
+          id="deviceType"
+          class="form-control"
+          [(ngModel)]="selectedTypeId"
+          name="deviceType"
+          (change)="onTypeChange()"
+        >
+          <option value="">Wybierz typ...</option>
+          @for (type of deviceTypes; track type.id) {
+          <option [value]="type.id">{{ type.name }}</option>
+          }
+        </select>
       </div>
 
-      <div class="modal-body">
-        <!-- Step 1: choose device type -->
-        <div class="mb-2">
-          <label for="deviceType" class="form-label">Typ urządzenia</label>
-          <select id="deviceType" class="form-control" [(ngModel)]="selectedTypeId" name="deviceType" (change)="onTypeChange()">
-            <option value="">Wybierz typ...</option>
-            @for (type of deviceTypes; track type.id) {
-              <option [value]="type.id">{{ type.name }}</option>
-            }
-          </select>
+      <!-- Step 2: show device list with checkbox (only tag) -->
+      @if (selectedTypeId) {
+      <div
+        class="device-list"
+        style="max-height: 52vh; overflow-y: auto; padding-right: 0.25rem"
+      >
+        <div class="list-header text-uppercase">
+          <div class="col-sn">SN</div>
+          <div class="col-tag">TAG</div>
+          <div class="col-check">ZAZNACZ</div>
         </div>
-
-        <!-- Step 2: show device list with checkbox (only tag) -->
-        @if (selectedTypeId) {
-          <div class="device-list" style="max-height: 52vh; overflow-y: auto; padding-right: .25rem;">
-            <div class="list-header text-uppercase">
-              <div class="col-sn">SN</div>
-              <div class="col-tag">TAG</div>
-              <div class="col-check">ZAZNACZ</div>
+        @if (loadingDevices) {
+        <div class="py-2">Ładowanie…</div>
+        } @else { @if (!devices.length) {
+        <div class="py-2">Brak urządzeń dla wybranego typu.</div>
+        } @else {
+        <ul class="list-unstyled m-0">
+          @for (d of devices; track d._id) {
+          <li class="device-row py-1">
+            <div class="col-sn">
+              <span class="dev-sn">{{ d.wamaNr || d.serialNr || "-" }}</span>
             </div>
-            @if (loadingDevices) {
-              <div class="py-2">Ładowanie…</div>
-            } @else {
-              @if (!devices.length) {
-                <div class="py-2">Brak urządzeń dla wybranego typu.</div>
-              } @else {
-                <ul class="list-unstyled m-0">
-                  @for (d of devices; track d._id) {
-                    <li class="device-row py-1">
-                      <div class="col-sn"><span class="dev-sn">{{ d.wamaNr || d.serialNr || '-' }}</span></div>
-                      <div class="col-tag"><span class="dev-tag">{{ d.tag || '-' }}</span></div>
-                      <div class="col-check"><input type="checkbox" [id]="'dev_'+d._id" [checked]="selected[d._id]" (change)="toggleOne(d._id, $any($event.target).checked)" /></div>
-                    </li>
-                  }
-                </ul>
-              }
-            }
-          </div>
-        }
-        @if (errorMsg) { <div class="text-danger mt-2">{{ errorMsg }}</div> }
+            <div class="col-tag">
+              <span class="dev-tag">{{ d.tag || "-" }}</span>
+            </div>
+            <div class="col-check">
+              <input
+                type="checkbox"
+                [disabled]="disabled[d._id]"
+                [id]="'dev_' + d._id"
+                [checked]="selected[d._id]"
+                (change)="toggleOne(d._id, $any($event.target).checked)"
+              />
+            </div>
+          </li>
+          }
+        </ul>
+        } }
       </div>
+      } @if (errorMsg) {
+      <div class="text-danger mt-2">{{ errorMsg }}</div>
+      }
+    </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="closeModal()">Anuluj</button>
-        <button type="button" class="btn btn-primary" [disabled]="assigning || !selectedTypeId" (click)="assignSelected()">Przypisz</button>
-      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closeModal()">
+        Anuluj
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        [disabled]="assigning || !selectedTypeId"
+        (click)="assignSelected()"
+      >
+        Przypisz
+      </button>
     </div>
   </div>
+</div>
 }

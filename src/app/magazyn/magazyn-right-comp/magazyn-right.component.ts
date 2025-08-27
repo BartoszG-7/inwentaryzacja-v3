@@ -42,11 +42,11 @@ export class MagazynRightCompComponent {
     this.showSecond.emit();
   }
   ngOnInit(): void {
-    this.unassignedCounter.getUnassignedByType('s').subscribe({
-      next(value) {
-        console.log(value);
-      },
-    });
+    // this.unassignedCounter.getUnassignedByType('s').subscribe({
+    //   next(value) {
+    //     console.log(value);
+    //   },
+    // });
     this.linkService.getData().subscribe({
       next: (value) => {
         this.id = value.id;

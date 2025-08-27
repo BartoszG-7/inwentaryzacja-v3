@@ -30,6 +30,7 @@ export class DodajModalDeviceComponent implements OnInit {
   currentAssigned: Record<string, boolean> = {};
   assigning = false;
   errorMsg: string | null = null;
+  disabled: Record<string, boolean> = {};
   ngOnInit(): void {
     this.dodajModalProjektService.getDeviceTypes().subscribe({
       next: (e) => {
@@ -63,20 +64,26 @@ export class DodajModalDeviceComponent implements OnInit {
     }
     this.loadingDevices = true;
     this.errorMsg = null;
+
     this.magazynSecondService.getDevices(this.selectedTypeId).subscribe({
       next: (resp: any) => {
         // resp.device is the list
         this.devices = Array.isArray(resp?.device) ? resp.device : [];
         this.selected = {};
         this.currentAssigned = {};
-        const projId = (this.projectId() as unknown as string) || '';
+        const projId = (this.projectId()() as unknown as string) || '';
         for (const d of this.devices) {
           const did = d?._id as string;
+          console.log(this.projectId()());
+          const taken =
+            d?.project?._id && d?.project?._id !== this.projectId()();
           const assignedHere =
-            !!projId && (d?.project?.toString?.() ?? d?.project) === projId;
+            !!projId &&
+            (d?.project?._id?.toString?.() ?? d?.project?._id) === projId;
           if (did) {
             this.currentAssigned[did] = assignedHere;
             // Pre-check items already assigned to this project
+            this.disabled[did] = taken;
             this.selected[did] = assignedHere;
           }
         }
