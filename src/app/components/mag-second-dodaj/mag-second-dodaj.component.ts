@@ -26,28 +26,15 @@ import { Component, input, OnInit, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MagSecondDodajService } from './mag-second-dodaj.service';
+import { forkJoin } from 'rxjs';
 // interface NewDeviceForm {
 //   ip: string; tag: string; macAddr: string; serialNr: string; serverAddress: string; note: string; pinIfButton?: string; remoteAccessId: string; wamaNr: string; dns1: string; dns2: string; networkAddress: string; mask: string; gateway: string; przesylkaNr: string; fakturaNr: string;
 // }
 
 interface NewDeviceForm {
-  ip: string;
-  tag: string;
-  deviceType: string;
-  macAddr: string;
-  serialNr: string;
-  serverAddress: string;
-  note: string;
-  pinIfButton?: string;
-  remoteAccessId: string;
-  wamaNr: string;
-  dns1: string;
-  dns2: string;
-  networkAddress: string;
-  mask: string;
-  gateway: string;
   przesylkaNr: string;
   fakturaNr: string;
+  amount: number;
 }
 @Component({
   selector: 'app-mag-second-dodaj',
@@ -61,23 +48,9 @@ export class MagSecondDodaj implements OnInit {
 
   save = output<NewDeviceForm>();
   form: NewDeviceForm = {
-    ip: '',
-    deviceType: '',
-    tag: '',
-    macAddr: '',
-    serialNr: '',
-    serverAddress: '',
-    note: '',
-    pinIfButton: '',
-    remoteAccessId: '',
-    wamaNr: '',
-    dns1: '',
-    dns2: '',
-    networkAddress: '',
-    mask: '',
-    gateway: '',
     przesylkaNr: '',
     fakturaNr: '',
+  amount: 1,
   };
 
   devicetype = input<string>();
@@ -119,22 +92,28 @@ export class MagSecondDodaj implements OnInit {
 
   // Example: handle form submission
   onSubmit() {
-    // Just send the device object as payload
+    const deviceType = this.devicetype() ?? '';
+    const amount = Math.max(1, Number(this.form.amount) || 1);
+    const basePayload = {
+      deviceType,
+      przesylkaNr: this.form.przesylkaNr?.trim() || '',
+      fakturaNr: this.form.fakturaNr?.trim() || '',
+    } as any;
 
-    const payload = { ...this.form };
-    payload.deviceType = this.devicetype() ?? '';
-    // TODO: send payload to backend or emit event
-    console.log('Device payload:', payload);
-    this.dodajModalProjektService.saveData(payload).subscribe({
-      next: (e) => {
-        console.log(e);
+    const requests = Array.from({ length: amount }, () =>
+      this.dodajModalProjektService.saveData(basePayload)
+    );
+
+    forkJoin(requests).subscribe({
+      next: () => {
         this.refresh.emit(this.refreshState);
         this.refreshState = !this.refreshState;
+        this.closeModal();
       },
-      error(err) {
-        console.log(err);
+      error: (err) => {
+        console.error(err);
+        this.closeModal();
       },
     });
-    this.closeModal();
   }
 }

@@ -3,23 +3,28 @@ import { IsString, IsOptional, IsIP } from 'class-validator';
 import { SchemaTypes, Types } from 'mongoose';
 
 export class CreateDeviceDto {
+  @IsOptional()
   @IsString()
-  ip: string;
+  ip?: string;
 
   @Type(() => SchemaTypes.ObjectId)
   deviceType: Types.ObjectId; // DeviceType ObjectId
 
+  @IsOptional()
   @IsString()
-  tag: string;
+  tag?: string;
 
+  @IsOptional()
   @IsString()
-  macAddr: string;
+  macAddr?: string;
 
+  @IsOptional()
   @IsString()
-  serialNr: string;
+  serialNr?: string;
 
+  @IsOptional()
   @IsString()
-  serverAddress: string;
+  serverAddress?: string;
 
   @IsOptional()
   @IsString()
@@ -29,46 +34,43 @@ export class CreateDeviceDto {
   @IsString()
   pinIfButton?: string;
 
+  @IsOptional()
   @IsString()
-  remoteAccessId: string;
+  remoteAccessId?: string;
 
   @IsOptional()
   @Type(() => SchemaTypes.ObjectId)
   project: Types.ObjectId;
 
-  @IsString()
-  wamaNr: string;
-
-  @IsString()
   @IsOptional()
-  @IsIP()
+  @IsString()
+  wamaNr?: string;
+
+  @IsOptional()
+  @IsString()
   dns1?: string;
 
-  @IsString()
   @IsOptional()
-  @IsIP()
+  @IsString()
   dns2?: string;
 
-  @IsString()
   @IsOptional()
-  @IsIP()
+  @IsString()
   networkAddress?: string;
 
-  @IsString()
   @IsOptional()
-  @IsIP()
+  @IsString()
   mask?: string;
 
-  @IsString()
   @IsOptional()
-  @IsIP()
+  @IsString()
   gateway?: string;
 
-  @IsString()
   @IsOptional()
-  przesylkaNr: string;
+  @IsString()
+  przesylkaNr?: string;
 
-  @IsString()
   @IsOptional()
-  fakturaNr: string;
+  @IsString()
+  fakturaNr?: string;
 }

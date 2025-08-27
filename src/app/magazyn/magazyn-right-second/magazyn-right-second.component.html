@@ -35,6 +35,7 @@
           <div class="table-icons">
             <app-mag-second-dodaj
               [devicetype]="data.deviceType._id"
+              (refresh)="onRefresh($event)"
             ></app-mag-second-dodaj>
             <app-mag-second-usun [Ids]="this.selectedIds"></app-mag-second-usun>
             <app-mag-second-src-bar></app-mag-second-src-bar>

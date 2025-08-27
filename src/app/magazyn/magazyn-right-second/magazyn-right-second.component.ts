@@ -44,20 +44,20 @@ export class MagazynRightSecond implements OnInit {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
   ]);
   ngOnInit(): void {
-    console.log(this.id());
+    this.loadDevices();
+  }
+
+  onRefresh(_: boolean) { this.loadDevices(); }
+
+  private loadDevices() {
     this.loading = true;
     this.magazynRightSecondService.getDevices(this.id()).subscribe({
       next: (value) => {
-        console.log(value);
         this.data = value;
         this.filteredDevices = value?.device ?? [];
-        // compute counts
         const devices = this.data?.device ?? [];
         this.totalCount = devices.length;
-        this.assignedCount = devices.reduce(
-          (acc: number, d: any) => acc + (d?.project ? 1 : 0),
-          0
-        );
+        this.assignedCount = devices.reduce((acc: number, d: any) => acc + (d?.project ? 1 : 0), 0);
         this.unassignedCount = Math.max(this.totalCount - this.assignedCount, 0);
         this.loading = false;
       },
