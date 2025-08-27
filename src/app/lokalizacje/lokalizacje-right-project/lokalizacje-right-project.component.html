@@ -224,7 +224,11 @@
               <td colspan="12" class="fw-bold text-uppercase text-center">
                 <span class="group-header-center">
                   <span class="group-name">{{ group.name }}</span>
-                  <span class="group-badge" [attr.title]="(group.assigned ?? 0) + '/' + (group.needed ?? 0)">
+                  <span
+                    class="group-badge"
+                    [class.mismatch]="(group.needed ?? 0) > 0 && (group.assigned ?? 0) !== (group.needed ?? 0)"
+                    [attr.title]="(group.assigned ?? 0) + '/' + (group.needed ?? 0)"
+                  >
                     {{ group.assigned ?? 0 }}/{{ group.needed ?? 0 }}
                   </span>
                 </span>
