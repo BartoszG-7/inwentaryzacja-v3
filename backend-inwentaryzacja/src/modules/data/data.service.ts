@@ -165,7 +165,11 @@ export class DataService {
         .find({
           deviceType: new Types.ObjectId(typeId),
         })
-        .populate('project', ['name'])
+        .populate({
+          path: 'project',
+          select: ['name', 'location'],
+          populate: { path: 'location', select: ['name'] },
+        })
         .exec(),
       deviceType: (
         await this.DeviceTypeModel.find({

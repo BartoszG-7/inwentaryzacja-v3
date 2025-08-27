@@ -132,6 +132,11 @@ export class MagazynRightSecond implements OnInit {
   }
 
   private copyTimers = new WeakMap<HTMLElement, any>();
+  formatLocationProject(d: any): string {
+    const loc = d?.project?.location?.name || '';
+    const proj = d?.project?.name || '';
+    return loc ? `${loc}, ${proj || '-'}` : (proj || '-');
+  }
   copyCell(value: string, ev?: MouseEvent) {
     try {
       ev?.preventDefault?.(); ev?.stopPropagation?.();
