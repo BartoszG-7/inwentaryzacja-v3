@@ -3,4 +3,5 @@
 //michas
 - eventow wiecej
 - automatyczne przypisanie adresow ip, maski, bramy, dnsow
-- daj spacja adres json
+- refresh for lokalizacje-right-comp
+- fix mobile

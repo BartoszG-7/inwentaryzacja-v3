@@ -287,6 +287,13 @@ col {
   gap: 1em;
 }
 
+/* Show mobile search icon only on small screens */
+.mobile-search-trigger { display: none; }
+@media (max-width: 900px) {
+  .mobile-search-trigger { display: inline-flex; align-items: center; }
+  .header-actions app-search-bar { display: none; }
+}
+
 /* Back arrow button styling */
 .back-arrow-btn {
   display: inline-flex;

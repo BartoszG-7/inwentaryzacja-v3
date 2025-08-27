@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { LokalizacjeRightProjectService } from './lokalizacje-right-project.service';
 import { DodajModalDeviceComponent } from '../../components/dodaj-modal-device/dodaj-modal-device.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
+import { SearchBarMobileComponent } from '../../components/search-bar-mobile/search-bar-mobile.component';
 import { UsunModalDeviceComponent } from '../../components/usun-modal-device/usun-modal-device.component';
 import { EditProjektComponent } from '../../components/edit-projekt/edit-projekt.component';
 import { EditProjektDeviceComponent } from '../../components/edit-projekt-device/edit-projekt-device.component';
@@ -30,6 +31,7 @@ type Group = {
     CommonModule,
     DodajModalDeviceComponent,
     SearchBarComponent,
+  SearchBarMobileComponent,
     UsunModalDeviceComponent,
     EditProjektComponent,
   EditProjektDeviceComponent,
