@@ -16,7 +16,7 @@
         <div class="panel-col-inner">
           <div class="panel-col-title">Adres:</div>
           <div class="panel-col-body">
-            {{ location.address }}
+            {{ formattedAddress }}
             @if(location.tag){
               <div class="location-tag">tag: <a>{{ location.tag }}</a></div>
             }
@@ -41,14 +41,18 @@
   <div class="panel-projects">
       <div class="panel-projects-title">Projekty lokalizacji (Lokalizacja):</div>
       <div class="projekty-scroll">
-        <div class="projekty-list">
-          @for(project of projects; track project._id) {
-          <div class="projekt-row" role="button" tabindex="0" (click)="selectProject(project, $event)" (keydown.enter)="selectProject(project, $event)">
-            <i class="bi bi-newspaper list-icon" aria-hidden="true"></i>
-            <span class="projekt-name">{{ project.name }}</span>
+        @if (!projects || projects.length === 0) {
+          <div class="projekty-empty" style="color: #999">- Brak lokalizacji</div>
+        } @else {
+          <div class="projekty-list">
+            @for(project of projects; track project._id) {
+            <div class="projekt-row" role="button" tabindex="0" (click)="selectProject(project, $event)" (keydown.enter)="selectProject(project, $event)">
+              <i class="bi bi-newspaper list-icon" aria-hidden="true"></i>
+              <span class="projekt-name">{{ project.name }}</span>
+            </div>
+            }
           </div>
-          }
-        </div>
+        }
       </div>
     </div>
   </div>
