@@ -31,7 +31,7 @@ export class LightModeGlobal {
       this.flash.trigger({
         duration: 3000,
         intensity: 1,
-        sound: true,
+        sound: false,
         color: '#ffffff',
       });
 

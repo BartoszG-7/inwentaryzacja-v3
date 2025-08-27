@@ -63,4 +63,8 @@ export class CreateProjectDto {
 
   @Type(() => SchemaTypes.ObjectId)
   location: ObjectId;
+
+  @IsString()
+  @IsOptional()
+  lastIp?: string;
 }

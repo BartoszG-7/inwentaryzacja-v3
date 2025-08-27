@@ -175,6 +175,7 @@ export class DataService {
   }
 
   async assignDevices(data: any): Promise<any> {
+    let lastIp;
     let excludedIps = (
       await this.ProjectModel.find({
         _id: new Types.ObjectId(data.projectId),
@@ -188,16 +189,26 @@ export class DataService {
       }).exec()
     )[0].networkAddress;
     let results: any = [];
-    let deviceCount =
-      (await this.deviceModel
-        .countDocuments({ project: new Types.ObjectId(data.projectId) })
-        .exec()) + 1;
+    let deviceCount = 0;
+    try {
+      let deviceCount =
+        Number(
+          await this.ProjectModel.find({
+            _id: new Types.ObjectId(data.projectId),
+          })
+            .select('lastIp')
+            .exec(),
+        )[0].lastIp?.split('.')[3] ?? 0;
+    } catch {
+      let deviceCount = 0;
+    }
     let splitIP = baseIp.split('.');
     for (let ind = 0; ind < data.deviceIds.length; ind++) {
       let deviceId = data.deviceIds[ind];
       splitIP[3] = (deviceCount + ind).toString();
       let finalIP = this.finalIpValidation(splitIP, excludedIps);
       console.log('ASSGN', finalIP);
+      lastIp = finalIP;
       results.push({
         projectHistory: await this.ProjectHistoryModel.create({
           type: projectHistoryEvents.DEVICE_ADDED_TO_PROJECT,
@@ -214,6 +225,12 @@ export class DataService {
           .exec(),
       });
     }
+    await this.ProjectModel.updateOne(
+      {
+        _id: data.projectId,
+      },
+      { lastIp: lastIp },
+    );
     return results;
   }
 

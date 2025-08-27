@@ -62,4 +62,8 @@ export class UpdateProjectDto {
   @IsOptional()
   @Type(() => SchemaTypes.ObjectId)
   location: ObjectId;
+
+  @IsString()
+  @IsOptional()
+  lastIp?: string;
 }

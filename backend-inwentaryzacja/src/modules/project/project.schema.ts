@@ -28,6 +28,8 @@ export class Project {
   @Prop({ type: [ProjectDevice] }) projectDevices: ProjectDevice[];
 
   @Prop({ type: SchemaTypes.ObjectId, ref: 'Location' }) location: ObjectId;
+
+  @Prop() lastIp?: string;
 }
 
 export const ProjectSchema = SchemaFactory.createForClass(Project);
