@@ -1,5 +1,4 @@
 //bar
-- for przypisane also show lokalizacje:projekt
 - add info global search
 - nie przypisanych -> wolnych na zielono
 - wolnych ma sie swiecic, zmienic miejsca
