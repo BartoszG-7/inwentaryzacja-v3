@@ -26,7 +26,7 @@ import { LightModeGlobal } from '../light-mode-global/light-mode-global';
     PlusModalLokalComponent,
     SearchBarMobileComponent,
     GlobalSearchModalComponent,
-  LightModeGlobal,
+    LightModeGlobal,
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
@@ -42,6 +42,7 @@ export class HeaderComponent implements OnInit {
     // For example, you might want to filter the locations based on the search term
   }
   ngOnInit() {
+    console.log('ROUTE', this.selectedRoute.includes('magazyn'));
     this.treebarSharedService.getData().subscribe({
       next: (e) => {
         console.log('HEADER TRBAR SERVICE', e);
@@ -94,12 +95,12 @@ export class HeaderComponent implements OnInit {
       this.showBackArrow = show;
 
       console.log('INIT');
-      this.activeRoute.firstChild?.params.subscribe({
-        next: (e) => {
-          this.urlData = JSON.parse(e['data']);
-          console.log('URLDATA', e);
-        },
-      });
+      // this.activeRoute.firstChild?.params.subscribe({
+      //   next: (e) => {
+      //     this.urlData = JSON.parse(e['data']);
+      //     console.log('URLDATA', e);
+      //   },
+      // });
     });
     this.selectedRoute = this.router.url;
     this.router.events.subscribe((event: any) => {
