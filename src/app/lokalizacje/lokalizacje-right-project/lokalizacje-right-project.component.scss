@@ -365,6 +365,12 @@ col {
   letter-spacing: 0.04em;
 }
 
+/* Red text when assigned !== needed and needed > 0 */
+.group-label-row .group-badge.mismatch {
+  color: $red-color;
+  border-color: color-mix(in srgb, $red-color, $border-clr 40%);
+}
+
 /* Center the group name + badge */
 .group-header-center {
   display: inline-flex;

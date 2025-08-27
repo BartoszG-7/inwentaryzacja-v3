@@ -1,5 +1,7 @@
 //bar
 - for przypisane also show lokalizacje:projekt
+- na czerwono jezeli brakuje urzadzenia
+- bigger checkboxes
 
 //michas
 - puste pola wyszukiwanie, jezeli klikasz na szukajke jak jest puste to wyszukuje puste pola

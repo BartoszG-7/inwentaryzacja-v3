@@ -17,6 +17,7 @@ import { EditProjektComponent } from '../../components/edit-projekt/edit-projekt
 import { EditProjektDeviceComponent } from '../../components/edit-projekt-device/edit-projekt-device.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LinkService } from '../../linkService';
+import { DodajModalProjektService } from '../../components/dodaj-modal-device/dodaj-modal-projekt.service';
 
 type Group = {
   id: string;
@@ -42,7 +43,8 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     private lokalizacjeRightProjectService: LokalizacjeRightProjectService,
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private linkService: LinkService
+  private linkService: LinkService,
+  private dodajModalProjektService: DodajModalProjektService
   ) {}
 
   devicesGrouped: Array<Group & { needed?: number }> = [];
@@ -54,12 +56,21 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   groupedRows: any = [];
   urlData: any;
   loading = true;
+  private deviceTypeNames = new Map<string, string>();
   // timers for transient copy tooltips keyed by the span element
   private copyTimers = new WeakMap<HTMLElement, any>();
   // Track selected header column key
   activeHeaderKey: string | null = null;
   activeSortDirection: 'asc' | 'desc' | null = null;
   ngOnInit(): void {
+    // Preload device type names for mapping required groups with no devices
+    this.dodajModalProjektService.getDeviceTypes().subscribe({
+      next: (types: any[]) => {
+        for (const t of types || []) {
+          if (t?._id && t?.name) this.deviceTypeNames.set(String(t._id), t.name);
+        }
+      },
+    });
     this.linkService.getData().subscribe({
       next: (e) => {
         console.log(e);
@@ -172,20 +183,32 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
             e.devices.forEach((device: any) => {
               var brk = false;
               this.devicesGrouped.forEach((grouped) => {
-                if (grouped.id == device.deviceType._id && !brk) {
+                if (String(grouped.id) == String(device.deviceType._id) && !brk) {
                   grouped.devices.push(device);
                   brk = true;
                 }
               });
               if (!brk) {
                 this.devicesGrouped.push({
-                  id: device.deviceType._id,
+                  id: String(device.deviceType._id),
                   name: device.deviceType.name,
                   devices: [device],
                   needed: neededByType.get(device.deviceType._id) ?? 0,
                 });
               }
             });
+            // Ensure groups for required device types even if 0 devices present
+            for (const [typeId, needed] of neededByType.entries()) {
+              const exists = this.devicesGrouped.some(g => String(g.id) === String(typeId));
+              if (!exists && needed > 0) {
+                this.devicesGrouped.push({
+                  id: String(typeId),
+                  name: this.deviceTypeNames.get(String(typeId)) || 'Typ urządzenia',
+                  devices: [],
+                  needed: needed,
+                });
+              }
+            }
             this.devicesGrouped.forEach((grouped) => {
               this.groupedRows.push({
                 name: grouped.name,
@@ -335,12 +358,14 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     return this.activeHeaderKey === key;
   }
 
-  // True when there's no groups or all groups have no rows
+  // Consider groups with a non-zero 'needed' as content, even if no rows yet
   get isDevicesEmpty(): boolean {
     const gr = this.groupedRows as Array<any> | undefined;
     if (!gr || gr.length === 0) return true;
     for (const g of gr) {
-      if (g && Array.isArray(g.rows) && g.rows.length > 0) return false;
+      if ((g?.rows && g.rows.length > 0) || (typeof g?.needed === 'number' && g.needed > 0)) {
+        return false;
+      }
     }
     return true;
   }
