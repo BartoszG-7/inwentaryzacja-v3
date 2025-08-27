@@ -147,9 +147,12 @@ export class DodajModalDeviceComponent implements OnInit {
     for (const id of toAdd) {
       console.log(this.projectId()());
       this.dodajModalProjektService
-        .addToProject({ deviceId: id, projectId: this.projectId()() })
+        .addToProject({ deviceIds: toAdd, projectId: this.projectId()() })
         .subscribe({
-          next: () => checkDone(),
+          next: (v) => {
+            checkDone();
+            console.log('RESP', v);
+          },
           error: (err: unknown) => {
             failed++;
             console.error('Assign failed for', id, err);

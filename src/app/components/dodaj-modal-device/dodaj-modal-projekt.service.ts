@@ -13,10 +13,10 @@ export class DodajModalProjektService {
     return this.httpClient.get('http://localhost:3000/device-type/{}');
   }
   getProjectNeeded(id: string) {
-    return this.httpClient.get("http://localhost:3000/project/getNeeded/"+id);
+    return this.httpClient.get('http://localhost:3000/project/getNeeded/' + id);
   }
   addToProject(payload: {
-    deviceId: string;
+    deviceIds: any;
     projectId: string;
   }): Observable<any> {
     return this.httpClient.post(
