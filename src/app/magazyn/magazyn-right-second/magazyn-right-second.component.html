@@ -76,9 +76,9 @@
                 {{ (n.przesylkaNr?.length > 100) ? (n.przesylkaNr | slice:0:100) + '...' : (n.przesylkaNr || '-') }}
               </span>
             </td>
-            <td class="cell-assigned" data-label="Przypisane" (dblclick)="copyCell(n.project?.name, $event)">
-              <span class="trunc" tabindex="0" [attr.data-title]="(n.project?.name || '-')" [attr.title]="n.project?.name || '-'">
-                {{ (n.project?.name?.length > 100) ? (n.project?.name | slice:0:100) + '...' : (n.project?.name || '-') }}
+            <td class="cell-assigned" data-label="Przypisane" (dblclick)="copyCell(formatLocationProject(n), $event)">
+              <span class="trunc" tabindex="0" [attr.data-title]="formatLocationProject(n)" [attr.title]="formatLocationProject(n)">
+                {{ formatLocationProject(n) | slice:0:100 }}
               </span>
             </td>
             <td class="cell-note" data-label="Notatki" (dblclick)="copyCell(n.note, $event)">

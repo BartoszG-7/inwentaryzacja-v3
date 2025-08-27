@@ -27,6 +27,9 @@ export class GlobalSearchModalComponent implements OnChanges {
   search = new Subject<any>();
   loading = false;
   results: Array<[{ title: string; subtitle?: string; id: string }]> = [];
+  // Info box state/text (hardcoded, easy to edit here)
+  infoOpen = false;
+  infoText = 'Putting ! at the start of your query searches by Wama Number. <br> Putting @ at the start of your query searches by Serial Number. <br> Putting $ at the start of your query searches by MAC Address.';
   ngOnChanges(changes: SimpleChanges): void {
     console.log('CHANGED', changes);
   }

@@ -1,12 +1,25 @@
 //bar
-- for przypisane also show lokalizacje:projekt
-- na czerwono jezeli brakuje urzadzenia
-- bigger checkboxes
+- add info global search
+- nie przypisanych -> wolnych na zielono
+- wolnych ma sie swiecic, zmienic miejsca
+- wiecej padding search bar tree list
+- wiecej padding monitor przypisane
+- fix z index adding on monitor second view
+- serial number modal, shows next nieprzypisane tagi sn
+- dodaj urzadzenia projekty, modal wyswietla tylko nie przypisane urzadzenia
+- no 4/0, just make it not addable
+
+- magazyn second dodaj modal forms: 
+* faktura numer
+* przesyllka numer
+* ilosci dodawania
 
 //michas
 - puste pola wyszukiwanie, jezeli klikasz na szukajke jak jest puste to wyszukuje puste pola
 - refresh magazyn-second jak sie dodaje / edytuje / usuwa
 - eventow wiecej
+- automatyczne przypisanie adresow ip, maski, bramy, dnsow
+- adres przypisywany w projekcie dopiero
 
 {
 country,

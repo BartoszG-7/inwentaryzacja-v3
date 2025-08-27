@@ -45,7 +45,7 @@
   z-index: 10;
 }
 col#checkbox {
-  width: 25px;
+  width: 40px;
 }
 col#snWama {
   width: 130px;
@@ -58,6 +58,25 @@ col {
 }
 .right-project-table tbody tr td {
   width: 200px !important;
+}
+
+/* Narrow, centered checkbox column */
+.right-project-table tbody tr td:first-child {
+  width: 40px !important;
+  text-align: center;
+}
+
+/* Bigger, clearer selection checkbox */
+.right-project-table td input[type='checkbox'] {
+  transform: scale(1.5);
+  transform-origin: center;
+  accent-color: $primary-color;
+  cursor: pointer;
+}
+.right-project-table td input[type='checkbox']:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--primary-color), white 20%);
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 
 @import "global.scss";

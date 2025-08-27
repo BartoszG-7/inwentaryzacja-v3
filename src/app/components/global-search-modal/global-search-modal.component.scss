@@ -86,6 +86,32 @@
 	font-weight: bold;
 	color: $title-txt;
 }
+.info-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	color: $muted-txt;
+	border: 1px solid $border-clr;
+	cursor: pointer;
+	transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.info-icon:hover, .info-icon:focus-visible {
+	color: $primary-color;
+	border-color: $primary-color;
+	background: color-mix(in srgb, var(--primary-color), transparent 88%);
+	outline: none;
+}
+.info-box {
+	margin: -0.4rem 1.5rem 0.8rem 1.5rem;
+	padding: 0.75rem 1rem;
+	border: 1px solid $border-clr;
+	border-radius: 8px;
+	background: color-mix(in srgb, var(--secondary-panel-clr), var(--primary-color) 6%);
+	color: $light-txt;
+}
 .close {
 	background: none;
 	border: none;
