@@ -25,11 +25,13 @@ export class DodajModalDeviceComponent implements OnInit {
   selectedTypeId: string = '';
   loadingDevices = false;
   devices: Array<any> = [];
+  finalDev: Array<any> = [];
   selected: Record<string, boolean> = {};
   // Tracks which devices were assigned to this project at load time for the chosen type
   currentAssigned: Record<string, boolean> = {};
   assigning = false;
   errorMsg: string | null = null;
+  disabled: Record<string, boolean> = {};
   ngOnInit(): void {
     this.dodajModalProjektService.getDeviceTypes().subscribe({
       next: (e) => {
@@ -63,20 +65,33 @@ export class DodajModalDeviceComponent implements OnInit {
     }
     this.loadingDevices = true;
     this.errorMsg = null;
+
     this.magazynSecondService.getDevices(this.selectedTypeId).subscribe({
       next: (resp: any) => {
         // resp.device is the list
         this.devices = Array.isArray(resp?.device) ? resp.device : [];
+
         this.selected = {};
         this.currentAssigned = {};
-        const projId = (this.projectId() as unknown as string) || '';
-        for (const d of this.devices) {
+        const projId = (this.projectId()() as unknown as string) || '';
+        for (let d of this.devices) {
+          const taken =
+            d?.project?._id && d?.project?._id !== this.projectId()();
+          if (!taken) {
+            console.log(d);
+            this.finalDev.push(d);
+          }
+        }
+        for (let d of this.finalDev) {
           const did = d?._id as string;
+
           const assignedHere =
-            !!projId && (d?.project?.toString?.() ?? d?.project) === projId;
+            !!projId &&
+            (d?.project?._id?.toString?.() ?? d?.project?._id) === projId;
           if (did) {
             this.currentAssigned[did] = assignedHere;
             // Pre-check items already assigned to this project
+
             this.selected[did] = assignedHere;
           }
         }

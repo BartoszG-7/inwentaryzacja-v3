@@ -12,11 +12,8 @@ export class DodajModalProjektService {
   getDeviceTypes(): Observable<any> {
     return this.httpClient.get('http://localhost:3000/device-type/{}');
   }
-  saveData(data: any): Observable<any> {
-    return this.httpClient.post(
-      'http://localhost:3000/data/create-device-and-assign',
-      data
-    );
+  getProjectNeeded(id: string) {
+    return this.httpClient.get("http://localhost:3000/project/getNeeded/"+id);
   }
   addToProject(payload: {
     deviceId: string;
