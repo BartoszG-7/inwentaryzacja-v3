@@ -38,6 +38,10 @@
             ></app-mag-second-dodaj>
             <app-mag-second-usun [Ids]="this.selectedIds"></app-mag-second-usun>
             <app-mag-second-src-bar></app-mag-second-src-bar>
+            <!-- Mobile-only trigger to set serial numbers -->
+            <button type="button" class="header-btn mobile-only" (click)="serialModal.open()" title="Ustaw numery seryjne" aria-label="Ustaw numery seryjne">
+              <i class="bi bi-upc" aria-hidden="true"></i>
+            </button>
           </div>
         </div>
         <div class="table-search">

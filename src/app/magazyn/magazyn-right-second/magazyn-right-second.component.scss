@@ -224,7 +224,8 @@
 .table-icons app-mag-second-dodaj .header-btn:hover,
 .table-icons app-mag-second-edit .header-btn:hover,
 .table-icons app-mag-second-usun .header-btn:hover,
-.table-icons app-mag-second-src-bar .search-icon-btn:hover { color:$primary-color; border:none; background:transparent; }
+.table-icons app-mag-second-src-bar .search-icon-btn:hover,
+.table-icons .mobile-only:hover { color:$primary-color; border:none; background:transparent; }
 .table-icons i { font-size:1.05rem; line-height:1; display:inline-block; }
 
 /* Hide desktop search bar on narrow mobile; keep on tablet (>=600px). Mobile icon already shows its button at <=600 via its own styles */
@@ -426,6 +427,42 @@
 }
 .col-invoice { width: 19%; }
 .col-select { width: 58px; text-align:center; } /* a bit wider to fit edit+checkbox without overflow */
+
+/* Clickable Serial Number header affordance */
+.second-table thead th.col-serial {
+  cursor: pointer;
+  user-select: none;
+  transition: color .15s ease-in-out;
+}
+.second-table thead th.col-serial:hover,
+.second-table thead th.col-serial:focus {
+  color: $primary-color;
+}
+
+/* Mobile-only header button visibility */
+.table-icons .mobile-only { display: none; }
+@media (max-width: 600px) {
+  .table-icons .mobile-only {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: $panel-bg;
+    color: $title-txt;
+    border: 1.5px solid $border-clr;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background .15s, color .15s, border-color .15s, transform .15s;
+  }
+  .table-icons .mobile-only i { font-size: 1.05rem; }
+  .table-icons .mobile-only:hover,
+  .table-icons .mobile-only:focus {
+    color: $primary-color;
+    border-color: $primary-color;
+    outline: none;
+  }
+}
 
 .cell-serial {
   color: $primary-color;
