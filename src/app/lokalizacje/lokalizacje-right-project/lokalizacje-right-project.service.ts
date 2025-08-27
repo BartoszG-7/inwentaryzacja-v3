@@ -25,6 +25,8 @@ export class LokalizacjeRightProjectService {
     devicesGrouped.forEach((grouped: any) => {
       groupedRows.push({
         name: grouped.name,
+        needed: grouped.needed ?? 0,
+        assigned: (grouped.devices ?? []).length,
         rows: [],
       });
       grouped.devices.forEach((device: any) => {
