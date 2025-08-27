@@ -1,23 +1,8 @@
 //bar   
-- dodaj urzadzenia projekty, modal wyswietla tylko nie przypisane urzadzenia
 - no 4/0, just make it not addable
-
-- magazyn second dodaj modal forms: 
-* faktura numer
-* przesyllka numer
-* ilosci dodawania
 
 //michas
 - puste pola wyszukiwanie, jezeli klikasz na szukajke jak jest puste to wyszukuje puste pola
 - refresh magazyn-second jak sie dodaje / edytuje / usuwa
 - eventow wiecej
 - automatyczne przypisanie adresow ip, maski, bramy, dnsow
-- adres przypisywany w projekcie dopiero
-
-{
-country,
-city,
-street,
-streetNumber,
-}
-
