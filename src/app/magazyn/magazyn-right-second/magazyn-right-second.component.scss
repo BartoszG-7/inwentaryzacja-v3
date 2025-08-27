@@ -104,6 +104,31 @@
 .second-title-total .badge-unassigned { color: $muted-txt; }
 .second-title-total .badge-assigned { color: $primary-color; border-color: $primary-color; }
 
+/* Base: inline with reversed order already in HTML (assigned first) */
+.second-title-total { display: inline-flex; align-items: center; gap: 8px; }
+.second-title-total .badges { display: inline-flex; gap: 6px; }
+.second-title-total .total-count { white-space: nowrap; }
+
+/* Mobile: stack badges vertically, right-aligned, assigned above unassigned */
+@media (max-width: 600px) {
+  /* Reserve space on the right for the stacked badges */
+  .second-header-panel { position: relative; }
+  .second-header-left { padding-right: 124px; }
+  .second-title-total { display: block; }
+  /* Place badges at the far right, stacked */
+  .second-title-total .badges {
+    position: absolute;
+    right: 1.25rem; /* matches header panel horizontal padding */
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    justify-items: end;
+    row-gap: 4px;
+  }
+  .second-title-total .badge-assigned { order: 1; }
+  .second-title-total .badge-unassigned { order: 2; }
+}
+
 .second-header-tools {
   display: flex;
   align-items: center;

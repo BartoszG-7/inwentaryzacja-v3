@@ -221,10 +221,12 @@
           </tr>
           @for (group of groupedRows; track group; let i = $index) {
             <tr class="group-label-row">
-              <td colspan="12" class="fw-bold text-uppercase d-flex align-items-center justify-content-between">
-                <span>{{ group.name }}</span>
-                <span class="group-badge" [attr.title]="(group.assigned ?? 0) + '/' + (group.needed ?? 0)">
-                  {{ group.assigned ?? 0 }}/{{ group.needed ?? 0 }}
+              <td colspan="12" class="fw-bold text-uppercase text-center">
+                <span class="group-header-center">
+                  <span class="group-name">{{ group.name }}</span>
+                  <span class="group-badge" [attr.title]="(group.assigned ?? 0) + '/' + (group.needed ?? 0)">
+                    {{ group.assigned ?? 0 }}/{{ group.needed ?? 0 }}
+                  </span>
                 </span>
               </td>
             </tr>

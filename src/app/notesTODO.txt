@@ -1,4 +1,5 @@
 //bar
+- for przypisane also show lokalizacje:projekt
 
 //michas
 - puste pola wyszukiwanie, jezeli klikasz na szukajke jak jest puste to wyszukuje puste pola

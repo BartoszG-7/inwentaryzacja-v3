@@ -15,7 +15,7 @@ import {
 })
 export class UnassignedCounterService {
   constructor(private httpClient: HttpClient) {}
-  getAssignedByType(type: string): Observable<any> {
+  getAssignedByType(type: string): Observable<number> {
     let obs = this.httpClient
       .get('http://localhost:3000/device/assigned-by-type/' + type)
       .pipe(
@@ -28,5 +28,20 @@ export class UnassignedCounterService {
         })
       );
     return obs;
+  }
+
+  // Counts devices of a given type that are NOT assigned to any project
+  getUnassignedByType(type: string): Observable<number> {
+    return this.httpClient
+      .get('http://localhost:3000/device/assigned-by-type/' + type)
+      .pipe(
+        map((x: any) => {
+          let count = 0;
+          x.forEach((element: any) => {
+            if (!element.project) count++;
+          });
+          return count;
+        })
+      );
   }
 }

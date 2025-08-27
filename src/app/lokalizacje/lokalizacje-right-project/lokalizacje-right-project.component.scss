@@ -365,6 +365,16 @@ col {
   letter-spacing: 0.04em;
 }
 
+/* Center the group name + badge */
+.group-header-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.group-label-row td.text-center { text-align: center; }
+.group-label-row .group-name { letter-spacing: 0.06em; }
+
 .right-table-responsive {
   overflow-x: auto;
   min-width: 0;
