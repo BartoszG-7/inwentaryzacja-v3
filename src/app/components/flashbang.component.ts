@@ -107,6 +107,7 @@ export class FlashbangComponent implements OnInit, OnDestroy {
       const audio = new Audio();
       audio.src =
         'https://www.myinstants.com/media/sounds/flashbang-cs_qoRhxLn.mp3';
+      audio.volume = 0.01
       audio.play();
       // const AC = window.AudioContext || (window as any).webkitAudioContext;
       // this.audioCtx = new AC();
