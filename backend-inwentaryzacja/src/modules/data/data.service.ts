@@ -200,41 +200,17 @@ export class DataService {
 
   async assignDevices(data: any): Promise<any> {
     let lastIp;
-    let excludedIps = (
-      await this.ProjectModel.find({
-        _id: new Types.ObjectId(data.projectId),
-      }).exec()
-    )[0].addrExclude;
+    let projectData = await this.ProjectModel.find({
+      _id: new Types.ObjectId(data.projectId),
+    }).exec();
+    let excludedIps = projectData[0].addrExclude;
 
     let ret = false;
-    let baseIp = (
-      await this.ProjectModel.find({
-        _id: new Types.ObjectId(data.projectId),
-      }).exec()
-    )[0].networkAddress;
+    let baseIp = projectData[0].networkAddress;
     let results: any = [];
     let deviceCount = 0;
     try {
-      console.log(
-        Number(
-          (
-            await this.ProjectModel.find({
-              _id: new Types.ObjectId(data.projectId),
-            })
-              .select('lastIp')
-              .exec()
-          )[0].lastIp?.split('.')[3],
-        ),
-      );
-      deviceCount = Number(
-        (
-          await this.ProjectModel.find({
-            _id: new Types.ObjectId(data.projectId),
-          })
-            .select('lastIp')
-            .exec()
-        )[0].lastIp?.split('.')[3],
-      );
+      deviceCount = Number(projectData[0].lastIp?.split('.')[3]);
     } catch {
       deviceCount = 0;
     }
@@ -261,7 +237,14 @@ export class DataService {
         device: await this.deviceModel
           .updateOne(
             { _id: deviceId },
-            { project: data.projectId, ip: finalIP },
+            {
+              project: data.projectId,
+              ip: finalIP,
+              dns1: projectData[0].dns1,
+              dns2: projectData[0].dns2,
+              gateway: projectData[0].gateway,
+              mask: projectData[0].mask,
+            },
           )
           .exec(),
       });
