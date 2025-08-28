@@ -467,11 +467,12 @@
 .cell-serial {
   color: $primary-color;
   font-weight: 600;
+  font-size: 0.78rem;
 }
-.cell-przesylka { color: $muted-txt; }
-.cell-assigned { color: $light-txt; font-weight: 500; font-size: 0.82rem; }
+.cell-przesylka { color: $muted-txt; font-size: 0.78rem; }
+.cell-assigned { color: $light-txt; font-weight: 500; font-size: 0.78rem; }
 .cell-note { color: color-mix(in srgb, var(--muted-txt), white 8%); font-size: 0.78rem; line-height: 1.2; }
-.cell-invoice { color: $light-txt; font-weight: 500; font-size: 0.8rem; }
+.cell-invoice { color: $light-txt; font-weight: 500; font-size: 0.78rem; }
 .cell-select {
   display: flex;
   align-items: center;
