@@ -4,4 +4,4 @@
 //michas
 - eventow wiecej
 - automatyczne przypisanie adresow ip, maski, bramy, dnsow
-- refresh for lokalizacje-right-comp
+- refresh for lokalizacje-right-comp on edit and dodaj + refresh for projekty on edit
