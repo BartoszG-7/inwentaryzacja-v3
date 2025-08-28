@@ -83,12 +83,7 @@
       <button type="button" class="btn btn-secondary" (click)="closeModal()">
         Anuluj
       </button>
-      <button
-        type="button"
-        class="btn btn-primary"
-        [disabled]="assigning || !selectedTypeId"
-        (click)="assignSelected()"
-      >
+      <button type="button" class="btn btn-primary" (click)="assignSelected()">
         Przypisz
       </button>
     </div>

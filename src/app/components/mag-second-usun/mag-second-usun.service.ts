@@ -12,7 +12,7 @@ export class MagSecondUsunService {
   constructor(private httpClient: HttpClient) {}
   delData(data: any): Observable<any> {
     console.log(data);
-    return this.httpClient.delete('http://localhost:3000/device/', {
+    return this.httpClient.delete('http://172.16.61.142:3000/device/', {
       body: data,
     });
   }

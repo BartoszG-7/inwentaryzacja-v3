@@ -10,6 +10,9 @@ import { HttpClient } from '@angular/common/http';
 export class EditLokalizacjeService {
   constructor(private httpClient: HttpClient) {}
   saveData(data: any, id: string): Observable<any> {
-    return this.httpClient.patch('http://localhost:3000/location/' + id, data);
+    return this.httpClient.patch(
+      'http://172.16.61.142:3000/location/' + id,
+      data
+    );
   }
 }

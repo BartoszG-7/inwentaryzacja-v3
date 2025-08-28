@@ -197,7 +197,16 @@ export class DataService {
       }
     }
   }
-
+  ipFixer(ip: string) {
+    let parsed = ip.split('.');
+    for (let i = 0; i < parsed.length; i++) {
+      if (Number(parsed[i]) >= 255 && i > 0) {
+        parsed[i] = (Number(parsed[i]) - 254).toString();
+        parsed[i - 1] = (Number(parsed[i - 1]) + 1).toString();
+      }
+    }
+    return parsed[0] + '.' + parsed[1] + '.' + parsed[2] + '.' + parsed[3];
+  }
   async assignDevices(data: any): Promise<any> {
     let lastIp;
     let projectData = await this.ProjectModel.find({
@@ -207,9 +216,11 @@ export class DataService {
 
     let ret = false;
     let baseIp = projectData[0].networkAddress;
+    console.log('baseIp', baseIp);
     let results: any = [];
     let deviceCount = 0;
     try {
+      console.log(Number(projectData[0].lastIp?.split('.')[3]));
       deviceCount = Number(projectData[0].lastIp?.split('.')[3]);
     } catch {
       deviceCount = 0;
@@ -218,10 +229,12 @@ export class DataService {
     for (let ind = 1; ind < data.deviceIds.length; ind++) {
       let deviceId = data.deviceIds[ind];
       console.log(lastIp, deviceCount.toString());
-      if (lastIp !== undefined) {
+      if (lastIp !== undefined && !Number.isNaN(lastIp)) {
         splitIP[3] = (Number(lastIp?.split('.')[3]) + 1).toString();
-      } else {
+      } else if (!Number.isNaN(deviceCount)) {
         splitIP[3] = deviceCount.toString();
+      } else {
+        splitIP[3] = '1';
       }
       let finalIP = this.finalIpValidation(splitIP, excludedIps);
       console.log('ASSGN', finalIP);
@@ -239,7 +252,7 @@ export class DataService {
             { _id: deviceId },
             {
               project: data.projectId,
-              ip: finalIP,
+              ip: this.ipFixer(finalIP),
               dns1: projectData[0].dns1,
               dns2: projectData[0].dns2,
               gateway: projectData[0].gateway,

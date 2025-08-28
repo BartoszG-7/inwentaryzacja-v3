@@ -19,15 +19,14 @@ export class MagazynRightSecondService {
 
   getDevices(typeId: string | undefined): Observable<any> {
     return this.httpClient.get<JSON>(
-      'http://localhost:3000/data/get-device-list/' + typeId
+      'http://172.16.61.142:3000/data/get-device-list/' + typeId
     );
   }
-  
+
   updateDevice(id: string, body: any): Observable<any> {
     return this.httpClient.patch<JSON>(
-      'http://localhost:3000/device/' + id,
+      'http://172.16.61.142:3000/device/' + id,
       body
     );
   }
-  
 }

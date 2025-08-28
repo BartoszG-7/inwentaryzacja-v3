@@ -17,7 +17,7 @@ export class LokalizacjeRightProjectService {
   constructor(private httpClient: HttpClient) {}
   getProjectData(id: string): Observable<any> {
     return this.httpClient.get(
-      'http://localhost:3000/data/get-project-data/' + id
+      'http://172.16.61.142:3000/data/get-project-data/' + id
     );
   }
   parseGroupedDevices(devicesGrouped: any) {

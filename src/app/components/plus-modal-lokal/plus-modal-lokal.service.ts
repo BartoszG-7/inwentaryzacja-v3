@@ -4,13 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlusModalLokalService {
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
   postData(data: any): Observable<any> {
-    return this.httpClient.post('http://localhost:3000/location', data);
+    return this.httpClient.post('http://172.16.61.142:3000/location', data);
   }
 }

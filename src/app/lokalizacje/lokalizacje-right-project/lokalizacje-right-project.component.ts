@@ -31,10 +31,10 @@ type Group = {
     CommonModule,
     DodajModalDeviceComponent,
     SearchBarComponent,
-  SearchBarMobileComponent,
+    SearchBarMobileComponent,
     UsunModalDeviceComponent,
     EditProjektComponent,
-  EditProjektDeviceComponent,
+    EditProjektDeviceComponent,
   ],
   standalone: true,
   templateUrl: './lokalizacje-right-project.component.html',
@@ -45,8 +45,8 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     private lokalizacjeRightProjectService: LokalizacjeRightProjectService,
     private router: Router,
     private activeRoute: ActivatedRoute,
-  private linkService: LinkService,
-  private dodajModalProjektService: DodajModalProjektService
+    private linkService: LinkService,
+    private dodajModalProjektService: DodajModalProjektService
   ) {}
 
   devicesGrouped: Array<Group & { needed?: number }> = [];
@@ -70,15 +70,19 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     this.dodajModalProjektService.getDeviceTypes().subscribe({
       next: (types: any[]) => {
         for (const t of types || []) {
-          if (t?._id && t?.name) this.deviceTypeNames.set(String(t._id), t.name);
+          if (t?._id && t?.name)
+            this.deviceTypeNames.set(String(t._id), t.name);
         }
       },
     });
     this.linkService.getData().subscribe({
       next: (e) => {
         console.log(e);
+        this.groupedRows = [];
+        this.devicesGrouped = [];
         this.urlData = e;
-  this.selectedId.set(e.id);
+        this.selectedId.set(e.id);
+
         this.ngOnChanges({});
         // this.urlData = JSON.parse(e['data']);
         console.log('URLDATA', e);
@@ -86,10 +90,12 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     });
   }
   goToInwentaryzacja() {
-  // Navigate back with a query param for location so Treebar keeps it toggled
-  this.router.navigate(['/inwentaryzacja'], { queryParams: { loc: this.urlData.idLoc } });
-  // Also broadcast for any listeners that rely on the event bus (race-safe via BehaviorSubject)
-  this.linkService.setData({ type: 'location', id: this.urlData.idLoc });
+    // Navigate back with a query param for location so Treebar keeps it toggled
+    this.router.navigate(['/inwentaryzacja'], {
+      queryParams: { loc: this.urlData.idLoc },
+    });
+    // Also broadcast for any listeners that rely on the event bus (race-safe via BehaviorSubject)
+    this.linkService.setData({ type: 'location', id: this.urlData.idLoc });
 
     // this.router.navigate(['/inwentaryzacja/{}']).then(() => {
     //   window.location.reload();
@@ -117,13 +123,14 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   copyCell(value: string, ev?: MouseEvent) {
     // Prevent native double-click selections/callouts
     try {
-      ev?.preventDefault?.(); ev?.stopPropagation?.();
+      ev?.preventDefault?.();
+      ev?.stopPropagation?.();
       const sel = window.getSelection?.();
       if (sel && sel.removeAllRanges) sel.removeAllRanges();
     } catch {}
-  if (!value) return;
-  // Block selection popups for a brief period after dblclick
-  this._selectionBlockUntil = Date.now() + 700;
+    if (!value) return;
+    // Block selection popups for a brief period after dblclick
+    this._selectionBlockUntil = Date.now() + 700;
     navigator.clipboard.writeText(value);
     // Show a small tooltip on the truncated span
     try {
@@ -134,22 +141,22 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
           '.trunc'
         ) as HTMLElement);
       if (span) {
-  // set click coordinates for fixed tooltip positioning
-  const x = (ev as MouseEvent)?.clientX ?? 0;
-  const y = (ev as MouseEvent)?.clientY ?? 0;
-  span.style.setProperty('--copy-x', `${x}px`);
-  span.style.setProperty('--copy-y', `${y + 12}px`); // offset slightly below cursor
+        // set click coordinates for fixed tooltip positioning
+        const x = (ev as MouseEvent)?.clientX ?? 0;
+        const y = (ev as MouseEvent)?.clientY ?? 0;
+        span.style.setProperty('--copy-x', `${x}px`);
+        span.style.setProperty('--copy-y', `${y + 12}px`); // offset slightly below cursor
         // temporarily disable selection to avoid double-click highlight while copying
-  span.classList.add('no-select');
+        span.classList.add('no-select');
         // clear any existing timer for this element
         const prev = this.copyTimers.get(span);
         if (prev) clearTimeout(prev);
         span.classList.add('copied');
-  const t = setTimeout(() => {
+        const t = setTimeout(() => {
           span.classList.remove('copied');
           span.classList.remove('no-select');
           this.copyTimers.delete(span);
-  }, 600);
+        }, 600);
         this.copyTimers.set(span, t);
       }
     } catch {}
@@ -158,7 +165,10 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
   private _selectionBlockUntil = 0;
   preventSelect(ev: Event) {
     if (Date.now() < this._selectionBlockUntil) {
-      try { ev.preventDefault(); ev.stopPropagation(); } catch {}
+      try {
+        ev.preventDefault();
+        ev.stopPropagation();
+      } catch {}
       return false;
     }
     return true;
@@ -167,7 +177,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     console.log('CHANGED', changes);
     console.log('SELID', this.selectedId());
     if (this.selectedId()) {
-  this.loading = true;
+      this.loading = true;
       this.lokalizacjeRightProjectService
         .getProjectData(this.selectedId())
         .subscribe({
@@ -186,7 +196,10 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
             e.devices.forEach((device: any) => {
               var brk = false;
               this.devicesGrouped.forEach((grouped) => {
-                if (String(grouped.id) == String(device.deviceType._id) && !brk) {
+                if (
+                  String(grouped.id) == String(device.deviceType._id) &&
+                  !brk
+                ) {
                   grouped.devices.push(device);
                   brk = true;
                 }
@@ -202,11 +215,15 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
             });
             // Ensure groups for required device types even if 0 devices present
             for (const [typeId, needed] of neededByType.entries()) {
-              const exists = this.devicesGrouped.some(g => String(g.id) === String(typeId));
+              const exists = this.devicesGrouped.some(
+                (g) => String(g.id) === String(typeId)
+              );
               if (!exists && needed > 0) {
                 this.devicesGrouped.push({
                   id: String(typeId),
-                  name: this.deviceTypeNames.get(String(typeId)) || 'Typ urządzenia',
+                  name:
+                    this.deviceTypeNames.get(String(typeId)) ||
+                    'Typ urządzenia',
                   devices: [],
                   needed: needed,
                 });
@@ -219,7 +236,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
                 assigned: (grouped.devices ?? []).length,
                 rows: [],
               });
-        grouped.devices.forEach((device) => {
+              grouped.devices.forEach((device) => {
                 this.groupedRows[this.groupedRows.length - 1].rows.push({
                   id: device._id,
                   snWamasoft: device.wamaNr,
@@ -232,7 +249,7 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
                   anydesk: device.remoteAccessId,
                   maska: device.mask,
                   serwer: device.serverAddress,
-          _raw: device,
+                  _raw: device,
                 });
               });
             });
@@ -286,7 +303,10 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
         const valueStr = (raw ?? '').toString();
         if (term.trim() === '') {
           // Empty search: include only items where the field is blank/undefined/null
-          const isBlank = raw === null || raw === undefined || (typeof raw === 'string' && raw.trim() === '');
+          const isBlank =
+            raw === null ||
+            raw === undefined ||
+            (typeof raw === 'string' && raw.trim() === '');
           if (isBlank) tempDevice.push(JSON.parse(JSON.stringify(device)));
         } else {
           if (valueStr.toLowerCase().includes(term.toLowerCase())) {
@@ -350,7 +370,8 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
       console.log(this.activeHeaderKey, this.activeSortDirection);
       this.activeSortDirection = null; // phase 1: active, no arrow
       // If a search is active, re-apply it using the new column
-      if (this.lastSearchValue !== null) this.searchNoSort(this.lastSearchValue);
+      if (this.lastSearchValue !== null)
+        this.searchNoSort(this.lastSearchValue);
       return;
     }
 
@@ -379,7 +400,10 @@ export class LokalizacjeRightProjectComponent implements OnInit, OnChanges {
     const gr = this.groupedRows as Array<any> | undefined;
     if (!gr || gr.length === 0) return true;
     for (const g of gr) {
-      if ((g?.rows && g.rows.length > 0) || (typeof g?.needed === 'number' && g.needed > 0)) {
+      if (
+        (g?.rows && g.rows.length > 0) ||
+        (typeof g?.needed === 'number' && g.needed > 0)
+      ) {
         return false;
       }
     }

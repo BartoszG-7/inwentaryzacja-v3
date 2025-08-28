@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DodajModalProjektService } from './dodaj-modal-projekt.service';
 import { MagazynRightSecondService } from '../../magazyn/magazyn-right-second/magazyn-right-second.service';
+import { EventTypes, LinkService } from '../../linkService';
 
 @Component({
   selector: 'app-dodaj-modal-device',
@@ -14,7 +15,8 @@ import { MagazynRightSecondService } from '../../magazyn/magazyn-right-second/ma
 export class DodajModalDeviceComponent implements OnInit {
   constructor(
     private dodajModalProjektService: DodajModalProjektService,
-    private magazynSecondService: MagazynRightSecondService
+    private magazynSecondService: MagazynRightSecondService,
+    private linkService: LinkService
   ) {}
   projectId: any = input<string>();
   refresh = output<boolean>();
@@ -152,6 +154,10 @@ export class DodajModalDeviceComponent implements OnInit {
         next: (v) => {
           checkDone();
           console.log('RESP', v);
+          this.linkService.setData({
+            type: EventTypes.PROJECT,
+            id: this.projectId()(),
+          });
         },
         error: (err: unknown) => {
           failed++;

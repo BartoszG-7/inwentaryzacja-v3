@@ -13,7 +13,10 @@ export class MagSecondEditService {
   editData(data: any, id: string): Observable<any> {
     console.log(data, id);
 
-    return this.httpClient.patch('http://localhost:3000/device/' + id, data);
+    return this.httpClient.patch(
+      'http://172.16.61.142:3000/device/' + id,
+      data
+    );
   }
   sendRefresh() {
     return this.refresh.next('');

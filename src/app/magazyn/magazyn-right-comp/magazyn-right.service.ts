@@ -1,21 +1,30 @@
-import { Component, ElementRef, Inject, Injectable, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  Injectable,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Treebar } from '../../treebar/treebar';
 import { TreebarSharedService } from '../../home/treebar.share.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MagazynRightCompService {
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getDeviceTypes(id: string): Observable<any> {
-    return this.httpClient.get<JSON>('http://localhost:3000/device-type/{"_id": "' + id + '"}');
+    return this.httpClient.get<JSON>(
+      'http://172.16.61.142:3000/device-type/{"_id": "' + id + '"}'
+    );
   }
   getDevices(id: string): Observable<any> {
-
-    return this.httpClient.get<JSON>('http://localhost:3000/device/id/' + id);
+    return this.httpClient.get<JSON>(
+      'http://172.16.61.142:3000/device/id/' + id
+    );
   }
-
 }
