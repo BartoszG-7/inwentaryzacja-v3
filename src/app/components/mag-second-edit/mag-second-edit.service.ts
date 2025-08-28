@@ -14,7 +14,7 @@ export class MagSecondEditService {
     console.log(data, id);
 
     return this.httpClient.patch(
-      'http://172.16.61.142:3000/device/' + id,
+      'http://localhost:3000/device/' + id,
       data
     );
   }

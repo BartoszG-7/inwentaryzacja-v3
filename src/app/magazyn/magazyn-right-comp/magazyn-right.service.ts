@@ -19,12 +19,12 @@ export class MagazynRightCompService {
 
   getDeviceTypes(id: string): Observable<any> {
     return this.httpClient.get<JSON>(
-      'http://172.16.61.142:3000/device-type/{"_id": "' + id + '"}'
+      'http://localhost:3000/device-type/{"_id": "' + id + '"}'
     );
   }
   getDevices(id: string): Observable<any> {
     return this.httpClient.get<JSON>(
-      'http://172.16.61.142:3000/device/id/' + id
+      'http://localhost:3000/device/id/' + id
     );
   }
 }

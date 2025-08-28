@@ -9,6 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class PlusModalService {
   constructor(private httpClient: HttpClient) {}
   postData(data: any): any {
-    return this.httpClient.post('http://172.16.61.142:3000/device-type', data);
+    return this.httpClient.post('http://localhost:3000/device-type', data);
   }
 }

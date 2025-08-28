@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class MagazynService {
   constructor(private readonly http: HttpClient) {}
   /*  getInventory(): Observable<any> {
-      return this.http.get<JSON>('http://172.16.61.142:3000/device-type/list');
+      return this.http.get<JSON>('http://localhost:3000/device-type/list');
   
     }*/
 }

@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
 export class LocationService {
   constructor(private readonly http: HttpClient) {}
   getLocations(): Observable<any> {
-    return this.http.get<JSON>('http://172.16.61.142:3000/location/{}');
+    return this.http.get<JSON>('http://localhost:3000/location/{}');
   }
   /* saveData(id: string, name: string, address: string, tag: string, note: string): Observable<any> {
-        return this.http.patch<JSON>('http://172.16.61.142:3000/location/' + id, {
+        return this.http.patch<JSON>('http://localhost:3000/location/' + id, {
             "name": name,
             "address": address,
             "tag": tag,

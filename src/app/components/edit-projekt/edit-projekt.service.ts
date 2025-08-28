@@ -11,7 +11,7 @@ export class EditProjektService {
   constructor(private httpClient: HttpClient) {}
   saveData(data: any, id: string): Observable<any> {
     return this.httpClient.patch(
-      'http://172.16.61.142:3000/project/' + id,
+      'http://localhost:3000/project/' + id,
       data
     );
   }

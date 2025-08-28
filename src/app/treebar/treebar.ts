@@ -35,7 +35,7 @@ export class Treebar implements OnInit, OnChanges {
   data: Array<any> = [];
   selectedId = output<any>();
   stringified: string = '';
-  query = input<string>('http://172.16.61.142:3000/data/treebar');
+  query = input<string>('http://localhost:3000/data/treebar');
   search = input<string>();
   searchValidated: string = '{}';
   stopProj: boolean = false;
@@ -47,7 +47,7 @@ export class Treebar implements OnInit, OnChanges {
   changeId(event: any): void {
     console.log(event);
 
-    if (this.query() === 'http://172.16.61.142:3000/data/treebar') {
+    if (this.query() === 'http://localhost:3000/data/treebar') {
       if (event.type === 'location') {
         console.log(event);
 
@@ -78,7 +78,7 @@ export class Treebar implements OnInit, OnChanges {
       console.log(changes);
       this.searchValidated = this.search() ?? '';
       //if (this.search() == "[]") this.searchValidated = "";
-      if (this.query() === 'http://172.16.61.142:3000/data/treebar') {
+      if (this.query() === 'http://localhost:3000/data/treebar') {
         this.data = this.treebarService.dataParser(
           this.treebarService.search(this.fetchedData, this.searchValidated)
         );
@@ -128,7 +128,7 @@ export class Treebar implements OnInit, OnChanges {
         if (value) {
           // If Magazyn (device-type list) receives an explicit selection, don't auto-select first
           if (
-            this.query() === 'http://172.16.61.142:3000/device-type/list' &&
+            this.query() === 'http://localhost:3000/device-type/list' &&
             value.type === EventTypes.DEVICE_TYPE
           ) {
             this.externalSelect = true;
@@ -154,7 +154,7 @@ export class Treebar implements OnInit, OnChanges {
           }
 
           // If Lokalizacje tree receives an explicit selection via project/location, prevent auto-select-first
-          if (this.query() !== 'http://172.16.61.142:3000/device-type/list') {
+          if (this.query() !== 'http://localhost:3000/device-type/list') {
             if (value.type === 'project') {
               this.externalSelect = true;
               const locId = (value as any).idLoc ?? (value as any).id;
@@ -231,7 +231,7 @@ export class Treebar implements OnInit, OnChanges {
               qpLoc = this.activatedRoute.snapshot.queryParamMap.get('loc');
               if (
                 qpLoc &&
-                this.query() !== 'http://172.16.61.142:3000/device-type/list'
+                this.query() !== 'http://localhost:3000/device-type/list'
               ) {
                 this.externalSelect = true;
                 this.pendingLocationId = qpLoc;
@@ -244,7 +244,7 @@ export class Treebar implements OnInit, OnChanges {
             // Only reset for Lokalizacje; for Magazyn (device-type list) keep externalSelect
             if ((e['data'] == '{}' || e['data'] === undefined) && !qpLoc) {
               if (
-                this.query() !== 'http://172.16.61.142:3000/device-type/list'
+                this.query() !== 'http://localhost:3000/device-type/list'
               ) {
                 this.externalSelect = false;
                 this.pendingLocationId = null;
@@ -322,7 +322,7 @@ export class Treebar implements OnInit, OnChanges {
                 } catch {}
                 // Also publish deviceType selection only when device-type list is used and auto-select enabled
                 if (
-                  this.query() === 'http://172.16.61.142:3000/device-type/list'
+                  this.query() === 'http://localhost:3000/device-type/list'
                 ) {
                   try {
                     this.linkService.setData({
@@ -333,7 +333,7 @@ export class Treebar implements OnInit, OnChanges {
                 }
                 // If this is the locations tree, emit a LOCATION event too
                 if (
-                  this.query() !== 'http://172.16.61.142:3000/device-type/list'
+                  this.query() !== 'http://localhost:3000/device-type/list'
                 ) {
                   try {
                     this.linkService.setData({
@@ -346,7 +346,7 @@ export class Treebar implements OnInit, OnChanges {
             } else if (
               this.autoSelectFirst &&
               e['data'] === undefined &&
-              this.query() === 'http://172.16.61.142:3000/device-type/list' &&
+              this.query() === 'http://localhost:3000/device-type/list' &&
               this.data.length > 0 &&
               !this.externalSelect
             ) {
@@ -362,7 +362,7 @@ export class Treebar implements OnInit, OnChanges {
             } else if (
               this.autoSelectFirst &&
               e['data'] === undefined &&
-              this.query() !== 'http://172.16.61.142:3000/device-type/list' &&
+              this.query() !== 'http://localhost:3000/device-type/list' &&
               this.data.length > 0 &&
               !this.externalSelect &&
               !qpLoc
@@ -383,7 +383,7 @@ export class Treebar implements OnInit, OnChanges {
           next: (qp) => {
             // If a location is provided via query param, prioritize it
             if (
-              this.query() !== 'http://172.16.61.142:3000/device-type/list' &&
+              this.query() !== 'http://localhost:3000/device-type/list' &&
               qp &&
               qp['loc']
             ) {

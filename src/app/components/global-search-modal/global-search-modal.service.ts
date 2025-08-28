@@ -18,7 +18,7 @@ export class GlobalSearchModalService {
   constructor(private httpClient: HttpClient) {}
   search(query: string): Observable<any> {
     return this.httpClient.get(
-      'http://172.16.61.142:3000/data/global-search/' + query
+      'http://localhost:3000/data/global-search/' + query
     );
   }
 }

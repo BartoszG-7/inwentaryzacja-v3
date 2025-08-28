@@ -10,7 +10,7 @@ export class AddProjectService {
   constructor(private httpClient: HttpClient) {}
   saveData(data: any) {
     return this.httpClient.post(
-      'http://172.16.61.142:3000/data/add-project/',
+      'http://localhost:3000/data/add-project/',
       data
     );
   }

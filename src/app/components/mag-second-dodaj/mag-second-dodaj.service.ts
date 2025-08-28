@@ -10,10 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class MagSecondDodajService {
   constructor(private httpClient: HttpClient) {}
   getDeviceTypes(): Observable<any> {
-    return this.httpClient.get('http://172.16.61.142:3000/device-type/list');
+    return this.httpClient.get('http://localhost:3000/device-type/list');
   }
   saveData(data: any): Observable<any> {
     console.log('SAVEDATA', data);
-    return this.httpClient.post('http://172.16.61.142:3000/device/', data);
+    return this.httpClient.post('http://localhost:3000/device/', data);
   }
 }

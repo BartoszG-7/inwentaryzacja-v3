@@ -10,7 +10,7 @@ export class UsunModalDeviceService {
   constructor(private httpClient: HttpClient) {}
   unassign(ids: any, projId: string | undefined) {
     return this.httpClient.get(
-      'http://172.16.61.142:3000/data/unassign/' +
+      'http://localhost:3000/data/unassign/' +
         JSON.stringify({ ids: ids, projectId: projId })
     );
   }

@@ -13,6 +13,6 @@ import { Observable } from 'rxjs';
 export class HomeService {
   constructor(private httpClient: HttpClient) {}
   getData(): Observable<any> {
-    return this.httpClient.get('http://172.16.61.142:3000/data/home');
+    return this.httpClient.get('http://localhost:3000/data/home');
   }
 }

@@ -10,11 +10,11 @@ import { HttpClient } from '@angular/common/http';
 export class DodajModalProjektService {
   constructor(private httpClient: HttpClient) {}
   getDeviceTypes(): Observable<any> {
-    return this.httpClient.get('http://172.16.61.142:3000/device-type/{}');
+    return this.httpClient.get('http://localhost:3000/device-type/{}');
   }
   getProjectNeeded(id: string) {
     return this.httpClient.get(
-      'http://172.16.61.142:3000/project/getNeeded/' + id
+      'http://localhost:3000/project/getNeeded/' + id
     );
   }
   addToProject(payload: {
@@ -22,7 +22,7 @@ export class DodajModalProjektService {
     projectId: string;
   }): Observable<any> {
     return this.httpClient.post(
-      'http://172.16.61.142:3000/data/add-device-to-project',
+      'http://localhost:3000/data/add-device-to-project',
       payload
     );
   }
@@ -31,7 +31,7 @@ export class DodajModalProjektService {
     projectId: string;
   }): Observable<any> {
     return this.httpClient.post(
-      'http://172.16.61.142:3000/data/remove-device-from-project',
+      'http://localhost:3000/data/remove-device-from-project',
       payload
     );
   }

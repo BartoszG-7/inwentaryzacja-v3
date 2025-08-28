@@ -10,7 +10,7 @@ export class HeaderService {
 
   getData(): Observable<string> {
     return this.http.post<string>(
-      'http://172.16.61.142:3000/location/create',
+      'http://localhost:3000/location/create',
       { test: 'test' },
       new Object({
         responseType: 'text',
@@ -19,7 +19,7 @@ export class HeaderService {
   }
   getDataV2(): Observable<string> {
     return this.http.get<string>(
-      'http://172.16.61.142:3000/location/find',
+      'http://localhost:3000/location/find',
       new Object({
         responseType: 'text',
         headers: new HttpHeaders({
