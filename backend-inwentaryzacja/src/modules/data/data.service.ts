@@ -131,47 +131,71 @@ export class DataService {
     );
   }
   isIpInRange(ip, range) {
-    const [start, end] = range.split('-');
+    if (range.includes('-')) {
+      const [start, end] = range.split('-');
 
-    const ipNum = this.ipToNumber(ip);
-    const startNum = this.ipToNumber(start);
-    const endNum = this.ipToNumber(end);
-
-    return ipNum >= startNum && ipNum <= endNum;
+      const ipNum = this.ipToNumber(ip);
+      const startNum = this.ipToNumber(start);
+      const endNum = this.ipToNumber(end);
+      console.log(ip, range, ipNum >= startNum && ipNum <= endNum);
+      return ipNum >= startNum && ipNum <= endNum;
+    }
+    return false;
   }
 
   finalIpValidation(splitIP: any, excludedIps: any) {
     let finalIP =
       splitIP[0] + '.' + splitIP[1] + '.' + splitIP[2] + '.' + splitIP[3];
     let splitIPCopy: any = Array.from(splitIP);
+    let excl = excludedIps.split(',');
+    let brk = false;
+    for (let i = 0; ; i++) {
+      console.log(i);
 
-    excludedIps.split(',').forEach((ip) => {
-      if (ip.includes('-')) {
-        if (this.isIpInRange(finalIP, ip)) {
-          console.log('BEF', splitIPCopy);
-          splitIPCopy[3] = (Number(splitIPCopy[3]) + 1).toString();
-          console.log('AFT', splitIPCopy);
-          this.finalIpValidation(splitIPCopy, excludedIps);
+      for (let ie = 0; ie < excl.length; ie++) {
+        if (
+          excl[ie] ===
+          splitIP[0] +
+            '.' +
+            splitIP[1] +
+            '.' +
+            splitIP[2] +
+            '.' +
+            (Number(splitIP[3]) + i).toString()
+        ) {
+          break;
         }
-      } else {
-        if (ip === finalIP) {
-          console.log('BEF', splitIPCopy);
-
-          splitIPCopy[3] = (Number(splitIPCopy[3]) + 1).toString();
-          console.log('AFT', splitIPCopy);
-          this.finalIpValidation(splitIPCopy, excludedIps);
+        if (
+          this.isIpInRange(
+            splitIP[0] +
+              '.' +
+              splitIP[1] +
+              '.' +
+              splitIP[2] +
+              '.' +
+              (Number(splitIP[3]) + i).toString(),
+            excl[ie],
+          )
+        ) {
+          break;
+        }
+        console.log(ie, excl.length);
+        if (ie === excl.length - 1) {
+          brk = true;
         }
       }
-    });
-    return (
-      splitIPCopy[0] +
-      '.' +
-      splitIPCopy[1] +
-      '.' +
-      splitIPCopy[2] +
-      '.' +
-      splitIPCopy[3]
-    );
+      if (brk) {
+        return (
+          splitIP[0] +
+          '.' +
+          splitIP[1] +
+          '.' +
+          splitIP[2] +
+          '.' +
+          (Number(splitIP[3]) + i).toString()
+        );
+      }
+    }
   }
 
   async assignDevices(data: any): Promise<any> {
@@ -191,21 +215,38 @@ export class DataService {
     let results: any = [];
     let deviceCount = 0;
     try {
-      let deviceCount =
+      console.log(
         Number(
+          (
+            await this.ProjectModel.find({
+              _id: new Types.ObjectId(data.projectId),
+            })
+              .select('lastIp')
+              .exec()
+          )[0].lastIp?.split('.')[3],
+        ),
+      );
+      deviceCount = Number(
+        (
           await this.ProjectModel.find({
             _id: new Types.ObjectId(data.projectId),
           })
             .select('lastIp')
-            .exec(),
-        )[0].lastIp?.split('.')[3] ?? 0;
+            .exec()
+        )[0].lastIp?.split('.')[3],
+      );
     } catch {
-      let deviceCount = 0;
+      deviceCount = 0;
     }
     let splitIP = baseIp.split('.');
     for (let ind = 1; ind < data.deviceIds.length; ind++) {
       let deviceId = data.deviceIds[ind];
-      splitIP[3] = (deviceCount + ind).toString();
+      console.log(lastIp, deviceCount.toString());
+      if (lastIp !== undefined) {
+        splitIP[3] = (Number(lastIp?.split('.')[3]) + 1).toString();
+      } else {
+        splitIP[3] = deviceCount.toString();
+      }
       let finalIP = this.finalIpValidation(splitIP, excludedIps);
       console.log('ASSGN', finalIP);
       lastIp = finalIP;
@@ -231,6 +272,7 @@ export class DataService {
       },
       { lastIp: lastIp },
     );
+    console.log('RES', lastIp);
     return results;
   }
 

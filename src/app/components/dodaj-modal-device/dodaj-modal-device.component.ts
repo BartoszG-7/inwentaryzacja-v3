@@ -144,22 +144,22 @@ export class DodajModalDeviceComponent implements OnInit {
     };
 
     // Process additions
-    for (const id of toAdd) {
-      console.log(this.projectId()());
-      this.dodajModalProjektService
-        .addToProject({ deviceIds: toAdd, projectId: this.projectId()() })
-        .subscribe({
-          next: (v) => {
-            checkDone();
-            console.log('RESP', v);
-          },
-          error: (err: unknown) => {
-            failed++;
-            console.error('Assign failed for', id, err);
-            checkDone();
-          },
-        });
-    }
+
+    console.log(this.projectId()());
+    this.dodajModalProjektService
+      .addToProject({ deviceIds: toAdd, projectId: this.projectId()() })
+      .subscribe({
+        next: (v) => {
+          checkDone();
+          console.log('RESP', v);
+        },
+        error: (err: unknown) => {
+          failed++;
+          console.error('Assign failed for', toAdd, err);
+          checkDone();
+        },
+      });
+
     // Process removals
     for (const id of toRemove) {
       this.dodajModalProjektService
