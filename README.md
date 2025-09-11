@@ -16,7 +16,7 @@ This mobile-friendly web app is used for tracking inventory across the companyâ€
 Below is the documentation for the app:
 
 --------------------------------------------------------------------
-1. Log in (hard-coded, since this app is used for the staff and not for public use)
+1. Log in (hard-coded, since this app is not for public use and doesn't need a sign up)
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/0d390842-afba-4b69-af7d-f23a4a3ee7a6" />
 
 2. 
@@ -74,6 +74,7 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
+
 
 
 
