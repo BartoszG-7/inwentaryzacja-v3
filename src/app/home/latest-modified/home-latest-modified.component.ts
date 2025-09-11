@@ -20,6 +20,21 @@ export class HomeLatestModifiedComponent implements OnInit {
   data: any;
   ngOnInit(): void {
     this.data = this.modified();
+    if (!Array.isArray(this.data) || this.data.length === 0) {
+      this.data = [
+        {
+          project: {
+            _id: 'forced-default-id',
+            name: 'Default Project',
+            location: {
+              _id: 'forced-default-location-id',
+              name: 'Default Lokalizacja',
+            }
+          },
+          date: new Date().toISOString()
+        }
+      ];
+    }
     console.log('MDOFIED', this.data);
   }
   redirect(idProj: any, idLoc: any) {
