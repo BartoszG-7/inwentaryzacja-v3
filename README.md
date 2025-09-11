@@ -1,3 +1,5 @@
+# Inwentaryzacja
+
 This mobile-friendly web app is used for tracking inventory across the company’s projects and locations. The technologies used for this app are as follows:
 
 - Angular (TypeScript)
@@ -17,10 +19,10 @@ Below is the documentation for the app:
 1. Log in (hard-coded, since this app is used for the staff and not for public use)
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/0d390842-afba-4b69-af7d-f23a4a3ee7a6" />
 
+2. 
+
 
 ------------------------------------------------------------
-# Inwentaryzacja
-
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
 
 ## Development server
@@ -72,5 +74,6 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
+
 
 
