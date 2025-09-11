@@ -68,29 +68,22 @@ export class LocationService {
     //     .select('address')
     //     .exec()[0].address,
     // );
-    const addr: address = JSON.parse(addre);
-    if (addr.apartament_num) {
-      return (
-        addr.city +
-        ',' +
-        addr.street +
-        ',' +
-        addr.street_num.toString() +
-        ',' +
-        addr.apartament_num.toString() +
-        ',' +
-        addr.post_code
-      );
+    let addr: address;
+    try {
+      addr = JSON.parse(addre);
+    } catch (e) {
+      // fallback to empty address if parsing fails
+  addr = { city: '', street: '', street_num: 0, post_code: '' };
+    }
+    const city = addr.city ?? '';
+    const street = addr.street ?? '';
+    const street_num = addr.street_num != null ? addr.street_num.toString() : '';
+    const apartament_num = addr.apartament_num != null ? addr.apartament_num.toString() : '';
+    const post_code = addr.post_code ?? '';
+    if (apartament_num) {
+      return `${city},${street},${street_num},${apartament_num},${post_code}`;
     } else {
-      return (
-        addr.city +
-        ',' +
-        addr.street +
-        ',' +
-        addr.street_num.toString() +
-        ',' +
-        addr.post_code
-      );
+      return `${city},${street},${street_num},${post_code}`;
     }
   }
   stringToAddr(addrStr: string) {
