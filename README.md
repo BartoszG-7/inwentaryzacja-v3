@@ -74,12 +74,14 @@ Below is the documentation for the app:
 <img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/586ff97c-d85d-4f9e-8f15-9bbfb3ad9d29" />
 
 --------------------------------------------------------------------
-# 15. Second Magazyn View, displays the device list for the device-type and allows editing/multi-adding devices under that device type
+# 15. Second Magazyn View, displays the device list for the device-type and allows editing/multi-adding devices under that device type, it also displays how many devices are already assigned and how many are free
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/b0bcbf83-9c03-47e9-a7f0-5837047ed0ab" />
 
 --------------------------------------------------------------------
 # 16. Mobile Second Magazyn View
 <img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/a6b83197-9f7b-48c5-8399-4ea736cff5ff" />
+
+For more info message BartoszG-7
 
 ------------------------------------------------------------
 
@@ -134,6 +136,7 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
+
 
 
 
