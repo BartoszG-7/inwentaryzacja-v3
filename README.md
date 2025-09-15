@@ -20,25 +20,25 @@ Below is the documentation for the app:
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/0d390842-afba-4b69-af7d-f23a4a3ee7a6" />
 
 --------------------------------------------------------------------
-2. Home Screen View (KIT takes you to home, and is the name of the app, please note the maximum amount of device types and latest modified projects is 5 cards, theres only 1 of them as an example)
+# 2. Home Screen View (KIT takes you to home, and is the name of the app, please note the maximum amount of device types and latest modified projects is 5 cards, theres only 1 of them as an example)
 - Device Types are displayed on the right side with the amount of devices under the device type (for example device-type hi has 109 devices under it), clicking it takes you to the magazine view.
 - Latest modified projects are displayed on the left side, it displays the location it is in and the project, clicking it takes you to the project view.
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/ad727736-4f02-4ee6-8901-ed4f2f3cf20f" />
 
 --------------------------------------------------------------------
-3. Light Theme View
+# 3. Light Theme View
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/45637df8-d6eb-4889-bf37-0de5e7a80d71" />
 
 --------------------------------------------------------------------
-4. Global Search Modal (Clicking the items from the search will take you to the project where that device is located)
+# 4. Global Search Modal (Clicking the items from the search will take you to the project where that device is located)
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/4b78f776-ff6a-46c6-a2d1-8adce611611e" />
 
 --------------------------------------------------------------------
-5. Side Bar for routing to location view and magazine view
+# 5. Side Bar for routing to location view and magazine view
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/51e265e5-6315-4c28-9f89-f6614356cbfd" />
 
 --------------------------------------------------------------------
-6. Mobile View for Home
+# 6. Mobile View for Home
 <img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/f08904ec-9ca5-490d-b630-4dbc9d411df3" />
 
 
@@ -95,6 +95,7 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
+
 
 
 
