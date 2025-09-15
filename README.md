@@ -18,11 +18,14 @@ Below is the documentation for the app:
 --------------------------------------------------------------------
 1. Log in (hard-coded, since this app is not for public use and doesn't need a sign up)
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/0d390842-afba-4b69-af7d-f23a4a3ee7a6" />
-
+--------------------------------------------------------------------
 2. Home Screen View (KIT takes you to home, and is the name of the app, please note the maximum amount of device types and latest modified projects is 5 cards, theres only 1 of them as an example)
 - Device Types are displayed on the right side with the amount of devices under the device type (for example device-type hi has 109 devices under it), clicking it takes you to the magazine view.
 - Latest modified projects are displayed on the left side, it displays the location it is in and the project, clicking it takes you to the project view.
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/ad727736-4f02-4ee6-8901-ed4f2f3cf20f" />
+--------------------------------------------------------------------
+3. Light Theme View
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/45637df8-d6eb-4889-bf37-0de5e7a80d71" />
 
 
 
@@ -78,6 +81,7 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
+
 
 
 
