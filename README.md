@@ -13,6 +13,8 @@ This mobile-friendly web app is used for tracking inventory across the companyâ€
 - Esbuild
 - Bootstrap
    
+This was a duo-project with mm554, I (BartoszG-7) was mostly responsible for the front-end of the application, although I also contributed to the back-end and the database structure, as did mm554 with contributuions to the front-end.
+
 Below is the documentation for the app:
 
 --------------------------------------------------------------------
@@ -136,6 +138,7 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
+
 
 
 
