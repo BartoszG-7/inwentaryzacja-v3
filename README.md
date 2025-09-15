@@ -29,9 +29,21 @@ Below is the documentation for the app:
 3. Light Theme View
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/45637df8-d6eb-4889-bf37-0de5e7a80d71" />
 
+--------------------------------------------------------------------
+4. Global Search Modal (Clicking the items from the search will take you to the project where that device is located)
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/4b78f776-ff6a-46c6-a2d1-8adce611611e" />
+
+--------------------------------------------------------------------
+5. Side Bar for routing to location view and magazine view
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/51e265e5-6315-4c28-9f89-f6614356cbfd" />
+
+--------------------------------------------------------------------
+6. Mobile View for Home
+<img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/f08904ec-9ca5-490d-b630-4dbc9d411df3" />
 
 
 ------------------------------------------------------------
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
 
 ## Development server
@@ -83,6 +95,7 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
+
 
 
 
