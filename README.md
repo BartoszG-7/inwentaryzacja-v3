@@ -41,6 +41,45 @@ Below is the documentation for the app:
 # 6. Mobile View for Home
 <img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/f08904ec-9ca5-490d-b630-4dbc9d411df3" />
 
+--------------------------------------------------------------------
+# 7. Mobile Side Bar
+<img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/ef90297e-f5a1-4821-b3d4-e0b9da8cd5c4" />
+
+--------------------------------------------------------------------
+# 8. Locations View
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/ac7627e2-6efb-4738-99a4-7cde7b694517" />
+
+--------------------------------------------------------------------
+# 9. Locations View Mobile
+<img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/a7aed176-3964-4592-bf28-8f828f74f231" />
+
+--------------------------------------------------------------------
+# 10. Add Project Pop-up (I won't show more modals because they all have the same global css and they all look similar)
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/83e69c64-2ff2-4bcf-a8a5-acf09a1ed355" />
+
+--------------------------------------------------------------------
+# 11. Project View, you can assign devices to a project and it will show you how many devices are missing and all that info etc...
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/4183ed98-4112-42ab-8acb-93a3257f31c5" />
+
+--------------------------------------------------------------------
+# 12. Magazyn View, this is the first view, the actual device list of device types can be seen after pressing the "Jest" panel
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/73f546e2-6cba-44e1-878e-9f2661a0ae59" />
+
+--------------------------------------------------------------------
+# 13. Mobile Magazyn View
+<img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/011e4fda-b65c-4cdd-9807-f033863e8c0c" />
+
+--------------------------------------------------------------------
+# 14. Mobile right side-bar is the static sidebar that is on desktop since it doesnt fit on mobile, it's the same for lokalizacje as well
+<img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/586ff97c-d85d-4f9e-8f15-9bbfb3ad9d29" />
+
+--------------------------------------------------------------------
+# 15. Second Magazyn View, displays the device list for the device-type and allows editing/multi-adding devices under that device type
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/b0bcbf83-9c03-47e9-a7f0-5837047ed0ab" />
+
+--------------------------------------------------------------------
+# 16. Mobile Second Magazyn View
+<img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/a6b83197-9f7b-48c5-8399-4ea736cff5ff" />
 
 ------------------------------------------------------------
 
@@ -95,6 +134,7 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
+
 
 
 
